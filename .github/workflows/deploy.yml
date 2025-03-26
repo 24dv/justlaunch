@@ -1,3 +1,4 @@
+
 name: Deploy to GitHub Pages
 
 on:
@@ -7,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,4 +29,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
-          token: ${{ secrets.GITHUB_TOKEN }}  # Add this line to explicitly pass the token
+          branch: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}

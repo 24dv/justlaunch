@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,13 +29,23 @@ const Navbar = () => {
     };
   }, []);
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
   const navItems = [
-    { name: t('nav.features'), href: '#features' },
-    { name: t('nav.work'), href: '#work' },
-    { name: t('nav.process'), href: '#process' },
-    { name: t('nav.pricing'), href: '#pricing' },
-    { name: t('nav.faq'), href: '#faq' },
-    { name: t('nav.contact'), href: '#contact' },
+    { name: t('nav.features'), id: 'features' },
+    { name: t('nav.work'), id: 'work' },
+    { name: t('nav.process'), id: 'process' },
+    { name: t('nav.pricing'), id: 'pricing' },
+    { name: t('nav.faq'), id: 'faq' },
+    { name: t('nav.contact'), id: 'contact' },
   ];
 
   return (
@@ -43,30 +55,34 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-[#0D503C] font-serif tracking-tight">
+        <Link 
+          to="/" 
+          className="text-2xl font-bold text-[#0D503C] font-serif tracking-tight"
+          onClick={() => window.scrollTo(0, 0)}
+        >
           Just Launch
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-[#0D503C] hover:text-[#0A4231] transition-colors duration-200"
+              onClick={() => scrollToSection(item.id)}
+              className="text-sm font-medium text-[#0D503C] hover:text-[#0A4231] transition-colors duration-200 cursor-pointer"
             >
               {item.name}
-            </a>
+            </button>
           ))}
           
           <LanguageSwitcher />
           
-          <a
-            href="#contact"
+          <button
+            onClick={() => scrollToSection('contact')}
             className="ml-4 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-5 py-2.5 text-sm font-medium text-[#F5F5E9] transition-colors hover:bg-[#0A4231] focus:outline-none"
           >
             {t('nav.getStarted')}
-          </a>
+          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -89,22 +105,20 @@ const Navbar = () => {
       >
         <div className="flex flex-col h-full justify-center items-center space-y-8 p-8">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.name}
-              href={item.href}
-              className="text-lg font-medium text-[#0D503C] hover:text-[#0A4231]"
-              onClick={toggleMenu}
+              onClick={() => scrollToSection(item.id)}
+              className="text-lg font-medium text-[#0D503C] hover:text-[#0A4231] cursor-pointer"
             >
               {item.name}
-            </a>
+            </button>
           ))}
-          <a
-            href="#contact"
+          <button
+            onClick={() => scrollToSection('contact')}
             className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-3 text-base font-medium text-[#F5F5E9] hover:bg-[#0A4231] focus:outline-none"
-            onClick={toggleMenu}
           >
             {t('nav.getStarted')}
-          </a>
+          </button>
         </div>
       </div>
     </nav>

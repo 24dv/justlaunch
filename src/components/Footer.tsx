@@ -1,9 +1,18 @@
+
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useLanguage();
+  
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <footer className="bg-[#0D503C] text-[#F5F5E9]">
@@ -46,7 +55,7 @@ const Footer = () => {
               <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.about')}</a></li>
               <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.portfolio')}</a></li>
               <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.process')}</a></li>
-              <li><a href="#contact" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.contactUs')}</a></li>
+              <li><button onClick={() => scrollToSection('contact')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.contactUs')}</button></li>
             </ul>
           </div>
         </div>

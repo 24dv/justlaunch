@@ -1,9 +1,17 @@
+
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-24 pb-10 relative overflow-hidden">
@@ -28,21 +36,21 @@ const HeroSection = () => {
           
           <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
           
-          <a 
-            href="#contact"
+          <button 
+            onClick={() => scrollToSection('contact')}
             className="animate-scale-up animate-delay-300 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base md:text-lg font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
           >
             {t('hero.cta')}
-          </a>
+          </button>
           
           <div className="animate-fade-in animate-delay-500 absolute bottom-10 left-0 right-0 flex justify-center">
-            <a 
-              href="#features" 
-              className="inline-flex items-center text-sm text-[#0D503C] hover:text-[#0A4231] transition-colors"
+            <button 
+              onClick={() => scrollToSection('features')}
+              className="inline-flex items-center text-sm text-[#0D503C] hover:text-[#0A4231] transition-colors cursor-pointer"
             >
               {t('hero.scroll')}
               <ChevronDown className="ml-1 animate-bounce" size={16} />
-            </a>
+            </button>
           </div>
         </div>
       </div>
