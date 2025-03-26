@@ -10,21 +10,32 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
+    sourcemap: true,
     rollupOptions: {
       output: {
-        // Ensure correct MIME types for JavaScript modules
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: ({ name }) => {
-          if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
-            return 'assets/images/[name].[hash][extname]';
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          
+          if (/\.(gif|jpe?g|png|svg|webp)$/.test(assetInfo.name)) {
+            return `assets/images/[name].[hash][extname]`;
           }
           
-          if (/\.css$/.test(name ?? '')) {
-            return 'assets/css/[name].[hash][extname]';
+          if (/\.(css)$/.test(assetInfo.name)) {
+            return `assets/css/[name].[hash][extname]`;
           }
           
-          return 'assets/[name].[hash][extname]';
+          if (/\.(woff|woff2|eot|ttf|otf)$/.test(assetInfo.name)) {
+            return `assets/fonts/[name].[hash][extname]`;
+          }
+          
+          return `assets/[name].[hash][extname]`;
         }
       }
     }
