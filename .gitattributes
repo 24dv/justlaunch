@@ -1,0 +1,12 @@
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Ensure JavaScript files have the correct MIME type
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+
+# Ensure CSS files have the correct MIME type
+*.css linguist-language=CSS

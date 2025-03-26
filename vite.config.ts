@@ -20,7 +20,9 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || '';
+          if (!assetInfo.name) return 'assets/[name].[hash][extname]';
+          
+          const name = assetInfo.name;
           
           if (/\.(gif|jpe?g|png|svg|webp)$/.test(name)) {
             return `assets/images/[name].[hash][extname]`;
@@ -42,6 +44,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    headers: {
+      // Set correct MIME types for JS modules
+      'Content-Type': 'application/javascript; charset=utf-8',
+    }
   },
   plugins: [
     react(),
