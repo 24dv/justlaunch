@@ -55,13 +55,13 @@ const ContactSection = () => {
                 Fill out the form and we'll get back to you within 24 hours to discuss your project.
               </p>
               
-              <div className="bg-gray-50 p-6 rounded-xl mb-8">
+              <div className="bg-blue-50 p-6 rounded-xl mb-8 border border-blue-100">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   What happens next?
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
                       <span className="text-sm font-medium">1</span>
                     </div>
                     <p className="text-gray-600">
@@ -69,7 +69,7 @@ const ContactSection = () => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
                       <span className="text-sm font-medium">2</span>
                     </div>
                     <p className="text-gray-600">
@@ -77,7 +77,7 @@ const ContactSection = () => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
                       <span className="text-sm font-medium">3</span>
                     </div>
                     <p className="text-gray-600">
@@ -89,15 +89,15 @@ const ContactSection = () => {
               
               <div className="text-gray-600">
                 <p className="font-medium text-gray-900">Questions? Contact us directly:</p>
-                <p className="mt-2">hello@fastbrandlaunch.com</p>
+                <p className="mt-2 text-blue-600">hello@fastbrandlaunch.com</p>
               </div>
             </div>
             
             <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
               {isSubmitted ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-6">
-                  <div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <Check className="h-6 w-6 text-green-600" />
+                  <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <Check className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank you!</h3>
                   <p className="text-gray-600">
@@ -117,7 +117,7 @@ const ContactSection = () => {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="John Doe"
                     />
                   </div>
@@ -133,7 +133,7 @@ const ContactSection = () => {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -148,7 +148,7 @@ const ContactSection = () => {
                       name="company"
                       value={formState.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Your Company"
                     />
                   </div>
@@ -162,11 +162,11 @@ const ContactSection = () => {
                       name="package"
                       value={formState.package}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     >
                       <option value="launch">Launch Package (€1,500)</option>
                       <option value="premium">Premium Package (€2,500)</option>
-                      <option value="payment-plan">Payment Plan (€500/month)</option>
+                      <option value="premium-plan">Premium Package - Payment Plan (€833/month)</option>
                       <option value="not-sure">Not sure yet</option>
                     </select>
                   </div>
@@ -181,7 +181,7 @@ const ContactSection = () => {
                       value={formState.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Share a bit about your project and what you're looking for..."
                     ></textarea>
                   </div>
@@ -192,7 +192,7 @@ const ContactSection = () => {
                     className={`w-full py-3 px-4 flex items-center justify-center rounded-lg text-white font-medium transition-colors ${
                       isSubmitting
                         ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-black hover:bg-gray-900'
+                        : 'bg-blue-600 hover:bg-blue-700'
                     }`}
                   >
                     {isSubmitting ? (
