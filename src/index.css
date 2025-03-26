@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,7 +96,12 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    @apply bg-[#F5F5E9] text-foreground antialiased overflow-x-hidden;
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: -1px -1px;
   }
 }
 
@@ -113,22 +117,42 @@
   .text-balance {
     text-wrap: balance;
   }
-}
 
-@layer components {
-  .hero-bg {
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  
-  .text-shadow {
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  }
-  
-  .feature-card {
-    @apply p-6 rounded-2xl bg-white transition-all duration-300 ease-in-out border border-gray-100 shadow-sm hover:shadow-md;
+  .noise-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: 
+      linear-gradient(
+        0deg,
+        transparent 24%,
+        rgba(0, 0, 0, 0.05) 25%,
+        rgba(0, 0, 0, 0.05) 26%,
+        transparent 27%,
+        transparent 74%,
+        rgba(0, 0, 0, 0.05) 75%,
+        rgba(0, 0, 0, 0.05) 76%,
+        transparent 77%,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent 24%,
+        rgba(0, 0, 0, 0.05) 25%,
+        rgba(0, 0, 0, 0.05) 26%,
+        transparent 27%,
+        transparent 74%,
+        rgba(0, 0, 0, 0.05) 75%,
+        rgba(0, 0, 0, 0.05) 76%,
+        transparent 77%,
+        transparent
+      );
+    background-size: 30px 30px;
+    z-index: 9999;
   }
 }
 
