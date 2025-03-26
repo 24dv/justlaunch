@@ -25,13 +25,25 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Create email subject and body
+    const subject = `Website Inquiry: ${formState.package} Package`;
+    const body = `
+Name: ${formState.name}
+Email: ${formState.email}
+Company: ${formState.company}
+Package: ${formState.package}
+Message: ${formState.message}
+    `;
+    
+    // Simulate processing and then redirect to email
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       
       // Reset after showing success message
       setTimeout(() => {
+        window.location.href = `mailto:david@branca.be?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
         setFormState({
           name: '',
           email: '',
@@ -40,7 +52,7 @@ const ContactSection = () => {
           package: 'launch'
         });
         setIsSubmitted(false);
-      }, 5000);
+      }, 2000);
     }, 1500);
   };
 
@@ -92,7 +104,11 @@ const ContactSection = () => {
               
               <div className="text-[#0D503C]/80">
                 <p className="font-medium text-[#0D503C]">{t('contact.questions')}</p>
-                <p className="mt-2 text-[#0D503C]">{t('contact.email')}</p>
+                <p className="mt-2 text-[#0D503C]">
+                  <a href="mailto:david@branca.be" className="text-[#0D503C] font-medium hover:underline">
+                    david@branca.be
+                  </a>
+                </p>
               </div>
             </div>
             
