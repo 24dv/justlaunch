@@ -20,18 +20,17 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
-          const ext = info[info.length - 1];
+          const name = assetInfo.name || '';
           
-          if (/\.(gif|jpe?g|png|svg|webp)$/.test(assetInfo.name)) {
+          if (/\.(gif|jpe?g|png|svg|webp)$/.test(name)) {
             return `assets/images/[name].[hash][extname]`;
           }
           
-          if (/\.(css)$/.test(assetInfo.name)) {
+          if (/\.(css)$/.test(name)) {
             return `assets/css/[name].[hash][extname]`;
           }
           
-          if (/\.(woff|woff2|eot|ttf|otf)$/.test(assetInfo.name)) {
+          if (/\.(woff|woff2|eot|ttf|otf)$/.test(name)) {
             return `assets/fonts/[name].[hash][extname]`;
           }
           
