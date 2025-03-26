@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -114,7 +113,7 @@ const translations = {
     "contact.step2": "You'll receive a detailed project brief to fill out",
     "contact.step3": "We'll present a project timeline and start working after payment",
     "contact.questions": "Questions? Contact us directly:",
-    "contact.email": "hello@fastbrandlaunch.com",
+    "contact.email": "hello@justlaunch.com",
     "contact.form.name": "Your Name",
     "contact.form.email": "Email Address",
     "contact.form.company": "Company/Project Name",
@@ -240,7 +239,7 @@ const translations = {
     "contact.step2": "Je ontvangt een gedetailleerde projectbriefing om in te vullen",
     "contact.step3": "We presenteren een projectplanning en beginnen na betaling met werken",
     "contact.questions": "Vragen? Neem direct contact met ons op:",
-    "contact.email": "hello@fastbrandlaunch.com",
+    "contact.email": "hello@justlaunch.com",
     "contact.form.name": "Je Naam",
     "contact.form.email": "E-mailadres",
     "contact.form.company": "Bedrijfs-/Projectnaam",

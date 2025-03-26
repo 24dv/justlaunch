@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -11,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto py-12 px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold mb-4 font-serif">fastbrandlaunch</h2>
+            <h2 className="text-2xl font-bold mb-4 font-serif">Just Launch</h2>
             <p className="text-[#F5F5E9]/80 mb-6 max-w-md">
               {t('footer.description')}
             </p>
@@ -25,7 +24,7 @@ const Footer = () => {
               <a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:hello@fastbrandlaunch.com" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Email">
+              <a href="mailto:hello@justlaunch.com" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Email">
                 <Mail size={20} />
               </a>
             </div>
@@ -54,7 +53,7 @@ const Footer = () => {
         
         <div className="border-t border-[#F5F5E9]/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-[#F5F5E9]/50 text-sm">
-            &copy; {new Date().getFullYear()} fastbrandlaunch. {t('footer.copyright')}
+            &copy; {new Date().getFullYear()} Just Launch. {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.privacy')}</a>

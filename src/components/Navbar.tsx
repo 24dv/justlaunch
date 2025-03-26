@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -45,7 +44,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold text-[#0D503C] font-serif tracking-tight">
-          fastbrandlaunch
+          Just Launch
         </a>
 
         {/* Desktop Navigation */}
