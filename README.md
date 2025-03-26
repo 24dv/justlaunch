@@ -1,3 +1,6 @@
+Updated README
+
+
 # Welcome to your Lovable project
 
 ## Project info
