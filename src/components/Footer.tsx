@@ -2,16 +2,20 @@
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate('/');
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
   
   return (
@@ -24,37 +28,37 @@ const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Instagram">
+              <button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Twitter">
+              </button>
+              <button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="LinkedIn">
+              </button>
+              <button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
-              </a>
-              <a href="mailto:hello@justlaunch.com" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Email">
+              </button>
+              <button onClick={() => window.location.href = 'mailto:hello@justlaunch.com'} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Email">
                 <Mail size={20} />
-              </a>
+              </button>
             </div>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 font-serif">{t('footer.services')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.logoDesign')}</a></li>
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.webDesign')}</a></li>
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.brandIdentity')}</a></li>
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.socialMedia')}</a></li>
+              <li><button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.logoDesign')}</button></li>
+              <li><button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.webDesign')}</button></li>
+              <li><button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.brandIdentity')}</button></li>
+              <li><button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.socialMedia')}</button></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 font-serif">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.about')}</a></li>
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.portfolio')}</a></li>
-              <li><a href="#" className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors">{t('footer.process')}</a></li>
+              <li><button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.about')}</button></li>
+              <li><button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.portfolio')}</button></li>
+              <li><button onClick={() => scrollToSection('process')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.process')}</button></li>
               <li><button onClick={() => scrollToSection('contact')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.contactUs')}</button></li>
             </ul>
           </div>
@@ -65,8 +69,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Just Launch. {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.privacy')}</a>
-            <a href="#" className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.terms')}</a>
+            <button className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.privacy')}</button>
+            <button className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.terms')}</button>
           </div>
         </div>
       </div>

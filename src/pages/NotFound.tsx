@@ -20,7 +20,10 @@ const NotFound = () => {
         <p className="text-[#0D503C]/70 mb-6">
           The page "{location.pathname}" could not be found.
         </p>
-        <Link to="/" className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-5 py-2.5 text-sm font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all">
+        <Link 
+          to="/" 
+          className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-5 py-2.5 text-sm font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all"
+        >
           Return to Home
         </Link>
       </div>
