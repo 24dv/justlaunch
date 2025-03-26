@@ -52,22 +52,23 @@ const TestimonialSection = () => {
   const { t, language } = useLanguage();
   
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
             {t('testimonials.title')}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-[#0D503C]/80">
             {t('testimonials.subtitle')}
           </p>
+          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={testimonial.id} 
-              className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow opacity-0"
+              className="bg-[#F5F5E9] rounded-xl p-6 shadow-md border-2 border-[#0D503C] hover:shadow-lg transition-shadow opacity-0"
               style={{
                 animation: 'fadeInUp 0.6s ease-out forwards',
                 animationDelay: `${index * 200}ms`
@@ -75,21 +76,21 @@ const TestimonialSection = () => {
             >
               <div className="mb-4 flex">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-4 w-4 text-[#F9A7A7] fill-current" />
                 ))}
               </div>
-              <blockquote className="text-gray-700 mb-6">
+              <blockquote className="text-[#0D503C]/80 mb-6 italic">
                 "{testimonial.content[language]}"
               </blockquote>
               <div className="flex items-center">
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.author}
-                  className="h-10 w-10 rounded-full mr-3"
+                  className="h-10 w-10 rounded-full border-2 border-[#0D503C] mr-3"
                 />
                 <div>
-                  <p className="font-medium text-gray-900">{testimonial.author}</p>
-                  <p className="text-sm text-gray-500">{testimonial.position[language]}</p>
+                  <p className="font-medium text-[#0D503C]">{testimonial.author}</p>
+                  <p className="text-sm text-[#0D503C]/70">{testimonial.position[language]}</p>
                 </div>
               </div>
             </div>

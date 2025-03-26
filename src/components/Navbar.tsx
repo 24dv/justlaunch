@@ -40,11 +40,11 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'py-3 glass-morph shadow-md' : 'py-5 bg-transparent'
+        scrolled ? 'py-3 bg-[#F5F5E9]/90 shadow-md backdrop-blur-md' : 'py-5 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-black">
+        <a href="#" className="text-2xl font-bold text-[#0D503C] font-serif tracking-tight">
           fastbrandlaunch
         </a>
 
@@ -54,7 +54,7 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-gray-700 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-[#0D503C] hover:text-[#0A4231] transition-colors duration-200"
             >
               {item.name}
             </a>
@@ -64,7 +64,7 @@ const Navbar = () => {
           
           <a
             href="#contact"
-            className="ml-4 inline-flex items-center justify-center rounded-md bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-900 focus:outline-none"
+            className="ml-4 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-5 py-2.5 text-sm font-medium text-[#F5F5E9] transition-colors hover:bg-[#0A4231] focus:outline-none"
           >
             {t('nav.getStarted')}
           </a>
@@ -74,7 +74,7 @@ const Navbar = () => {
         <div className="flex items-center md:hidden">
           <LanguageSwitcher />
           <button 
-            className="ml-4 text-gray-700 hover:text-black focus:outline-none" 
+            className="ml-4 text-[#0D503C] hover:text-[#0A4231] focus:outline-none" 
             onClick={toggleMenu}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,7 +84,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-[#F5F5E9] z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}
       >
@@ -93,7 +93,7 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-lg font-medium text-gray-700 hover:text-black"
+              className="text-lg font-medium text-[#0D503C] hover:text-[#0A4231]"
               onClick={toggleMenu}
             >
               {item.name}
@@ -101,7 +101,7 @@ const Navbar = () => {
           ))}
           <a
             href="#contact"
-            className="mt-6 inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white hover:bg-gray-900 focus:outline-none"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-3 text-base font-medium text-[#F5F5E9] hover:bg-[#0A4231] focus:outline-none"
             onClick={toggleMenu}
           >
             {t('nav.getStarted')}

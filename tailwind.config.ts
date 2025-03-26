@@ -81,6 +81,9 @@ export default {
           950: '#1a202d',
         }
       },
+      fontFamily: {
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
