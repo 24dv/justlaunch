@@ -1,10 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,12 +29,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Features', href: '#features' },
-    { name: 'Work', href: '#work' },
-    { name: 'Process', href: '#process' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.features'), href: '#features' },
+    { name: t('nav.work'), href: '#work' },
+    { name: t('nav.process'), href: '#process' },
+    { name: t('nav.pricing'), href: '#pricing' },
+    { name: t('nav.faq'), href: '#faq' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
 
   return (
@@ -56,21 +59,27 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
+          
+          <LanguageSwitcher />
+          
           <a
             href="#contact"
             className="ml-4 inline-flex items-center justify-center rounded-md bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-900 focus:outline-none"
           >
-            Get Started
+            {t('nav.getStarted')}
           </a>
         </div>
 
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-gray-700 hover:text-black focus:outline-none" 
-          onClick={toggleMenu}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center md:hidden">
+          <LanguageSwitcher />
+          <button 
+            className="ml-4 text-gray-700 hover:text-black focus:outline-none" 
+            onClick={toggleMenu}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -95,7 +104,7 @@ const Navbar = () => {
             className="mt-6 inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white hover:bg-gray-900 focus:outline-none"
             onClick={toggleMenu}
           >
-            Get Started
+            {t('nav.getStarted')}
           </a>
         </div>
       </div>
