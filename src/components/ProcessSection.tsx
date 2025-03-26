@@ -8,46 +8,47 @@ const ProcessSection = () => {
   
   const steps = [
     {
-      icon: <ClipboardList className="h-10 w-10 text-white" />,
+      icon: <ClipboardList className="h-10 w-10 text-[#F5F5E9]" />,
       title: t('process.step1.title'),
       description: t('process.step1.description'),
-      color: 'bg-blue-600'
+      color: 'bg-[#0D503C]'
     },
     {
-      icon: <Lightbulb className="h-10 w-10 text-white" />,
+      icon: <Lightbulb className="h-10 w-10 text-[#F5F5E9]" />,
       title: t('process.step2.title'),
       description: t('process.step2.description'),
-      color: 'bg-yellow-500'
+      color: 'bg-[#0D503C]'
     },
     {
-      icon: <FileCode className="h-10 w-10 text-white" />,
+      icon: <FileCode className="h-10 w-10 text-[#F5F5E9]" />,
       title: t('process.step3.title'),
       description: t('process.step3.description'),
-      color: 'bg-purple-600'
+      color: 'bg-[#0D503C]'
     },
     {
-      icon: <Rocket className="h-10 w-10 text-white" />,
+      icon: <Rocket className="h-10 w-10 text-[#F5F5E9]" />,
       title: t('process.step4.title'),
       description: t('process.step4.description'),
-      color: 'bg-green-600'
+      color: 'bg-[#0D503C]'
     }
   ];
 
   return (
-    <section id="process" className="section-padding bg-white">
+    <section id="process" className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif">
             {t('process.title')}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-[#0D503C]/80">
             {t('process.subtitle')}
           </p>
+          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
 
         <div className="relative">
           {/* Connection line */}
-          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block" />
+          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-[#0D503C]/30 hidden md:block" />
 
           <div className="space-y-24 md:space-y-0">
             {steps.map((step, index) => (
@@ -65,8 +66,8 @@ const ProcessSection = () => {
                   }`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-lg text-gray-600">{step.description}</p>
+                  <h3 className="text-2xl font-bold text-[#0D503C] mb-3 font-serif">{step.title}</h3>
+                  <p className="text-lg text-[#0D503C]/80">{step.description}</p>
                 </div>
                 
                 <div 
@@ -75,9 +76,9 @@ const ProcessSection = () => {
                   }`}
                   style={{ animationDelay: `${index * 150 + 100}ms` }}
                 >
-                  <div className={`relative flex items-center justify-center w-20 h-20 rounded-full ${step.color} shadow-lg`}>
+                  <div className={`relative flex items-center justify-center w-20 h-20 rounded-full ${step.color} shadow-lg border-2 border-[#F9A7A7]`}>
                     {/* Number badge */}
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center font-bold text-gray-900">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#F9A7A7] rounded-full shadow-md flex items-center justify-center font-bold text-[#0D503C]">
                       {index + 1}
                     </div>
                     {step.icon}

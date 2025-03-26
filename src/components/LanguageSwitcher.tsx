@@ -8,20 +8,20 @@ const LanguageSwitcher = () => {
   return (
     <div className="flex items-center gap-2">
       <button
-        className={`px-2 py-1 text-xs font-medium rounded ${
+        className={`px-2 py-1 text-xs font-medium rounded-full border ${
           language === 'en' 
-            ? 'bg-blue-600 text-white' 
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            ? 'bg-[#0D503C] text-[#F5F5E9] border-[#0D503C]' 
+            : 'bg-transparent text-[#0D503C] border-[#0D503C] hover:bg-[#0D503C]/10'
         }`}
         onClick={() => setLanguage('en')}
       >
         EN
       </button>
       <button
-        className={`px-2 py-1 text-xs font-medium rounded ${
+        className={`px-2 py-1 text-xs font-medium rounded-full border ${
           language === 'nl' 
-            ? 'bg-blue-600 text-white' 
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            ? 'bg-[#0D503C] text-[#F5F5E9] border-[#0D503C]' 
+            : 'bg-transparent text-[#0D503C] border-[#0D503C] hover:bg-[#0D503C]/10'
         }`}
         onClick={() => setLanguage('nl')}
       >

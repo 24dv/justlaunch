@@ -26,14 +26,18 @@ const Index = () => {
     
     // Function to handle scroll animations
     const handleScrollAnimation = () => {
-      const elements = document.querySelectorAll('.feature-card');
+      const elements = document.querySelectorAll('.feature-card, [class*="animate-"]');
       
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight * 0.85;
         
-        if (isVisible) {
-          el.classList.add('animate-scale-up');
+        if (isVisible && !el.classList.contains('animation-triggered')) {
+          el.classList.add('animation-triggered');
+          
+          if (el.classList.contains('feature-card')) {
+            el.classList.add('animate-scale-up');
+          }
         }
       });
     };
@@ -49,7 +53,7 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white text-gray-900 antialiased">
+    <div className="min-h-screen bg-[#F5F5E9] text-[#0D503C] antialiased">
       <Navbar />
       <HeroSection />
       <FeatureSection />

@@ -10,8 +10,8 @@ const HeroSection = () => {
     <section id="hero" className="min-h-screen flex items-center justify-center pt-24 pb-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#F5F5E9] -z-10" />
       
-      {/* Border frame */}
-      <div className="absolute inset-0 border-[6px] border-[#0D503C] m-8 rounded-xl z-0 hidden md:block" />
+      {/* Border frame - adjusted to not interfere with navbar */}
+      <div className="absolute top-[90px] bottom-8 left-8 right-8 border-[6px] border-[#0D503C] rounded-xl z-0 hidden md:block" />
       
       {/* Pink accents */}
       <div className="absolute top-[15%] left-[15%] w-6 h-6 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
