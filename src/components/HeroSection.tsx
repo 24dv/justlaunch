@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -13,9 +12,9 @@ const HeroSection = () => {
       {/* Border frame - adjusted to not interfere with navbar */}
       <div className="absolute top-[90px] bottom-8 left-8 right-8 border-[6px] border-[#0D503C] rounded-xl z-0 hidden md:block" />
       
-      {/* Pink accents */}
-      <div className="absolute top-[15%] left-[15%] w-6 h-6 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
-      <div className="absolute bottom-[15%] right-[15%] w-6 h-6 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
+      {/* Pink accents - increased size by 50% */}
+      <div className="absolute top-[15%] left-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
+      <div className="absolute bottom-[15%] right-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
