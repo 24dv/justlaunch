@@ -1,50 +1,53 @@
 
 import React from 'react';
 import { CheckCircle, Clock, Palette, Globe, DollarSign, Zap } from 'lucide-react';
-
-const features = [
-  {
-    icon: <Palette className="h-8 w-8 text-brand-500" />,
-    title: 'Professional logo design',
-    description: 'Get a custom logo that perfectly reflects your brand identity and values.',
-  },
-  {
-    icon: <Globe className="h-8 w-8 text-brand-500" />,
-    title: 'Customized 1-page landing site',
-    description: 'A beautiful, responsive website that showcases your brand and converts visitors.',
-  },
-  {
-    icon: <Clock className="h-8 w-8 text-brand-500" />,
-    title: 'Fast delivery within 14 days',
-    description: 'Launch quickly while maintaining the highest quality standards.',
-  },
-  {
-    icon: <CheckCircle className="h-8 w-8 text-brand-500" />,
-    title: 'Simple process',
-    description: 'No complex tools or AI generators—just professional human designers.',
-  },
-  {
-    icon: <DollarSign className="h-8 w-8 text-brand-500" />,
-    title: 'Affordable pricing',
-    description: 'Premium quality at a fair price point of just €1,500, with no hidden costs.',
-  },
-  {
-    icon: <Zap className="h-8 w-8 text-brand-500" />,
-    title: 'Support included',
-    description: 'Get post-launch assistance to ensure everything works perfectly.',
-  },
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const FeatureSection = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: <Palette className="h-8 w-8 text-brand-500" />,
+      title: t('features.logoDesign.title'),
+      description: t('features.logoDesign.description'),
+    },
+    {
+      icon: <Globe className="h-8 w-8 text-brand-500" />,
+      title: t('features.landingSite.title'),
+      description: t('features.landingSite.description'),
+    },
+    {
+      icon: <Clock className="h-8 w-8 text-brand-500" />,
+      title: t('features.delivery.title'),
+      description: t('features.delivery.description'),
+    },
+    {
+      icon: <CheckCircle className="h-8 w-8 text-brand-500" />,
+      title: t('features.process.title'),
+      description: t('features.process.description'),
+    },
+    {
+      icon: <DollarSign className="h-8 w-8 text-brand-500" />,
+      title: t('features.pricing.title'),
+      description: t('features.pricing.description'),
+    },
+    {
+      icon: <Zap className="h-8 w-8 text-brand-500" />,
+      title: t('features.support.title'),
+      description: t('features.support.description'),
+    },
+  ];
+
   return (
     <section id="features" className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Everything You Need to Launch Fast
+            {t('features.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Our Launch Package is designed for startup founders who need a professional brand without the long wait. Perfect for new businesses ready to make an impact!
+            {t('features.subtitle')}
           </p>
         </div>
 

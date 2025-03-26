@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PricingSection = () => {
   const [selectedPlan, setSelectedPlan] = useState<'launch' | 'premium'>('launch');
+  const { t } = useLanguage();
 
   const togglePlan = (plan: 'launch' | 'premium') => {
     setSelectedPlan(plan);
@@ -15,10 +17,10 @@ const PricingSection = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Transparent Pricing
+            {t('pricing.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Choose the package that best fits your needs. No hidden fees, no surprises.
+            {t('pricing.subtitle')}
           </p>
         </div>
 
@@ -32,7 +34,7 @@ const PricingSection = () => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Launch Package
+              {t('pricing.launch.title')}
             </button>
             <button
               onClick={() => togglePlan('premium')}
@@ -42,7 +44,7 @@ const PricingSection = () => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Premium Package
+              {t('pricing.premium.title')}
             </button>
           </div>
         </div>
@@ -53,40 +55,40 @@ const PricingSection = () => {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {selectedPlan === 'launch' ? 'Launch Package' : 'Premium Package'}
+                  {selectedPlan === 'launch' ? t('pricing.launch.title') : t('pricing.premium.title')}
                 </h3>
                 <div className="flex items-baseline mt-4 mb-6">
                   <span className="text-4xl font-extrabold text-gray-900">
-                    €{selectedPlan === 'launch' ? '1,500' : '2,500'}
+                    {selectedPlan === 'launch' ? t('pricing.launch.price') : t('pricing.premium.price')}
                   </span>
                   <span className="ml-2 text-gray-500">one-time payment</span>
                 </div>
                 <p className="text-gray-600 mb-6">
                   {selectedPlan === 'launch'
-                    ? 'Everything you need to get your brand online quickly.'
-                    : 'For businesses looking for a more comprehensive brand package.'}
+                    ? t('pricing.launch.description')
+                    : t('pricing.premium.description')}
                 </p>
                 <a
                   href="#contact"
                   className="block w-full py-3 px-4 rounded-lg bg-blue-600 text-white text-center font-medium hover:bg-blue-700 transition-colors"
                 >
-                  Get Started
+                  {t('nav.getStarted')}
                 </a>
               </div>
               <div className="px-8 pb-8">
                 <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
-                  What's included:
+                  {selectedPlan === 'launch' ? t('pricing.launch.includes') : t('pricing.premium.includes')}
                 </h4>
                 <ul className="space-y-3">
                   {selectedPlan === 'launch' ? (
                     <>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
-                        <span>Professional logo design</span>
+                        <span>{t('features.logoDesign.title')}</span>
                       </li>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
-                        <span>Customized 1-page landing site</span>
+                        <span>{t('features.landingSite.title')}</span>
                       </li>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
@@ -98,14 +100,14 @@ const PricingSection = () => {
                       </li>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
-                        <span>Delivery in 14 days</span>
+                        <span>{t('features.delivery.title')}</span>
                       </li>
                     </>
                   ) : (
                     <>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
-                        <span>Everything in Launch Package</span>
+                        <span>Everything in {t('pricing.launch.title')}</span>
                       </li>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
@@ -151,7 +153,7 @@ const PricingSection = () => {
                     <span className="text-4xl font-extrabold text-gray-900">
                       €833
                     </span>
-                    <span className="ml-2 text-gray-500">/month for 3 months</span>
+                    <span className="ml-2 text-gray-500">{t('pricing.premium.plan')}</span>
                   </div>
                   <p className="text-gray-600 mb-6">
                     Get started with a lower upfront cost. Same great service, split into manageable payments.
@@ -214,7 +216,7 @@ const PricingSection = () => {
               href="#contact"
               className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
             >
-              Have questions about custom needs? Contact us
+              {t('faq.contactUs')}
               <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </div>

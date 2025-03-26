@@ -1,44 +1,47 @@
 
 import React from 'react';
 import { ClipboardList, Lightbulb, FileCode, Rocket } from 'lucide-react';
-
-const steps = [
-  {
-    icon: <ClipboardList className="h-10 w-10 text-white" />,
-    title: 'Sign Up',
-    description: 'Fill out the form and get started with your project immediately.',
-    color: 'bg-blue-600'
-  },
-  {
-    icon: <Lightbulb className="h-10 w-10 text-white" />,
-    title: 'Design Consultation',
-    description: 'Share your ideas and vision with our designers through a detailed brief.',
-    color: 'bg-yellow-500'
-  },
-  {
-    icon: <FileCode className="h-10 w-10 text-white" />,
-    title: 'Receive Drafts',
-    description: 'We\'ll create a logo and landing page tailored specifically for your business.',
-    color: 'bg-purple-600'
-  },
-  {
-    icon: <Rocket className="h-10 w-10 text-white" />,
-    title: 'Launch',
-    description: 'Finalize and go live with your new brand in just 14 days!',
-    color: 'bg-green-600'
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
+  
+  const steps = [
+    {
+      icon: <ClipboardList className="h-10 w-10 text-white" />,
+      title: t('process.step1.title'),
+      description: t('process.step1.description'),
+      color: 'bg-blue-600'
+    },
+    {
+      icon: <Lightbulb className="h-10 w-10 text-white" />,
+      title: t('process.step2.title'),
+      description: t('process.step2.description'),
+      color: 'bg-yellow-500'
+    },
+    {
+      icon: <FileCode className="h-10 w-10 text-white" />,
+      title: t('process.step3.title'),
+      description: t('process.step3.description'),
+      color: 'bg-purple-600'
+    },
+    {
+      icon: <Rocket className="h-10 w-10 text-white" />,
+      title: t('process.step4.title'),
+      description: t('process.step4.description'),
+      color: 'bg-green-600'
+    }
+  ];
+
   return (
     <section id="process" className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            How It Works
+            {t('process.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Our streamlined process takes you from concept to launch with minimal effort on your part.
+            {t('process.subtitle')}
           </p>
         </div>
 

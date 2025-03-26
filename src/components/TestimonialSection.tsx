@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const testimonials = [
   {
@@ -30,15 +31,17 @@ const testimonials = [
 ];
 
 const TestimonialSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            What Our Clients Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Don't just take our word for it. Here's what founders like you have experienced.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
