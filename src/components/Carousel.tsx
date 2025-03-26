@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Placeholder images - in a real project, you would use actual project images
 const projects = [
@@ -40,6 +41,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
+  const { t } = useLanguage();
+  
   return (
     <div className={`${isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-95'} transition-all duration-500 ease-in-out h-full p-2`}>
       <div className="bg-white rounded-xl overflow-hidden shadow-md h-full">
@@ -49,12 +52,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
         </div>
         <div className="flex flex-col md:flex-row gap-2 p-4">
           <div className="flex-1 relative">
-            <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">Before</div>
-            <img src={project.before} alt="Before" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">{t('carousel.before')}</div>
+            <img src={project.before} alt={t('carousel.before')} className="w-full h-48 md:h-64 object-cover rounded-lg" />
           </div>
           <div className="flex-1 relative">
-            <div className="absolute top-2 left-2 bg-brand-500/90 text-white text-xs px-2 py-1 rounded">After</div>
-            <img src={project.after} alt="After" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <div className="absolute top-2 left-2 bg-brand-500/90 text-white text-xs px-2 py-1 rounded">{t('carousel.after')}</div>
+            <img src={project.after} alt={t('carousel.after')} className="w-full h-48 md:h-64 object-cover rounded-lg" />
           </div>
         </div>
       </div>
@@ -63,6 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
 };
 
 const Carousel = () => {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -124,10 +128,10 @@ const Carousel = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            From Concept to Reality
+            {t('carousel.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            See the transformations we've created for our clients.
+            {t('carousel.subtitle')}
           </p>
         </div>
 
@@ -153,7 +157,7 @@ const Carousel = () => {
             <button 
               onClick={handlePrevious}
               className="p-2 rounded-full bg-white shadow-md -ml-2 hover:bg-gray-100 focus:outline-none"
-              aria-label="Previous"
+              aria-label={t('carousel.previous')}
             >
               <ChevronLeft size={24} />
             </button>
@@ -163,7 +167,7 @@ const Carousel = () => {
             <button 
               onClick={handleNext}
               className="p-2 rounded-full bg-white shadow-md -mr-2 hover:bg-gray-100 focus:outline-none"
-              aria-label="Next"
+              aria-label={t('carousel.next')}
             >
               <ChevronRight size={24} />
             </button>
@@ -178,7 +182,7 @@ const Carousel = () => {
               className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                 activeIndex === index ? 'bg-brand-500' : 'bg-gray-300'
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`${t('carousel.goToSlide')} ${index + 1}`}
             />
           ))}
         </div>

@@ -1,8 +1,10 @@
 
 import React, { useState } from 'react';
 import { Check, Send } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -49,15 +51,15 @@ const ContactSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Ready to take your startup to the next level?
+                {t('contact.title')}
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Fill out the form and we'll get back to you within 24 hours to discuss your project.
+                {t('contact.subtitle')}
               </p>
               
               <div className="bg-blue-50 p-6 rounded-xl mb-8 border border-blue-100">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  What happens next?
+                  {t('contact.nextSteps')}
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -65,7 +67,7 @@ const ContactSection = () => {
                       <span className="text-sm font-medium">1</span>
                     </div>
                     <p className="text-gray-600">
-                      We'll schedule a quick call to understand your needs better
+                      {t('contact.step1')}
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -73,7 +75,7 @@ const ContactSection = () => {
                       <span className="text-sm font-medium">2</span>
                     </div>
                     <p className="text-gray-600">
-                      You'll receive a detailed project brief to fill out
+                      {t('contact.step2')}
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -81,15 +83,15 @@ const ContactSection = () => {
                       <span className="text-sm font-medium">3</span>
                     </div>
                     <p className="text-gray-600">
-                      We'll present a project timeline and start working after payment
+                      {t('contact.step3')}
                     </p>
                   </li>
                 </ul>
               </div>
               
               <div className="text-gray-600">
-                <p className="font-medium text-gray-900">Questions? Contact us directly:</p>
-                <p className="mt-2 text-blue-600">hello@fastbrandlaunch.com</p>
+                <p className="font-medium text-gray-900">{t('contact.questions')}</p>
+                <p className="mt-2 text-blue-600">{t('contact.email')}</p>
               </div>
             </div>
             
@@ -99,16 +101,16 @@ const ContactSection = () => {
                   <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                     <Check className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank you!</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('contact.success.title')}</h3>
                   <p className="text-gray-600">
-                    Your message has been sent successfully. We'll get back to you within 24 hours.
+                    {t('contact.success.message')}
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Name
+                      {t('contact.form.name')}
                     </label>
                     <input
                       type="text"
@@ -124,7 +126,7 @@ const ContactSection = () => {
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
+                      {t('contact.form.email')}
                     </label>
                     <input
                       type="email"
@@ -140,7 +142,7 @@ const ContactSection = () => {
                   
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                      Company/Project Name
+                      {t('contact.form.company')}
                     </label>
                     <input
                       type="text"
@@ -155,7 +157,7 @@ const ContactSection = () => {
                   
                   <div>
                     <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
-                      Package of Interest
+                      {t('contact.form.package')}
                     </label>
                     <select
                       id="package"
@@ -173,7 +175,7 @@ const ContactSection = () => {
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Tell us about your project
+                      {t('contact.form.message')}
                     </label>
                     <textarea
                       id="message"
@@ -201,18 +203,18 @@ const ContactSection = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Sending...
+                        {t('contact.form.submitting')}
                       </span>
                     ) : (
                       <span className="flex items-center">
-                        Get Started Now
+                        {t('contact.form.submit')}
                         <Send className="ml-2 h-4 w-4" />
                       </span>
                     )}
                   </button>
                   
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    By submitting this form, you agree to our privacy policy and terms of service.
+                    {t('contact.form.privacy')}
                   </p>
                 </form>
               )}

@@ -50,6 +50,15 @@ const translations = {
     "features.support.title": "Support included",
     "features.support.description": "Get post-launch assistance to ensure everything works perfectly.",
 
+    // Carousel Section
+    "carousel.title": "From Concept to Reality",
+    "carousel.subtitle": "See the transformations we've created for our clients.",
+    "carousel.before": "Before",
+    "carousel.after": "After",
+    "carousel.previous": "Previous",
+    "carousel.next": "Next",
+    "carousel.goToSlide": "Go to slide",
+
     // Process Section
     "process.title": "How It Works",
     "process.subtitle": "Our streamlined process takes you from concept to launch with minimal effort on your part.",
@@ -82,6 +91,18 @@ const translations = {
     // FAQ Section
     "faq.title": "Frequently Asked Questions",
     "faq.subtitle": "Get answers to the most common questions about our services.",
+    "faq.question1.title": "How long does it take to deliver?",
+    "faq.question1.answer": "Our standard delivery time is 14 days from the moment we receive your project brief and initial payment. The Premium Package may take up to 21 days due to the additional deliverables included.",
+    "faq.question2.title": "Can I make changes after I receive the drafts?",
+    "faq.question2.answer": "Absolutely! Our Launch Package includes two rounds of revisions, while the Premium Package includes three rounds. Additional revision rounds can be arranged for an extra fee if needed.",
+    "faq.question3.title": "What if I need additional services later?",
+    "faq.question3.answer": "We offer a range of services that can be added to your package at any time. This includes additional pages, social media templates, print materials, and more. Just reach out to us with your specific needs.",
+    "faq.question4.title": "How does the payment plan work?",
+    "faq.question4.answer": "Our payment plan splits the total cost into three equal monthly payments. You'll pay the first installment to start the project, the second after approving the initial drafts, and the final payment before receiving the completed files.",
+    "faq.question5.title": "Do you provide the source files of my logo and website?",
+    "faq.question5.answer": "Yes, upon completion, you'll receive all source files for your logo (AI, EPS, PDF) and website. You'll have full ownership of all the assets we create for you.",
+    "faq.question6.title": "What information do you need to get started?",
+    "faq.question6.answer": "To get started, we need information about your business, target audience, preferences, competitors, and any design inspiration. We'll provide a comprehensive questionnaire after you sign up.",
     "faq.moreQuestions": "Still have questions? We're here to help!",
     "faq.contactUs": "Contact Us",
 
@@ -100,6 +121,7 @@ const translations = {
     "contact.form.package": "Package of Interest",
     "contact.form.message": "Tell us about your project",
     "contact.form.submit": "Get Started Now",
+    "contact.form.submitting": "Sending...",
     "contact.form.privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
     "contact.success.title": "Thank you!",
     "contact.success.message": "Your message has been sent successfully. We'll get back to you within 24 hours.",
@@ -154,6 +176,15 @@ const translations = {
     "features.support.title": "Ondersteuning inbegrepen",
     "features.support.description": "Krijg hulp na de lancering om ervoor te zorgen dat alles perfect werkt.",
 
+    // Carousel Section
+    "carousel.title": "Van Concept naar Realiteit",
+    "carousel.subtitle": "Bekijk de transformaties die we voor onze klanten hebben gecreëerd.",
+    "carousel.before": "Voor",
+    "carousel.after": "Na",
+    "carousel.previous": "Vorige",
+    "carousel.next": "Volgende",
+    "carousel.goToSlide": "Ga naar slide",
+
     // Process Section
     "process.title": "Hoe Het Werkt",
     "process.subtitle": "Ons gestroomlijnde proces brengt je van concept naar lancering met minimale inspanning van jouw kant.",
@@ -186,6 +217,18 @@ const translations = {
     // FAQ Section
     "faq.title": "Veelgestelde Vragen",
     "faq.subtitle": "Krijg antwoorden op de meest voorkomende vragen over onze diensten.",
+    "faq.question1.title": "Hoe lang duurt de levering?",
+    "faq.question1.answer": "Onze standaard levertijd is 14 dagen vanaf het moment dat we je projectbriefing en eerste betaling ontvangen. Het Premium Pakket kan tot 21 dagen duren vanwege de extra inbegrepen leveringen.",
+    "faq.question2.title": "Kan ik wijzigingen aanbrengen nadat ik de concepten heb ontvangen?",
+    "faq.question2.answer": "Absoluut! Ons Lanceerpakket bevat twee revisierondes, terwijl het Premium Pakket drie rondes bevat. Extra revisierondes kunnen tegen een meerprijs worden geregeld indien nodig.",
+    "faq.question3.title": "Wat als ik later extra diensten nodig heb?",
+    "faq.question3.answer": "We bieden een reeks diensten die op elk moment aan je pakket kunnen worden toegevoegd. Dit omvat extra pagina's, sjablonen voor sociale media, drukwerk en meer. Neem gewoon contact met ons op met je specifieke behoeften.",
+    "faq.question4.title": "Hoe werkt het betalingsplan?",
+    "faq.question4.answer": "Ons betalingsplan splitst de totale kosten in drie gelijke maandelijkse betalingen. Je betaalt de eerste termijn om het project te starten, de tweede na goedkeuring van de eerste concepten, en de laatste betaling voordat je de voltooide bestanden ontvangt.",
+    "faq.question5.title": "Levereren jullie de bronbestanden van mijn logo en website?",
+    "faq.question5.answer": "Ja, na voltooiing ontvang je alle bronbestanden voor je logo (AI, EPS, PDF) en website. Je hebt volledig eigendom van alle assets die we voor je maken.",
+    "faq.question6.title": "Welke informatie heb je nodig om te beginnen?",
+    "faq.question6.answer": "Om te beginnen hebben we informatie nodig over je bedrijf, doelgroep, voorkeuren, concurrenten en eventuele ontwerpinspiratie. We sturen je een uitgebreide vragenlijst nadat je je hebt aangemeld.",
     "faq.moreQuestions": "Nog vragen? We zijn er om te helpen!",
     "faq.contactUs": "Neem Contact Op",
 
@@ -204,6 +247,7 @@ const translations = {
     "contact.form.package": "Pakket van Interesse",
     "contact.form.message": "Vertel ons over je project",
     "contact.form.submit": "Begin Nu",
+    "contact.form.submitting": "Versturen...",
     "contact.form.privacy": "Door dit formulier in te dienen, ga je akkoord met ons privacybeleid en onze servicevoorwaarden.",
     "contact.success.title": "Bedankt!",
     "contact.success.message": "Je bericht is succesvol verzonden. We nemen binnen 24 uur contact met je op.",
