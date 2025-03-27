@@ -7,7 +7,7 @@ const PricingFooter = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="mt-12 space-y-6 text-center">
+    <div className="mt-12 space-y-8 text-center"> {/* Increased space-y from 6 to 8 */}
       <a
         href="#contact"
         className="inline-flex items-center text-[#0D503C] hover:text-[#0A4231] font-medium text-sm transition-colors duration-300 group"
