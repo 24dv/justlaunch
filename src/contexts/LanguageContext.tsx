@@ -72,7 +72,7 @@ const translations = {
 
     // Pricing Section
     "pricing.title": "Transparent Pricing, No Surprises",
-    "pricing.subtitle": "Choose the package that suits your needs and budget. All prices include VAT.",
+    "pricing.subtitle": "Choose the package that suits your needs and budget. All prices exclude VAT.",
     "pricing.launch.title": "Launch Package",
     "pricing.launch.price": "€1,500",
     "pricing.launch.description": "Perfect for startups and small businesses looking to establish their brand quickly.",
@@ -198,7 +198,7 @@ const translations = {
 
     // Pricing Section
     "pricing.title": "Transparante Prijzen, Geen Verrassingen",
-    "pricing.subtitle": "Kies het pakket dat past bij jouw behoeften en budget. Alle prijzen zijn inclusief BTW.",
+    "pricing.subtitle": "Kies het pakket dat past bij jouw behoeften en budget. Alle prijzen zijn exclusief BTW.",
     "pricing.launch.title": "Lanceerpakket",
     "pricing.launch.price": "€1.500",
     "pricing.launch.description": "Perfect voor startups en kleine bedrijven die snel hun merk willen vestigen.",

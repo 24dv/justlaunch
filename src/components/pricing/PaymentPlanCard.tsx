@@ -18,7 +18,7 @@ const PaymentPlanCard = () => {
           <span className="text-4xl font-extrabold text-[#0D503C]">
             €833
           </span>
-          <span className="ml-2 text-[#0D503C]/70">{t('pricing.premium.plan')}</span>
+          <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           Get started with a lower upfront cost. Same great service, split into manageable monthly payments.
