@@ -29,12 +29,12 @@ const MaintenanceCard = () => {
             <Settings className="h-4 w-4 text-[#F5F5E9] mr-2" />
             <h4 className="text-sm font-semibold text-[#F5F5E9]">What's Included</h4>
           </div>
-          <ul className="space-y-1 text-[#F5F5E9]/80 text-xs">
-            <li>• Website hosting</li>
-            <li>• Security monitoring</li>
-            <li>• Regular software updates</li>
-            <li>• Performance optimization</li>
-          </ul>
+          <div className="grid grid-cols-2 gap-x-2 text-[#F5F5E9]/80 text-xs">
+            <div>• Website hosting</div>
+            <div>• Security monitoring</div>
+            <div>• Regular software updates</div>
+            <div>• Performance optimization</div>
+          </div>
         </div>
       </div>
     </div>
