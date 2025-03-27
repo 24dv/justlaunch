@@ -1,17 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Check, Send } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import emailjs from 'emailjs-com';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-
-// These are the EmailJS credentials - in a real app, these should be environment variables
-const EMAILJS_SERVICE_ID = 'service_branca';
-const EMAILJS_TEMPLATE_ID = 'template_contact_form';
-const EMAILJS_USER_ID = 'mG0oA7E_BkRREFsYr';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -27,11 +21,6 @@ const ContactSection = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init(EMAILJS_USER_ID);
-  }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
@@ -43,23 +32,24 @@ const ContactSection = () => {
     setError('');
     
     try {
-      // Prepare the email template parameters
-      const templateParams = {
-        from_name: formState.name,
-        from_email: formState.email,
-        company: formState.company,
-        package: formState.package,
-        message: formState.message,
-        to_email: 'david@branca.be',
-        subject: `Website Inquiry: ${formState.package} Package`
-      };
+      // Use the Formspree endpoint
+      const response = await fetch('https://formspree.io/f/mjkyebnn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          company: formState.company,
+          package: formState.package,
+          message: formState.message,
+        }),
+      });
       
-      // Send the email using EmailJS
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams
-      );
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
       
       // Set form as submitted
       setIsSubmitted(true);
@@ -76,7 +66,7 @@ const ContactSection = () => {
         setIsSubmitted(false);
       }, 5000);
     } catch (err) {
-      console.error('Failed to send email:', err);
+      console.error('Failed to send form:', err);
       setError('Failed to send your message. Please try again later.');
     } finally {
       setIsSubmitting(false);
