@@ -1,19 +1,20 @@
 
 import { Rocket } from './types';
 
-// Initialize rockets - fewer, much larger rockets
+// Use a soft pink color that matches the website's palette
+const ROCKET_COLOR = 'rgba(255, 105, 180, 0.9)'; // Soft pink with slight transparency
+
 export const initializeRockets = (canvasWidth: number, canvasHeight: number): Rocket[] => {
   return Array.from({ length: 4 }, () => ({
     x: Math.random() * canvasWidth,
     y: canvasHeight + Math.random() * 200,
-    size: 160 + Math.random() * 200, // 4x larger rockets (was 40-90, now 160-360)
-    speed: 0.5 + Math.random() * 1.2, // 30% slower speed for better readability
+    size: 160 + Math.random() * 200, // 4x larger rockets
+    speed: 0.5 + Math.random() * 1.2, // 30% slower speed
     rotation: -0.1 + Math.random() * 0.2, // Mostly upward orientation
-    opacity: 0.9 // Higher opacity for better visibility of outline
+    opacity: 0.9 
   }));
 };
 
-// Draw a single rocket - outline style
 export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void => {
   ctx.save();
   
@@ -21,14 +22,12 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.translate(rocket.x, rocket.y);
   ctx.rotate(rocket.rotation);
   
-  // Use a consistent pink color for outline
-  const pinkColor = 'rgba(255, 105, 180, 0.9)';
-  
-  // Set line properties for outline style
+  // Set line and stroke properties
   ctx.lineWidth = rocket.size * 0.05;
-  ctx.strokeStyle = pinkColor;
+  ctx.strokeStyle = ROCKET_COLOR;
+  ctx.fillStyle = 'transparent';
   
-  // Main rocket body - outline style
+  // Main rocket body - outlined style
   ctx.beginPath();
   // Draw the rocket nose/top
   ctx.arc(0, -rocket.size * 0.6, rocket.size * 0.4, Math.PI, 0, true);
@@ -38,12 +37,12 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.closePath();
   ctx.stroke();
   
-  // Draw the rocket window/porthole - outline style
+  // Draw the rocket window/porthole - outlined style
   ctx.beginPath();
   ctx.arc(0, -rocket.size * 0.2, rocket.size * 0.15, 0, Math.PI * 2);
   ctx.stroke();
   
-  // Draw left fin - outline style
+  // Draw left fin - outlined style
   ctx.beginPath();
   ctx.moveTo(-rocket.size * 0.4, rocket.size * 0.1);
   ctx.lineTo(-rocket.size * 0.7, rocket.size * 0.4);
@@ -51,7 +50,7 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.closePath();
   ctx.stroke();
   
-  // Draw right fin - outline style
+  // Draw right fin - outlined style
   ctx.beginPath();
   ctx.moveTo(rocket.size * 0.4, rocket.size * 0.1);
   ctx.lineTo(rocket.size * 0.7, rocket.size * 0.4);
@@ -59,7 +58,7 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.closePath();
   ctx.stroke();
   
-  // Draw rocket flames - outline style
+  // Draw rocket flames - outlined style
   ctx.beginPath();
   // Left flame line
   ctx.moveTo(-rocket.size * 0.2, rocket.size * 0.4);
@@ -81,7 +80,6 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.restore();
 };
 
-// Update rocket position
 export const updateRocket = (
   rocket: Rocket, 
   canvasWidth: number, 
