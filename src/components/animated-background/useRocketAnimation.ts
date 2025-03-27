@@ -37,9 +37,9 @@ export const useRocketAnimation = () => {
         lastTimestampRef.current = timestamp;
       }
 
-      // Only draw animation frames at a reasonable rate (max 30fps for background)
+      // Only draw animation frames at a reasonable rate (max 20fps for background)
       const elapsed = timestamp - lastTimestampRef.current;
-      if (elapsed < 33) { // ~30fps cap for better performance
+      if (elapsed < 50) { // ~20fps cap for better performance (changed from 33ms/30fps)
         animationFrameRef.current = requestAnimationFrame(animate);
         return;
       }
@@ -54,11 +54,8 @@ export const useRocketAnimation = () => {
       // Clear the canvas
       ctx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       
-      // Draw background with subtle gradient - only when visible
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, 'rgba(249, 167, 167, 0.01)'); // Very subtle pink tint at top
-      gradient.addColorStop(1, 'rgba(249, 167, 167, 0.03)'); // Slightly stronger at bottom
-      ctx.fillStyle = gradient;
+      // Skip gradient for better performance
+      ctx.fillStyle = 'rgba(249, 167, 167, 0.02)'; // Just use a flat color instead of gradient
       ctx.fillRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       
       // Update and draw each space object
@@ -72,13 +69,18 @@ export const useRocketAnimation = () => {
       lastTimestampRef.current = timestamp;
     };
 
-    // Initialize
-    resizeCanvas();
-    spaceObjectsRef.current = initializeSpaceObjects(
-      canvas.width / (window.devicePixelRatio || 1), 
-      canvas.height / (window.devicePixelRatio || 1)
-    );
-    animate(0);
+    // Initialize - delay animation start slightly to prioritize main content loading
+    let initTimeout: number;
+    const initAnimation = () => {
+      resizeCanvas();
+      spaceObjectsRef.current = initializeSpaceObjects(
+        canvas.width / (window.devicePixelRatio || 1), 
+        canvas.height / (window.devicePixelRatio || 1)
+      );
+      animate(0);
+    };
+    
+    initTimeout = window.setTimeout(initAnimation, 100);
 
     // Handle window resize - with debounce
     let resizeTimeout: number;
@@ -118,6 +120,7 @@ export const useRocketAnimation = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       cancelAnimationFrame(animationFrameRef.current);
       clearTimeout(resizeTimeout);
+      clearTimeout(initTimeout);
     };
   }, []);
 

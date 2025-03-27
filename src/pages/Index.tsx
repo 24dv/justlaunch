@@ -13,49 +13,38 @@ const FaqSection = lazy(() => import('../components/FaqSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 const Footer = lazy(() => import('../components/Footer'));
 
-// Loading fallback for lazy loaded components
-const LoadingFallback = () => <div className="min-h-[300px] flex items-center justify-center">
-  <div className="w-8 h-8 border-4 border-[#0D503C] border-t-transparent rounded-full animate-spin"></div>
-</div>;
+// Simplified loading fallback for better performance
+const LoadingFallback = () => <div className="min-h-[300px]"></div>;
 
 const Index = () => {
   useEffect(() => {
     document.title = "Launch Your Brand Fast | Professional Design & Web Services";
     
-    // Smooth scroll to section when URL contains hash
+    // Smooth scroll to section when URL contains hash - but with a slight delay for better performance
     if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      requestAnimationFrame(() => {
+      setTimeout(() => {
+        const id = window.location.hash.substring(1);
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      });
+      }, 100);
     }
     
-    // Function to handle scroll animations with IntersectionObserver
+    // Function to handle scroll animations with IntersectionObserver - using a more efficient approach
     const setupScrollAnimations = () => {
       if ('IntersectionObserver' in window) {
         const animationObserver = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const el = entry.target;
-              
-              // Add appropriate animation classes based on element type
-              if (el.classList.contains('feature-card')) {
-                el.classList.add('animation-triggered', 'animate-scale-up');
-              } else if (el.classList.contains('animate-slide-in-left')) {
-                el.classList.add('animation-triggered');
-              } else if (el.classList.contains('animate-slide-in-right')) {
-                el.classList.add('animation-triggered');
-              }
+              entry.target.classList.add('animation-triggered');
               
               // Unobserve after animation is triggered
-              animationObserver.unobserve(el);
+              animationObserver.unobserve(entry.target);
             }
           });
         }, {
-          rootMargin: '0px 0px -100px 0px',
+          rootMargin: '0px 0px -50px 0px', // Reduced margin
           threshold: 0.1
         });
         
@@ -66,11 +55,17 @@ const Index = () => {
       }
     };
     
-    // Set up after a short delay to ensure elements are rendered
-    const timer = setTimeout(setupScrollAnimations, 300);
+    // Set up after content is loaded to prioritize core content rendering
+    if (document.readyState === 'complete') {
+      setupScrollAnimations();
+    } else {
+      window.addEventListener('load', setupScrollAnimations);
+    }
     
     // Cleanup
-    return () => clearTimeout(timer);
+    return () => {
+      window.removeEventListener('load', setupScrollAnimations);
+    };
   }, []);
   
   return (
@@ -79,12 +74,26 @@ const Index = () => {
       <HeroSection />
       <Suspense fallback={<LoadingFallback />}>
         <FeatureSection />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <Carousel />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <ProcessSection />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <PricingSection />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <TestimonialSection />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <FaqSection />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <ContactSection />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <Footer />
       </Suspense>
     </div>

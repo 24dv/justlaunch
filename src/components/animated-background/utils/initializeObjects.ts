@@ -7,22 +7,22 @@ const scaleCount = (baseCount: number, canvasWidth: number, canvasHeight: number
   
   // Reduce count for smaller screens
   if (screenSize < 600) {
-    return Math.max(1, Math.floor(baseCount * 0.5)); // 50% on small screens
+    return Math.max(1, Math.floor(baseCount * 0.3)); // 30% on small screens
   } else if (screenSize < 1200) {
-    return Math.max(1, Math.floor(baseCount * 0.7)); // 70% on medium screens
+    return Math.max(1, Math.floor(baseCount * 0.5)); // 50% on medium screens
   }
   
-  return baseCount; // 100% on large screens
+  return Math.max(1, Math.floor(baseCount * 0.7)); // 70% on large screens (reduced from 100%)
 };
 
 export const initializeSpaceObjects = (canvasWidth: number, canvasHeight: number): SpaceObject[] => {
   // Create an array of space objects (stars, planets, rockets)
   const spaceObjects: SpaceObject[] = [];
   
-  // Scale counts based on screen size
-  const starCount = scaleCount(30, canvasWidth, canvasHeight);
-  const planetCount = scaleCount(5, canvasWidth, canvasHeight);
-  const rocketCount = scaleCount(3, canvasWidth, canvasHeight);
+  // Scale counts based on screen size (reduced base counts)
+  const starCount = scaleCount(15, canvasWidth, canvasHeight); // Reduced from 30
+  const planetCount = scaleCount(2, canvasWidth, canvasHeight); // Reduced from 5
+  const rocketCount = scaleCount(1, canvasWidth, canvasHeight); // Reduced from 3
   
   // Add stars (small, numerous)
   for (let i = 0; i < starCount; i++) {

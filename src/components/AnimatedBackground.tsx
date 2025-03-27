@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { useRocketAnimation } from './animated-background/useRocketAnimation';
 
 const AnimatedBackground: React.FC = () => {
@@ -11,8 +11,8 @@ const AnimatedBackground: React.FC = () => {
         ref={canvasRef}
         className="w-full h-full"
         style={{ 
-          opacity: 0.85,
-          willChange: 'transform', // Hint to browser for optimization
+          opacity: 0.7, // Reduced opacity for better performance
+          willChange: 'transform',
         }}
         aria-hidden="true"
       />
@@ -20,4 +20,5 @@ const AnimatedBackground: React.FC = () => {
   );
 };
 
+// Using memo to prevent unnecessary re-renders
 export default React.memo(AnimatedBackground);
