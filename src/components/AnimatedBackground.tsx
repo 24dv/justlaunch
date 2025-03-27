@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 
 interface Rocket {
@@ -33,10 +32,10 @@ const AnimatedBackground: React.FC = () => {
       rocketsRef.current = Array.from({ length: 15 }, () => ({
         x: Math.random() * canvas.width,
         y: canvas.height + Math.random() * 100,
-        size: 15 + Math.random() * 20,
-        speed: 0.5 + Math.random() * 1.5,
+        size: 25 + Math.random() * 35,
+        speed: 0.7 + Math.random() * 1.8,
         rotation: Math.random() * Math.PI * 2,
-        opacity: 0.2 + Math.random() * 0.5
+        opacity: 0.5 + Math.random() * 0.4
       }));
     };
 
@@ -52,37 +51,51 @@ const AnimatedBackground: React.FC = () => {
       ctx.fillStyle = `rgba(249, 167, 167, ${rocket.opacity})`;
       ctx.strokeStyle = `rgba(249, 167, 167, ${rocket.opacity})`;
       
-      // Draw rocket body
+      // Draw improved rocket body (more rocket-like)
       ctx.beginPath();
-      ctx.moveTo(0, -rocket.size * 1.5);
-      ctx.lineTo(rocket.size / 2, 0);
+      ctx.moveTo(0, -rocket.size * 1.8);
+      ctx.lineTo(rocket.size / 2.5, -rocket.size * 0.5);
+      ctx.lineTo(rocket.size / 2.5, rocket.size * 0.7);
       ctx.lineTo(0, rocket.size);
-      ctx.lineTo(-rocket.size / 2, 0);
+      ctx.lineTo(-rocket.size / 2.5, rocket.size * 0.7);
+      ctx.lineTo(-rocket.size / 2.5, -rocket.size * 0.5);
       ctx.closePath();
       ctx.fill();
       
-      // Draw rocket fins
+      // Draw larger rocket fins
       ctx.beginPath();
-      ctx.moveTo(rocket.size / 2, -rocket.size / 3);
-      ctx.lineTo(rocket.size, 0);
-      ctx.lineTo(rocket.size / 2, rocket.size / 3);
+      ctx.moveTo(rocket.size / 2.5, -rocket.size * 0.2);
+      ctx.lineTo(rocket.size, rocket.size * 0.4);
+      ctx.lineTo(rocket.size / 2.5, rocket.size * 0.7);
       ctx.closePath();
       ctx.fill();
       
       ctx.beginPath();
-      ctx.moveTo(-rocket.size / 2, -rocket.size / 3);
-      ctx.lineTo(-rocket.size, 0);
-      ctx.lineTo(-rocket.size / 2, rocket.size / 3);
+      ctx.moveTo(-rocket.size / 2.5, -rocket.size * 0.2);
+      ctx.lineTo(-rocket.size, rocket.size * 0.4);
+      ctx.lineTo(-rocket.size / 2.5, rocket.size * 0.7);
       ctx.closePath();
       ctx.fill();
       
-      // Draw rocket flame
+      // Draw rocket windows (portholes)
       ctx.beginPath();
-      ctx.moveTo(-rocket.size / 4, rocket.size);
-      ctx.lineTo(0, rocket.size * 1.8);
-      ctx.lineTo(rocket.size / 4, rocket.size);
+      ctx.arc(0, -rocket.size * 0.7, rocket.size / 8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(220, 240, 255, ${rocket.opacity})`;
+      ctx.fill();
+      
+      // Draw rocket flame - larger and more dynamic
+      ctx.beginPath();
+      ctx.moveTo(-rocket.size / 3.5, rocket.size);
+      ctx.lineTo(-rocket.size / 6, rocket.size * 2);
+      ctx.lineTo(0, rocket.size * 1.7);
+      ctx.lineTo(rocket.size / 6, rocket.size * 2);
+      ctx.lineTo(rocket.size / 3.5, rocket.size);
       ctx.closePath();
-      ctx.fillStyle = `rgba(255, 210, 160, ${rocket.opacity})`;
+      
+      const flameGradient = ctx.createLinearGradient(0, rocket.size, 0, rocket.size * 2);
+      flameGradient.addColorStop(0, `rgba(255, 140, 0, ${rocket.opacity})`);
+      flameGradient.addColorStop(1, `rgba(255, 230, 110, ${rocket.opacity})`);
+      ctx.fillStyle = flameGradient;
       ctx.fill();
       
       ctx.restore();
@@ -108,8 +121,8 @@ const AnimatedBackground: React.FC = () => {
         if (rocket.y < -rocket.size * 2) {
           rocket.y = canvas.height + rocket.size;
           rocket.x = Math.random() * canvas.width;
-          rocket.size = 15 + Math.random() * 20;
-          rocket.speed = 0.5 + Math.random() * 1.5;
+          rocket.size = 25 + Math.random() * 35;
+          rocket.speed = 0.7 + Math.random() * 1.8;
         }
       });
       
@@ -139,7 +152,7 @@ const AnimatedBackground: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.4 }}
+      style={{ opacity: 0.6 }}
     />
   );
 };
