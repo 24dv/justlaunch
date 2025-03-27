@@ -22,10 +22,13 @@ const PlanCard = ({ planType }: PlanCardProps) => {
           </span>
           <span className="ml-2 text-[#0D503C]/70">one-time payment</span>
         </div>
-        <p className="text-[#0D503C]/80 mb-6">
+        <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'
             ? t('pricing.launch.description')
             : t('pricing.premium.description')}
+        </p>
+        <p className="text-xs text-[#0D503C]/70 mb-4">
+          * Prices exclude VAT
         </p>
         <a
           href="#contact"

@@ -20,8 +20,11 @@ const PaymentPlanCard = () => {
           </span>
           <span className="ml-2 text-[#0D503C]/70">{t('pricing.premium.plan')}</span>
         </div>
-        <p className="text-[#0D503C]/80 mb-6">
+        <p className="text-[#0D503C]/80 mb-4">
           Get started with a lower upfront cost. Same great service, split into manageable monthly payments.
+        </p>
+        <p className="text-xs text-[#0D503C]/70 mb-4">
+          * Prices exclude VAT
         </p>
         <a
           href="#contact"
