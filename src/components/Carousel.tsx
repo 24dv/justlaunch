@@ -14,20 +14,20 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 const PortfolioCarousel = () => {
   const { t } = useLanguage();
   
-  // Portfolio examples - to be replaced with actual data
+  // Portfolio examples with real data
   const portfolioItems = [
     {
       id: 1,
-      title: "E-commerce Redesign",
-      description: "Complete brand refresh for an established online retailer",
-      imageUrl: "/placeholder.svg",
+      title: "Dodo - Baby Sleep Coach",
+      description: "Holistic sleep coaching brand with website design",
+      imageUrl: "/lovable-uploads/1e87504e-ba1a-48e1-a92f-deddf20b0bec.png",
       type: "image"
     },
     {
       id: 2,
-      title: "Mobile App UI",
-      description: "Intuitive interface for a fitness tracking application",
-      imageUrl: "/placeholder.svg",
+      title: "Woof - Pet Grooming Service",
+      description: "Premium pet grooming brand with logo and website",
+      imageUrl: "/lovable-uploads/83263d20-fe62-4e97-828a-c73a0f1286d2.png",
       type: "image"
     },
     {
@@ -81,15 +81,15 @@ const PortfolioCarousel = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-4 md:-ml-6">
               {portfolioItems.map((item) => (
                 <CarouselItem 
                   key={item.id} 
-                  className="pl-2 md:pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                  className="pl-4 md:pl-6 sm:basis-1/1 md:basis-1/2 lg:basis-1/2"
                 >
                   <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg">
                     <CardContent className="p-0">
-                      <div className="relative aspect-video overflow-hidden">
+                      <div className="relative aspect-[16/9] overflow-hidden">
                         <img 
                           src={item.imageUrl} 
                           alt={item.title}
@@ -97,15 +97,15 @@ const PortfolioCarousel = () => {
                         />
                         {item.type === "video" && (
                           <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
-                            <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center">
+                            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center">
                               <div className="w-0 h-0 border-y-8 border-y-transparent border-l-12 border-l-[#0D503C] ml-1"></div>
                             </div>
                           </div>
                         )}
                       </div>
-                      <div className="p-4">
-                        <h3 className="text-lg font-semibold text-[#0D503C]">{item.title}</h3>
-                        <p className="text-sm text-[#0D503C]/70 mt-1">{item.description}</p>
+                      <div className="p-5">
+                        <h3 className="text-xl font-semibold text-[#0D503C]">{item.title}</h3>
+                        <p className="text-md text-[#0D503C]/70 mt-2">{item.description}</p>
                       </div>
                     </CardContent>
                   </Card>
