@@ -43,12 +43,13 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
             Launch Your{' '}
-            <span className="relative inline-block">
-              <span className={`absolute transition-opacity duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+            <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+              <span className={`inline-block transition-opacity duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                 {rotatingWords[currentWordIndex]}
               </span>
             </span>{' '}
-            Fast—From Idea to Online in Days!
+            Fast—<br className="hidden sm:block" />
+            From Idea to Online in Days!
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
