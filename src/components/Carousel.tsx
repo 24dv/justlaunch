@@ -114,12 +114,14 @@ const PortfolioCarousel = () => {
             </CarouselContent>
             <CarouselPrevious 
               className="left-0 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 border-none"
-              icon={<ArrowLeft className="h-4 w-4" />}
-            />
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </CarouselPrevious>
             <CarouselNext 
               className="right-0 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 border-none"
-              icon={<ArrowRight className="h-4 w-4" />}
-            />
+            >
+              <ArrowRight className="h-4 w-4" />
+            </CarouselNext>
           </Carousel>
         </div>
 
