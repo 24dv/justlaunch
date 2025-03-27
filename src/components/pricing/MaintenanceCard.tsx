@@ -7,8 +7,8 @@ const MaintenanceCard = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="bg-[#0D503C] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#F5F5E9]">
-      <div className="p-5">
+    <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]">
+      <div className="p-5 bg-[#0D503C] text-[#F5F5E9]">
         <div className="flex items-center mb-3">
           <Shield className="h-6 w-6 text-[#F5F5E9] mr-2" />
           <h3 className="text-xl font-bold text-[#F5F5E9] font-serif">
