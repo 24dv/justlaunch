@@ -1,8 +1,8 @@
 
 import { Rocket } from './types';
 
-// Use a soft pink color that matches the website's palette
-const ROCKET_COLOR = 'rgba(255, 105, 180, 0.9)'; // Soft pink with slight transparency
+// Use the exact same pink as the hero section circles
+const ROCKET_COLOR = '#F9A7A7'; // Matching the hero section circles
 
 export const initializeRockets = (canvasWidth: number, canvasHeight: number): Rocket[] => {
   return Array.from({ length: 4 }, () => ({
@@ -29,17 +29,27 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   
   // Main rocket body - outlined style
   ctx.beginPath();
-  // Draw the rocket nose/top
-  ctx.arc(0, -rocket.size * 0.6, rocket.size * 0.4, Math.PI, 0, true);
+  
   // Draw the rocket body sides
+  ctx.moveTo(-rocket.size * 0.4, rocket.size * 0.4);
+  ctx.lineTo(-rocket.size * 0.4, -rocket.size * 0.2);
+  
+  // Draw the rocket nose/top properly - from left to right
+  ctx.lineTo(0, -rocket.size * 0.6); // Point at the top
+  
+  // Continue to right side
+  ctx.lineTo(rocket.size * 0.4, -rocket.size * 0.2);
   ctx.lineTo(rocket.size * 0.4, rocket.size * 0.4);
+  
+  // Bottom of rocket
   ctx.lineTo(-rocket.size * 0.4, rocket.size * 0.4);
+  
   ctx.closePath();
   ctx.stroke();
   
   // Draw the rocket window/porthole - outlined style
   ctx.beginPath();
-  ctx.arc(0, -rocket.size * 0.2, rocket.size * 0.15, 0, Math.PI * 2);
+  ctx.arc(0, -rocket.size * 0.1, rocket.size * 0.12, 0, Math.PI * 2);
   ctx.stroke();
   
   // Draw left fin - outlined style
