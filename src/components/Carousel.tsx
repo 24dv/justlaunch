@@ -20,43 +20,37 @@ const PortfolioCarousel = () => {
       id: 1,
       title: "Dodo - Baby Sleep Coach",
       description: "Holistic sleep coaching brand with website design",
-      imageUrl: "/lovable-uploads/1e87504e-ba1a-48e1-a92f-deddf20b0bec.png",
-      type: "image"
+      imageUrl: "/lovable-uploads/3e17e2ca-3f66-48b1-bbee-57023901a2c8.png"
     },
     {
       id: 2,
       title: "Woof - Pet Grooming Service",
       description: "Premium pet grooming brand with logo and website",
-      imageUrl: "/lovable-uploads/83263d20-fe62-4e97-828a-c73a0f1286d2.png",
-      type: "image"
+      imageUrl: "/lovable-uploads/83263d20-fe62-4e97-828a-c73a0f1286d2.png"
     },
     {
       id: 3,
       title: "Corporate Website",
       description: "Modern web presence for a financial consulting firm",
-      imageUrl: "/placeholder.svg",
-      type: "image"
+      imageUrl: "/placeholder.svg"
     },
     {
       id: 4,
-      title: "Product Launch Video",
+      title: "Product Launch",
       description: "Promotional content for a tech startup's flagship product",
-      imageUrl: "/placeholder.svg",
-      type: "video"
+      imageUrl: "/placeholder.svg"
     },
     {
       id: 5,
       title: "Brand Identity",
       description: "Complete visual identity for an eco-friendly cosmetics line",
-      imageUrl: "/placeholder.svg",
-      type: "image"
+      imageUrl: "/placeholder.svg"
     },
     {
       id: 6,
       title: "Social Media Campaign",
       description: "Engaging content strategy across multiple platforms",
-      imageUrl: "/lovable-uploads/2d922fc8-97a4-412e-b125-f30c43a4641f.png",
-      type: "image"
+      imageUrl: "/lovable-uploads/2d922fc8-97a4-412e-b125-f30c43a4641f.png"
     }
   ];
 
@@ -95,13 +89,6 @@ const PortfolioCarousel = () => {
                           alt={item.title}
                           className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
                         />
-                        {item.type === "video" && (
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
-                            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center">
-                              <div className="w-0 h-0 border-y-8 border-y-transparent border-l-12 border-l-[#0D503C] ml-1"></div>
-                            </div>
-                          </div>
-                        )}
                       </div>
                       <div className="p-5">
                         <h3 className="text-xl font-semibold text-[#0D503C]">{item.title}</h3>
