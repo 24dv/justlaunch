@@ -1,7 +1,17 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Check, Send } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import emailjs from 'emailjs-com';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Label } from './ui/label';
+
+// These are the EmailJS credentials - in a real app, these should be environment variables
+const EMAILJS_SERVICE_ID = 'service_branca';
+const EMAILJS_TEMPLATE_ID = 'template_contact_form';
+const EMAILJS_USER_ID = 'mG0oA7E_BkRREFsYr';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -15,35 +25,47 @@ const ContactSection = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_USER_ID);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Create email subject and body
-    const subject = `Website Inquiry: ${formState.package} Package`;
-    const body = `
-Name: ${formState.name}
-Email: ${formState.email}
-Company: ${formState.company}
-Package: ${formState.package}
-Message: ${formState.message}
-    `;
-    
-    // Simulate processing and then redirect to email
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Prepare the email template parameters
+      const templateParams = {
+        from_name: formState.name,
+        from_email: formState.email,
+        company: formState.company,
+        package: formState.package,
+        message: formState.message,
+        to_email: 'david@branca.be',
+        subject: `Website Inquiry: ${formState.package} Package`
+      };
+      
+      // Send the email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+      
+      // Set form as submitted
       setIsSubmitted(true);
       
-      // Reset after showing success message
+      // Reset form after showing success message
       setTimeout(() => {
-        window.location.href = `mailto:david@branca.be?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
         setFormState({
           name: '',
           email: '',
@@ -52,8 +74,13 @@ Message: ${formState.message}
           package: 'launch'
         });
         setIsSubmitted(false);
-      }, 2000);
-    }, 1500);
+      }, 5000);
+    } catch (err) {
+      console.error('Failed to send email:', err);
+      setError('Failed to send your message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -126,10 +153,10 @@ Message: ${formState.message}
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#0D503C] mb-1">
+                    <Label htmlFor="name" className="text-sm font-medium text-[#0D503C] mb-1">
                       {t('contact.form.name')}
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                       type="text"
                       id="name"
                       name="name"
@@ -142,10 +169,10 @@ Message: ${formState.message}
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#0D503C] mb-1">
+                    <Label htmlFor="email" className="text-sm font-medium text-[#0D503C] mb-1">
                       {t('contact.form.email')}
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                       type="email"
                       id="email"
                       name="email"
@@ -158,10 +185,10 @@ Message: ${formState.message}
                   </div>
                   
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-[#0D503C] mb-1">
+                    <Label htmlFor="company" className="text-sm font-medium text-[#0D503C] mb-1">
                       {t('contact.form.company')}
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                       type="text"
                       id="company"
                       name="company"
@@ -173,9 +200,9 @@ Message: ${formState.message}
                   </div>
                   
                   <div>
-                    <label htmlFor="package" className="block text-sm font-medium text-[#0D503C] mb-1">
+                    <Label htmlFor="package" className="text-sm font-medium text-[#0D503C] mb-1">
                       {t('contact.form.package')}
-                    </label>
+                    </Label>
                     <select
                       id="package"
                       name="package"
@@ -191,10 +218,10 @@ Message: ${formState.message}
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[#0D503C] mb-1">
+                    <Label htmlFor="message" className="text-sm font-medium text-[#0D503C] mb-1">
                       {t('contact.form.message')}
-                    </label>
-                    <textarea
+                    </Label>
+                    <Textarea
                       id="message"
                       name="message"
                       value={formState.message}
@@ -202,10 +229,16 @@ Message: ${formState.message}
                       rows={4}
                       className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
                       placeholder="Share a bit about your project and what you're looking for..."
-                    ></textarea>
+                    />
                   </div>
                   
-                  <button
+                  {error && (
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
+                      {error}
+                    </div>
+                  )}
+                  
+                  <Button
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full py-3 px-4 flex items-center justify-center rounded-lg text-[#F5F5E9] font-medium transition-colors ${
@@ -228,7 +261,7 @@ Message: ${formState.message}
                         <Send className="ml-2 h-4 w-4" />
                       </span>
                     )}
-                  </button>
+                  </Button>
                   
                   <p className="text-xs text-[#0D503C]/70 text-center mt-4">
                     {t('contact.form.privacy')}
