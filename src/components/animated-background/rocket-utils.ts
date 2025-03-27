@@ -23,68 +23,106 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.rotate(rocket.rotation);
   
   // Set line and stroke properties
-  ctx.lineWidth = rocket.size * 0.05;
+  ctx.lineWidth = rocket.size * 0.035;
   ctx.strokeStyle = ROCKET_COLOR;
   ctx.fillStyle = 'transparent';
+  
+  const rocketWidth = rocket.size * 0.35;
+  const rocketHeight = rocket.size * 0.8;
   
   // Main rocket body - outlined style
   ctx.beginPath();
   
-  // Draw the rocket body sides
-  ctx.moveTo(-rocket.size * 0.4, rocket.size * 0.4);
-  ctx.lineTo(-rocket.size * 0.4, -rocket.size * 0.2);
+  // Draw the main body shape (pointed oval)
+  ctx.moveTo(0, -rocketHeight/2); // Top point
+  ctx.bezierCurveTo(
+    rocketWidth/2, -rocketHeight/2,   // Control point 1
+    rocketWidth, -rocketHeight/4,    // Control point 2
+    rocketWidth, 0                  // End point
+  );
+  ctx.bezierCurveTo(
+    rocketWidth, rocketHeight/4,     // Control point 1
+    rocketWidth/2, rocketHeight/2,   // Control point 2
+    0, rocketHeight/2               // End point
+  );
+  ctx.bezierCurveTo(
+    -rocketWidth/2, rocketHeight/2,  // Control point 1
+    -rocketWidth, rocketHeight/4,    // Control point 2
+    -rocketWidth, 0                 // End point
+  );
+  ctx.bezierCurveTo(
+    -rocketWidth, -rocketHeight/4,   // Control point 1
+    -rocketWidth/2, -rocketHeight/2, // Control point 2
+    0, -rocketHeight/2              // End point (back to start)
+  );
+  ctx.stroke();
   
-  // Draw the rocket nose/top properly - from left to right
-  ctx.lineTo(0, -rocket.size * 0.6); // Point at the top
+  // Draw the two circular windows
+  const windowSize = rocket.size * 0.1;
+  const windowSpacing = rocket.size * 0.15;
   
-  // Continue to right side
-  ctx.lineTo(rocket.size * 0.4, -rocket.size * 0.2);
-  ctx.lineTo(rocket.size * 0.4, rocket.size * 0.4);
+  // Upper window
+  ctx.beginPath();
+  ctx.arc(0, -windowSpacing/2, windowSize, 0, Math.PI * 2);
+  ctx.stroke();
   
-  // Bottom of rocket
-  ctx.lineTo(-rocket.size * 0.4, rocket.size * 0.4);
+  // Lower window
+  ctx.beginPath();
+  ctx.arc(0, windowSpacing/2, windowSize, 0, Math.PI * 2);
+  ctx.stroke();
   
+  // Draw the central line connecting the windows
+  ctx.beginPath();
+  ctx.moveTo(0, -windowSpacing/2 - windowSize);
+  ctx.lineTo(0, windowSpacing/2 + windowSize);
+  ctx.stroke();
+  
+  // Draw the horizontal line through bottom window
+  ctx.beginPath();
+  ctx.moveTo(-windowSize * 1.5, windowSpacing/2);
+  ctx.lineTo(windowSize * 1.5, windowSpacing/2);
+  ctx.stroke();
+  
+  // Draw small dots/rivets (4 dots)
+  const dotSize = rocket.size * 0.015;
+  
+  // Upper dots
+  ctx.beginPath();
+  ctx.arc(-rocketWidth * 0.6, -rocketHeight * 0.15, dotSize, 0, Math.PI * 2);
+  ctx.fillStyle = ROCKET_COLOR;
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.arc(rocketWidth * 0.6, -rocketHeight * 0.15, dotSize, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Lower dots
+  ctx.beginPath();
+  ctx.arc(-rocketWidth * 0.6, rocketHeight * 0.25, dotSize, 0, Math.PI * 2);
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.arc(rocketWidth * 0.6, rocketHeight * 0.25, dotSize, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Draw the fins
+  const finHeight = rocket.size * 0.2;
+  const finWidth = rocket.size * 0.15;
+  
+  // Left fin
+  ctx.beginPath();
+  ctx.moveTo(-rocketWidth * 0.9, rocketHeight * 0.1);
+  ctx.lineTo(-rocketWidth * 1.4, rocketHeight * 0.35);
+  ctx.lineTo(-rocketWidth * 0.9, rocketHeight * 0.35);
   ctx.closePath();
   ctx.stroke();
   
-  // Draw the rocket window/porthole - outlined style
+  // Right fin
   ctx.beginPath();
-  ctx.arc(0, -rocket.size * 0.1, rocket.size * 0.12, 0, Math.PI * 2);
-  ctx.stroke();
-  
-  // Draw left fin - outlined style
-  ctx.beginPath();
-  ctx.moveTo(-rocket.size * 0.4, rocket.size * 0.1);
-  ctx.lineTo(-rocket.size * 0.7, rocket.size * 0.4);
-  ctx.lineTo(-rocket.size * 0.4, rocket.size * 0.4);
+  ctx.moveTo(rocketWidth * 0.9, rocketHeight * 0.1);
+  ctx.lineTo(rocketWidth * 1.4, rocketHeight * 0.35);
+  ctx.lineTo(rocketWidth * 0.9, rocketHeight * 0.35);
   ctx.closePath();
-  ctx.stroke();
-  
-  // Draw right fin - outlined style
-  ctx.beginPath();
-  ctx.moveTo(rocket.size * 0.4, rocket.size * 0.1);
-  ctx.lineTo(rocket.size * 0.7, rocket.size * 0.4);
-  ctx.lineTo(rocket.size * 0.4, rocket.size * 0.4);
-  ctx.closePath();
-  ctx.stroke();
-  
-  // Draw rocket flames - outlined style
-  ctx.beginPath();
-  // Left flame line
-  ctx.moveTo(-rocket.size * 0.2, rocket.size * 0.4);
-  ctx.lineTo(-rocket.size * 0.2, rocket.size * 0.8);
-  ctx.stroke();
-  
-  // Middle flame line
-  ctx.beginPath();
-  ctx.moveTo(0, rocket.size * 0.4);
-  ctx.lineTo(0, rocket.size * 1.0);
-  ctx.stroke();
-  
-  // Right flame line
-  ctx.beginPath();
-  ctx.moveTo(rocket.size * 0.2, rocket.size * 0.4);
-  ctx.lineTo(rocket.size * 0.2, rocket.size * 0.8);
   ctx.stroke();
   
   ctx.restore();
