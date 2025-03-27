@@ -34,13 +34,13 @@ const AnimatedBackground: React.FC = () => {
         x: Math.random() * canvas.width,
         y: canvas.height + Math.random() * 200,
         size: 40 + Math.random() * 50, // Significantly larger rockets
-        speed: 1 + Math.random() * 2.5, // Faster upward movement
+        speed: 0.7 + Math.random() * 1.75, // 30% slower speed
         rotation: -0.1 + Math.random() * 0.2, // More focused upward orientation
-        opacity: 0.6 + Math.random() * 0.4 // Higher opacity
+        opacity: 0.8 // Increased opacity
       }));
     };
 
-    // Draw a single rocket inspired by the provided design
+    // Draw a single rocket with consistent pink color
     const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket) => {
       ctx.save();
       
@@ -48,10 +48,10 @@ const AnimatedBackground: React.FC = () => {
       ctx.translate(rocket.x, rocket.y);
       ctx.rotate(rocket.rotation);
       
-      const rocketColor = `rgba(249, 167, 167, ${rocket.opacity})`;
-      const accentColor = `rgba(255, 255, 255, ${rocket.opacity})`;
+      // Use a consistent soft pink color
+      const rocketPinkColor = `rgba(249, 167, 167, ${rocket.opacity})`;
       
-      // Draw rocket body - more streamlined like the reference image
+      // Draw rocket body
       ctx.beginPath();
       
       // Rocket nose cone
@@ -70,7 +70,7 @@ const AnimatedBackground: React.FC = () => {
       ctx.lineTo(-rocket.size * 0.3, -rocket.size * 0.7);
       
       ctx.closePath();
-      ctx.fillStyle = rocketColor;
+      ctx.fillStyle = rocketPinkColor;
       ctx.fill();
       
       // Draw rocket fins
@@ -91,11 +91,8 @@ const AnimatedBackground: React.FC = () => {
       // Draw rocket window/porthole
       ctx.beginPath();
       ctx.arc(0, -rocket.size * 0.2, rocket.size * 0.15, 0, Math.PI * 2);
-      ctx.fillStyle = accentColor;
+      ctx.fillStyle = rocketPinkColor;
       ctx.fill();
-      ctx.strokeStyle = rocketColor;
-      ctx.lineWidth = rocket.size * 0.03;
-      ctx.stroke();
       
       // Draw rocket's small antenna/tip
       ctx.beginPath();
@@ -104,7 +101,7 @@ const AnimatedBackground: React.FC = () => {
       ctx.arc(0, -rocket.size * 1.3, rocket.size * 0.05, 0, Math.PI * 2);
       ctx.fill();
       
-      // Draw rocket flame - large and dynamic
+      // Draw rocket flame - in same pink color
       ctx.beginPath();
       
       // Outer flame
@@ -114,27 +111,13 @@ const AnimatedBackground: React.FC = () => {
       ctx.lineTo(rocket.size * 0.3, rocket.size * 1.2);
       ctx.lineTo(rocket.size * 0.2, rocket.size * 0.6);
       
+      // Use gradient within the pink color range
       const flameGradient = ctx.createLinearGradient(0, rocket.size * 0.6, 0, rocket.size * 1.5);
-      flameGradient.addColorStop(0, `rgba(255, 90, 0, ${rocket.opacity})`);
-      flameGradient.addColorStop(0.5, `rgba(255, 150, 10, ${rocket.opacity})`);
-      flameGradient.addColorStop(1, `rgba(255, 230, 110, ${rocket.opacity * 0.7})`);
+      flameGradient.addColorStop(0, `rgba(249, 167, 167, ${rocket.opacity * 0.8})`);
+      flameGradient.addColorStop(0.5, `rgba(249, 140, 140, ${rocket.opacity * 0.6})`);
+      flameGradient.addColorStop(1, `rgba(249, 120, 120, ${rocket.opacity * 0.4})`);
       
       ctx.fillStyle = flameGradient;
-      ctx.fill();
-      
-      // Inner flame - brighter
-      ctx.beginPath();
-      ctx.moveTo(-rocket.size * 0.1, rocket.size * 0.6);
-      ctx.lineTo(-rocket.size * 0.15, rocket.size * 1.0);
-      ctx.lineTo(0, rocket.size * 0.8);
-      ctx.lineTo(rocket.size * 0.15, rocket.size * 1.0);
-      ctx.lineTo(rocket.size * 0.1, rocket.size * 0.6);
-      
-      const innerFlameGradient = ctx.createLinearGradient(0, rocket.size * 0.6, 0, rocket.size * 1.0);
-      innerFlameGradient.addColorStop(0, `rgba(255, 255, 255, ${rocket.opacity})`);
-      innerFlameGradient.addColorStop(1, `rgba(255, 200, 50, ${rocket.opacity})`);
-      
-      ctx.fillStyle = innerFlameGradient;
       ctx.fill();
       
       ctx.restore();
@@ -147,11 +130,11 @@ const AnimatedBackground: React.FC = () => {
       
       // Update and draw each rocket
       rocketsRef.current.forEach((rocket, index) => {
-        // Move rocket upward
+        // Move rocket upward - 30% slower
         rocket.y -= rocket.speed;
         
         // Add very slight horizontal drift - reduced for less chaotic movement
-        rocket.x += Math.sin(Date.now() * 0.0005 + index) * 0.3;
+        rocket.x += Math.sin(Date.now() * 0.0005 + index) * 0.2;
         
         // Draw the rocket
         drawRocket(ctx, rocket);
@@ -161,7 +144,7 @@ const AnimatedBackground: React.FC = () => {
           rocket.y = canvas.height + rocket.size + Math.random() * 150;
           rocket.x = canvas.width * 0.1 + Math.random() * (canvas.width * 0.8); // Keep rockets more centered
           rocket.size = 40 + Math.random() * 50;
-          rocket.speed = 1 + Math.random() * 2.5;
+          rocket.speed = 0.7 + Math.random() * 1.75; // 30% slower speed
           rocket.rotation = -0.1 + Math.random() * 0.2; // Keep rockets pointing mostly upward
         }
       });
