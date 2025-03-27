@@ -1,3 +1,4 @@
+
 import { SpaceObject } from '../types';
 
 export const updateSpaceObject = (
@@ -44,6 +45,9 @@ export const updateSpaceObject = (
     // Add slight horizontal drift
     object.x += Math.sin(timestamp * 0.0003 + index) * 0.3;
     
+    // Reduce rocket opacity by 20%
+    object.opacity = 0.8;
+    
     // Reset rocket when it goes off screen
     if (object.y < -object.size * 2) {
       object.y = canvasHeight + object.size + Math.random() * 150;
@@ -51,6 +55,8 @@ export const updateSpaceObject = (
       object.size = 120 + Math.random() * 160;
       object.speed = 0.5 + Math.random() * 0.8;
       object.rotation = -0.1 + Math.random() * 0.2; // Keep rockets pointing mostly upward
+      object.opacity = 0.8; // Ensure opacity is set on reset
     }
   }
 };
+
