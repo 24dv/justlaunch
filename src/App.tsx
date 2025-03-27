@@ -7,6 +7,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import AnimatedBackground from "./components/AnimatedBackground";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <div className="noise-texture" />
+        <AnimatedBackground />
         <HashRouter>
           <Routes>
             <Route path="/" element={<Index />} />
