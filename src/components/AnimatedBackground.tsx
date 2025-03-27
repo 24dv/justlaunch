@@ -6,7 +6,7 @@ const AnimatedBackground: React.FC = () => {
   const canvasRef = useRocketAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // Check if scroll performance is affected
+  // Performance optimization
   useEffect(() => {
     const checkScrollPerformance = () => {
       if (containerRef.current) {

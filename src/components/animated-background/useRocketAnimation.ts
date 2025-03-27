@@ -16,7 +16,7 @@ export const useRocketAnimation = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas to full screen
+    // Set canvas to full screen with proper device pixel ratio
     const resizeCanvas = () => {
       const devicePixelRatio = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * devicePixelRatio;
@@ -26,10 +26,17 @@ export const useRocketAnimation = () => {
       ctx.scale(devicePixelRatio, devicePixelRatio);
     };
 
-    // Animation loop
+    // Improved animation loop with requestAnimationFrame throttling for performance
     const animate = (timestamp: number) => {
       if (!lastTimestampRef.current) {
         lastTimestampRef.current = timestamp;
+      }
+      
+      // Only draw animation frames at a reasonable rate (max 60fps)
+      const elapsed = timestamp - lastTimestampRef.current;
+      if (elapsed < 16) { // ~60fps cap
+        animationFrameRef.current = requestAnimationFrame(animate);
+        return;
       }
       
       // Clear the canvas

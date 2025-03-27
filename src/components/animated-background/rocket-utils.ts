@@ -114,102 +114,85 @@ const drawPlanet = (ctx: CanvasRenderingContext2D, planet: SpaceObject): void =>
 const drawRocket = (ctx: CanvasRenderingContext2D, rocket: SpaceObject): void => {
   ctx.rotate(rocket.rotation);
   
-  const rocketWidth = rocket.size * 0.35;
-  const rocketHeight = rocket.size * 0.8;
+  const rocketScale = rocket.size / 200; // Normalize size
   
-  // Main rocket body - cylindrical with pointed tip
+  // Define rocket dimensions
+  const bodyWidth = 40 * rocketScale;
+  const bodyHeight = 100 * rocketScale;
+  const noseHeight = 40 * rocketScale;
+  const finWidth = 20 * rocketScale;
+  const finHeight = 30 * rocketScale;
+  
+  // 1. Draw rocket body (main cylinder)
   ctx.beginPath();
-  
-  // Draw the main cylinder body
-  const bodyWidth = rocketWidth;
-  
-  // Left side of cylinder
-  ctx.moveTo(-bodyWidth/2, rocketHeight/2); // Bottom left
-  ctx.lineTo(-bodyWidth/2, -rocketHeight/3); // Up to nose cone
-  
-  // Nose cone with pointed tip
-  ctx.quadraticCurveTo(
-    -bodyWidth/4, -rocketHeight/2.5, // Control point
-    0, -rocketHeight/2 - rocketHeight/10 // Top point with tip
-  );
-  ctx.quadraticCurveTo(
-    bodyWidth/4, -rocketHeight/2.5, // Control point 
-    bodyWidth/2, -rocketHeight/3  // Right side where nose starts
-  );
-  
-  // Right side of cylinder
-  ctx.lineTo(bodyWidth/2, rocketHeight/2); // Bottom right
-  
-  // Draw the body
+  ctx.rect(-bodyWidth/2, -bodyHeight/2, bodyWidth, bodyHeight);
   ctx.stroke();
   
-  // Add rocket fins (3 fins)
-  const finHeight = rocketHeight * 0.25;
-  const finWidth = bodyWidth * 0.8;
-  const finY = rocketHeight * 0.3;
+  // 2. Draw pointed nose cone
+  ctx.beginPath();
+  ctx.moveTo(-bodyWidth/2, -bodyHeight/2);
+  ctx.lineTo(0, -bodyHeight/2 - noseHeight);
+  ctx.lineTo(bodyWidth/2, -bodyHeight/2);
+  ctx.closePath();
+  ctx.stroke();
   
+  // 3. Draw rocket fins (three fins at equal angles)
   // Left fin
   ctx.beginPath();
-  ctx.moveTo(-bodyWidth/2, finY);
-  ctx.lineTo(-bodyWidth/2 - finWidth, finY + finHeight);
-  ctx.lineTo(-bodyWidth/2 - finWidth/2, finY + finHeight);
-  ctx.lineTo(-bodyWidth/2, finY + finHeight/3);
+  ctx.moveTo(-bodyWidth/2, bodyHeight/2 - finHeight/2);
+  ctx.lineTo(-bodyWidth/2 - finWidth, bodyHeight/2 + finHeight/2);
+  ctx.lineTo(-bodyWidth/2, bodyHeight/2 + finHeight/2);
   ctx.closePath();
   ctx.stroke();
   
   // Right fin
   ctx.beginPath();
-  ctx.moveTo(bodyWidth/2, finY);
-  ctx.lineTo(bodyWidth/2 + finWidth, finY + finHeight);
-  ctx.lineTo(bodyWidth/2 + finWidth/2, finY + finHeight);
-  ctx.lineTo(bodyWidth/2, finY + finHeight/3);
+  ctx.moveTo(bodyWidth/2, bodyHeight/2 - finHeight/2);
+  ctx.lineTo(bodyWidth/2 + finWidth, bodyHeight/2 + finHeight/2);
+  ctx.lineTo(bodyWidth/2, bodyHeight/2 + finHeight/2);
   ctx.closePath();
   ctx.stroke();
   
   // Bottom fin
   ctx.beginPath();
-  ctx.moveTo(0, rocketHeight/2);
-  ctx.lineTo(0, rocketHeight/2 + finHeight * 0.8);
-  ctx.lineTo(-finWidth/3, rocketHeight/2 + finHeight * 0.6);
-  ctx.lineTo(0, rocketHeight/2 + finHeight/4);
-  ctx.lineTo(finWidth/3, rocketHeight/2 + finHeight * 0.6);
-  ctx.lineTo(0, rocketHeight/2 + finHeight * 0.8);
+  ctx.moveTo(-finWidth/2, bodyHeight/2);
+  ctx.lineTo(0, bodyHeight/2 + finHeight);
+  ctx.lineTo(finWidth/2, bodyHeight/2);
+  ctx.closePath();
   ctx.stroke();
   
-  // Main circular window
+  // 4. Draw engine nozzle
+  const nozzleWidth = bodyWidth * 0.7;
+  const nozzleHeight = 15 * rocketScale;
+  
+  ctx.beginPath();
+  ctx.moveTo(-nozzleWidth/2, bodyHeight/2);
+  ctx.lineTo(-nozzleWidth/2, bodyHeight/2 + nozzleHeight);
+  ctx.lineTo(nozzleWidth/2, bodyHeight/2 + nozzleHeight);
+  ctx.lineTo(nozzleWidth/2, bodyHeight/2);
+  ctx.stroke();
+  
+  // 5. Draw window (clean, single circular porthole)
   const windowSize = bodyWidth * 0.6;
   ctx.beginPath();
-  ctx.arc(0, -rocketHeight/4, windowSize/2, 0, Math.PI * 2);
+  ctx.arc(0, -bodyHeight/4, windowSize/2, 0, Math.PI * 2);
   ctx.stroke();
   
-  // Single smaller porthole
-  const portholeDiameter = bodyWidth * 0.25;
-  ctx.beginPath();
-  ctx.arc(0, rocketHeight/8, portholeDiameter/2, 0, Math.PI * 2);
-  ctx.stroke();
-  
-  // Engine nozzle
-  ctx.beginPath();
-  const nozzleWidth = bodyWidth * 0.6;
-  const nozzleHeight = rocketHeight/10;
-  
-  ctx.moveTo(-nozzleWidth/2, rocketHeight/2);
-  ctx.lineTo(-nozzleWidth/2, rocketHeight/2 + nozzleHeight);
-  ctx.lineTo(nozzleWidth/2, rocketHeight/2 + nozzleHeight);
-  ctx.lineTo(nozzleWidth/2, rocketHeight/2);
-  ctx.stroke();
-  
-  // Add a faint engine glow/flame
+  // 6. Add engine thrust/flame effect
   const flameGradient = ctx.createRadialGradient(
-    0, rocketHeight/2 + nozzleHeight * 1.5, 0,
-    0, rocketHeight/2 + nozzleHeight * 1.5, nozzleWidth
+    0, bodyHeight/2 + nozzleHeight, 0,
+    0, bodyHeight/2 + nozzleHeight * 3, nozzleWidth
   );
   flameGradient.addColorStop(0, `${SPACE_COLOR}80`); // 50% opacity
   flameGradient.addColorStop(1, 'transparent');
   
   ctx.fillStyle = flameGradient;
   ctx.beginPath();
-  ctx.ellipse(0, rocketHeight/2 + nozzleHeight * 1.5, nozzleWidth/2, nozzleWidth, 0, 0, Math.PI * 2);
+  ctx.moveTo(-nozzleWidth/2, bodyHeight/2 + nozzleHeight);
+  ctx.quadraticCurveTo(
+    0, bodyHeight/2 + nozzleHeight * 4,
+    nozzleWidth/2, bodyHeight/2 + nozzleHeight
+  );
   ctx.fill();
 };
 
