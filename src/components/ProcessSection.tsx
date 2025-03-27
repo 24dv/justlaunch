@@ -35,11 +35,11 @@ const ProcessSection = () => {
 
   return (
     <section id="process" className="section-padding py-24 bg-[#F5F5E9] relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 -z-0"></div>
-      <div className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 -z-0"></div>
+      {/* Background accents - now with z-index-1 to be above section bg but below cards */}
+      <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 z-[1]"></div>
+      <div className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 z-[1]"></div>
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-[2]">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
             {t('process.title')}
@@ -54,7 +54,7 @@ const ProcessSection = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
+              className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group z-[3]"
             >
               {/* Number badge */}
               <div className="absolute top-4 right-4 w-8 h-8 bg-[#F9A7A7] rounded-full shadow flex items-center justify-center font-bold text-[#0D503C]">
@@ -77,7 +77,7 @@ const ProcessSection = () => {
         </div>
         
         {/* Added call to action */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 relative z-[2]">
           <a 
             href="#contact" 
             className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
