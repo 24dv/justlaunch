@@ -5,7 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const rotatingWords = ['Brand', 'Project', 'Side Hustle', 'Business', 'Startup', 'Idea'];
+  const rotatingWords = ['Brand', 'Project', 'Startup', 'Idea'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   
