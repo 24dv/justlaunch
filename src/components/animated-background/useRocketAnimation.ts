@@ -1,7 +1,10 @@
-
 import { useEffect, useRef } from 'react';
 import { SpaceObject } from './types';
-import { initializeSpaceObjects, drawSpaceObject, updateSpaceObject } from './rocket-utils';
+import { 
+  initializeSpaceObjects, 
+  drawSpaceObject, 
+  updateSpaceObject 
+} from './rocket-utils';
 
 export const useRocketAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
