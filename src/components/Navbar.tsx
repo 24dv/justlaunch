@@ -29,6 +29,19 @@ const Navbar = () => {
     };
   }, []);
 
+  // When mobile menu opens, prevent body scrolling to avoid positioning issues
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -91,6 +104,7 @@ const Navbar = () => {
           <button 
             className="ml-4 text-[#0D503C] hover:text-[#0A4231] focus:outline-none" 
             onClick={toggleMenu}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -99,11 +113,20 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`fixed inset-0 bg-[#F5F5E9] z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 top-0 bg-[#F5F5E9] z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}
       >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8">
+        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 relative">
+          {/* Close button inside mobile menu */}
+          <button 
+            className="absolute top-6 right-6 text-[#0D503C] hover:text-[#0A4231] focus:outline-none" 
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+          
           {navItems.map((item) => (
             <button
               key={item.name}
