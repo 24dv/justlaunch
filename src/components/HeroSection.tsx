@@ -16,7 +16,7 @@ const HeroSection = () => {
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
         setIsAnimating(false);
       }, 500); // Wait for fade out before changing word
-    }, 3000); // Change word every 3 seconds
+    }, 1500); // Change word every 1.5 seconds, down from 3 seconds
     
     return () => clearInterval(interval);
   }, []);
@@ -44,7 +44,7 @@ const HeroSection = () => {
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
             Launch Your{' '}
             <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
-              <span className={`inline-block transition-opacity duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+              <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                 {rotatingWords[currentWordIndex]}
               </span>
             </span>{' '}
