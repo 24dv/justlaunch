@@ -4,6 +4,7 @@ import PricingHeader from './pricing/PricingHeader';
 import PlanSelector from './pricing/PlanSelector';
 import PlanCard from './pricing/PlanCard';
 import PaymentPlanCard from './pricing/PaymentPlanCard';
+import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 
 const PricingSection = () => {
@@ -26,6 +27,11 @@ const PricingSection = () => {
 
             {/* Right column - Premium Payment Plan (only visible when premium is selected) */}
             {selectedPlan === 'premium' && <PaymentPlanCard />}
+          </div>
+
+          {/* Maintenance & Security Card */}
+          <div className="mt-8">
+            <MaintenanceCard />
           </div>
 
           <PricingFooter />
