@@ -21,13 +21,13 @@ const PortfolioCarousel = () => {
       id: 1,
       title: "Holistic Sleep Coach",
       description: "Holistic sleep coaching brand with website design",
-      imageUrl: "/lovable-uploads/5c095f37-2519-4bb6-8b93-0405359bd05c.png"
+      imageUrl: "/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
     },
     {
       id: 2,
       title: "Pet Grooming Service",
       description: "Premium pet grooming brand with logo and website",
-      imageUrl: "/lovable-uploads/a107bf8c-bf77-46c8-9249-4e992d533e5e.png"
+      imageUrl: "/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
     },
     {
       id: 3,
