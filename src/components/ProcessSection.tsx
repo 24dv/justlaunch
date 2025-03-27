@@ -34,16 +34,19 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section id="process" className="section-padding py-24 bg-[#F5F5E9] relative overflow-hidden">
-      {/* Make the section have a lower z-index so animated background can pass through */}
+    <section id="process" className="section-padding py-24 relative overflow-hidden">
+      {/* Base section background - lowest z-index */}
+      <div className="absolute inset-0 bg-[#F5F5E9] -z-20"></div>
+      
+      {/* This allows animated background to appear above the section background */}
       <div className="absolute inset-0 -z-10"></div>
       
-      {/* Background accents - using z-index-auto to let animated background pass through */}
-      <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10"></div>
-      <div className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10"></div>
+      {/* Background accents - below cards but above animated background */}
+      <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 z-10"></div>
+      <div className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 z-10"></div>
       
-      <div className="container mx-auto px-4 relative">
-        <div className="max-w-3xl mx-auto text-center mb-20 relative">
+      <div className="container mx-auto px-4 relative z-20">
+        <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
             {t('process.title')}
           </h2>
@@ -53,7 +56,7 @@ const ProcessSection = () => {
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-8" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto relative z-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={index}
