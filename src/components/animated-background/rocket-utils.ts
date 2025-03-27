@@ -30,99 +30,115 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   const rocketWidth = rocket.size * 0.35;
   const rocketHeight = rocket.size * 0.8;
   
-  // Main rocket body - outlined style
+  // Tin Tin inspired rocket - outlined style with red and white checkered pattern
+  
+  // Main rocket body - cylindrical with rounded top
   ctx.beginPath();
   
-  // Draw the main body shape (pointed oval)
-  ctx.moveTo(0, -rocketHeight/2); // Top point
-  ctx.bezierCurveTo(
-    rocketWidth/2, -rocketHeight/2,   // Control point 1
-    rocketWidth, -rocketHeight/4,    // Control point 2
-    rocketWidth, 0                  // End point
+  // Draw the main cylinder body
+  const bodyWidth = rocketWidth;
+  
+  // Left side of cylinder
+  ctx.moveTo(-bodyWidth/2, rocketHeight/2); // Bottom left of cylinder
+  ctx.lineTo(-bodyWidth/2, -rocketHeight/3); // Up to where nose cone starts
+  
+  // Nose cone (rounded top)
+  ctx.quadraticCurveTo(
+    -bodyWidth/2, -rocketHeight/2, // Control point
+    0, -rocketHeight/2            // Top center point
   );
-  ctx.bezierCurveTo(
-    rocketWidth, rocketHeight/4,     // Control point 1
-    rocketWidth/2, rocketHeight/2,   // Control point 2
-    0, rocketHeight/2               // End point
+  ctx.quadraticCurveTo(
+    bodyWidth/2, -rocketHeight/2, // Control point
+    bodyWidth/2, -rocketHeight/3  // Right side where nose starts
   );
-  ctx.bezierCurveTo(
-    -rocketWidth/2, rocketHeight/2,  // Control point 1
-    -rocketWidth, rocketHeight/4,    // Control point 2
-    -rocketWidth, 0                 // End point
-  );
-  ctx.bezierCurveTo(
-    -rocketWidth, -rocketHeight/4,   // Control point 1
-    -rocketWidth/2, -rocketHeight/2, // Control point 2
-    0, -rocketHeight/2              // End point (back to start)
-  );
+  
+  // Right side of cylinder
+  ctx.lineTo(bodyWidth/2, rocketHeight/2); // Bottom right of cylinder
+  
+  // Draw the body
   ctx.stroke();
   
-  // Draw the two circular windows
-  const windowSize = rocket.size * 0.1;
-  const windowSpacing = rocket.size * 0.15;
-  
-  // Upper window
-  ctx.beginPath();
-  ctx.arc(0, -windowSpacing/2, windowSize, 0, Math.PI * 2);
-  ctx.stroke();
-  
-  // Lower window
-  ctx.beginPath();
-  ctx.arc(0, windowSpacing/2, windowSize, 0, Math.PI * 2);
-  ctx.stroke();
-  
-  // Draw the central line connecting the windows
-  ctx.beginPath();
-  ctx.moveTo(0, -windowSpacing/2 - windowSize);
-  ctx.lineTo(0, windowSpacing/2 + windowSize);
-  ctx.stroke();
-  
-  // Draw the horizontal line through bottom window
-  ctx.beginPath();
-  ctx.moveTo(-windowSize * 1.5, windowSpacing/2);
-  ctx.lineTo(windowSize * 1.5, windowSpacing/2);
-  ctx.stroke();
-  
-  // Draw small dots/rivets (4 dots)
-  const dotSize = rocket.size * 0.015;
-  
-  // Upper dots
-  ctx.beginPath();
-  ctx.arc(-rocketWidth * 0.6, -rocketHeight * 0.15, dotSize, 0, Math.PI * 2);
-  ctx.fillStyle = ROCKET_COLOR;
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.arc(rocketWidth * 0.6, -rocketHeight * 0.15, dotSize, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Lower dots
-  ctx.beginPath();
-  ctx.arc(-rocketWidth * 0.6, rocketHeight * 0.25, dotSize, 0, Math.PI * 2);
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.arc(rocketWidth * 0.6, rocketHeight * 0.25, dotSize, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Draw the fins
-  const finHeight = rocket.size * 0.2;
-  const finWidth = rocket.size * 0.15;
+  // Add the characteristic Tin Tin rocket fins (3 fins)
+  const finHeight = rocketHeight * 0.25;
+  const finWidth = bodyWidth * 0.8;
+  const finY = rocketHeight * 0.3; // Position fins near bottom
   
   // Left fin
   ctx.beginPath();
-  ctx.moveTo(-rocketWidth * 0.9, rocketHeight * 0.1);
-  ctx.lineTo(-rocketWidth * 1.4, rocketHeight * 0.35);
-  ctx.lineTo(-rocketWidth * 0.9, rocketHeight * 0.35);
+  ctx.moveTo(-bodyWidth/2, finY);
+  ctx.lineTo(-bodyWidth/2 - finWidth, finY + finHeight);
+  ctx.lineTo(-bodyWidth/2 - finWidth/2, finY + finHeight);
+  ctx.lineTo(-bodyWidth/2, finY + finHeight/3);
   ctx.closePath();
   ctx.stroke();
   
   // Right fin
   ctx.beginPath();
-  ctx.moveTo(rocketWidth * 0.9, rocketHeight * 0.1);
-  ctx.lineTo(rocketWidth * 1.4, rocketHeight * 0.35);
-  ctx.lineTo(rocketWidth * 0.9, rocketHeight * 0.35);
+  ctx.moveTo(bodyWidth/2, finY);
+  ctx.lineTo(bodyWidth/2 + finWidth, finY + finHeight);
+  ctx.lineTo(bodyWidth/2 + finWidth/2, finY + finHeight);
+  ctx.lineTo(bodyWidth/2, finY + finHeight/3);
   ctx.closePath();
+  ctx.stroke();
+  
+  // Bottom fin (slightly smaller and centered)
+  ctx.beginPath();
+  ctx.moveTo(0, rocketHeight/2);
+  ctx.lineTo(0, rocketHeight/2 + finHeight * 0.8);
+  ctx.lineTo(-finWidth/3, rocketHeight/2 + finHeight * 0.6);
+  ctx.lineTo(0, rocketHeight/2 + finHeight/4);
+  ctx.lineTo(finWidth/3, rocketHeight/2 + finHeight * 0.6);
+  ctx.lineTo(0, rocketHeight/2 + finHeight * 0.8);
+  ctx.stroke();
+  
+  // Add details - windows and checkered pattern
+  
+  // Main circular window near top
+  const windowSize = bodyWidth * 0.6;
+  ctx.beginPath();
+  ctx.arc(0, -rocketHeight/4, windowSize/2, 0, Math.PI * 2);
+  ctx.stroke();
+  
+  // Smaller portholes along the body
+  const numPortholes = 3;
+  const portholeDiameter = bodyWidth * 0.25;
+  const portholesStartY = -rocketHeight/8;
+  const portholesSpacing = rocketHeight/6;
+  
+  for (let i = 0; i < numPortholes; i++) {
+    ctx.beginPath();
+    ctx.arc(0, portholesStartY + i * portholesSpacing, portholeDiameter/2, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+  
+  // Add the characteristic red and white checkered pattern at the bottom (but only outline)
+  const checkerHeight = rocketHeight/6;
+  const checkerWidth = bodyWidth/4;
+  const checkerY = rocketHeight/2 - checkerHeight;
+  
+  // Vertical dividing lines for the checkered pattern
+  for (let i = 1; i < 4; i++) {
+    const x = -bodyWidth/2 + (i * checkerWidth);
+    ctx.beginPath();
+    ctx.moveTo(x, checkerY);
+    ctx.lineTo(x, rocketHeight/2);
+    ctx.stroke();
+  }
+  
+  // Horizontal line for the checkerboard
+  ctx.beginPath();
+  ctx.moveTo(-bodyWidth/2, checkerY);
+  ctx.lineTo(bodyWidth/2, checkerY);
+  ctx.stroke();
+  
+  // Engine nozzle - simple outline
+  ctx.beginPath();
+  const nozzleWidth = bodyWidth * 0.6;
+  const nozzleHeight = rocketHeight/10;
+  ctx.moveTo(-nozzleWidth/2, rocketHeight/2);
+  ctx.lineTo(-nozzleWidth/2, rocketHeight/2 + nozzleHeight);
+  ctx.lineTo(nozzleWidth/2, rocketHeight/2 + nozzleHeight);
+  ctx.lineTo(nozzleWidth/2, rocketHeight/2);
   ctx.stroke();
   
   ctx.restore();
