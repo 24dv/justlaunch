@@ -18,15 +18,15 @@ const PortfolioCarousel = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: "Dodo - Baby Sleep Coach",
+      title: "Holistic Sleep Coach",
       description: "Holistic sleep coaching brand with website design",
-      imageUrl: "/lovable-uploads/3e17e2ca-3f66-48b1-bbee-57023901a2c8.png"
+      imageUrl: "/lovable-uploads/5c095f37-2519-4bb6-8b93-0405359bd05c.png"
     },
     {
       id: 2,
-      title: "Woof - Pet Grooming Service",
+      title: "Pet Grooming Service",
       description: "Premium pet grooming brand with logo and website",
-      imageUrl: "/lovable-uploads/83263d20-fe62-4e97-828a-c73a0f1286d2.png"
+      imageUrl: "/lovable-uploads/a107bf8c-bf77-46c8-9249-4e992d533e5e.png"
     },
     {
       id: 3,
