@@ -91,19 +91,17 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.lineTo(0, rocketHeight/2 + finHeight * 0.8);
   ctx.stroke();
   
-  // Add details - windows and checkered pattern
-  
-  // Main circular window near top
+  // Main circular window near top - moved up slightly to avoid overlap
   const windowSize = bodyWidth * 0.6;
   ctx.beginPath();
-  ctx.arc(0, -rocketHeight/4, windowSize/2, 0, Math.PI * 2);
+  ctx.arc(0, -rocketHeight/3.5, windowSize/2, 0, Math.PI * 2);
   ctx.stroke();
   
-  // Smaller portholes along the body
-  const numPortholes = 3;
+  // Smaller portholes along the body - with proper spacing to avoid overlap
+  const numPortholes = 2; // Reduced from 3 to 2 to avoid overlap
   const portholeDiameter = bodyWidth * 0.25;
-  const portholesStartY = -rocketHeight/8;
-  const portholesSpacing = rocketHeight/6;
+  const portholesStartY = -rocketHeight/10; // Start lower to avoid overlap with main window
+  const portholesSpacing = rocketHeight/5; // Increased spacing
   
   for (let i = 0; i < numPortholes; i++) {
     ctx.beginPath();
@@ -131,10 +129,12 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.lineTo(bodyWidth/2, checkerY);
   ctx.stroke();
   
-  // Engine nozzle - simple outline
+  // Engine nozzle - improved to connect properly with the rocket body
   ctx.beginPath();
   const nozzleWidth = bodyWidth * 0.6;
   const nozzleHeight = rocketHeight/10;
+  
+  // Connect the nozzle precisely to the rocket body bottom
   ctx.moveTo(-nozzleWidth/2, rocketHeight/2);
   ctx.lineTo(-nozzleWidth/2, rocketHeight/2 + nozzleHeight);
   ctx.lineTo(nozzleWidth/2, rocketHeight/2 + nozzleHeight);
