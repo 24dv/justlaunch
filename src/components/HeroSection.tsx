@@ -48,8 +48,9 @@ const HeroSection = () => {
                 {rotatingWords[currentWordIndex]}
               </span>
             </span>{' '}
-            Fast—<br className="hidden sm:block" />
-            From Idea to Online in Days!
+            <br className="hidden sm:block" />
+            Fast—From Idea to<br />
+            Online in Days!
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
