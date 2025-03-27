@@ -1,12 +1,13 @@
 
 import { useEffect, useRef } from 'react';
-import { Rocket } from './types';
-import { initializeRockets, drawRocket, updateRocket } from './rocket-utils';
+import { SpaceObject } from './types';
+import { initializeSpaceObjects, drawSpaceObject, updateSpaceObject } from './rocket-utils';
 
 export const useRocketAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rocketsRef = useRef<Rocket[]>([]);
+  const spaceObjectsRef = useRef<SpaceObject[]>([]);
   const animationFrameRef = useRef<number>(0);
+  const lastTimestampRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -17,39 +18,63 @@ export const useRocketAnimation = () => {
 
     // Set canvas to full screen
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * devicePixelRatio;
+      canvas.height = window.innerHeight * devicePixelRatio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
     };
 
     // Animation loop
-    const animate = () => {
-      // Clear the canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const animate = (timestamp: number) => {
+      if (!lastTimestampRef.current) {
+        lastTimestampRef.current = timestamp;
+      }
       
-      // Update and draw each rocket
-      rocketsRef.current.forEach((rocket, index) => {
-        updateRocket(rocket, canvas.width, canvas.height, index);
-        drawRocket(ctx, rocket);
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+      
+      // Draw background with subtle gradient
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, 'rgba(249, 167, 167, 0.01)'); // Very subtle pink tint at top
+      gradient.addColorStop(1, 'rgba(249, 167, 167, 0.03)'); // Slightly stronger at bottom
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+      
+      // Update and draw each space object
+      spaceObjectsRef.current.forEach((object, index) => {
+        updateSpaceObject(object, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1), index, timestamp);
+        drawSpaceObject(ctx, object);
       });
       
       // Continue animation
       animationFrameRef.current = requestAnimationFrame(animate);
+      lastTimestampRef.current = timestamp;
     };
 
     // Initialize
     resizeCanvas();
-    rocketsRef.current = initializeRockets(canvas.width, canvas.height);
-    animate();
+    spaceObjectsRef.current = initializeSpaceObjects(
+      canvas.width / (window.devicePixelRatio || 1), 
+      canvas.height / (window.devicePixelRatio || 1)
+    );
+    animate(0);
 
     // Handle window resize
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resizeCanvas();
-      rocketsRef.current = initializeRockets(canvas.width, canvas.height);
-    });
+      spaceObjectsRef.current = initializeSpaceObjects(
+        canvas.width / (window.devicePixelRatio || 1), 
+        canvas.height / (window.devicePixelRatio || 1)
+      );
+    };
+    
+    window.addEventListener('resize', handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameRef.current);
     };
   }, []);
