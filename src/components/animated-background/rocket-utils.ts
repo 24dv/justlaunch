@@ -32,7 +32,7 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   
   // Tin Tin inspired rocket - outlined style with red and white checkered pattern
   
-  // Main rocket body - cylindrical with rounded top
+  // Main rocket body - cylindrical with rounded top and pointed tip
   ctx.beginPath();
   
   // Draw the main cylinder body
@@ -42,13 +42,13 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.moveTo(-bodyWidth/2, rocketHeight/2); // Bottom left of cylinder
   ctx.lineTo(-bodyWidth/2, -rocketHeight/3); // Up to where nose cone starts
   
-  // Nose cone (rounded top)
+  // Nose cone with pointed tip
   ctx.quadraticCurveTo(
-    -bodyWidth/2, -rocketHeight/2, // Control point
-    0, -rocketHeight/2            // Top center point
+    -bodyWidth/4, -rocketHeight/2.5, // Control point
+    0, -rocketHeight/2 - rocketHeight/10 // Top point with extra height for tip
   );
   ctx.quadraticCurveTo(
-    bodyWidth/2, -rocketHeight/2, // Control point
+    bodyWidth/4, -rocketHeight/2.5, // Control point 
     bodyWidth/2, -rocketHeight/3  // Right side where nose starts
   );
   
@@ -91,23 +91,17 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.lineTo(0, rocketHeight/2 + finHeight * 0.8);
   ctx.stroke();
   
-  // Main circular window near top - moved up slightly to avoid overlap
+  // Main circular window near top - positioned to avoid overlap
   const windowSize = bodyWidth * 0.6;
   ctx.beginPath();
-  ctx.arc(0, -rocketHeight/3.5, windowSize/2, 0, Math.PI * 2);
+  ctx.arc(0, -rocketHeight/4, windowSize/2, 0, Math.PI * 2);
   ctx.stroke();
   
-  // Smaller portholes along the body - with proper spacing to avoid overlap
-  const numPortholes = 2; // Reduced from 3 to 2 to avoid overlap
+  // Single smaller porthole below the main window - no overlapping
   const portholeDiameter = bodyWidth * 0.25;
-  const portholesStartY = -rocketHeight/10; // Start lower to avoid overlap with main window
-  const portholesSpacing = rocketHeight/5; // Increased spacing
-  
-  for (let i = 0; i < numPortholes; i++) {
-    ctx.beginPath();
-    ctx.arc(0, portholesStartY + i * portholesSpacing, portholeDiameter/2, 0, Math.PI * 2);
-    ctx.stroke();
-  }
+  ctx.beginPath();
+  ctx.arc(0, rocketHeight/8, portholeDiameter/2, 0, Math.PI * 2);
+  ctx.stroke();
   
   // Add the characteristic red and white checkered pattern at the bottom (but only outline)
   const checkerHeight = rocketHeight/6;
@@ -129,12 +123,12 @@ export const drawRocket = (ctx: CanvasRenderingContext2D, rocket: Rocket): void 
   ctx.lineTo(bodyWidth/2, checkerY);
   ctx.stroke();
   
-  // Engine nozzle - improved to connect properly with the rocket body
+  // Engine nozzle - properly aligned with the rocket body bottom
   ctx.beginPath();
   const nozzleWidth = bodyWidth * 0.6;
   const nozzleHeight = rocketHeight/10;
   
-  // Connect the nozzle precisely to the rocket body bottom
+  // Draw the nozzle exactly connected to the rocket body bottom
   ctx.moveTo(-nozzleWidth/2, rocketHeight/2);
   ctx.lineTo(-nozzleWidth/2, rocketHeight/2 + nozzleHeight);
   ctx.lineTo(nozzleWidth/2, rocketHeight/2 + nozzleHeight);
