@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const PortfolioCarousel = () => {
   const { t } = useLanguage();
@@ -83,13 +84,14 @@ const PortfolioCarousel = () => {
                 >
                   <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg">
                     <CardContent className="p-0">
-                      <div className="relative aspect-[16/9] overflow-hidden">
+                      <AspectRatio ratio={16/9} className="bg-gray-100">
                         <img 
                           src={item.imageUrl} 
                           alt={item.title}
                           className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                          loading="lazy"
                         />
-                      </div>
+                      </AspectRatio>
                       <div className="p-5">
                         <h3 className="text-xl font-semibold text-[#0D503C]">{item.title}</h3>
                         <p className="text-md text-[#0D503C]/70 mt-2">{item.description}</p>
