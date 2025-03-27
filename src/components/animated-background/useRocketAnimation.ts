@@ -13,7 +13,6 @@ export const useRocketAnimation = () => {
   const animationFrameRef = useRef<number>(0);
   const lastTimestampRef = useRef<number>(0);
   const isVisibleRef = useRef<boolean>(true);
-  const throttleRef = useRef<boolean>(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,13 +43,6 @@ export const useRocketAnimation = () => {
         animationFrameRef.current = requestAnimationFrame(animate);
         return;
       }
-
-      // Skip frame if scrolling is happening (throttle during scroll)
-      if (throttleRef.current) {
-        animationFrameRef.current = requestAnimationFrame(animate);
-        lastTimestampRef.current = timestamp;
-        return;
-      }
       
       // Skip rendering when tab is not visible
       if (!isVisibleRef.current) {
@@ -69,7 +61,7 @@ export const useRocketAnimation = () => {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       
-      // Update and draw each space object - limit updates during scrolling
+      // Update and draw each space object
       spaceObjectsRef.current.forEach((object, index) => {
         updateSpaceObject(object, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1), index, timestamp);
         drawSpaceObject(ctx, object);
@@ -117,24 +109,13 @@ export const useRocketAnimation = () => {
       isVisibleRef.current = document.visibilityState === 'visible';
     };
     
-    // Scroll performance optimization
-    const handleScroll = () => {
-      throttleRef.current = true;
-      clearTimeout(resizeTimeout);
-      resizeTimeout = window.setTimeout(() => {
-        throttleRef.current = false;
-      }, 200); // Resume full animation 200ms after scrolling stops
-    };
-    
     window.addEventListener('resize', handleResize);
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(animationFrameRef.current);
       clearTimeout(resizeTimeout);
     };
