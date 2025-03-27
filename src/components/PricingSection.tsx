@@ -6,6 +6,7 @@ import PlanCard from './pricing/PlanCard';
 import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
+import { Plus } from 'lucide-react';
 
 const PricingSection = () => {
   const [selectedPlan, setSelectedPlan] = useState<'launch' | 'premium'>('launch');
@@ -29,8 +30,15 @@ const PricingSection = () => {
             {selectedPlan === 'premium' && <PaymentPlanCard />}
           </div>
 
+          {/* Plus Sign */}
+          <div className="flex justify-center my-6">
+            <div className="bg-[#0D503C] rounded-full p-3 shadow-lg">
+              <Plus size={24} className="text-[#F5F5E9]" />
+            </div>
+          </div>
+
           {/* Maintenance & Security Card */}
-          <div className="mt-8">
+          <div className="mb-8">
             <MaintenanceCard />
           </div>
 

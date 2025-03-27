@@ -7,37 +7,33 @@ const MaintenanceCard = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]">
-      <div className="p-8">
-        <div className="flex items-center mb-4">
-          <Shield className="h-8 w-8 text-[#0D503C] mr-3" />
-          <h3 className="text-2xl font-bold text-[#0D503C] font-serif">
+    <div className="bg-[#0D503C] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#F5F5E9]">
+      <div className="p-5">
+        <div className="flex items-center mb-3">
+          <Shield className="h-6 w-6 text-[#F5F5E9] mr-2" />
+          <h3 className="text-xl font-bold text-[#F5F5E9] font-serif">
             Ongoing Maintenance & Security
           </h3>
         </div>
-        <div className="flex items-baseline mt-4 mb-6">
-          <span className="text-4xl font-extrabold text-[#0D503C]">
+        <div className="flex items-baseline mt-2 mb-3">
+          <span className="text-3xl font-extrabold text-[#F5F5E9]">
             €10
           </span>
-          <span className="ml-2 text-[#0D503C]/70">/ month</span>
+          <span className="ml-2 text-[#F5F5E9]/70">/ month + VAT</span>
         </div>
-        <p className="text-[#0D503C]/80 mb-4">
+        <p className="text-[#F5F5E9]/80 mb-3 text-sm">
           We keep your website online, secure, and running smoothly—so you don't have to worry about a thing.
         </p>
-        <p className="text-xs text-[#0D503C]/70 mb-4">
-          * Monthly subscription for continuous website care
-        </p>
-        <div className="bg-[#0D503C]/5 rounded-lg p-4 border border-[#0D503C]/10 mt-4">
+        <div className="bg-[#F5F5E9]/10 rounded-lg p-3 border border-[#F5F5E9]/20">
           <div className="flex items-center mb-2">
-            <Settings className="h-5 w-5 text-[#0D503C] mr-2" />
-            <h4 className="text-sm font-semibold text-[#0D503C]">What's Included</h4>
+            <Settings className="h-4 w-4 text-[#F5F5E9] mr-2" />
+            <h4 className="text-sm font-semibold text-[#F5F5E9]">What's Included</h4>
           </div>
-          <ul className="space-y-2 text-[#0D503C]/80 text-sm">
+          <ul className="space-y-1 text-[#F5F5E9]/80 text-xs">
             <li>• Website hosting</li>
             <li>• Security monitoring</li>
             <li>• Regular software updates</li>
             <li>• Performance optimization</li>
-            <li>• Monthly performance report</li>
           </ul>
         </div>
       </div>
