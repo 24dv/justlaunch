@@ -1,10 +1,25 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const rotatingWords = ['Brand', 'Project', 'Side Hustle', 'Business', 'Startup', 'Idea'];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
+        setIsAnimating(false);
+      }, 500); // Wait for fade out before changing word
+    }, 3000); // Change word every 3 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
   
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -27,7 +42,13 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
-            {t('hero.title')}
+            Launch Your{' '}
+            <span className="relative inline-block">
+              <span className={`absolute transition-opacity duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+                {rotatingWords[currentWordIndex]}
+              </span>
+            </span>{' '}
+            Fast—From Idea to Online in Days!
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
