@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ClipboardList, Lightbulb, FileCode, Rocket } from 'lucide-react';
+import { ClipboardList, Lightbulb, FileEdit, Rocket } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ProcessSection = () => {
@@ -20,7 +20,7 @@ const ProcessSection = () => {
       color: 'bg-[#0D503C]'
     },
     {
-      icon: <FileCode className="h-10 w-10 text-[#F5F5E9]" />,
+      icon: <FileEdit className="h-10 w-10 text-[#F5F5E9]" />,
       title: t('process.step3.title'),
       description: t('process.step3.description'),
       color: 'bg-[#0D503C]'
@@ -34,59 +34,56 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section id="process" className="section-padding bg-[#F5F5E9]">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif">
+    <section id="process" className="section-padding py-24 bg-[#F5F5E9] relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 -z-0"></div>
+      <div className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-[#F9A7A7]/10 -z-0"></div>
+      
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
             {t('process.title')}
           </h2>
-          <p className="text-xl text-[#0D503C]/80">
+          <p className="text-xl text-[#0D503C]/80 max-w-2xl mx-auto">
             {t('process.subtitle')}
           </p>
-          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
+          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-8" />
         </div>
 
-        <div className="relative">
-          {/* Connection line */}
-          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-[#0D503C]/30 hidden md:block" />
-
-          <div className="space-y-24 md:space-y-0">
-            {steps.map((step, index) => (
-              <div 
-                key={index} 
-                className={`relative md:grid md:grid-cols-2 md:gap-8 items-center ${
-                  index % 2 === 0 ? '' : 'md:grid-flow-dense'
-                }`}
-              >
-                <div 
-                  className={`relative z-10 opacity-0 ${
-                    index % 2 === 0 
-                      ? 'md:pr-12 md:text-right animate-slide-in-left' 
-                      : 'md:pl-12 md:col-start-2 animate-slide-in-right'
-                  }`}
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <h3 className="text-2xl font-bold text-[#0D503C] mb-3 font-serif">{step.title}</h3>
-                  <p className="text-lg text-[#0D503C]/80">{step.description}</p>
-                </div>
-                
-                <div 
-                  className={`flex items-center justify-center mt-8 md:mt-0 opacity-0 animate-scale-up ${
-                    index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1'
-                  }`}
-                  style={{ animationDelay: `${index * 150 + 100}ms` }}
-                >
-                  <div className={`relative flex items-center justify-center w-20 h-20 rounded-full ${step.color} shadow-lg border-2 border-[#F9A7A7]`}>
-                    {/* Number badge */}
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#F9A7A7] rounded-full shadow-md flex items-center justify-center font-bold text-[#0D503C]">
-                      {index + 1}
-                    </div>
-                    {step.icon}
-                  </div>
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {steps.map((step, index) => (
+            <div 
+              key={index}
+              className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
+            >
+              {/* Number badge */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-[#F9A7A7] rounded-full shadow flex items-center justify-center font-bold text-[#0D503C]">
+                {index + 1}
               </div>
-            ))}
-          </div>
+              
+              {/* Icon */}
+              <div className={`flex items-center justify-center w-16 h-16 rounded-full ${step.color} shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                {step.icon}
+              </div>
+              
+              {/* Content */}
+              <h3 className="text-xl font-bold text-[#0D503C] mb-4 font-serif">{step.title}</h3>
+              <p className="text-[#0D503C]/80">{step.description}</p>
+              
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0D503C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Added call to action */}
+        <div className="text-center mt-16">
+          <a 
+            href="#contact" 
+            className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
+          >
+            {t('nav.getStarted')}
+          </a>
         </div>
       </div>
     </section>
