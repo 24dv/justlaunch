@@ -1,14 +1,15 @@
+
 import React, { useEffect, lazy, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import PricingSection from '../components/PricingSection';
+import FaqSection from '../components/FaqSection';
 
 // Lazy load components that appear below the fold
 const FeatureSection = lazy(() => import('../components/FeatureSection'));
 const Carousel = lazy(() => import('../components/Carousel'));
 const ProcessSection = lazy(() => import('../components/ProcessSection'));
 const TestimonialSection = lazy(() => import('../components/TestimonialSection'));
-const FaqSection = lazy(() => import('../components/FaqSection'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 const Footer = lazy(() => import('../components/Footer'));
 
@@ -84,9 +85,7 @@ const Index = () => {
       <Suspense fallback={<LoadingFallback />}>
         <TestimonialSection />
       </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <FaqSection />
-      </Suspense>
+      <FaqSection />
       <Suspense fallback={<LoadingFallback />}>
         <ContactSection />
       </Suspense>
