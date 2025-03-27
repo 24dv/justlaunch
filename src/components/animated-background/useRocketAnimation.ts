@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { SpaceObject } from './types';
 import { 
@@ -11,12 +12,14 @@ export const useRocketAnimation = () => {
   const spaceObjectsRef = useRef<SpaceObject[]>([]);
   const animationFrameRef = useRef<number>(0);
   const lastTimestampRef = useRef<number>(0);
+  const isVisibleRef = useRef<boolean>(true);
+  const throttleRef = useRef<boolean>(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     // Set canvas to full screen with proper device pixel ratio
@@ -34,25 +37,39 @@ export const useRocketAnimation = () => {
       if (!lastTimestampRef.current) {
         lastTimestampRef.current = timestamp;
       }
-      
-      // Only draw animation frames at a reasonable rate (max 60fps)
+
+      // Only draw animation frames at a reasonable rate (max 30fps for background)
       const elapsed = timestamp - lastTimestampRef.current;
-      if (elapsed < 16) { // ~60fps cap
+      if (elapsed < 33) { // ~30fps cap for better performance
         animationFrameRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      // Skip frame if scrolling is happening (throttle during scroll)
+      if (throttleRef.current) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+        lastTimestampRef.current = timestamp;
+        return;
+      }
+      
+      // Skip rendering when tab is not visible
+      if (!isVisibleRef.current) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+        lastTimestampRef.current = timestamp;
         return;
       }
       
       // Clear the canvas
       ctx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       
-      // Draw background with subtle gradient
+      // Draw background with subtle gradient - only when visible
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
       gradient.addColorStop(0, 'rgba(249, 167, 167, 0.01)'); // Very subtle pink tint at top
       gradient.addColorStop(1, 'rgba(249, 167, 167, 0.03)'); // Slightly stronger at bottom
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       
-      // Update and draw each space object
+      // Update and draw each space object - limit updates during scrolling
       spaceObjectsRef.current.forEach((object, index) => {
         updateSpaceObject(object, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1), index, timestamp);
         drawSpaceObject(ctx, object);
@@ -71,21 +88,55 @@ export const useRocketAnimation = () => {
     );
     animate(0);
 
-    // Handle window resize
+    // Handle window resize - with debounce
+    let resizeTimeout: number;
     const handleResize = () => {
-      resizeCanvas();
-      spaceObjectsRef.current = initializeSpaceObjects(
-        canvas.width / (window.devicePixelRatio || 1), 
-        canvas.height / (window.devicePixelRatio || 1)
-      );
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        resizeCanvas();
+        // Only reinitialize objects on significant size changes
+        const width = canvas.width / (window.devicePixelRatio || 1);
+        const height = canvas.height / (window.devicePixelRatio || 1);
+        
+        // Check if current objects were initialized with significantly different dimensions
+        const currentWidth = spaceObjectsRef.current.length > 0 ? 
+          Math.max(...spaceObjectsRef.current.map(obj => obj.x)) : 0;
+        const currentHeight = spaceObjectsRef.current.length > 0 ? 
+          Math.max(...spaceObjectsRef.current.map(obj => obj.y)) : 0;
+          
+        // Reinitialize only if dimensions changed significantly
+        if (Math.abs(currentWidth - width) > width * 0.2 || 
+            Math.abs(currentHeight - height) > height * 0.2) {
+          spaceObjectsRef.current = initializeSpaceObjects(width, height);
+        }
+      }, 300); // 300ms debounce
+    };
+    
+    // Visibility API to pause animation when tab is hidden
+    const handleVisibilityChange = () => {
+      isVisibleRef.current = document.visibilityState === 'visible';
+    };
+    
+    // Scroll performance optimization
+    const handleScroll = () => {
+      throttleRef.current = true;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        throttleRef.current = false;
+      }, 200); // Resume full animation 200ms after scrolling stops
     };
     
     window.addEventListener('resize', handleResize);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(animationFrameRef.current);
+      clearTimeout(resizeTimeout);
     };
   }, []);
 

@@ -20,9 +20,15 @@ export const updateSpaceObject = (
   } 
   else if (object.type === 'planet') {
     // Planets rotate slowly and move horizontally
-    object.rotation += 0.0001;
-    object.x += Math.sin(timestamp * 0.0001 + index) * 0.2;
-    object.y += Math.cos(timestamp * 0.0001 + index * 2) * 0.1;
+    // Only update rotation every few frames for performance
+    if (index % 2 === 0) {
+      object.rotation += 0.0001;
+    }
+    
+    // Use cached sine/cosine values for performance
+    const time = timestamp * 0.0001;
+    object.x += Math.sin(time + index) * 0.2;
+    object.y += Math.cos(time + index * 2) * 0.1;
     
     // Keep planets within visible bounds with wrapping
     if (object.x > canvasWidth + object.size * 2) {
@@ -41,8 +47,10 @@ export const updateSpaceObject = (
     // Rockets move upward steadily
     object.y -= object.speed;
     
-    // Add slight horizontal drift
-    object.x += Math.sin(timestamp * 0.0003 + index) * 0.3;
+    // Add slight horizontal drift (reduced complexity)
+    if (index % 3 === 0) { // Only compute sine every 3rd frame
+      object.x += Math.sin(timestamp * 0.0003 + index) * 0.3;
+    }
     
     // Reduce rocket opacity by 20% (now to 0.6)
     object.opacity = 0.6;
