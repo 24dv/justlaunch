@@ -113,9 +113,10 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`fixed inset-0 top-0 bg-[#F5F5E9] z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 top-0 left-0 right-0 h-full bg-[#F5F5E9] z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
-        } md:hidden`}
+        } md:hidden overflow-auto`}
+        style={{ position: 'fixed', height: '100vh' }}
       >
         <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 relative">
           {/* Close button inside mobile menu */}
