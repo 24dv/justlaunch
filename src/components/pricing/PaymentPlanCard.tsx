@@ -21,7 +21,7 @@ const PaymentPlanCard = () => {
           <span className="ml-2 text-[#0D503C]/70">{t('pricing.premium.plan')}</span>
         </div>
         <p className="text-[#0D503C]/80 mb-6">
-          Get started with a lower upfront cost. Same great service, split into manageable payments.
+          Get started with a lower upfront cost. Same great service, split into manageable monthly payments.
         </p>
         <a
           href="#contact"
@@ -51,7 +51,7 @@ const PaymentPlanCard = () => {
             </div>
             <div>
               <p className="text-[#0D503C]/80">
-                Second payment of €833 after first draft approval
+                Second payment of €833 one month after project start
               </p>
             </div>
           </li>
@@ -61,7 +61,7 @@ const PaymentPlanCard = () => {
             </div>
             <div>
               <p className="text-[#0D503C]/80">
-                Final payment of €834 before delivery of completed files
+                Final payment of €834 one month after second payment
               </p>
             </div>
           </li>

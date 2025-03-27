@@ -33,6 +33,9 @@ const PlanCard = ({ planType }: PlanCardProps) => {
         >
           {t('nav.getStarted')}
         </a>
+        <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
+          50% upfront, 50% upon delivery
+        </p>
       </div>
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
@@ -41,21 +44,20 @@ const PlanCard = ({ planType }: PlanCardProps) => {
         <ul className="space-y-3">
           {planType === 'launch' ? (
             <>
-              <PlanFeatureItem text={t('features.logoDesign.title')} />
-              <PlanFeatureItem text={t('features.landingSite.title')} />
-              <PlanFeatureItem text="4 custom social media banners" />
-              <PlanFeatureItem text="2 rounds of revisions" />
-              <PlanFeatureItem text={t('features.delivery.title')} />
+              <PlanFeatureItem text="1-page website" />
+              <PlanFeatureItem text="Logo design" />
+              <PlanFeatureItem text="Custom color palette" />
+              <PlanFeatureItem text="1 round of revisions" />
+              <PlanFeatureItem text="Fast delivery within 14 days" />
             </>
           ) : (
             <>
-              <PlanFeatureItem text={`Everything in ${t('pricing.launch.title')}`} />
-              <PlanFeatureItem text="Multi-page website (up to 5 pages)" />
-              <PlanFeatureItem text="Comprehensive brand guidelines" />
-              <PlanFeatureItem text="10 custom social media templates" />
-              <PlanFeatureItem text="Business card design" />
-              <PlanFeatureItem text="3 rounds of revisions" />
-              <PlanFeatureItem text="Priority delivery in 21 days" />
+              <PlanFeatureItem text="4-page website" />
+              <PlanFeatureItem text="Professional logo design" />
+              <PlanFeatureItem text="Brand style sheet (logo, color palette, typography)" />
+              <PlanFeatureItem text="5 custom social media templates" />
+              <PlanFeatureItem text="2 rounds of revisions" />
+              <PlanFeatureItem text="Fast delivery within 14 days" />
             </>
           )}
         </ul>
