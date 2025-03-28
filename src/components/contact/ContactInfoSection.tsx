@@ -30,7 +30,7 @@ const ContactInfoSection = () => {
               <span className="text-sm font-medium">3</span>
             </div>
             <p className="text-[#0D503C]/80">
-              We'll send you a timeline and get started as soon as payment is confirmed
+              We'll send you a timeline and get started asap
             </p>
           </li>
         </ul>
