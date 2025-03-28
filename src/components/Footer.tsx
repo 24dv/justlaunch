@@ -23,7 +23,13 @@ const Footer = () => {
       <div className="container mx-auto py-12 px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold mb-4 font-serif">Just Launch</h2>
+            <div className="mb-4">
+              <img 
+                src="/public/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png" 
+                alt="Just Launch Logo" 
+                className="h-12 mb-4" 
+              />
+            </div>
             <p className="text-[#F5F5E9]/80 mb-6 max-w-md">
               {t('footer.description')}
             </p>

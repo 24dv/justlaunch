@@ -70,10 +70,14 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link 
           to="/" 
-          className="text-2xl font-bold text-[#0D503C] font-serif tracking-tight"
+          className="flex items-center text-[#0D503C] font-serif tracking-tight"
           onClick={() => window.scrollTo(0, 0)}
         >
-          Just Launch
+          <img 
+            src="/public/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png" 
+            alt="Just Launch Logo" 
+            className="h-10" 
+          />
         </Link>
 
         {/* Desktop Navigation */}

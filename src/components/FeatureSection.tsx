@@ -10,7 +10,7 @@ const FeatureSection = () => {
     {
       icon: <Palette className="h-8 w-8 text-[#0D503C]" />,
       title: "Professional logo and brand colors",
-      description: "Stand out from day one with a logo and colors that perfectly reflect your brand identity and values.",
+      description: "Stand out from day one with a logo and colors that reflect your brand identity and values.",
     },
     {
       icon: <Globe className="h-8 w-8 text-[#0D503C]" />,
@@ -25,17 +25,17 @@ const FeatureSection = () => {
     {
       icon: <CheckCircle className="h-8 w-8 text-[#0D503C]" />,
       title: "Simple process",
-      description: "A streamlined process powered by expert designers and smart AI tools — so you don't have to lift a finger.",
+      description: "A streamlined process powered by expert designers and smart AI tools.",
     },
     {
       icon: <Euro className="h-8 w-8 text-[#0D503C]" />,
       title: "Affordable pricing",
-      description: "Agency-quality design, startup-friendly price. Just €1,500 — and €10/mo for fast, secure hosting & peace of mind.",
+      description: "Top-tier design for €1,500 — and €10/mo for fast, secure hosting & peace of mind.",
     },
     {
       icon: <Zap className="h-8 w-8 text-[#0D503C]" />,
       title: "Tried, Tested, Trusted",
-      description: "We've helped dozens of founders and freelancers launch fast — with brands that look and feel ready to grow.",
+      description: "Dozens of brands launched fast, built to look and feel pro.",
     },
   ];
 
@@ -47,7 +47,7 @@ const FeatureSection = () => {
             {t('features.title')}
           </h2>
           <p className="text-xl text-[#0D503C]/80">
-            Whether you're a founder with a bold idea, a freelancer ready to look more professional, or someone finally bringing a side hustle to life — this is for you. Our Launch Package gives you everything you need to go live confidently, without the stress or wait.
+            Whether you're a founder with a bold idea, a freelancer leveling up, or launching a side hustle — this is for you. Our Launch Package gets you live fast, without the stress or wait.
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
