@@ -1,15 +1,46 @@
 
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import React from 'react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useLanguage } from '../contexts/LanguageContext';
 
 const FaqSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const { t } = useLanguage();
 
-  const toggleFaq = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const faqItems = [
+    {
+      question: "How long does it take to deliver?",
+      answer: "We aim to launch your full brand and website within 14 days of kickoff — as long as feedback and content are provided on time. We'll share a clear timeline once your spot is confirmed."
+    },
+    {
+      question: "Can I make changes after I receive the drafts?",
+      answer: "Yes — each package includes at least one round of revisions. You'll have a chance to give feedback before we finalize."
+    },
+    {
+      question: "How does the payment plan work?",
+      answer: "For the Premium Package, you can split the cost into 3 equal monthly payments. No extra fees, no surprises."
+    },
+    {
+      question: "Do I get everything I need to launch and use my brand?",
+      answer: "Yes — you'll receive high-resolution PNG files that are ready to use across your website, social media, and digital platforms. For most founders, that's all you'll ever need."
+    },
+    {
+      question: "Is this right for me if I'm just getting started?",
+      answer: "Absolutely. We work with solo founders, freelancers, and small businesses at all stages — whether you're launching something new or refreshing your current brand."
+    },
+    {
+      question: "Can I add more pages, templates, or services later?",
+      answer: "Yes — additional work like extra pages or marketing assets can be added after your launch. Just reach out, we'll always give you a clear quote first."
+    },
+    {
+      question: "Where are you based?",
+      answer: "Just Launch is based in Belgium, but we work with clients all over Europe and beyond."
+    }
+  ];
 
   return (
     <section id="faq" className="section-padding bg-[#F5F5E9]">
@@ -24,29 +55,19 @@ const FaqSection = () => {
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
 
-        <div className="max-w-3xl mx-auto divide-y-2 divide-[#0D503C]/30 border-2 border-[#0D503C] rounded-xl overflow-hidden">
-          {[1, 2, 3, 4, 5, 6].map((index) => (
-            <div key={index} className="bg-[#F5F5E9]">
-              <button
-                onClick={() => toggleFaq(index)}
-                className="flex justify-between items-center w-full text-left focus:outline-none p-5"
-              >
-                <h3 className="text-lg font-medium text-[#0D503C] font-serif">
-                  {t(`faq.question${index}.title`)}
-                </h3>
-                {openIndex === index ? (
-                  <ChevronUp className="h-5 w-5 text-[#0D503C]" />
-                ) : (
-                  <ChevronDown className="h-5 w-5 text-[#0D503C]" />
-                )}
-              </button>
-              {openIndex === index && (
-                <div className="p-5 pt-0 text-[#0D503C]/80 animate-accordion-down">
-                  <p>{t(`faq.question${index}.answer`)}</p>
-                </div>
-              )}
-            </div>
-          ))}
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="border rounded-xl overflow-hidden">
+            {faqItems.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border-b last:border-b-0">
+                <AccordionTrigger className="p-5 text-lg font-medium text-[#0D503C] font-serif hover:text-[#0D503C]/80 hover:no-underline">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-5 pb-5 pt-0 text-[#0D503C]/80">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
 
         <div className="mt-12 text-center">
