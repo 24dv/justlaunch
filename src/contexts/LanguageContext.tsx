@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -61,15 +60,16 @@ const translations = {
 
     // Process Section
     "process.title": "How It Works",
-    "process.subtitle": "Our streamlined process takes you from concept to launch with minimal effort on your part.",
-    "process.step1.title": "Sign Up",
-    "process.step1.description": "Fill out the form and get started with your project immediately.",
-    "process.step2.title": "Design Consultation",
-    "process.step2.description": "Share your ideas and vision with our designers through a detailed brief.",
-    "process.step3.title": "Receive Drafts",
-    "process.step3.description": "We'll create a logo and landing page tailored specifically for your business.",
+    "process.subtitle": "We've streamlined the entire process — so you can launch a polished, professional brand in just days, not months.",
+    "process.step1.title": "Reach Out",
+    "process.step1.description": "Fill out a short form and book a quick intro call to align and secure your spot.",
+    "process.step2.title": "Share Your Vision",
+    "process.step2.description": "We'll send you a smart questionnaire to gather your brand direction, design style, and website content.",
+    "process.step3.title": "Approve Designs",
+    "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
     "process.step4.title": "Launch",
-    "process.step4.description": "Finalize and go live with your new brand in just 14 days!",
+    "process.step4.description": "Your brand and site go live — all within 14 days of kickoff.",
+    "process.getStarted": "Get Started",
 
     // Pricing Section
     "pricing.title": "Transparent Pricing, No Surprises",
