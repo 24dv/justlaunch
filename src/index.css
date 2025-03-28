@@ -121,6 +121,10 @@
   .noise-texture {
     display: none;
   }
+
+  .p-5 {
+    background-color: #0D503C;
+  }
 }
 
 @keyframes fadeInUp {
