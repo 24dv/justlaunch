@@ -81,7 +81,7 @@ const PortfolioCarousel = () => {
                   key={item.id} 
                   className="pl-4 md:pl-6 sm:basis-1/1 md:basis-1/2 lg:basis-1/2"
                 >
-                  <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg">
+                  <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg bg-[#0D503C]">
                     <CardContent className="p-0">
                       <AspectRatio ratio={16/9} className="bg-gray-100">
                         <img 
@@ -92,8 +92,8 @@ const PortfolioCarousel = () => {
                         />
                       </AspectRatio>
                       <div className="p-5">
-                        <h3 className="text-xl font-semibold text-[#0D503C]">{item.title}</h3>
-                        <p className="text-md text-[#0D503C]/70 mt-2">{item.description}</p>
+                        <h3 className="text-xl font-semibold text-[#F5F5E9]">{item.title}</h3>
+                        <p className="text-md text-[#F5F5E9]/70 mt-2">{item.description}</p>
                       </div>
                     </CardContent>
                   </Card>
