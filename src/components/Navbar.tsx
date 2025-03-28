@@ -84,7 +84,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png" 
             alt="Just Launch Logo" 
-            className="h-16 object-contain" // Increased from h-10 to h-16
+            className="h-32 object-contain"
           />
         </Link>
 
@@ -158,3 +158,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
