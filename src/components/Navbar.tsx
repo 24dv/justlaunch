@@ -81,7 +81,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png" 
             alt="Just Launch Logo" 
-            className="h-44 object-contain"
+            className="h-16 object-contain"
           />
         </Link>
 
