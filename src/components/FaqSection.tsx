@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Accordion,
@@ -56,9 +55,13 @@ const FaqSection = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="border rounded-xl overflow-hidden">
+          <Accordion type="single" collapsible className="border-2 border-[#0D503C] rounded-xl overflow-hidden divide-y-2 divide-[#0D503C]/30">
             {faqItems.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b last:border-b-0">
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border-b last:border-b-0 bg-[#F5F5E9]"
+              >
                 <AccordionTrigger className="p-5 text-lg font-medium text-[#0D503C] font-serif hover:text-[#0D503C]/80 hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
