@@ -68,7 +68,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <FeatureSection />
-      <Carousel />
+      <div id="work">
+        <Carousel />
+      </div>
       <ProcessSection />
       <PricingSection />
       <TestimonialSection />

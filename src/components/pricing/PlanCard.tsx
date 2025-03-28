@@ -28,8 +28,8 @@ const PlanCard = ({ planType }: PlanCardProps) => {
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'
-            ? 'Everything you need to launch a polished, professional brand — without the agency price tag.'
-            : 'Designed for founders who want to look sharp and stay consistent — with a multi-page site, custom visuals, and a clear style guide to tie it all together.'}
+            ? t('pricing.launch.description')
+            : t('pricing.premium.description')}
         </p>
         <a
           href="#contact"
@@ -38,32 +38,32 @@ const PlanCard = ({ planType }: PlanCardProps) => {
           {t('nav.getStarted')}
         </a>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
-          No payment now — just reserve your spot.
+          {t('pricing.noPayment')}
         </p>
       </div>
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
-          {planType === 'launch' ? 'INCLUDES:' : 'INCLUDES:'}
+          {planType === 'launch' ? t('pricing.launch.includes') : t('pricing.premium.includes')}
         </h4>
         <ul className="space-y-3">
           {planType === 'launch' ? (
             <>
-              <PlanFeatureItem text="Custom 1-page website (like this one!)" />
-              <PlanFeatureItem text="Professional logo design" />
-              <PlanFeatureItem text="Tailored brand color palette" />
-              <PlanFeatureItem text="1 round of revision" />
-              <PlanFeatureItem text="Launch-ready in just 14 days" />
-              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
+              <PlanFeatureItem text={t('pricing.launch.feature1')} />
+              <PlanFeatureItem text={t('pricing.launch.feature2')} />
+              <PlanFeatureItem text={t('pricing.launch.feature3')} />
+              <PlanFeatureItem text={t('pricing.launch.feature4')} />
+              <PlanFeatureItem text={t('pricing.launch.feature5')} />
+              <PlanFeatureItem text={t('pricing.launch.feature6')} />
             </>
           ) : (
             <>
-              <PlanFeatureItem text="Custom 4-page website" />
-              <PlanFeatureItem text="Professional logo design" />
-              <PlanFeatureItem text="Brand style guide (logo, colors, fonts)" />
-              <PlanFeatureItem text="5 custom social media templates" />
-              <PlanFeatureItem text="2 rounds of revisions" />
-              <PlanFeatureItem text="Launch-ready in just 14 days" />
-              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
+              <PlanFeatureItem text={t('pricing.premium.feature1')} />
+              <PlanFeatureItem text={t('pricing.premium.feature2')} />
+              <PlanFeatureItem text={t('pricing.premium.feature3')} />
+              <PlanFeatureItem text={t('pricing.premium.feature4')} />
+              <PlanFeatureItem text={t('pricing.premium.feature5')} />
+              <PlanFeatureItem text={t('pricing.premium.feature6')} />
+              <PlanFeatureItem text={t('pricing.premium.feature7')} />
             </>
           )}
         </ul>

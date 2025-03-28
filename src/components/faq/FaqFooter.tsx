@@ -8,7 +8,7 @@ const FaqFooter = () => {
   return (
     <div className="mt-12 text-center">
       <p className="text-base text-[#0D503C]/80 mb-6">
-        Still have questions? We're here to help!
+        {t('faq.moreQuestions')}
       </p>
       <a
         href="#contact"
