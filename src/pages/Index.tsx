@@ -1,20 +1,15 @@
 
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
+import FeatureSection from '../components/FeatureSection';
+import Carousel from '../components/Carousel';
+import ProcessSection from '../components/ProcessSection';
 import PricingSection from '../components/PricingSection';
+import TestimonialSection from '../components/TestimonialSection';
 import FaqSection from '../components/FaqSection';
-
-// Lazy load components that appear below the fold
-const FeatureSection = lazy(() => import('../components/FeatureSection'));
-const Carousel = lazy(() => import('../components/Carousel'));
-const ProcessSection = lazy(() => import('../components/ProcessSection'));
-const TestimonialSection = lazy(() => import('../components/TestimonialSection'));
-const ContactSection = lazy(() => import('../components/ContactSection'));
-const Footer = lazy(() => import('../components/Footer'));
-
-// Simplified loading fallback for better performance
-const LoadingFallback = () => <div className="min-h-[300px]"></div>;
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 
 const Index = () => {
   useEffect(() => {
@@ -72,26 +67,14 @@ const Index = () => {
     <div className="min-h-screen bg-[#F5F5E9] text-[#0D503C] antialiased">
       <Navbar />
       <HeroSection />
-      <Suspense fallback={<LoadingFallback />}>
-        <FeatureSection />
-      </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <Carousel />
-      </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <ProcessSection />
-      </Suspense>
+      <FeatureSection />
+      <Carousel />
+      <ProcessSection />
       <PricingSection />
-      <Suspense fallback={<LoadingFallback />}>
-        <TestimonialSection />
-      </Suspense>
+      <TestimonialSection />
       <FaqSection />
-      <Suspense fallback={<LoadingFallback />}>
-        <ContactSection />
-      </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <Footer />
-      </Suspense>
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
