@@ -80,16 +80,16 @@ const ContactSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif">
-                {t('contact.title')}
+                Ready to launch your brand — fast and stress-free?
               </h2>
               <p className="text-xl text-[#0D503C]/80 mb-8">
-                {t('contact.subtitle')}
+                Fill out the form and we'll get back to you within 24 hours to schedule a quick kickoff call.
               </p>
               <div className="w-24 h-1 bg-[#0D503C] mb-8" />
               
               <div className="bg-[#0D503C]/5 p-6 rounded-xl mb-8 border-2 border-dashed border-[#0D503C]/30">
                 <h3 className="text-xl font-semibold text-[#0D503C] mb-4 font-serif">
-                  {t('contact.nextSteps')}
+                  What happens next?
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -97,7 +97,7 @@ const ContactSection = () => {
                       <span className="text-sm font-medium">1</span>
                     </div>
                     <p className="text-[#0D503C]/80">
-                      {t('contact.step1')}
+                      We'll schedule a short call to align on your project
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -105,7 +105,7 @@ const ContactSection = () => {
                       <span className="text-sm font-medium">2</span>
                     </div>
                     <p className="text-[#0D503C]/80">
-                      {t('contact.step2')}
+                      You'll receive a questionnaire to share your style, content, and vision
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -113,17 +113,17 @@ const ContactSection = () => {
                       <span className="text-sm font-medium">3</span>
                     </div>
                     <p className="text-[#0D503C]/80">
-                      {t('contact.step3')}
+                      We'll send you a timeline and get started as soon as payment is confirmed
                     </p>
                   </li>
                 </ul>
               </div>
               
               <div className="text-[#0D503C]/80">
-                <p className="font-medium text-[#0D503C]">{t('contact.questions')}</p>
+                <p className="font-medium text-[#0D503C]">Questions? Contact us directly:</p>
                 <p className="mt-2 text-[#0D503C]">
-                  <a href="mailto:david@branca.be" className="text-[#0D503C] font-medium hover:underline">
-                    david@branca.be
+                  <a href="mailto:hello@justlaunch.be" className="text-[#0D503C] font-medium hover:underline">
+                    hello@justlaunch.be
                   </a>
                 </p>
               </div>
@@ -247,7 +247,7 @@ const ContactSection = () => {
                       </span>
                     ) : (
                       <span className="flex items-center">
-                        {t('contact.form.submit')}
+                        Book My Spot
                         <Send className="ml-2 h-4 w-4" />
                       </span>
                     )}
