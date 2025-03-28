@@ -8,28 +8,28 @@ const ProcessSection = () => {
   
   const steps = [
     {
-      icon: <ClipboardList className="h-10 w-10 text-[#F5F5E9]" />,
+      icon: <ClipboardList className="h-10 w-10 text-[#0D503C]" />,
       title: t('process.step1.title'),
       description: t('process.step1.description'),
-      color: 'bg-[#0D503C]'
+      number: 1
     },
     {
-      icon: <Lightbulb className="h-10 w-10 text-[#F5F5E9]" />,
+      icon: <Lightbulb className="h-10 w-10 text-[#0D503C]" />,
       title: t('process.step2.title'),
       description: t('process.step2.description'),
-      color: 'bg-[#0D503C]'
+      number: 2
     },
     {
-      icon: <FileEdit className="h-10 w-10 text-[#F5F5E9]" />,
+      icon: <FileEdit className="h-10 w-10 text-[#0D503C]" />,
       title: t('process.step3.title'),
       description: t('process.step3.description'),
-      color: 'bg-[#0D503C]'
+      number: 3
     },
     {
-      icon: <Rocket className="h-10 w-10 text-[#F5F5E9]" />,
+      icon: <Rocket className="h-10 w-10 text-[#0D503C]" />,
       title: t('process.step4.title'),
       description: t('process.step4.description'),
-      color: 'bg-[#0D503C]'
+      number: 4
     }
   ];
 
@@ -60,15 +60,15 @@ const ProcessSection = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group z-30"
+              className="bg-[#F5F5E9] border border-[#0D503C]/20 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group z-30"
             >
               {/* Number badge */}
-              <div className="absolute top-4 right-4 w-8 h-8 bg-[#F9A7A7] rounded-full shadow flex items-center justify-center font-bold text-[#0D503C]">
-                {index + 1}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-[#F9A7A7] rounded-full shadow flex items-center justify-center font-medium text-[#0D503C]">
+                {step.number}
               </div>
               
               {/* Icon */}
-              <div className={`flex items-center justify-center w-16 h-16 rounded-full ${step.color} shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#0D503C] shadow mb-6 group-hover:scale-110 transition-transform duration-300">
                 {step.icon}
               </div>
               
