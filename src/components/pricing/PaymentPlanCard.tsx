@@ -6,11 +6,13 @@ const PaymentPlanCard = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="bg-[#0D503C]/5 rounded-2xl shadow-md overflow-hidden border-2 border-[#0D503C] border-dashed">
-      <div className="p-8">
-        <div className="inline-flex items-center bg-[#F9A7A7]/30 text-[#0D503C] rounded-full px-3 py-1 text-sm font-medium mb-4 border border-[#F9A7A7]">
+    <div className="bg-[#0D503C]/5 rounded-2xl shadow-md overflow-hidden border-2 border-[#0D503C] border-dashed relative">
+      <div className="absolute top-0 right-0">
+        <div className="inline-flex items-center bg-[#F9A7A7]/30 text-[#0D503C] rounded-tr-lg rounded-bl-lg px-3 py-1 text-sm font-medium border border-[#F9A7A7]">
           Payment Plan
         </div>
+      </div>
+      <div className="p-8 mt-4">
         <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
           Easy Monthly Payments
         </h3>
@@ -23,15 +25,15 @@ const PaymentPlanCard = () => {
         <p className="text-[#0D503C]/80 mb-4">
           Get started with a lower upfront cost. Same great service, split into manageable monthly payments.
         </p>
-        <p className="text-xs text-[#0D503C]/70 mb-4">
-          * Prices exclude VAT
-        </p>
         <a
           href="#contact"
           className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7] border border-[#0D503C]/20 text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/80 transition-colors"
         >
           Choose Payment Plan
         </a>
+        <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
+          No payment now — just reserve your spot.
+        </p>
       </div>
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">

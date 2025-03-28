@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CheckCircle, Clock, Palette, Globe, DollarSign, Zap } from 'lucide-react';
+import { CheckCircle, Clock, Palette, Globe, Euro, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const FeatureSection = () => {
@@ -9,12 +9,12 @@ const FeatureSection = () => {
   const features = [
     {
       icon: <Palette className="h-8 w-8 text-[#0D503C]" />,
-      title: t('features.logoDesign.title'),
-      description: t('features.logoDesign.description'),
+      title: "Professional logo and brand colors",
+      description: "Stand out from day one with a logo and colors that perfectly reflect your brand identity and values.",
     },
     {
       icon: <Globe className="h-8 w-8 text-[#0D503C]" />,
-      title: t('features.landingSite.title'),
+      title: "Customised single-page website",
       description: t('features.landingSite.description'),
     },
     {
@@ -24,18 +24,18 @@ const FeatureSection = () => {
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-[#0D503C]" />,
-      title: t('features.process.title'),
-      description: t('features.process.description'),
+      title: "Simple process",
+      description: "A streamlined process powered by expert designers and smart AI tools — so you don't have to lift a finger.",
     },
     {
-      icon: <DollarSign className="h-8 w-8 text-[#0D503C]" />,
-      title: t('features.pricing.title'),
-      description: t('features.pricing.description'),
+      icon: <Euro className="h-8 w-8 text-[#0D503C]" />,
+      title: "Affordable pricing",
+      description: "Agency-quality design, startup-friendly price. Just €1,500 — and €10/mo for fast, secure hosting & peace of mind.",
     },
     {
       icon: <Zap className="h-8 w-8 text-[#0D503C]" />,
-      title: t('features.support.title'),
-      description: t('features.support.description'),
+      title: "Tried, Tested, Trusted",
+      description: "We've helped dozens of founders and freelancers launch fast — with brands that look and feel ready to grow.",
     },
   ];
 
@@ -47,7 +47,7 @@ const FeatureSection = () => {
             {t('features.title')}
           </h2>
           <p className="text-xl text-[#0D503C]/80">
-            {t('features.subtitle')}
+            Whether you're a founder with a bold idea, a freelancer ready to look more professional, or someone finally bringing a side hustle to life — this is for you. Our Launch Package gives you everything you need to go live confidently, without the stress or wait.
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>

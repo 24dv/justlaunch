@@ -3,8 +3,8 @@ import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface PlanSelectorProps {
-  selectedPlan: 'launch' | 'website' | 'premium';
-  onTogglePlan: (plan: 'launch' | 'website' | 'premium') => void;
+  selectedPlan: 'launch' | 'premium';
+  onTogglePlan: (plan: 'launch' | 'premium') => void;
 }
 
 const PlanSelector = ({ selectedPlan, onTogglePlan }: PlanSelectorProps) => {
@@ -22,16 +22,6 @@ const PlanSelector = ({ selectedPlan, onTogglePlan }: PlanSelectorProps) => {
           }`}
         >
           {t('pricing.launch.title')}
-        </button>
-        <button
-          onClick={() => onTogglePlan('website')}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-            selectedPlan === 'website'
-              ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
-              : 'text-[#0D503C] hover:bg-[#0D503C]/10'
-          }`}
-        >
-          Website Package
         </button>
         <button
           onClick={() => onTogglePlan('premium')}

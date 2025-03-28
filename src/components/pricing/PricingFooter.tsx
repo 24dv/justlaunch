@@ -1,22 +1,12 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const PricingFooter = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="mt-12 space-y-8 text-center"> {/* Increased space-y from 6 to 8 */}
-      <a
-        href="#contact"
-        className="inline-flex items-center text-[#0D503C] hover:text-[#0A4231] font-medium text-sm transition-colors duration-300 group"
-      >
-        {t('faq.contactUs')}
-        <ArrowRight 
-          className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" 
-        />
-      </a>
+    <div className="mt-12 text-center"> 
       <div className="w-full flex justify-center">
         <a
           href="#contact"
@@ -33,4 +23,3 @@ const PricingFooter = () => {
 };
 
 export default PricingFooter;
-

@@ -4,7 +4,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
 
 interface PlanCardProps {
-  planType: 'launch' | 'website' | 'premium';
+  planType: 'launch' | 'premium';
 }
 
 const PlanCard = ({ planType }: PlanCardProps) => {
@@ -15,30 +15,21 @@ const PlanCard = ({ planType }: PlanCardProps) => {
       <div className="p-8">
         <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
           {planType === 'launch' 
-            ? t('pricing.launch.title') 
-            : planType === 'website' 
-              ? 'Website Package' 
-              : t('pricing.premium.title')}
+            ? t('pricing.launch.title')
+            : t('pricing.premium.title')}
         </h3>
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl font-extrabold text-[#0D503C]">
             {planType === 'launch' 
-              ? t('pricing.launch.price') 
-              : planType === 'website' 
-                ? '990 €' 
-                : t('pricing.premium.price')}
+              ? t('pricing.launch.price')
+              : t('pricing.premium.price')}
           </span>
           <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'
-            ? t('pricing.launch.description')
-            : planType === 'website'
-              ? 'A professional website solution that represents your brand online.'
-              : t('pricing.premium.description')}
-        </p>
-        <p className="text-xs text-[#0D503C]/70 mb-4">
-          * Prices exclude VAT
+            ? 'Everything you need to launch a polished, professional brand — without the agency price tag.'
+            : 'Designed for founders who want to look sharp and stay consistent — with a multi-page site, custom visuals, and a clear style guide to tie it all together.'}
         </p>
         <a
           href="#contact"
@@ -47,43 +38,32 @@ const PlanCard = ({ planType }: PlanCardProps) => {
           {t('nav.getStarted')}
         </a>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
-          50% upfront, 50% upon delivery
+          No payment now — just reserve your spot.
         </p>
       </div>
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
-          {planType === 'launch' 
-            ? t('pricing.launch.includes') 
-            : planType === 'website' 
-              ? 'What\'s included:' 
-              : t('pricing.premium.includes')}
+          {planType === 'launch' ? 'INCLUDES:' : 'INCLUDES:'}
         </h4>
         <ul className="space-y-3">
           {planType === 'launch' ? (
             <>
-              <PlanFeatureItem text="1-page website" />
-              <PlanFeatureItem text="Logo design" />
-              <PlanFeatureItem text="Custom color palette" />
-              <PlanFeatureItem text="1 round of revisions" />
-              <PlanFeatureItem text="Fast delivery within 14 days" />
-            </>
-          ) : planType === 'website' ? (
-            <>
-              <PlanFeatureItem text="3-page website" />
-              <PlanFeatureItem text="Logo design" />
-              <PlanFeatureItem text="Custom color palette" />
-              <PlanFeatureItem text="Contact form" />
-              <PlanFeatureItem text="1 round of revisions" />
-              <PlanFeatureItem text="Fast delivery within 14 days" />
+              <PlanFeatureItem text="Custom 1-page website (like this one!)" />
+              <PlanFeatureItem text="Professional logo design" />
+              <PlanFeatureItem text="Tailored brand color palette" />
+              <PlanFeatureItem text="1 round of revision" />
+              <PlanFeatureItem text="Launch-ready in just 14 days" />
+              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
             </>
           ) : (
             <>
-              <PlanFeatureItem text="4-page website" />
+              <PlanFeatureItem text="Custom 4-page website" />
               <PlanFeatureItem text="Professional logo design" />
-              <PlanFeatureItem text="Brand style sheet (logo, color palette, typography)" />
+              <PlanFeatureItem text="Brand style guide (logo, colors, fonts)" />
               <PlanFeatureItem text="5 custom social media templates" />
               <PlanFeatureItem text="2 rounds of revisions" />
-              <PlanFeatureItem text="Fast delivery within 14 days" />
+              <PlanFeatureItem text="Launch-ready in just 14 days" />
+              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
             </>
           )}
         </ul>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ClipboardList, Lightbulb, FileEdit, Rocket } from 'lucide-react';
+import { ClipboardList, Lightbulb, Check, Rocket, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent } from './ui/card';
 
@@ -9,27 +9,27 @@ const ProcessSection = () => {
   
   const steps = [
     {
-      icon: <ClipboardList className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.step1.title'),
-      description: t('process.step1.description'),
+      icon: <MessageCircle className="h-10 w-10 text-[#F5F5E9]" />,
+      title: "Reach Out",
+      description: "Fill out a short form and book a quick intro call to align and secure your spot.",
       number: 1
     },
     {
       icon: <Lightbulb className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.step2.title'),
-      description: t('process.step2.description'),
+      title: "Share Your Vision",
+      description: "We'll send you a smart questionnaire to gather your brand direction, design style, and website content.",
       number: 2
     },
     {
-      icon: <FileEdit className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.step3.title'),
-      description: t('process.step3.description'),
+      icon: <Check className="h-10 w-10 text-[#F5F5E9]" />,
+      title: "Approve Designs",
+      description: "Review and select your logo + brand colors. Once approved, we'll design your website.",
       number: 3
     },
     {
       icon: <Rocket className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.step4.title'),
-      description: t('process.step4.description'),
+      title: "Launch",
+      description: "Your brand and site go live — all within 14 days of kickoff.",
       number: 4
     }
   ];
@@ -49,10 +49,10 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
-            {t('process.title')}
+            How It Works
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-2xl mx-auto">
-            {t('process.subtitle')}
+            We've streamlined the entire process — so you can launch a polished, professional brand in just days, not months.
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-8" />
         </div>
@@ -123,7 +123,7 @@ const ProcessSection = () => {
             href="#contact" 
             className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
           >
-            {t('nav.getStarted')}
+            Get Started
           </a>
         </div>
       </div>
