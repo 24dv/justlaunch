@@ -15,7 +15,7 @@ const HeroSection = () => {
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
         setIsAnimating(false);
       }, 500);
-    }, 3000); // Reverted back to original 3000ms interval
+    }, 2000); // Changed to 2000ms interval
     
     return () => clearInterval(interval);
   }, []);
