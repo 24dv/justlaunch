@@ -9,9 +9,9 @@ import PricingFooter from './pricing/PricingFooter';
 import { Plus } from 'lucide-react';
 
 const PricingSection = () => {
-  const [selectedPlan, setSelectedPlan] = useState<'launch' | 'premium'>('launch');
+  const [selectedPlan, setSelectedPlan] = useState<'launch' | 'website' | 'premium'>('website');
 
-  const togglePlan = (plan: 'launch' | 'premium') => {
+  const togglePlan = (plan: 'launch' | 'website' | 'premium') => {
     setSelectedPlan(plan);
   };
 

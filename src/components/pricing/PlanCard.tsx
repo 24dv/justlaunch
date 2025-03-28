@@ -4,7 +4,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
 
 interface PlanCardProps {
-  planType: 'launch' | 'premium';
+  planType: 'launch' | 'website' | 'premium';
 }
 
 const PlanCard = ({ planType }: PlanCardProps) => {
@@ -14,18 +14,28 @@ const PlanCard = ({ planType }: PlanCardProps) => {
     <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]">
       <div className="p-8">
         <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
-          {planType === 'launch' ? t('pricing.launch.title') : t('pricing.premium.title')}
+          {planType === 'launch' 
+            ? t('pricing.launch.title') 
+            : planType === 'website' 
+              ? 'Website Package' 
+              : t('pricing.premium.title')}
         </h3>
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl font-extrabold text-[#0D503C]">
-            {planType === 'launch' ? t('pricing.launch.price') : t('pricing.premium.price')}
+            {planType === 'launch' 
+              ? t('pricing.launch.price') 
+              : planType === 'website' 
+                ? '990 €' 
+                : t('pricing.premium.price')}
           </span>
           <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'
             ? t('pricing.launch.description')
-            : t('pricing.premium.description')}
+            : planType === 'website'
+              ? 'A professional website solution that represents your brand online.'
+              : t('pricing.premium.description')}
         </p>
         <p className="text-xs text-[#0D503C]/70 mb-4">
           * Prices exclude VAT
@@ -42,7 +52,11 @@ const PlanCard = ({ planType }: PlanCardProps) => {
       </div>
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
-          {planType === 'launch' ? t('pricing.launch.includes') : t('pricing.premium.includes')}
+          {planType === 'launch' 
+            ? t('pricing.launch.includes') 
+            : planType === 'website' 
+              ? 'What\'s included:' 
+              : t('pricing.premium.includes')}
         </h4>
         <ul className="space-y-3">
           {planType === 'launch' ? (
@@ -50,6 +64,15 @@ const PlanCard = ({ planType }: PlanCardProps) => {
               <PlanFeatureItem text="1-page website" />
               <PlanFeatureItem text="Logo design" />
               <PlanFeatureItem text="Custom color palette" />
+              <PlanFeatureItem text="1 round of revisions" />
+              <PlanFeatureItem text="Fast delivery within 14 days" />
+            </>
+          ) : planType === 'website' ? (
+            <>
+              <PlanFeatureItem text="3-page website" />
+              <PlanFeatureItem text="Logo design" />
+              <PlanFeatureItem text="Custom color palette" />
+              <PlanFeatureItem text="Contact form" />
               <PlanFeatureItem text="1 round of revisions" />
               <PlanFeatureItem text="Fast delivery within 14 days" />
             </>
