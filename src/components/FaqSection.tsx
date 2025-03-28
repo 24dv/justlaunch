@@ -34,6 +34,10 @@ const FaqSection = () => {
     {
       question: t('faq.question6.title'),
       answer: t('faq.question6.answer')
+    },
+    {
+      question: t('faq.question7.title'),
+      answer: t('faq.question7.answer')
     }
   ];
 
