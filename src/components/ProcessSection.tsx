@@ -10,26 +10,26 @@ const ProcessSection = () => {
   const steps = [
     {
       icon: <MessageCircle className="h-10 w-10 text-[#F5F5E9]" />,
-      title: "Reach Out",
-      description: "Fill out a short form and book a quick intro call to align and secure your spot.",
+      title: t('process.reachOut'),
+      description: t('process.reachOutDesc'),
       number: 1
     },
     {
       icon: <Lightbulb className="h-10 w-10 text-[#F5F5E9]" />,
-      title: "Share Your Vision",
-      description: "We'll send you a smart questionnaire to gather your brand direction, design style, and website content.",
+      title: t('process.shareVision'),
+      description: t('process.shareVisionDesc'),
       number: 2
     },
     {
       icon: <Check className="h-10 w-10 text-[#F5F5E9]" />,
-      title: "Approve Designs",
-      description: "Review and select your logo + brand colors. Once approved, we'll design your website.",
+      title: t('process.approveDesigns'),
+      description: t('process.approveDesignsDesc'),
       number: 3
     },
     {
       icon: <Rocket className="h-10 w-10 text-[#F5F5E9]" />,
-      title: "Launch",
-      description: "Your brand and site go live — all within 14 days of kickoff.",
+      title: t('process.launch'),
+      description: t('process.launchDesc'),
       number: 4
     }
   ];
@@ -49,10 +49,10 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
-            How It Works
+            {t('process.howItWorks')}
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-2xl mx-auto">
-            We've streamlined the entire process — so you can launch a polished, professional brand in just days, not months.
+            {t('process.streamlined')}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-8" />
         </div>
@@ -123,7 +123,7 @@ const ProcessSection = () => {
             href="#contact" 
             className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
           >
-            Get Started
+            {t('process.getStarted')}
           </a>
         </div>
       </div>
