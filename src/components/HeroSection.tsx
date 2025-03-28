@@ -3,8 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
-  const { t } = useLanguage();
-  const rotatingWords = ['Startup', 'Brand', 'Project', 'Dream', 'Venture'];
+  const { t, language } = useLanguage();
+  
+  // Define rotating words based on the language
+  const rotatingWords = language === 'en' 
+    ? ['Startup', 'Brand', 'Project', 'Dream', 'Venture']
+    : ['Startup', 'Merk', 'Project', 'Droom', 'Onderneming'];
+    
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -18,9 +23,9 @@ const HeroSection = () => {
     }, 1300); // Changed to 1300ms interval
     
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingWords.length]);
   
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -41,19 +46,18 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
-            Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+            {language === 'en' ? 'Launch Your ' : 'Lanceer Je '}
+            <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
               <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                 {rotatingWords[currentWordIndex]}
               </span>
             </span>
             <br />
-            Fast—From Idea to 
-            <br />
-            Online in Days!
+            {t('hero.title').split('—')[1]}
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
-            Get a professional logo and website for just €1,500 <span className="text-xs">(+ VAT)</span>. Transparent cost, no hassle.
+            {t('hero.subtitle')}
           </p>
           
           <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
@@ -62,12 +66,12 @@ const HeroSection = () => {
             onClick={() => scrollToSection('contact')}
             className="animate-scale-up animate-delay-300 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base md:text-lg font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C] mb-8 border-2 border-[#F5F5E9]/20"
           >
-            I'm Ready to Launch
+            {t('hero.readyToLaunch')}
           </button>
           
           <div className="animate-fade-in animate-delay-500 text-center w-full mt-4">
             <p className="text-sm text-[#0D503C] font-medium">
-              Get started in just a few clicks
+              {t('hero.getStarted')}
             </p>
           </div>
         </div>

@@ -10,10 +10,15 @@ import TestimonialSection from '../components/TestimonialSection';
 import FaqSection from '../components/FaqSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Index = () => {
+  const { language } = useLanguage();
+  
   useEffect(() => {
-    document.title = "Launch Your Brand Fast | Professional Design & Web Services";
+    document.title = language === 'en' 
+      ? "Launch Your Brand Fast | Professional Design & Web Services"
+      : "Lanceer Je Merk Snel | Professioneel Ontwerp & Webdiensten";
     
     // Smooth scroll to section when URL contains hash - but with a slight delay for better performance
     if (window.location.hash) {
@@ -61,7 +66,7 @@ const Index = () => {
     return () => {
       window.removeEventListener('load', setupScrollAnimations);
     };
-  }, []);
+  }, [language]);
   
   return (
     <div className="min-h-screen bg-[#F5F5E9] text-[#0D503C] antialiased">

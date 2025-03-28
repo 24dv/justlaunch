@@ -9,12 +9,12 @@ const FeatureSection = () => {
   const features = [
     {
       icon: <Palette className="h-8 w-8 text-[#0D503C]" />,
-      title: "Professional logo and brand colors",
-      description: "Stand out from day one with a logo and colors that reflect your brand identity and values.",
+      title: t('features.logoDesign.title'),
+      description: t('features.logoDesign.description'),
     },
     {
       icon: <Globe className="h-8 w-8 text-[#0D503C]" />,
-      title: "Customised single-page website",
+      title: t('features.landingSite.title'),
       description: t('features.landingSite.description'),
     },
     {
@@ -24,18 +24,18 @@ const FeatureSection = () => {
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-[#0D503C]" />,
-      title: "Simple process",
-      description: "A streamlined process powered by expert designers and smart AI tools.",
+      title: t('features.process.title'),
+      description: t('features.process.description'),
     },
     {
       icon: <Euro className="h-8 w-8 text-[#0D503C]" />,
-      title: "Affordable pricing",
-      description: "Top-tier design for €1,500 — and €10/mo for fast, secure hosting & peace of mind.",
+      title: t('features.pricing.title'),
+      description: t('features.pricing.description'),
     },
     {
       icon: <Zap className="h-8 w-8 text-[#0D503C]" />,
-      title: "Tried, Tested, Trusted",
-      description: "Dozens of brands launched fast, built to look and feel pro.",
+      title: t('features.trusted.title'),
+      description: t('features.trusted.description'),
     },
   ];
 
@@ -47,7 +47,7 @@ const FeatureSection = () => {
             {t('features.title')}
           </h2>
           <p className="text-xl text-[#0D503C]/80">
-            Whether you're a founder with a bold idea, a freelancer leveling up, or launching a side hustle — this is for you. Our Launch Package gets you live fast, without the stress or wait.
+            {t('features.subtitle')}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>

@@ -200,7 +200,7 @@ const ContactForm = () => {
               </span>
             ) : (
               <span className="flex items-center">
-                Book My Spot
+                {t('contact.form.submit')}
                 <Send className="ml-2 h-4 w-4" />
               </span>
             )}
