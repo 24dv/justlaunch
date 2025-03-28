@@ -53,7 +53,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
-            Get a professional logo and website for just €1,500 <span className="text-sm">(+ VAT)</span>. Transparent cost, no hassle.
+            Get a professional logo and website for just €1,500 <span className="text-xs">(+ VAT)</span>. Transparent cost, no hassle.
           </p>
           
           <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
@@ -65,7 +65,7 @@ const HeroSection = () => {
             I'm Ready to Launch
           </button>
           
-          <div className="animate-fade-in animate-delay-500 text-center w-full">
+          <div className="animate-fade-in animate-delay-500 text-center w-full mt-4">
             <p className="text-sm text-[#0D503C] font-medium">
               Get started in just a few clicks
             </p>
