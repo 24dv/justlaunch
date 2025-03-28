@@ -65,7 +65,7 @@ const FaqSection = () => {
                 <AccordionTrigger className="p-5 text-lg font-medium text-[#0D503C] font-serif hover:text-[#0D503C]/80 hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-5 pb-5 pt-0 text-[#0D503C]/80">
+                <AccordionContent className="px-5 pb-5 pt-0 text-lg text-[#0D503C]/80">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -74,8 +74,8 @@ const FaqSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-[#0D503C]/80 mb-6">
-            {t('faq.moreQuestions')}
+          <p className="text-lg text-[#0D503C]/80 mb-6">
+            Still have questions? We're here to help!
           </p>
           <a
             href="#contact"
