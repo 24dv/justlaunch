@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -8,6 +7,15 @@ const Footer = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
   
+  useEffect(() => {
+    console.log('Logo image path:', '/public/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png');
+    
+    const img = new Image();
+    img.onload = () => console.log('Logo image loaded successfully');
+    img.onerror = () => console.error('Logo image failed to load');
+    img.src = '/public/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png';
+  }, []);
+
   const scrollToSection = (id) => {
     navigate('/');
     setTimeout(() => {
@@ -27,7 +35,7 @@ const Footer = () => {
               <img 
                 src="/public/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png" 
                 alt="Just Launch Logo" 
-                className="h-12 mb-4" 
+                className="h-12 mb-4 object-contain"
               />
             </div>
             <p className="text-[#F5F5E9]/80 mb-6 max-w-md">
