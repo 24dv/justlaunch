@@ -11,12 +11,10 @@ const Navbar = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    console.log('Logo image path:', '/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png');
-    
     const img = new Image();
     img.onload = () => console.log('Logo image loaded successfully');
     img.onerror = () => console.error('Logo image failed to load');
-    img.src = '/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png';
+    img.src = '/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png';
   }, []);
 
   const toggleMenu = () => {
@@ -66,7 +64,6 @@ const Navbar = () => {
     { name: t('nav.process'), id: 'process' },
     { name: t('nav.pricing'), id: 'pricing' },
     { name: t('nav.faq'), id: 'faq' },
-    { name: t('nav.contact'), id: 'contact' },
   ];
 
   return (
@@ -82,9 +79,9 @@ const Navbar = () => {
           onClick={() => window.scrollTo(0, 0)}
         >
           <img 
-            src="/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png" 
+            src="/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png" 
             alt="Just Launch Logo" 
-            className="h-32 object-contain"
+            className="h-44 object-contain"
           />
         </Link>
 
@@ -158,4 +155,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
