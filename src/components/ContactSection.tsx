@@ -6,7 +6,7 @@ import ContactInfoSection from './contact/ContactInfoSection';
 import ContactForm from './contact/ContactForm';
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <section id="contact" className="section-padding bg-[#F5F5E9]">

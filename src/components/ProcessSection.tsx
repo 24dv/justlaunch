@@ -5,9 +5,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent } from './ui/card';
 
 const ProcessSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
-  const steps = [
+  const stepsEN = [
     {
       icon: <MessageCircle className="h-10 w-10 text-[#F5F5E9]" />,
       title: "Reach Out",
@@ -34,6 +34,35 @@ const ProcessSection = () => {
     }
   ];
 
+  const stepsNL = [
+    {
+      icon: <MessageCircle className="h-10 w-10 text-[#F5F5E9]" />,
+      title: "Neem Contact Op",
+      description: "Vul een kort formulier in en boek een snelle introgesprek om af te stemmen en je plek te reserveren.",
+      number: 1
+    },
+    {
+      icon: <Lightbulb className="h-10 w-10 text-[#F5F5E9]" />,
+      title: "Deel Je Visie",
+      description: "We sturen je een slimme vragenlijst om je merkrichting, ontwerpstijl en website-inhoud te verzamelen.",
+      number: 2
+    },
+    {
+      icon: <Check className="h-10 w-10 text-[#F5F5E9]" />,
+      title: "Keur Ontwerpen Goed",
+      description: "Bekijk en selecteer je logo + merkkleuren. Na goedkeuring ontwerpen we je website.",
+      number: 3
+    },
+    {
+      icon: <Rocket className="h-10 w-10 text-[#F5F5E9]" />,
+      title: "Lanceer",
+      description: "Je merk en site gaan live — allemaal binnen 14 dagen na de start.",
+      number: 4
+    }
+  ];
+  
+  const steps = language === 'nl' ? stepsNL : stepsEN;
+
   return (
     <section id="process" className="section-padding py-24 relative overflow-hidden">
       {/* Base section background - lowest z-index */}
@@ -49,10 +78,12 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
-            How It Works
+            {language === 'nl' ? 'Hoe Het Werkt' : 'How It Works'}
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-2xl mx-auto">
-            We've streamlined the entire process — so you can launch a polished, professional brand in just days, not months.
+            {language === 'nl' 
+              ? 'We hebben het hele proces gestroomlijnd — zodat je in slechts dagen, niet maanden, een gepolijst, professioneel merk kunt lanceren.'
+              : 'We\'ve streamlined the entire process — so you can launch a polished, professional brand in just days, not months.'}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-8" />
         </div>
@@ -123,7 +154,7 @@ const ProcessSection = () => {
             href="#contact" 
             className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
           >
-            Get Started
+            {language === 'nl' ? 'Begin Nu' : 'Get Started'}
           </a>
         </div>
       </div>
