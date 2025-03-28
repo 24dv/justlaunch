@@ -14,8 +14,8 @@ const HeroSection = () => {
       setTimeout(() => {
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
         setIsAnimating(false);
-      }, 500); // Wait for fade out before changing word
-    }, 1500); // Change word every 1.5 seconds, down from 3 seconds
+      }, 500);
+    }, 1500);
     
     return () => clearInterval(interval);
   }, []);
@@ -48,24 +48,24 @@ const HeroSection = () => {
               </span>
             </span>{' '}
             <br className="hidden sm:block" />
-            Fast—From Idea to<br />
+            Fast—From Concept to<br />
             Online in Days!
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
-            Get a professional logo and website for just €1,500 (+ VAT). Transparent cost, no hassle.
+            Get a professional logo and website for just €1,500 <span className="text-sm">(+ VAT)</span>. Transparent cost, no hassle.
           </p>
           
           <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
           
           <button 
             onClick={() => scrollToSection('contact')}
-            className="animate-scale-up animate-delay-300 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base md:text-lg font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C] mb-16 border-2 border-[#F5F5E9]/20"
+            className="animate-scale-up animate-delay-300 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base md:text-lg font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C] mb-8 border-2 border-[#F5F5E9]/20"
           >
             I'm Ready to Launch
           </button>
           
-          <div className="animate-fade-in animate-delay-500 absolute bottom-10 left-0 right-0 flex justify-center">
+          <div className="animate-fade-in animate-delay-500 text-center w-full">
             <p className="text-sm text-[#0D503C] font-medium">
               Get started in just a few clicks
             </p>
