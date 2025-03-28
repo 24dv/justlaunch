@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const rotatingWords = ['Brand', 'Project', 'Startup', 'Side Hustle'];
+  const rotatingWords = ['Startup', 'Brand', 'Passion Project', 'Side Hustle'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -42,16 +42,12 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
             Launch Your{' '}
-            <br />
             <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
               <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                 {rotatingWords[currentWordIndex]}
               </span>
             </span>{' '}
-            <br />
-            Fast—From Idea to{' '}
-            <br />
-            Online in Days!
+            in Days, Not Months.
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
