@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -36,7 +35,8 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/f7fa1b2c-fd5b-4193-9e41-ab177f4a7592.png" 
                 alt="Just Launch Logo" 
-                className="h-12 mb-4 object-contain"
+                className="h-20 mb-4 object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
               />
             </div>
             <p className="text-[#F5F5E9]/80 mb-6 max-w-md">
