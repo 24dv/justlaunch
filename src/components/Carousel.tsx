@@ -20,13 +20,13 @@ const PortfolioCarousel = () => {
       id: 1,
       title: "Holistic Sleep Coach",
       description: "Holistic sleep coaching brand with website design",
-      imageUrl: "/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
+      imageUrl: "/justlaunch/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
     },
     {
       id: 2,
       title: "Pet Grooming Service",
       description: "Premium pet grooming brand with logo and website",
-      imageUrl: "/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
+      imageUrl: "/justlaunch/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
     },
     {
       id: 3,
@@ -50,7 +50,7 @@ const PortfolioCarousel = () => {
       id: 6,
       title: "Social Media Campaign",
       description: "Engaging content strategy across multiple platforms",
-      imageUrl: "/lovable-uploads/2d922fc8-97a4-412e-b125-f30c43a4641f.png"
+      imageUrl: "/justlaunch/lovable-uploads/2d922fc8-97a4-412e-b125-f30c43a4641f.png"
     }
   ];
 
