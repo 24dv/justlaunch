@@ -14,30 +14,30 @@ const PaymentPlanCard = () => {
       </div>
       <div className="p-8 mt-4">
         <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
-          {t('pricing.paymentPlan.title')}
+          Easy Monthly Payments
         </h3>
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl font-extrabold text-[#0D503C]">
-            {t('pricing.paymentPlan.price')}
+            €833
           </span>
           <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
-          {t('pricing.paymentPlan.description')}
+          Get started with a lower upfront cost. Same great service, split into manageable monthly payments.
         </p>
         <a
           href="#contact"
           className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7] border border-[#0D503C]/20 text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/80 transition-colors"
         >
-          {t('pricing.paymentPlan.cta')}
+          Choose Payment Plan
         </a>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
-          {t('pricing.paymentPlan.tagline')}
+          No payment now — just reserve your spot.
         </p>
       </div>
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
-          {t('pricing.paymentPlan.howItWorks')}
+          How it works:
         </h4>
         <ul className="space-y-4">
           <li className="flex items-start">
@@ -46,7 +46,7 @@ const PaymentPlanCard = () => {
             </div>
             <div>
               <p className="text-[#0D503C]/80">
-                {t('pricing.paymentPlan.step1')}
+                Pay €833 to start your project
               </p>
             </div>
           </li>
@@ -56,7 +56,7 @@ const PaymentPlanCard = () => {
             </div>
             <div>
               <p className="text-[#0D503C]/80">
-                {t('pricing.paymentPlan.step2')}
+                Second payment of €833 one month after project start
               </p>
             </div>
           </li>
@@ -66,14 +66,14 @@ const PaymentPlanCard = () => {
             </div>
             <div>
               <p className="text-[#0D503C]/80">
-                {t('pricing.paymentPlan.step3')}
+                Final payment of €834 one month after second payment
               </p>
             </div>
           </li>
         </ul>
         <div className="mt-6 pt-6 border-t border-[#0D503C]/20">
           <p className="text-sm text-[#0D503C]/70">
-            {t('pricing.paymentPlan.note')}
+            Available exclusively for the Premium Package. Total cost remains the same (€2,500).
           </p>
         </div>
       </div>

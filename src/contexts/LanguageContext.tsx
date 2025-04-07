@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -58,7 +57,6 @@ const translations = {
     "carousel.previous": "Previous",
     "carousel.next": "Next",
     "carousel.goToSlide": "Go to slide",
-    "carousel.viewMore": "View our full portfolio for more examples",
 
     // Process Section
     "process.title": "How It Works",
@@ -99,25 +97,6 @@ const translations = {
     "pricing.premium.feature6": "Launch-ready in just 14 days",
     "pricing.premium.feature7": "Built by pro designers, based in Belgium 🇧🇪",
     "pricing.noPayment": "No payment now — just reserve your spot.",
-    "pricing.maintenance.title": "Ongoing Maintenance & Security",
-    "pricing.maintenance.price": "€10",
-    "pricing.maintenance.period": "/ month + VAT",
-    "pricing.maintenance.description": "We keep your website online, secure, and running smoothly—so you don't have to worry about a thing.",
-    "pricing.maintenance.includes": "What's Included",
-    "pricing.maintenance.feature1": "Website hosting",
-    "pricing.maintenance.feature2": "Security monitoring",
-    "pricing.maintenance.feature3": "Regular software updates",
-    "pricing.maintenance.feature4": "Performance optimization",
-    "pricing.paymentPlan.title": "Easy Monthly Payments",
-    "pricing.paymentPlan.price": "€833",
-    "pricing.paymentPlan.description": "Get started with a lower upfront cost. Same great service, split into manageable monthly payments.",
-    "pricing.paymentPlan.cta": "Choose Payment Plan",
-    "pricing.paymentPlan.tagline": "No payment now — just reserve your spot.",
-    "pricing.paymentPlan.howItWorks": "How it works:",
-    "pricing.paymentPlan.step1": "Pay €833 to start your project",
-    "pricing.paymentPlan.step2": "Second payment of €833 one month after project start",
-    "pricing.paymentPlan.step3": "Final payment of €834 one month after second payment",
-    "pricing.paymentPlan.note": "Available exclusively for the Premium Package. Total cost remains the same (€2,500).",
 
     // Testimonials Section
     "testimonials.title": "What Our Clients Say",
@@ -181,7 +160,7 @@ const translations = {
   },
   nl: {
     // Navigation
-    "nav.features": "Kenmerken",
+    "nav.features": "Functies",
     "nav.work": "Portfolio",
     "nav.process": "Proces",
     "nav.pricing": "Prijzen",
@@ -192,7 +171,7 @@ const translations = {
     // Hero Section
     "hero.badge": "Nieuw",
     "hero.badgeText": "Lanceer je merk in dagen, niet maanden",
-    "hero.title": "Launch Your Brand Fast—From Idea to Online in Days!", // Keeping this in English as requested
+    "hero.title": "Lanceer Je Merk Snel—Van Idee naar Online in Dagen!",
     "hero.subtitle": "Krijg een professioneel logo en landingspagina voor slechts €1.500. Geen verborgen kosten, geen gedoe.",
     "hero.cta": "Begin Vandaag",
     "hero.scroll": "Scroll voor meer informatie",
@@ -221,20 +200,18 @@ const translations = {
     "carousel.previous": "Vorige",
     "carousel.next": "Volgende",
     "carousel.goToSlide": "Ga naar slide",
-    "carousel.viewMore": "Bekijk ons volledige portfolio voor meer voorbeelden",
 
     // Process Section
     "process.title": "Hoe Het Werkt",
-    "process.subtitle": "We hebben het hele proces gestroomlijnd — zodat je in slechts dagen, niet maanden, een gepolijst, professioneel merk kunt lanceren.",
-    "process.step1.title": "Neem Contact Op",
-    "process.step1.description": "Vul een kort formulier in en plan een snelle introductiegesprek om af te stemmen en je plek te reserveren.",
-    "process.step2.title": "Deel Je Visie",
-    "process.step2.description": "We sturen je een slimme vragenlijst om je merkrichting, ontwerpstijl en website-inhoud te verzamelen.",
-    "process.step3.title": "Keur Ontwerpen Goed",
-    "process.step3.description": "Bekijk en kies je logo + merkkleuren. Na goedkeuring ontwerpen we je website.",
+    "process.subtitle": "Ons gestroomlijnde proces brengt je van concept naar lancering met minimale inspanning van jouw kant.",
+    "process.step1.title": "Aanmelden",
+    "process.step1.description": "Vul het formulier in en begin direct met je project.",
+    "process.step2.title": "Ontwerpconsultatie",
+    "process.step2.description": "Deel je ideeën en visie met onze ontwerpers via een gedetailleerde briefing.",
+    "process.step3.title": "Ontvang Concepten",
+    "process.step3.description": "We maken een logo en landingspagina specifiek voor jouw bedrijf.",
     "process.step4.title": "Lancering",
-    "process.step4.description": "Je merk en site gaan live — allemaal binnen 14 dagen na de start.",
-    "process.getStarted": "Begin Nu",
+    "process.step4.description": "Finaliseer en ga live met je nieuwe merk in slechts 14 dagen!",
 
     // Pricing Section
     "pricing.title": "Transparante Prijzen, Geen Verrassingen",
@@ -262,25 +239,6 @@ const translations = {
     "pricing.premium.feature6": "Klaar voor lancering in slechts 14 dagen",
     "pricing.premium.feature7": "Gemaakt door professionele ontwerpers, gevestigd in België 🇧🇪",
     "pricing.noPayment": "Geen betaling nu — reserveer gewoon je plek.",
-    "pricing.maintenance.title": "Doorlopend Onderhoud & Beveiliging",
-    "pricing.maintenance.price": "€10",
-    "pricing.maintenance.period": "/ maand + BTW",
-    "pricing.maintenance.description": "We houden je website online, veilig en soepel draaiend—zodat jij je nergens zorgen over hoeft te maken.",
-    "pricing.maintenance.includes": "Wat Is Inbegrepen",
-    "pricing.maintenance.feature1": "Website hosting",
-    "pricing.maintenance.feature2": "Beveiligingsmonitoring",
-    "pricing.maintenance.feature3": "Regelmatige software-updates",
-    "pricing.maintenance.feature4": "Prestatie-optimalisatie",
-    "pricing.paymentPlan.title": "Gemakkelijke Maandelijkse Betalingen",
-    "pricing.paymentPlan.price": "€833",
-    "pricing.paymentPlan.description": "Begin met lagere aanvangskosten. Dezelfde uitstekende service, verdeeld in beheersbare maandelijkse betalingen.",
-    "pricing.paymentPlan.cta": "Kies Betalingsplan",
-    "pricing.paymentPlan.tagline": "Geen betaling nu — reserveer gewoon je plek.",
-    "pricing.paymentPlan.howItWorks": "Hoe het werkt:",
-    "pricing.paymentPlan.step1": "Betaal €833 om je project te starten",
-    "pricing.paymentPlan.step2": "Tweede betaling van €833 één maand na projectstart",
-    "pricing.paymentPlan.step3": "Laatste betaling van €834 één maand na tweede betaling",
-    "pricing.paymentPlan.note": "Exclusief beschikbaar voor het Premium Pakket. Totale kosten blijven hetzelfde (€2.500).",
 
     // Testimonials Section
     "testimonials.title": "Wat Onze Klanten Zeggen",
