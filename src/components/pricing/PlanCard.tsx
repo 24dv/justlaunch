@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -33,6 +34,13 @@ const PlanCard = ({ planType, onGetStarted }: PlanCardProps) => {
 
   const cardClass = "bg-[#F5F5E9] rounded-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]";
 
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={`${cardClass} overflow-hidden relative`}>
       <div className="p-8">
@@ -57,13 +65,13 @@ const PlanCard = ({ planType, onGetStarted }: PlanCardProps) => {
           ))}
         </ul>
       
-      <button 
-        onClick={onGetStarted}
-        className="block w-full py-3 px-4 rounded-lg bg-[#0D503C] text-[#F5F5E9] text-center font-medium hover:bg-[#0D503C]/90 transition-colors"
-      >
-        {t('nav.getStarted')}
-      </button>
-      
+        <button 
+          onClick={onGetStarted}
+          className="block w-full py-3 px-4 rounded-lg bg-[#0D503C] text-[#F5F5E9] text-center font-medium hover:bg-[#0D503C]/90 transition-colors"
+        >
+          {t('nav.getStarted')}
+        </button>
+      </div>
     </div>
   );
 };
