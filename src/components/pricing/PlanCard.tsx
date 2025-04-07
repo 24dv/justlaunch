@@ -8,7 +8,7 @@ interface PlanCardProps {
 }
 
 const PlanCard = ({ planType }: PlanCardProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]">
@@ -24,7 +24,7 @@ const PlanCard = ({ planType }: PlanCardProps) => {
               ? t('pricing.launch.price')
               : t('pricing.premium.price')}
           </span>
-          <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
+          <span className="ml-2 text-[#0D503C]/70">{language === 'en' ? "+ VAT" : "+ BTW"}</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'

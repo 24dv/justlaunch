@@ -20,37 +20,31 @@ const PortfolioCarousel = () => {
     {
       id: 1,
       title: "Holistic Sleep Coach",
-      description: "Holistic sleep coaching brand with website design",
       imageUrl: "/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
     },
     {
       id: 2,
       title: "Pet Grooming Service",
-      description: "Premium pet grooming brand with logo and website",
       imageUrl: "/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
     },
     {
       id: 3,
       title: "Corporate Website",
-      description: "Modern web presence for a financial consulting firm",
       imageUrl: "/placeholder.svg"
     },
     {
       id: 4,
       title: "Product Launch",
-      description: "Promotional content for a tech startup's flagship product",
       imageUrl: "/placeholder.svg"
     },
     {
       id: 5,
       title: "Brand Identity",
-      description: "Complete visual identity for an eco-friendly cosmetics line",
       imageUrl: "/placeholder.svg"
     },
     {
       id: 6,
       title: "Social Media Campaign",
-      description: "Engaging content strategy across multiple platforms",
       imageUrl: "/lovable-uploads/2d922fc8-97a4-412e-b125-f30c43a4641f.png"
     }
   ];
@@ -92,9 +86,8 @@ const PortfolioCarousel = () => {
                           loading="lazy"
                         />
                       </AspectRatio>
-                      <div className="p-5">
+                      <div className="p-3">
                         <h3 className="text-xl font-semibold text-[#F5F5E9]">{item.title}</h3>
-                        <p className="text-md text-[#F5F5E9]/70 mt-2">{item.description}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -112,12 +105,6 @@ const PortfolioCarousel = () => {
               <ArrowRight className="h-4 w-4" />
             </CarouselNext>
           </Carousel>
-        </div>
-
-        <div className="text-center mt-10">
-          <p className="text-[#0D503C]/80 italic">
-            {t('carousel.viewMore')}
-          </p>
         </div>
       </div>
     </section>

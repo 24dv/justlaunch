@@ -7,9 +7,11 @@ import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import { Plus } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PricingSection = () => {
   const [selectedPlan, setSelectedPlan] = useState<'launch' | 'premium'>('launch');
+  const { t } = useLanguage();
 
   const togglePlan = (plan: 'launch' | 'premium') => {
     setSelectedPlan(plan);

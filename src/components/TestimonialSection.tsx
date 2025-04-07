@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,41 +6,41 @@ const testimonials = [
   {
     id: 1,
     content: {
-      en: "Working with the team was a game-changer for our startup. The logo and landing page they created helped us secure our first round of funding. Incredible value for the price!",
-      nl: "De samenwerking met het team was een game-changer voor onze startup. Het logo en de landingspagina die ze hebben gemaakt, hebben ons geholpen bij het verkrijgen van onze eerste financieringsronde. Ongelooflijke waarde voor de prijs!"
+      en: "Because of the price, I was skeptical at first (I got quoted €12k for the same deliverables at another agency). But the logo and website they created for us were perfect—and helped us secure our first round of funding. Incredible value for the price!",
+      nl: "Vanwege de prijs was ik eerst sceptisch (ik kreeg een offerte van €12k voor dezelfde leveringen bij een ander bureau). Maar het logo en de website die ze voor ons hebben gemaakt waren perfect - en hebben ons geholpen bij het verkrijgen van onze eerste financieringsronde. Ongelooflijke waarde voor de prijs!"
     },
-    author: "Sarah Johnson",
+    author: "Frank Claessen",
     position: {
-      en: "Founder, EcoTech Solutions",
-      nl: "Oprichter, EcoTech Solutions"
-    },
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    rating: 5
-  },
-  {
-    id: 2,
-    content: {
-      en: "I needed a brand identity quickly for my coaching business, and they delivered beyond my expectations. The process was smooth, and the designs were exactly what I envisioned.",
-      nl: "Ik had snel een merkidentiteit nodig voor mijn coachingbedrijf, en ze hebben boven mijn verwachtingen geleverd. Het proces verliep soepel en de ontwerpen waren precies wat ik voor ogen had."
-    },
-    author: "Michael Chen",
-    position: {
-      en: "Executive Coach",
-      nl: "Executive Coach"
+      en: "Co-founder Ventura Studio",
+      nl: "Medeoprichter Ventura Studio"
     },
     avatar: "https://randomuser.me/api/portraits/men/35.jpg",
     rating: 5
   },
   {
+    id: 2,
+    content: {
+      en: "We needed a website and brand identity quickly for a passion project that took off way faster than expected, and they delivered beyond our expectations. The process was smooth, and the designs were exactly what we hoped for.",
+      nl: "We hadden snel een website en merkidentiteit nodig voor een passieproject dat veel sneller van de grond kwam dan verwacht, en ze hebben boven onze verwachtingen geleverd. Het proces verliep soepel en de ontwerpen waren precies wat we hoopten."
+    },
+    author: "Tania Valle",
+    position: {
+      en: "Co-founder Drink&Draw",
+      nl: "Medeoprichter Drink&Draw"
+    },
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    rating: 5
+  },
+  {
     id: 3,
     content: {
-      en: "The payment plan option made this service accessible for my bootstrapped startup. We now have a professional brand that stands out in our competitive industry.",
-      nl: "De betalingsplanoptie maakte deze dienst toegankelijk voor mijn bootstrapped startup. We hebben nu een professioneel merk dat opvalt in onze competitieve branche."
+      en: "The payment plan option made this service accessible for my business as I was just starting out. Thanks to Just Launch I now have a professional brand that stands out in a competitive industry.",
+      nl: "De betalingsplanoptie maakte deze dienst toegankelijk voor mijn bedrijf toen ik net begon. Dankzij Just Launch heb ik nu een professioneel merk dat opvalt in een competitieve branche."
     },
-    author: "Emma Rodriguez",
+    author: "Herminio Matos",
     position: {
-      en: "CEO, FitLife App",
-      nl: "CEO, FitLife App"
+      en: "Founder HGM Electricity",
+      nl: "Oprichter HGM Electricity"
     },
     avatar: "https://randomuser.me/api/portraits/women/63.jpg",
     rating: 5

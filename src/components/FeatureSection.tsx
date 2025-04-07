@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CheckCircle, Clock, Palette, Globe, Euro, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
