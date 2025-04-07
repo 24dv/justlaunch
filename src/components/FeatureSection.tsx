@@ -56,7 +56,7 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="p-6 rounded-xl bg-[#F5F5E9] transition-all duration-300 ease-in-out border-2 border-[#0D503C] hover:shadow-md opacity-0"
+              className="p-6 rounded-xl bg-[#F5F5E9] transition-all duration-300 ease-in-out border-2 border-[#0D503C] hover:shadow-md"
               style={{
                 animation: 'scaleUp 0.5s ease-out forwards',
                 animationDelay: `${index * 100 + 100}ms`

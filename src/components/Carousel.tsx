@@ -87,7 +87,7 @@ const PortfolioCarousel = () => {
                         />
                       </AspectRatio>
                       <div className="p-3">
-                        <h3 className="text-xl font-semibold text-[#F5F5E9]">{item.title}</h3>
+                        <h3 className="text-xl font-medium text-[#F5F5E9]">{item.title}</h3>
                       </div>
                     </CardContent>
                   </Card>

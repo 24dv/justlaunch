@@ -69,7 +69,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
-            {t('hero.subtitle')} <span className="text-sm md:text-lg">{language === 'en' ? '(+ VAT)' : '(+ BTW)'}</span>
+            {t('hero.subtitle')} <span className="text-xs md:text-sm">{language === 'en' ? '(+ VAT)' : '(+ BTW)'}</span>
           </p>
           
           <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
