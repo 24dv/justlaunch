@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useIsMobile } from '../hooks/use-mobile';
 import { 
   Carousel,
   CarouselContent,
@@ -14,6 +15,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const PortfolioCarousel = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   
   // Portfolio examples with real data
   const portfolioItems = [
@@ -51,7 +53,7 @@ const PortfolioCarousel = () => {
 
   return (
     <section id="portfolio" className="section-padding bg-[#F5F5E9] py-16">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-serif font-bold text-[#0D503C] mb-4">
             {t('carousel.title')}
@@ -62,7 +64,7 @@ const PortfolioCarousel = () => {
           <div className="w-24 h-1 bg-[#F9A7A7] mx-auto mt-6" />
         </div>
 
-        <div className="relative px-10">
+        <div className="relative px-4 sm:px-10">
           <Carousel
             opts={{
               align: "start",
@@ -70,11 +72,11 @@ const PortfolioCarousel = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4 md:-ml-6">
+            <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6">
               {portfolioItems.map((item) => (
                 <CarouselItem 
                   key={item.id} 
-                  className="pl-4 md:pl-6 sm:basis-1/1 md:basis-1/2 lg:basis-1/2"
+                  className="pl-2 sm:pl-4 md:pl-6 basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/3"
                 >
                   <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg bg-[#0D503C]">
                     <CardContent className="p-0">
@@ -86,8 +88,8 @@ const PortfolioCarousel = () => {
                           loading="lazy"
                         />
                       </AspectRatio>
-                      <div className="p-3">
-                        <h3 className="text-sm font-medium text-[#F5F5E9]">{item.title}</h3>
+                      <div className="p-4">
+                        <h3 className="text-base font-medium text-[#F5F5E9]">{item.title}</h3>
                       </div>
                     </CardContent>
                   </Card>
@@ -95,12 +97,12 @@ const PortfolioCarousel = () => {
               ))}
             </CarouselContent>
             <CarouselPrevious 
-              className="left-0 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 border-none"
+              className="left-0 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 border-none hidden sm:flex"
             >
               <ArrowLeft className="h-4 w-4" />
             </CarouselPrevious>
             <CarouselNext 
-              className="right-0 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 border-none"
+              className="right-0 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 border-none hidden sm:flex"
             >
               <ArrowRight className="h-4 w-4" />
             </CarouselNext>
