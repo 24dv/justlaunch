@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../ui/button';
 
 interface PricingFooterProps {
   onGetStarted: () => void;
@@ -12,12 +11,12 @@ const PricingFooter = ({ onGetStarted }: PricingFooterProps) => {
   
   return (
     <div className="text-center mt-12">
-      <Button
+      <button
         onClick={onGetStarted}
-        className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] rounded-full px-8 py-6 text-lg font-medium"
+        className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-3 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-colors"
       >
         {t('nav.getStarted')}
-      </Button>
+      </button>
       <p className="text-sm text-[#0D503C]/70 mt-4">
         {t('pricing.noPayment')}
       </p>

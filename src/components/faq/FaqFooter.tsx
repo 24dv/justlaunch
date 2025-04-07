@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../ui/button';
 
 const FaqFooter = () => {
   const { t } = useLanguage();
@@ -18,12 +17,12 @@ const FaqFooter = () => {
       <p className="text-base text-[#0D503C]/80 mb-6">
         {t('faq.moreQuestions')}
       </p>
-      <Button
+      <button
         onClick={scrollToContact}
-        className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] rounded-full px-8 py-6 text-lg font-medium"
+        className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-3 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-colors"
       >
         {t('faq.contactUs')}
-      </Button>
+      </button>
     </div>
   );
 };
