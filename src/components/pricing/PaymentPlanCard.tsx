@@ -3,13 +3,13 @@ import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const PaymentPlanCard = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <div className="bg-[#0D503C]/5 rounded-2xl shadow-md overflow-hidden border-2 border-[#0D503C] border-dashed relative">
       <div className="absolute top-0 right-0">
         <div className="inline-flex items-center bg-[#F9A7A7]/30 text-[#0D503C] rounded-tr-lg rounded-bl-lg px-3 py-1 text-sm font-medium border border-[#F9A7A7]">
-          {language === 'en' ? 'Payment Plan' : 'Betalingsplan'}
+          Payment Plan
         </div>
       </div>
       <div className="p-8 mt-4">
@@ -20,7 +20,7 @@ const PaymentPlanCard = () => {
           <span className="text-4xl font-extrabold text-[#0D503C]">
             {t('pricing.paymentPlan.price')}
           </span>
-          <span className="ml-2 text-[#0D503C]/70">{language === 'en' ? '+ VAT' : '+ BTW'}</span>
+          <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {t('pricing.paymentPlan.description')}

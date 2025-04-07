@@ -41,35 +41,19 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
-            {language === 'en' ? (
-              <>
-                Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
-                  <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-                    {rotatingWords[currentWordIndex]}
-                  </span>
-                </span>
-                <br />
-                Fast—From Idea to 
-                <br />
-                Online in Days!
-              </>
-            ) : (
-              <>
-                Lanceer Je <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
-                  <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-                    {rotatingWords[currentWordIndex]}
-                  </span>
-                </span>
-                <br />
-                Snel—Van Idee naar
-                <br />
-                Online in Dagen!
-              </>
-            )}
+            Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+              <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+                {rotatingWords[currentWordIndex]}
+              </span>
+            </span>
+            <br />
+            Fast—From Idea to 
+            <br />
+            Online in Days!
           </h1>
           
           <p className="text-xl md:text-2xl text-[#0D503C] mb-12 max-w-2xl animate-fade-in-up animate-delay-200 font-medium">
-            {t('hero.subtitle')} <span className="text-xs md:text-sm">{language === 'en' ? '(+ VAT)' : '(+ BTW)'}</span>
+            {t('hero.subtitle')}
           </p>
           
           <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
@@ -83,7 +67,7 @@ const HeroSection = () => {
           
           <div className="animate-fade-in animate-delay-500 text-center w-full mt-4">
             <p className="text-sm text-[#0D503C] font-medium">
-              {t('hero.scroll')}
+              {language === 'en' ? "Get started in just a few clicks" : "Begin met slechts een paar klikken"}
             </p>
           </div>
         </div>
