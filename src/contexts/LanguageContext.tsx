@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -60,16 +61,15 @@ const translations = {
 
     // Process Section
     "process.title": "How It Works",
-    "process.subtitle": "We've streamlined the entire process — so you can launch a polished, professional brand in just days, not months.",
-    "process.step1.title": "Reach Out",
-    "process.step1.description": "Fill out a short form and book a quick intro call to align and secure your spot.",
-    "process.step2.title": "Share Your Vision",
-    "process.step2.description": "We'll send you a smart questionnaire to gather your brand direction, design style, and website content.",
-    "process.step3.title": "Approve Designs",
-    "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
+    "process.subtitle": "Our streamlined process takes you from concept to launch with minimal effort on your part.",
+    "process.step1.title": "Sign Up",
+    "process.step1.description": "Fill out the form and get started with your project immediately.",
+    "process.step2.title": "Design Consultation",
+    "process.step2.description": "Share your ideas and vision with our designers through a detailed brief.",
+    "process.step3.title": "Receive Drafts",
+    "process.step3.description": "We'll create a logo and landing page tailored specifically for your business.",
     "process.step4.title": "Launch",
-    "process.step4.description": "Your brand and site go live — all within 14 days of kickoff.",
-    "process.getStarted": "Get Started",
+    "process.step4.description": "Finalize and go live with your new brand in just 14 days!",
 
     // Pricing Section
     "pricing.title": "Transparent Pricing, No Surprises",
@@ -175,6 +175,8 @@ const translations = {
     "hero.subtitle": "Krijg een professioneel logo en landingspagina voor slechts €1.500. Geen verborgen kosten, geen gedoe.",
     "hero.cta": "Begin Vandaag",
     "hero.scroll": "Scroll voor meer informatie",
+    "hero.getStarted": "Ik ben klaar om te lanceren",
+    "hero.startedIn": "Begin in slechts een paar klikken",
 
     // Features Section
     "features.title": "Alles Wat Je Nodig Hebt voor een Snelle Lancering",
@@ -212,6 +214,17 @@ const translations = {
     "process.step3.description": "We maken een logo en landingspagina specifiek voor jouw bedrijf.",
     "process.step4.title": "Lancering",
     "process.step4.description": "Finaliseer en ga live met je nieuwe merk in slechts 14 dagen!",
+    "process.howItWorks": "Hoe Het Werkt",
+    "process.streamlined": "We hebben het hele proces gestroomlijnd — zodat je in slechts dagen, niet maanden, een gepolijst, professioneel merk kunt lanceren.",
+    "process.reachOut": "Neem Contact Op",
+    "process.reachOutDesc": "Vul een kort formulier in en plan een snelle introducatiegesprek om af te stemmen en je plek te reserveren.",
+    "process.shareVision": "Deel Je Visie",
+    "process.shareVisionDesc": "We sturen je een slimme vragenlijst om je merkrichting, ontwerpstijl en website-inhoud te verzamelen.",
+    "process.approveDesigns": "Keur Ontwerpen Goed",
+    "process.approveDesignsDesc": "Bekijk en selecteer je logo + merkkleuren. Zodra goedgekeurd, ontwerpen we je website.",
+    "process.launch": "Lancering",
+    "process.launchDesc": "Je merk en site gaan live — allemaal binnen 14 dagen na de start.",
+    "process.getStarted": "Begin Nu",
 
     // Pricing Section
     "pricing.title": "Transparante Prijzen, Geen Verrassingen",
@@ -239,6 +252,22 @@ const translations = {
     "pricing.premium.feature6": "Klaar voor lancering in slechts 14 dagen",
     "pricing.premium.feature7": "Gemaakt door professionele ontwerpers, gevestigd in België 🇧🇪",
     "pricing.noPayment": "Geen betaling nu — reserveer gewoon je plek.",
+    "pricing.paymentPlan.title": "Eenvoudige Maandelijkse Betalingen",
+    "pricing.paymentPlan.description": "Begin met lagere aanvangskosten. Dezelfde geweldige service, verdeeld in beheersbare maandelijkse betalingen.",
+    "pricing.paymentPlan.choosePlan": "Kies Betalingsplan",
+    "pricing.paymentPlan.noPayment": "Geen betaling nu — reserveer gewoon je plek.",
+    "pricing.paymentPlan.howItWorks": "Hoe het werkt:",
+    "pricing.paymentPlan.step1": "Betaal €833 om je project te starten",
+    "pricing.paymentPlan.step2": "Tweede betaling van €833 één maand na projectstart",
+    "pricing.paymentPlan.step3": "Laatste betaling van €834 één maand na tweede betaling",
+    "pricing.paymentPlan.note": "Uitsluitend beschikbaar voor het Premium Pakket. Totale kosten blijven hetzelfde (€2.500).",
+    "pricing.maintenance.title": "Doorlopend Onderhoud & Beveiliging",
+    "pricing.maintenance.description": "We houden je website online, veilig en soepel draaiend—zodat jij je nergens zorgen over hoeft te maken.",
+    "pricing.maintenance.included": "Wat is inbegrepen",
+    "pricing.maintenance.hosting": "Website hosting",
+    "pricing.maintenance.security": "Beveiligingsmonitoring",
+    "pricing.maintenance.updates": "Regelmatige software-updates",
+    "pricing.maintenance.optimization": "Prestatie-optimalisatie",
 
     // Testimonials Section
     "testimonials.title": "Wat Onze Klanten Zeggen",
