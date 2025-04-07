@@ -38,32 +38,28 @@ const HeroSection = () => {
       <div className="absolute top-[15%] left-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
       <div className="absolute bottom-[15%] right-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight sm:leading-tight lg:leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
             {language === 'en' ? (
               <>
-                Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+                <div className="lg:block">Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
                   <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                     {rotatingWords[currentWordIndex]}
                   </span>
-                </span>
-                <br />
-                Fast—From Idea to 
-                <br />
-                Online in Days!
+                </span></div>
+                <div className="lg:block">Fast—From Idea to</div> 
+                <div className="lg:block">Online in Days!</div>
               </>
             ) : (
               <>
-                Lanceer Je <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+                <div className="lg:block">Lanceer Je <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
                   <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                     {rotatingWords[currentWordIndex]}
                   </span>
-                </span>
-                <br />
-                Snel—Van Idee naar
-                <br />
-                Online in Dagen!
+                </span></div>
+                <div className="lg:block">Snel—Van Idee naar</div>
+                <div className="lg:block">Online in Dagen!</div>
               </>
             )}
           </h1>
