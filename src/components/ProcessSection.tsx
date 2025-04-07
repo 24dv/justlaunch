@@ -34,6 +34,13 @@ const ProcessSection = () => {
     }
   ];
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="process" className="section-padding py-24 relative overflow-hidden">
       {/* Base section background - lowest z-index */}
@@ -119,12 +126,12 @@ const ProcessSection = () => {
         
         {/* Added call to action */}
         <div className="text-center mt-16 relative z-20">
-          <a 
-            href="#contact" 
+          <button 
+            onClick={scrollToContact} 
             className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
           >
             {t("process.getStarted")}
-          </a>
+          </button>
         </div>
       </div>
     </section>

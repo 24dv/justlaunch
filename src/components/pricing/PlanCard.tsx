@@ -10,6 +10,13 @@ interface PlanCardProps {
 const PlanCard = ({ planType }: PlanCardProps) => {
   const { t, language } = useLanguage();
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]">
       <div className="p-8">
@@ -31,12 +38,12 @@ const PlanCard = ({ planType }: PlanCardProps) => {
             ? t('pricing.launch.description')
             : t('pricing.premium.description')}
         </p>
-        <a
-          href="#contact"
+        <button
+          onClick={scrollToContact}
           className="block w-full py-3 px-4 rounded-lg bg-[#0D503C] text-[#F5F5E9] text-center font-medium hover:bg-[#0A4231] transition-colors"
         >
           {t('nav.getStarted')}
-        </a>
+        </button>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
           {t('pricing.noPayment')}
         </p>

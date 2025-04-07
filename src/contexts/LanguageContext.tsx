@@ -28,7 +28,7 @@ const translations = {
     // Hero Section
     "hero.badge": "New",
     "hero.badgeText": "Launch your brand in days, not months",
-    "hero.subtitle": "Yes sir, let's go up up up",
+    "hero.subtitle": "Get a professional logo and website for just €1,500",
     "hero.cta": "Get Started Today",
     "hero.scroll": "Get started in just a few clicks",
 
@@ -189,7 +189,7 @@ const translations = {
     // Hero Section
     "hero.badge": "Nieuw",
     "hero.badgeText": "Lanceer je merk in dagen, niet maanden",
-    "hero.subtitle": "Ja meneer, laten we omhoog omhoog omhoog",
+    "hero.subtitle": "Krijg een professioneel logo en website voor slechts €1.500",
     "hero.cta": "Begin Vandaag",
     "hero.scroll": "Begin met slechts een paar klikken",
 
