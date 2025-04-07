@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -14,7 +15,7 @@ const testimonials = [
       en: "Co-founder Ventura Studio",
       nl: "Medeoprichter Ventura Studio"
     },
-    avatar: "https://randomuser.me/api/portraits/men/35.jpg",
+    avatar: "/lovable-uploads/82fd6abd-c8b3-4f99-a6f1-cb121e7dd678.png",
     rating: 5
   },
   {
@@ -28,7 +29,7 @@ const testimonials = [
       en: "Co-founder Drink&Draw",
       nl: "Medeoprichter Drink&Draw"
     },
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    avatar: "/lovable-uploads/a825e76d-c1ea-4dc7-a7c8-668141da1341.png",
     rating: 5
   },
   {
@@ -42,7 +43,7 @@ const testimonials = [
       en: "Founder HGM Electricity",
       nl: "Oprichter HGM Electricity"
     },
-    avatar: "https://randomuser.me/api/portraits/women/63.jpg",
+    avatar: "/lovable-uploads/789d73d9-1aa0-47b5-a0da-bb9020446b0b.png",
     rating: 5
   },
 ];
