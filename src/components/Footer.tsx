@@ -12,7 +12,7 @@ const Footer = () => {
     const img = new Image();
     img.onload = () => console.log('Logo image loaded successfully');
     img.onerror = () => console.error('Logo image failed to load');
-    img.src = '/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png';
+    img.src = '/justlaunch/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png';
   }, []);
 
   const scrollToSection = (id) => {
@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="mb-4">
               <img 
-                src="/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png" 
+                src="/justlaunch/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png" 
                 alt="Just Launch Logo" 
                 className="h-10 mb-4 object-contain"
                 style={{ filter: 'brightness(0) invert(1)' }}
