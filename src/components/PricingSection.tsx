@@ -17,13 +17,6 @@ const PricingSection = () => {
     setSelectedPlan(plan);
   };
 
-  const scrollToContact = () => {
-    const contactElement = document.getElementById('contact');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="pricing" className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
@@ -33,10 +26,10 @@ const PricingSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left column - Selected Plan */}
-            <PlanCard planType={selectedPlan} onGetStarted={scrollToContact} />
+            <PlanCard planType={selectedPlan} />
 
             {/* Right column - Premium Payment Plan (only visible when premium is selected) */}
-            {selectedPlan === 'premium' && <PaymentPlanCard onChoosePaymentPlan={scrollToContact} />}
+            {selectedPlan === 'premium' && <PaymentPlanCard />}
           </div>
 
           {/* Plus Sign */}
@@ -51,7 +44,7 @@ const PricingSection = () => {
             <MaintenanceCard />
           </div>
 
-          <PricingFooter onGetStarted={scrollToContact} />
+          <PricingFooter />
         </div>
       </div>
     </section>
