@@ -38,9 +38,9 @@ const HeroSection = () => {
       <div className="absolute top-[15%] left-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
       <div className="absolute bottom-[15%] right-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
       
-      <div className="container mx-auto px-3 sm:px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#0D503C] mb-10 leading-tight sm:leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
             {language === 'en' ? (
               <>
                 Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
@@ -49,11 +49,9 @@ const HeroSection = () => {
                   </span>
                 </span>
                 <br />
-                Fast—From Idea 
+                Fast—From Idea to 
                 <br />
-                to Online
-                <br />
-                in Days!
+                Online in Days!
               </>
             ) : (
               <>
@@ -63,11 +61,9 @@ const HeroSection = () => {
                   </span>
                 </span>
                 <br />
-                Snel—Van Idee
+                Snel—Van Idee naar
                 <br />
-                naar Online
-                <br />
-                in Dagen!
+                Online in Dagen!
               </>
             )}
           </h1>
