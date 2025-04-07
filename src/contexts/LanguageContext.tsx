@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -154,7 +155,7 @@ const translations = {
     "contact.form.company": "Company/Project Name",
     "contact.form.package": "Package of Interest",
     "contact.form.message": "Tell us about your project",
-    "contact.form.submit": "Book My Spot",
+    "contact.form.submit": "Request a call",
     "contact.form.submitting": "Sending...",
     "contact.form.privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
     "contact.success.title": "Thank you!",
@@ -315,7 +316,7 @@ const translations = {
     "contact.form.company": "Bedrijfs-/Projectnaam",
     "contact.form.package": "Pakket van Interesse",
     "contact.form.message": "Vertel ons over je project",
-    "contact.form.submit": "Reserveer Mijn Plek",
+    "contact.form.submit": "Vraag een gesprek aan",
     "contact.form.submitting": "Versturen...",
     "contact.form.privacy": "Door dit formulier in te dienen, ga je akkoord met ons privacybeleid en onze servicevoorwaarden.",
     "contact.success.title": "Bedankt!",
