@@ -20,12 +20,12 @@ const PortfolioCarousel = () => {
     {
       id: 1,
       title: "Holistic Sleep Coach",
-      imageUrl: "/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
+      imageUrl: "/justlaunch/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
     },
     {
       id: 2,
       title: "Pet Grooming Service",
-      imageUrl: "/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
+      imageUrl: "/justlaunch/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
     },
     {
       id: 3,
