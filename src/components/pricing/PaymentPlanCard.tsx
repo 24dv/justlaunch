@@ -2,7 +2,11 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-const PaymentPlanCard = () => {
+interface PaymentPlanCardProps {
+  onChoosePaymentPlan: () => void;
+}
+
+const PaymentPlanCard = ({ onChoosePaymentPlan }: PaymentPlanCardProps) => {
   const { t, language } = useLanguage();
 
   return (
@@ -25,12 +29,12 @@ const PaymentPlanCard = () => {
         <p className="text-[#0D503C]/80 mb-4">
           {t('pricing.paymentPlan.description')}
         </p>
-        <a
-          href="#contact"
+        <button
+          onClick={onChoosePaymentPlan}
           className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7] border border-[#0D503C]/20 text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/80 transition-colors"
         >
           {t('pricing.paymentPlan.cta')}
-        </a>
+        </button>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
           {t('pricing.paymentPlan.tagline')}
         </p>
