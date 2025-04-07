@@ -57,7 +57,7 @@ const Footer = () => {
               <li><span className="text-[#F5F5E9]/70">{t('footer.logoDesign')}</span></li>
               <li><span className="text-[#F5F5E9]/70">{t('footer.webDesign')}</span></li>
               <li><span className="text-[#F5F5E9]/70">{t('footer.brandIdentity')}</span></li>
-              <li><span className="text-[#F5F5E9]/70">Visual Templates</span></li>
+              <li><span className="text-[#F5F5E9]/70">{t('footer.visualTemplates')}</span></li>
             </ul>
           </div>
           
