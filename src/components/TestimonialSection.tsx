@@ -2,6 +2,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const testimonials = [
   {
@@ -83,11 +84,16 @@ const TestimonialSection = () => {
                 "{testimonial.content[language]}"
               </blockquote>
               <div className="flex items-center">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.author}
-                  className="h-10 w-10 rounded-full border-2 border-[#0D503C] mr-3"
-                />
+                <Avatar className="h-14 w-14 rounded-full border-2 border-[#0D503C] mr-4 overflow-hidden">
+                  <AvatarImage 
+                    src={testimonial.avatar} 
+                    alt={testimonial.author}
+                    className="object-cover w-full h-full"
+                  />
+                  <AvatarFallback className="bg-[#0D503C]/10">
+                    {testimonial.author.substring(0, 2)}
+                  </AvatarFallback>
+                </Avatar>
                 <div>
                   <p className="font-medium text-[#0D503C]">{testimonial.author}</p>
                   <p className="text-sm text-[#0D503C]/70">{testimonial.position[language]}</p>
