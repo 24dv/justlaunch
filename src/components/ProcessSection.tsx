@@ -10,26 +10,26 @@ const ProcessSection = () => {
   const steps = [
     {
       icon: <MessageCircle className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.reachOut'),
-      description: t('process.reachOutDesc'),
+      title: t("process.step1.title"),
+      description: t("process.step1.description"),
       number: 1
     },
     {
       icon: <Lightbulb className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.shareVision'),
-      description: t('process.shareVisionDesc'),
+      title: t("process.step2.title"),
+      description: t("process.step2.description"),
       number: 2
     },
     {
       icon: <Check className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.approveDesigns'),
-      description: t('process.approveDesignsDesc'),
+      title: t("process.step3.title"),
+      description: t("process.step3.description"),
       number: 3
     },
     {
       icon: <Rocket className="h-10 w-10 text-[#F5F5E9]" />,
-      title: t('process.launch'),
-      description: t('process.launchDesc'),
+      title: t("process.step4.title"),
+      description: t("process.step4.description"),
       number: 4
     }
   ];
@@ -49,10 +49,10 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif">
-            {t('process.howItWorks')}
+            {t("process.title")}
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-2xl mx-auto">
-            {t('process.streamlined')}
+            {t("process.subtitle")}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-8" />
         </div>
@@ -123,7 +123,7 @@ const ProcessSection = () => {
             href="#contact" 
             className="inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base font-medium text-[#F5F5E9] shadow-sm hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C]"
           >
-            {t('process.getStarted')}
+            {t("process.getStarted")}
           </a>
         </div>
       </div>
