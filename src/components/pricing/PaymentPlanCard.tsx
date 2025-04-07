@@ -2,14 +2,18 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-const PaymentPlanCard = () => {
-  const { t } = useLanguage();
+interface PaymentPlanCardProps {
+  onChoosePaymentPlan: () => void;
+}
+
+const PaymentPlanCard = ({ onChoosePaymentPlan }: PaymentPlanCardProps) => {
+  const { t, language } = useLanguage();
 
   return (
     <div className="bg-[#0D503C]/5 rounded-2xl shadow-md overflow-hidden border-2 border-[#0D503C] border-dashed relative">
       <div className="absolute top-0 right-0">
         <div className="inline-flex items-center bg-[#F9A7A7]/30 text-[#0D503C] rounded-tr-lg rounded-bl-lg px-3 py-1 text-sm font-medium border border-[#F9A7A7]">
-          Payment Plan
+          {language === 'en' ? 'Payment Plan' : 'Betalingsplan'}
         </div>
       </div>
       <div className="p-8 mt-4">
@@ -20,17 +24,17 @@ const PaymentPlanCard = () => {
           <span className="text-4xl font-extrabold text-[#0D503C]">
             {t('pricing.paymentPlan.price')}
           </span>
-          <span className="ml-2 text-[#0D503C]/70">+ VAT</span>
+          <span className="ml-2 text-[#0D503C]/70">{language === 'en' ? '+ VAT' : '+ BTW'}</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {t('pricing.paymentPlan.description')}
         </p>
-        <a
-          href="#contact"
+        <button
+          onClick={onChoosePaymentPlan}
           className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7] border border-[#0D503C]/20 text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/80 transition-colors"
         >
           {t('pricing.paymentPlan.cta')}
-        </a>
+        </button>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
           {t('pricing.paymentPlan.tagline')}
         </p>

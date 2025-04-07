@@ -16,7 +16,7 @@ type FormState = {
 };
 
 const ContactForm = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formState, setFormState] = useState<FormState>({
     name: '',
     email: '',
@@ -107,7 +107,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder="John Doe"
+              placeholder={language === 'en' ? "John Doe" : "Jan Jansen"}
             />
           </div>
           
@@ -123,7 +123,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder="john@example.com"
+              placeholder={language === 'en' ? "john@example.com" : "jan@voorbeeld.nl"}
             />
           </div>
           
@@ -138,7 +138,7 @@ const ContactForm = () => {
               value={formState.company}
               onChange={handleChange}
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder="Your Company"
+              placeholder={language === 'en' ? "Your Company" : "Jouw Bedrijf"}
             />
           </div>
           
@@ -153,10 +153,21 @@ const ContactForm = () => {
               onChange={handleChange}
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
             >
-              <option value="launch">Launch Package (€1,500)</option>
-              <option value="premium">Premium Package (€2,500)</option>
-              <option value="premium-plan">Premium Package - Payment Plan (€833/month)</option>
-              <option value="not-sure">Not sure yet</option>
+              {language === 'en' ? (
+                <>
+                  <option value="launch">Launch Package (€1,500)</option>
+                  <option value="premium">Premium Package (€2,500)</option>
+                  <option value="premium-plan">Premium Package - Payment Plan (€833/month)</option>
+                  <option value="not-sure">Not sure yet</option>
+                </>
+              ) : (
+                <>
+                  <option value="launch">Lanceerpakket (€1.500)</option>
+                  <option value="premium">Premium Pakket (€2.500)</option>
+                  <option value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</option>
+                  <option value="not-sure">Nog niet zeker</option>
+                </>
+              )}
             </select>
           </div>
           
@@ -171,7 +182,9 @@ const ContactForm = () => {
               onChange={handleChange}
               rows={4}
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder="Share a bit about your project and what you're looking for..."
+              placeholder={language === 'en' 
+                ? "Share a bit about your project and what you're looking for..." 
+                : "Vertel ons wat over je project en waar je naar op zoek bent..."}
             />
           </div>
           
@@ -200,7 +213,7 @@ const ContactForm = () => {
               </span>
             ) : (
               <span className="flex items-center">
-                Book My Spot
+                {t('contact.form.submit')}
                 <Send className="ml-2 h-4 w-4" />
               </span>
             )}

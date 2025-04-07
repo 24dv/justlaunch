@@ -29,18 +29,17 @@ const translations = {
     // Hero Section
     "hero.badge": "New",
     "hero.badgeText": "Launch your brand in days, not months",
-    "hero.title": "Launch Your Brand Fast—From Idea to Online in Days!",
     "hero.subtitle": "Get a professional logo and website for just €1,500 (+ VAT). Transparent cost, no hassle.",
     "hero.cta": "Get Started Today",
-    "hero.scroll": "Scroll to learn more",
+    "hero.scroll": "Get started in just a few clicks",
 
     // Features Section
     "features.title": "Everything You Need to Launch Fast",
     "features.subtitle": "Whether you're a founder with a bold idea, a freelancer leveling up, or launching a side hustle — this is for you. Our Launch Package gets you live fast, stress-free.",
-    "features.logoDesign.title": "Professional logo and brand colors",
-    "features.logoDesign.description": "Stand out with a logo and colors that perfectly reflect your brand identity and values.",
+    "features.logoDesign.title": "Professional logo and colors",
+    "features.logoDesign.description": "Stand out with a logo and colors that perfectly reflect your brand identity.",
     "features.landingSite.title": "Customised single page website",
-    "features.landingSite.description": "A beautiful, responsive website that showcases your brand and converts visitors.",
+    "features.landingSite.description": "A beautiful, responsive website that converts visitors into customers.",
     "features.delivery.title": "Fast delivery within 14 days",
     "features.delivery.description": "Launch quickly while maintaining the highest quality standards.",
     "features.process.title": "Simple process",
@@ -48,7 +47,7 @@ const translations = {
     "features.pricing.title": "Affordable pricing",
     "features.pricing.description": "Top-tier design for €1,500 + €10/mo for hosting and peace of mind.",
     "features.support.title": "Tried, Tested, Trusted",
-    "features.support.description": "Dozens of brands launched fast — with brands that look and feel ready to grow.",
+    "features.support.description": "Dozens of brands launched fast, built to look and feel ready to grow.",
 
     // Carousel Section
     "carousel.title": "See What We Can Do for You",
@@ -156,7 +155,7 @@ const translations = {
     "contact.form.company": "Company/Project Name",
     "contact.form.package": "Package of Interest",
     "contact.form.message": "Tell us about your project",
-    "contact.form.submit": "Get Started Now",
+    "contact.form.submit": "Book My Spot",
     "contact.form.submitting": "Sending...",
     "contact.form.privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
     "contact.success.title": "Thank you!",
@@ -191,18 +190,17 @@ const translations = {
     // Hero Section
     "hero.badge": "Nieuw",
     "hero.badgeText": "Lanceer je merk in dagen, niet maanden",
-    "hero.title": "Launch Your Brand Fast—From Idea to Online in Days!", // Keeping this in English as requested
     "hero.subtitle": "Krijg een professioneel logo en website voor slechts €1.500 (+ BTW). Transparante kosten, geen gedoe.",
     "hero.cta": "Begin Vandaag",
-    "hero.scroll": "Scroll voor meer informatie",
+    "hero.scroll": "Begin met slechts een paar klikken",
 
     // Features Section
     "features.title": "Alles Wat Je Nodig Hebt voor een Snelle Lancering",
     "features.subtitle": "Of je nu een oprichter bent met een gedurfd idee, een freelancer die zich ontwikkelt, of een sidehustle start — dit is voor jou. Ons Lanceerpakket krijgt je snel en stressvrij online.",
-    "features.logoDesign.title": "Professioneel logo en merkkleuren",
-    "features.logoDesign.description": "Val op met een logo en kleuren die perfect je merkidentiteit en waarden weerspiegelen.",
+    "features.logoDesign.title": "Professioneel logo en kleuren",
+    "features.logoDesign.description": "Val op met een logo en kleuren die perfect je merkidentiteit weerspiegelen.",
     "features.landingSite.title": "Aangepaste enkelpagina website",
-    "features.landingSite.description": "Een mooie, responsieve website die je merk toont en bezoekers converteert.",
+    "features.landingSite.description": "Een mooie, responsieve website die bezoekers omzet in klanten.",
     "features.delivery.title": "Snelle levering binnen 14 dagen",
     "features.delivery.description": "Lanceer snel met behoud van de hoogste kwaliteitsstandaarden.",
     "features.process.title": "Eenvoudig proces",
@@ -210,7 +208,7 @@ const translations = {
     "features.pricing.title": "Betaalbare prijzen",
     "features.pricing.description": "Topkwaliteit ontwerp voor €1.500 + €10/maand voor hosting en gemoedsrust.",
     "features.support.title": "Beproefd, Getest, Vertrouwd",
-    "features.support.description": "Tientallen merken snel gelanceerd — met merken die er klaar uitzien om te groeien.",
+    "features.support.description": "Tientallen merken snel gelanceerd, gebouwd om er klaar uit te zien om te groeien.",
 
     // Carousel Section
     "carousel.title": "Zie Wat We Voor Jou Kunnen Doen",
@@ -318,7 +316,7 @@ const translations = {
     "contact.form.company": "Bedrijfs-/Projectnaam",
     "contact.form.package": "Pakket van Interesse",
     "contact.form.message": "Vertel ons over je project",
-    "contact.form.submit": "Begin Nu",
+    "contact.form.submit": "Reserveer Mijn Plek",
     "contact.form.submitting": "Versturen...",
     "contact.form.privacy": "Door dit formulier in te dienen, ga je akkoord met ons privacybeleid en onze servicevoorwaarden.",
     "contact.success.title": "Bedankt!",
