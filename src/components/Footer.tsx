@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Instagram, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -42,10 +41,18 @@ const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <button className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Instagram">
+              <button 
+                onClick={() => window.open('https://www.instagram.com/justlaunch.be/', '_blank')}
+                className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" 
+                aria-label="Instagram"
+              >
                 <Instagram size={20} />
               </button>
-              <button onClick={() => window.location.href = 'mailto:hello@justlaunch.com'} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" aria-label="Email">
+              <button 
+                onClick={() => window.location.href = 'mailto:hello@justlaunch.be'}
+                className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors" 
+                aria-label="Email"
+              >
                 <Mail size={20} />
               </button>
             </div>
