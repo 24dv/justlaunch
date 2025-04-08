@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -47,7 +46,7 @@ const translations = {
     "features.pricing.title": "Affordable pricing",
     "features.pricing.description": "Top-tier design for €1,500 + €10/mo for hosting and peace of mind.",
     "features.support.title": "Tried, Tested, Trusted",
-    "features.support.description": "Dozens of brands launched fast, built to look and feel ready to grow.",
+    "features.support.description": "10+ years of experience helping founders launch with confidence.",
 
     // Carousel Section
     "carousel.title": "See What We Can Do for You",
@@ -208,7 +207,7 @@ const translations = {
     "features.pricing.title": "Betaalbare prijzen",
     "features.pricing.description": "Topkwaliteit ontwerp voor €1.500 + €10/maand voor hosting en gemoedsrust.",
     "features.support.title": "Beproefd, Getest, Vertrouwd",
-    "features.support.description": "Tientallen merken snel gelanceerd, gebouwd om er klaar uit te zien om te groeien.",
+    "features.support.description": "10+ jaar ervaring met het helpen van oprichters om met vertrouwen te lanceren.",
 
     // Carousel Section
     "carousel.title": "Zie Wat We Voor Jou Kunnen Doen",
