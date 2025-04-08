@@ -1,3 +1,11 @@
+
+# www.robotstxt.org
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Specific search engine permissions
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +18,19 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: Applebot
 Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
+Sitemap: https://justlaunch.lovable.app/sitemap.xml
+
+# Optimized for search engines
