@@ -15,6 +15,12 @@ const Index = () => {
   useEffect(() => {
     document.title = "Launch Your Brand Fast | Professional Design & Web Services";
     
+    // Update meta description dynamically
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Professional web design and development services to launch your brand quickly. From idea to online in just days!');
+    }
+    
     // Smooth scroll to section when URL contains hash - but with a slight delay for better performance
     if (window.location.hash) {
       setTimeout(() => {
@@ -66,16 +72,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#F5F5E9] text-[#0D503C] antialiased">
       <Navbar />
-      <HeroSection />
-      <FeatureSection />
-      <div id="work">
-        <Carousel />
-      </div>
-      <ProcessSection />
-      <PricingSection />
-      <TestimonialSection />
-      <FaqSection />
-      <ContactSection />
+      <main id="main-content">
+        <HeroSection />
+        <FeatureSection />
+        <div id="work">
+          <Carousel />
+        </div>
+        <ProcessSection />
+        <PricingSection />
+        <TestimonialSection />
+        <FaqSection />
+        <ContactSection />
+      </main>
       <Footer />
     </div>
   );

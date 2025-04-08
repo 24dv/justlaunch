@@ -28,15 +28,15 @@ const HeroSection = () => {
   };
   
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-24 pb-10 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-24 pb-10 relative overflow-hidden" aria-label="Hero Section">
       <div className="absolute inset-0 bg-[#F5F5E9] -z-10" />
       
       {/* Border frame - adjusted to not interfere with navbar */}
-      <div className="absolute top-[90px] bottom-8 left-8 right-8 border-[6px] border-[#0D503C] rounded-xl z-0 hidden md:block" />
+      <div className="absolute top-[90px] bottom-8 left-8 right-8 border-[6px] border-[#0D503C] rounded-xl z-0 hidden md:block" aria-hidden="true" />
       
       {/* Pink accents - increased size by 50% */}
-      <div className="absolute top-[15%] left-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
-      <div className="absolute bottom-[15%] right-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" />
+      <div className="absolute top-[15%] left-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" aria-hidden="true" />
+      <div className="absolute bottom-[15%] right-[15%] w-9 h-9 rounded-full bg-[#F9A7A7] opacity-80 z-0" aria-hidden="true" />
       
       <div className="container mx-auto px-3 sm:px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -68,11 +68,12 @@ const HeroSection = () => {
             {t('hero.subtitle')}
           </p>
           
-          <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" />
+          <div className="w-48 h-1 bg-[#0D503C] mb-12 animate-fade-in-up animate-delay-300" aria-hidden="true" />
           
           <button 
             onClick={() => scrollToSection('contact')}
             className="animate-scale-up animate-delay-300 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-8 py-3.5 text-base md:text-lg font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D503C] mb-8 border-2 border-[#F5F5E9]/20"
+            aria-label="Contact Us"
           >
             {t('hero.cta')}
           </button>
