@@ -59,7 +59,7 @@ const translations = {
     
     // Portfolio Items
     "portfolio.holisticSleepCoach": "Holistic Sleep Coach",
-    "portfolio.blockchainVentureCapital": "Blockchain & A.I. Venture Capital Fund",
+    "portfolio.blockchainVentureCapital": "Blockchain & A.I. VC Fund",
     "portfolio.architecturalPhotography": "Architectural Photography Studio",
     "portfolio.artisanalBakery": "Artisanal Bakery",
     "portfolio.queerCulturePodcast": "Queer Culture Podcast",
