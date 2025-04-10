@@ -31,23 +31,23 @@ const PortfolioCarousel = () => {
     },
     {
       id: 3,
-      title: "Corporate Website",
-      imageUrl: "/placeholder.svg"
+      title: "Architectural Photography Studio",
+      imageUrl: "/lovable-uploads/20c07857-7b28-4ae3-9a0b-9ef264151737.png"
     },
     {
       id: 4,
-      title: "Product Launch",
-      imageUrl: "/placeholder.svg"
+      title: "Artisanal Bakery",
+      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
     },
     {
       id: 5,
-      title: "Brand Identity",
-      imageUrl: "/placeholder.svg"
+      title: "Queer Culture Podcast",
+      imageUrl: "/lovable-uploads/8fc3e73b-7afb-412f-9134-475cf2c5a637.png"
     },
     {
       id: 6,
-      title: "Social Media Campaign",
-      imageUrl: "/lovable-uploads/2d922fc8-97a4-412e-b125-f30c43a4641f.png"
+      title: "Blockchain & A.I. Venture Capital Fund",
+      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
     }
   ];
 
