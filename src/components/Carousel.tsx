@@ -21,32 +21,32 @@ const PortfolioCarousel = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: "Holistic Sleep Coach",
+      titleKey: "portfolio.holisticSleepCoach",
       imageUrl: "/lovable-uploads/e25dd28b-2bfc-4b98-b379-7b60030f79c6.png"
     },
     {
       id: 2,
-      title: "Blockchain & A.I. Venture Capital Fund",
+      titleKey: "portfolio.blockchainVentureCapital",
       imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
     },
     {
       id: 3,
-      title: "Architectural Photography Studio",
+      titleKey: "portfolio.architecturalPhotography",
       imageUrl: "/lovable-uploads/20c07857-7b28-4ae3-9a0b-9ef264151737.png"
     },
     {
       id: 4,
-      title: "Artisanal Bakery",
+      titleKey: "portfolio.artisanalBakery",
       imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
     },
     {
       id: 5,
-      title: "Queer Culture Podcast",
+      titleKey: "portfolio.queerCulturePodcast",
       imageUrl: "/lovable-uploads/8fc3e73b-7afb-412f-9134-475cf2c5a637.png"
     },
     {
       id: 6,
-      title: "Pet Grooming Service",
+      titleKey: "portfolio.petGroomingService",
       imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
     }
   ];
@@ -83,7 +83,7 @@ const PortfolioCarousel = () => {
                       <AspectRatio ratio={16/9} className="bg-gray-100">
                         <img 
                           src={item.imageUrl} 
-                          alt={item.title}
+                          alt={t(item.titleKey)}
                           className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
                           loading="lazy"
                           decoding="async"
@@ -92,7 +92,7 @@ const PortfolioCarousel = () => {
                         />
                       </AspectRatio>
                       <div className="p-3">
-                        <h3 className="text-sm font-medium text-[#F5F5E9]">{item.title}</h3>
+                        <h3 className="text-sm font-medium text-[#F5F5E9]">{t(item.titleKey)}</h3>
                       </div>
                     </CardContent>
                   </Card>

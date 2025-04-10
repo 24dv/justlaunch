@@ -56,6 +56,14 @@ const translations = {
     "carousel.previous": "Previous",
     "carousel.next": "Next",
     "carousel.goToSlide": "Go to slide",
+    
+    // Portfolio Items
+    "portfolio.holisticSleepCoach": "Holistic Sleep Coach",
+    "portfolio.blockchainVentureCapital": "Blockchain & A.I. Venture Capital Fund",
+    "portfolio.architecturalPhotography": "Architectural Photography Studio",
+    "portfolio.artisanalBakery": "Artisanal Bakery",
+    "portfolio.queerCulturePodcast": "Queer Culture Podcast",
+    "portfolio.petGroomingService": "Pet Grooming Service",
 
     // Process Section
     "process.title": "How It Works",
@@ -217,6 +225,14 @@ const translations = {
     "carousel.previous": "Vorige",
     "carousel.next": "Volgende",
     "carousel.goToSlide": "Ga naar slide",
+    
+    // Portfolio Items
+    "portfolio.holisticSleepCoach": "Holistisch Slaapcoach",
+    "portfolio.blockchainVentureCapital": "Blockchain & A.I. Durfkapitaalfonds",
+    "portfolio.architecturalPhotography": "Architectuurfotografiestudio",
+    "portfolio.artisanalBakery": "Ambachtelijke Bakkerij",
+    "portfolio.queerCulturePodcast": "Podcast over Queer Cultuur",
+    "portfolio.petGroomingService": "Dierenverzorgingsservice",
 
     // Process Section
     "process.title": "Hoe Het Werkt",
@@ -247,7 +263,7 @@ const translations = {
     "pricing.premium.title": "Premium Pakket",
     "pricing.premium.price": "€2.500",
     "pricing.premium.plan": "of €833/maand voor 3 maanden",
-    "pricing.premium.description": "Ontworpen voor oprichters die er scherp uit willen zien en consistent willen blijven — met een multi-pagina site, aangepaste visuals en een duidelijke stijlgids.",
+    "pricing.premium.description": "Ontworpen voor oprichters die er scherp uit willen zien en consistent willen blijven �� met een multi-pagina site, aangepaste visuals en een duidelijke stijlgids.",
     "pricing.premium.includes": "INBEGREPEN:",
     "pricing.premium.feature1": "Aangepaste 4-pagina website",
     "pricing.premium.feature2": "Professioneel logo ontwerp",
