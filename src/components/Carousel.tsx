@@ -26,8 +26,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 2,
-      title: "Pet Grooming Service",
-      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
+      title: "Artisanal Bakery",
+      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
     },
     {
       id: 3,
@@ -36,8 +36,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 4,
-      title: "Artisanal Bakery",
-      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
+      title: "Pet Grooming Service",
+      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
     },
     {
       id: 5,
@@ -86,6 +86,9 @@ const PortfolioCarousel = () => {
                           alt={item.title}
                           className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
                           loading="lazy"
+                          decoding="async"
+                          width="100%" 
+                          height="auto"
                         />
                       </AspectRatio>
                       <div className="p-3">
