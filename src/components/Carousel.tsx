@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { 
@@ -25,8 +26,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 2,
-      titleKey: "portfolio.artisanalBakery",
-      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
+      titleKey: "portfolio.blockchainVentureCapital",
+      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
     },
     {
       id: 3,
@@ -35,8 +36,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 4,
-      titleKey: "portfolio.blockchainVentureCapital",
-      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
+      titleKey: "portfolio.artisanalBakery",
+      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
     },
     {
       id: 5,
