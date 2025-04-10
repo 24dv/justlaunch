@@ -17,17 +17,17 @@ const PortfolioCarousel = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Portfolio examples with real data
+  // Portfolio examples with updated data using the new images
   const portfolioItems = [
     {
       id: 1,
       title: "Holistic Sleep Coach",
-      imageUrl: "/lovable-uploads/458a9e6b-36c1-4384-aa2d-b789580a2c39.png"
+      imageUrl: "/lovable-uploads/e25dd28b-2bfc-4b98-b379-7b60030f79c6.png"
     },
     {
       id: 2,
       title: "Pet Grooming Service",
-      imageUrl: "/lovable-uploads/186758bc-37e5-4c1d-ae7c-ad30dd8ea217.png"
+      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
     },
     {
       id: 3,
