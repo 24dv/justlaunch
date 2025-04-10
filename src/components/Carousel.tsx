@@ -30,6 +30,7 @@ const PortfolioCarousel = () => {
                   id={item.id}
                   titleKey={item.titleKey}
                   imageUrl={item.imageUrl}
+                  url={item.url}
                 />
               ))}
             </CarouselContent>
