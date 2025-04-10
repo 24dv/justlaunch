@@ -17,7 +17,7 @@ const PortfolioCarousel = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Portfolio examples with updated data using the new images
+  // Portfolio examples with updated order
   const portfolioItems = [
     {
       id: 1,
@@ -26,8 +26,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 2,
-      title: "Artisanal Bakery",
-      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
+      title: "Blockchain & A.I. Venture Capital Fund",
+      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
     },
     {
       id: 3,
@@ -36,8 +36,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 4,
-      title: "Pet Grooming Service",
-      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
+      title: "Artisanal Bakery",
+      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
     },
     {
       id: 5,
@@ -46,8 +46,8 @@ const PortfolioCarousel = () => {
     },
     {
       id: 6,
-      title: "Blockchain & A.I. Venture Capital Fund",
-      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
+      title: "Pet Grooming Service",
+      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
     }
   ];
 
