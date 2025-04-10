@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { 
@@ -16,37 +17,43 @@ const PortfolioCarousel = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Portfolio examples with updated order
+  // Portfolio examples with updated order and links
   const portfolioItems = [
     {
       id: 1,
       titleKey: "portfolio.holisticSleepCoach",
-      imageUrl: "/lovable-uploads/e25dd28b-2bfc-4b98-b379-7b60030f79c6.png"
+      imageUrl: "/lovable-uploads/e25dd28b-2bfc-4b98-b379-7b60030f79c6.png",
+      link: "https://dodo-coach.lovable.app/"
     },
     {
       id: 2,
       titleKey: "portfolio.artisanalBakery",
-      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png"
+      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png",
+      link: "https://bruud-bakkerij.lovable.app/"
     },
     {
       id: 3,
       titleKey: "portfolio.architecturalPhotography",
-      imageUrl: "/lovable-uploads/20c07857-7b28-4ae3-9a0b-9ef264151737.png"
+      imageUrl: "/lovable-uploads/20c07857-7b28-4ae3-9a0b-9ef264151737.png",
+      link: "https://degauw-studio.lovable.app/"
     },
     {
       id: 4,
       titleKey: "portfolio.blockchainVentureCapital",
-      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png"
+      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png",
+      link: "https://stad-capital.lovable.app/"
     },
     {
       id: 5,
       titleKey: "portfolio.queerCulturePodcast",
-      imageUrl: "/lovable-uploads/8fc3e73b-7afb-412f-9134-475cf2c5a637.png"
+      imageUrl: "/lovable-uploads/8fc3e73b-7afb-412f-9134-475cf2c5a637.png",
+      link: "https://xoxo-gossip-guys.lovable.app/"
     },
     {
       id: 6,
       titleKey: "portfolio.petGroomingService",
-      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png"
+      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png",
+      link: "https://woof-pet.lovable.app/"
     }
   ];
 
@@ -77,24 +84,31 @@ const PortfolioCarousel = () => {
                   key={item.id} 
                   className="pl-2 md:pl-6 basis-full sm:basis-1/2 lg:basis-1/2"
                 >
-                  <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg bg-[#0D503C]">
-                    <CardContent className="p-0">
-                      <AspectRatio ratio={16/9} className="bg-gray-100">
-                        <img 
-                          src={item.imageUrl} 
-                          alt={t(item.titleKey)}
-                          className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                          width="100%" 
-                          height="auto"
-                        />
-                      </AspectRatio>
-                      <div className="p-3">
-                        <h3 className="text-sm font-medium text-[#F5F5E9]">{t(item.titleKey)}</h3>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <a 
+                    href={item.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Card className="overflow-hidden border border-[#0D503C]/10 rounded-xl transition-all duration-300 hover:shadow-lg bg-[#0D503C]">
+                      <CardContent className="p-0">
+                        <AspectRatio ratio={16/9} className="bg-gray-100">
+                          <img 
+                            src={item.imageUrl} 
+                            alt={t(item.titleKey)}
+                            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                            width="100%" 
+                            height="auto"
+                          />
+                        </AspectRatio>
+                        <div className="p-3">
+                          <h3 className="text-sm font-medium text-[#F5F5E9]">{t(item.titleKey)}</h3>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </CarouselItem>
               ))}
             </CarouselContent>
