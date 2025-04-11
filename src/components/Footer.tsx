@@ -85,12 +85,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Just Launch. {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <button 
-              onClick={() => navigate('/privacy-policy')} 
-              className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm"
-            >
-              {t('footer.privacy')}
-            </button>
+            <button className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.privacy')}</button>
             <button className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.terms')}</button>
           </div>
         </div>
