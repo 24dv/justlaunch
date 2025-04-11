@@ -182,8 +182,75 @@ const translations = {
     "footer.contactUs": "Contact Us",
     "footer.copyright": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
-    "footer.terms": "Terms of Service"
+    "footer.terms": "Terms of Service",
+
+    // Cookie banner translations
+    cookies: {
+      title: "Cookie Consent",
+      description: "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.",
+      gdprCompliance: "This website is GDPR compliant and respects your privacy rights.",
+      accept: "Accept All",
+      decline: "Decline",
+      learnMore: "Privacy Policy",
+    },
+    
+    // Privacy policy translations
+    privacy: {
+      backToHome: "Back to Home",
+      title: "Privacy Policy",
+      introduction: "At Just Launch, we respect your privacy and are committed to protecting your personal data. This Privacy Policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.",
+      
+      whatWeCollect: {
+        title: "What Personal Data We Collect",
+        description: "We may collect, use, and share the following categories of personal data:",
+        item1: "Identity and Contact Data: includes name, email address, and phone number when you contact us or submit a form.",
+        item2: "Technical Data: includes internet protocol (IP) address, browser type and version, time zone setting, browser plug-in types and versions, operating system, and device information.",
+        item3: "Usage Data: includes information about how you use our website, products, and services.",
+      },
+      
+      howWeUse: {
+        title: "How We Use Your Personal Data",
+        description: "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:",
+        item1: "To provide you with the services you have requested from us.",
+        item2: "To improve our website, products, and services.",
+        item3: "To comply with legal or regulatory requirements.",
+      },
+      
+      cookies: {
+        title: "Cookies",
+        description: "Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site.",
+        item1: "Essential cookies: These are necessary for the website to function and cannot be switched off in our systems.",
+        item2: "Analytics cookies: These allow us to count visits and traffic sources so we can measure and improve the performance of our site.",
+      },
+      
+      thirdParty: {
+        title: "Third-Party Disclosure",
+        description: "We do not sell, trade, or otherwise transfer your personal data to outside parties unless we provide you with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential.",
+      },
+      
+      rights: {
+        title: "Your Rights",
+        description: "Under the GDPR, you have several rights regarding your personal data, including:",
+        item1: "Right of access: You have the right to request copies of your personal data.",
+        item2: "Right to rectification: You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.",
+        item3: "Right to erasure: You have the right to request that we erase your personal data, under certain conditions.",
+        item4: "Right to restrict processing: You have the right to request that we restrict the processing of your personal data, under certain conditions.",
+      },
+      
+      contact: {
+        title: "Contact Us",
+        description: "If you have any questions about this Privacy Policy or our privacy practices, please contact us at:",
+      },
+      
+      updates: {
+        title: "Changes to This Privacy Policy",
+        description: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.",
+      },
+      
+      lastUpdated: "Last Updated",
+    },
   },
+  
   nl: {
     // Navigation
     "nav.features": "Kenmerken",
@@ -351,8 +418,74 @@ const translations = {
     "footer.contactUs": "Contact",
     "footer.copyright": "Alle rechten voorbehouden.",
     "footer.privacy": "Privacybeleid",
-    "footer.terms": "Servicevoorwaarden"
-  }
+    "footer.terms": "Servicevoorwaarden",
+
+    // Cookie banner translations in Dutch
+    cookies: {
+      title: "Cookie Toestemming",
+      description: "Wij gebruiken cookies om uw surfervaring te verbeteren, gepersonaliseerde advertenties of inhoud te tonen en ons verkeer te analyseren. Door op \"Alles accepteren\" te klikken, stemt u in met ons gebruik van cookies.",
+      gdprCompliance: "Deze website voldoet aan de AVG en respecteert uw privacyrechten.",
+      accept: "Alles Accepteren",
+      decline: "Weigeren",
+      learnMore: "Privacybeleid",
+    },
+    
+    // Privacy policy translations in Dutch
+    privacy: {
+      backToHome: "Terug naar Home",
+      title: "Privacybeleid",
+      introduction: "Bij Just Launch respecteren wij uw privacy en zetten wij ons in om uw persoonlijke gegevens te beschermen. Dit Privacybeleid informeert u over hoe wij omgaan met uw persoonlijke gegevens wanneer u onze website bezoekt en vertelt u over uw privacyrechten en hoe de wet u beschermt.",
+      
+      whatWeCollect: {
+        title: "Welke Persoonlijke Gegevens Wij Verzamelen",
+        description: "Wij kunnen de volgende categorieën persoonlijke gegevens verzamelen, gebruiken en delen:",
+        item1: "Identiteits- en contactgegevens: inclusief naam, e-mailadres en telefoonnummer wanneer u contact met ons opneemt of een formulier indient.",
+        item2: "Technische gegevens: inclusief internetprotocol (IP) adres, browsertype en -versie, tijdzone-instelling, browserplug-intypes en -versies, besturingssysteem en apparaatinformatie.",
+        item3: "Gebruiksgegevens: inclusief informatie over hoe u onze website, producten en diensten gebruikt.",
+      },
+      
+      howWeUse: {
+        title: "Hoe Wij Uw Persoonlijke Gegevens Gebruiken",
+        description: "Wij zullen uw persoonlijke gegevens alleen gebruiken wanneer de wet ons dat toestaat. Meestal zullen wij uw persoonlijke gegevens in de volgende omstandigheden gebruiken:",
+        item1: "Om u de diensten te leveren die u van ons hebt gevraagd.",
+        item2: "Om onze website, producten en diensten te verbeteren.",
+        item3: "Om te voldoen aan wettelijke of regelgevende vereisten.",
+      },
+      
+      cookies: {
+        title: "Cookies",
+        description: "Onze website gebruikt cookies om u te onderscheiden van andere gebruikers van onze website. Dit helpt ons om u een goede ervaring te bieden wanneer u onze website browst en stelt ons ook in staat om onze site te verbeteren.",
+        item1: "Essentiële cookies: Deze zijn noodzakelijk voor het functioneren van de website en kunnen niet worden uitgeschakeld in onze systemen.",
+        item2: "Analytische cookies: Hiermee kunnen we bezoeken en verkeersbronnen tellen, zodat we de prestaties van onze site kunnen meten en verbeteren.",
+      },
+      
+      thirdParty: {
+        title: "Openbaarmaking aan Derden",
+        description: "Wij verkopen, verhandelen of dragen uw persoonlijke gegevens niet over aan externe partijen, tenzij wij u hiervan vooraf op de hoogte stellen. Dit omvat niet website hosting partners en andere partijen die ons helpen bij het beheren van onze website, het uitvoeren van ons bedrijf of het bedienen van onze gebruikers, zolang deze partijen ermee instemmen deze informatie vertrouwelijk te houden.",
+      },
+      
+      rights: {
+        title: "Uw Rechten",
+        description: "Onder de AVG hebt u verschillende rechten met betrekking tot uw persoonlijke gegevens, waaronder:",
+        item1: "Recht op inzage: U hebt het recht om kopieën van uw persoonlijke gegevens op te vragen.",
+        item2: "Recht op rectificatie: U hebt het recht om te verzoeken dat wij informatie corrigeren die volgens u onjuist is of onvolledige informatie aanvullen.",
+        item3: "Recht op wissing: U hebt het recht om te verzoeken dat wij uw persoonlijke gegevens wissen, onder bepaalde voorwaarden.",
+        item4: "Recht op beperking van verwerking: U hebt het recht om te verzoeken dat wij de verwerking van uw persoonlijke gegevens beperken, onder bepaalde voorwaarden.",
+      },
+      
+      contact: {
+        title: "Neem Contact Met Ons Op",
+        description: "Als u vragen hebt over dit Privacybeleid of onze privacypraktijken, neem dan contact met ons op via:",
+      },
+      
+      updates: {
+        title: "Wijzigingen in Dit Privacybeleid",
+        description: "Wij kunnen ons Privacybeleid van tijd tot tijd bijwerken. Wij zullen u op de hoogte stellen van eventuele wijzigingen door het nieuwe Privacybeleid op deze pagina te plaatsen.",
+      },
+      
+      lastUpdated: "Laatst Bijgewerkt",
+    },
+  },
 };
 
 // Create Language Provider Component
