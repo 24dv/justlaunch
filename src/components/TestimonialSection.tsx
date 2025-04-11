@@ -9,7 +9,7 @@ const testimonials = [
     id: 1,
     content: {
       en: "Because of the price, I was skeptical at first (I got quoted €12k for the same deliverables at another agency). But the logo and website they created for us were perfect—and helped us secure our first round of funding. Incredible value for the price!",
-      nl: "Vanwege de prijs was ik eerst sceptisch (ik kreeg een offerte van €12k voor dezelfde leveringen bij een ander bureau). Maar het logo en de website die ze voor ons hebben gemaakt waren perfect - en hebben ons geholpen bij het verkrijgen van onze eerste financieringsronde. Ongelooflijke waarde voor de prijs!"
+      nl: "Door de prijs was ik eerst wat sceptisch (een ander bureau vroeg €12.000 voor exact hetzelfde). Maar het logo en de website die ze voor ons maakten waren perfect — en hielpen ons onze eerste fundingronde binnenhalen. De prijs-kwaliteitverhouding is gewoon top."
     },
     author: "Frank Claessen",
     position: {
@@ -23,7 +23,7 @@ const testimonials = [
     id: 2,
     content: {
       en: "We needed a website and brand identity quickly for a passion project that took off way faster than expected, and they delivered beyond our expectations. The process was smooth, and the designs were exactly what we hoped for.",
-      nl: "We hadden snel een website en merkidentiteit nodig voor een passieproject dat veel sneller van de grond kwam dan verwacht, en ze hebben boven onze verwachtingen geleverd. Het proces verliep soepel en de ontwerpen waren precies wat we hoopten."
+      nl: "We hadden snel een website en merkidentiteit nodig voor een passieproject dat veel sneller groeide dan verwacht — en ze leverden méér dan we hadden gehoopt. Het proces verliep vlot en de designs waren precies wat we voor ogen hadden."
     },
     author: "Tania Valle",
     position: {
@@ -37,7 +37,7 @@ const testimonials = [
     id: 3,
     content: {
       en: "The payment plan option made this service accessible for my business as I was just starting out. Thanks to Just Launch I now have a professional brand that stands out in a competitive industry.",
-      nl: "De betalingsplanoptie maakte deze dienst toegankelijk voor mijn bedrijf toen ik net begon. Dankzij Just Launch heb ik nu een professioneel merk dat opvalt in een competitieve branche."
+      nl: "Het betalingsplan maakte het haalbaar voor mijn zaak, net toen ik aan het opstarten was. Dankzij Just Launch heb ik nu een professioneel merk dat eruit springt in een concurrerende sector."
     },
     author: "Herminio Matos",
     position: {
