@@ -17,42 +17,42 @@ const PortfolioCarousel = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Portfolio examples with updated order and links
+  // Portfolio examples with updated images
   const portfolioItems = [
     {
       id: 1,
       titleKey: "portfolio.holisticSleepCoach",
-      imageUrl: "/lovable-uploads/e25dd28b-2bfc-4b98-b379-7b60030f79c6.png",
+      imageUrl: "/lovable-uploads/502d0e8e-9649-43a9-abec-773dc3d73382.png",
       link: "https://dodo-coach.lovable.app/"
     },
     {
       id: 2,
       titleKey: "portfolio.artisanalBakery",
-      imageUrl: "/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png",
+      imageUrl: "/lovable-uploads/04237f55-d8d9-4684-bc68-1161ae4a518d.png",
       link: "https://bruud-bakkerij.lovable.app/"
     },
     {
       id: 3,
       titleKey: "portfolio.architecturalPhotography",
-      imageUrl: "/lovable-uploads/20c07857-7b28-4ae3-9a0b-9ef264151737.png",
+      imageUrl: "/lovable-uploads/b6859143-fba0-4e7d-a921-e7b5e9d16d48.png",
       link: "https://degauw-studio.lovable.app/"
     },
     {
       id: 4,
       titleKey: "portfolio.blockchainVentureCapital",
-      imageUrl: "/lovable-uploads/18c8fc5f-09f8-4165-b400-70a3de0c427d.png",
+      imageUrl: "/lovable-uploads/2b5fbdee-8788-41bf-8875-72a1f7d701cf.png",
       link: "https://stad-capital.lovable.app/"
     },
     {
       id: 5,
       titleKey: "portfolio.queerCulturePodcast",
-      imageUrl: "/lovable-uploads/8fc3e73b-7afb-412f-9134-475cf2c5a637.png",
+      imageUrl: "/lovable-uploads/9628b331-2634-44e2-9f38-ee348b33ff2c.png",
       link: "https://xoxo-gossip-guys.lovable.app/"
     },
     {
       id: 6,
       titleKey: "portfolio.petGroomingService",
-      imageUrl: "/lovable-uploads/d4eac7b8-1397-48bc-80d3-3eeddbf801a7.png",
+      imageUrl: "/lovable-uploads/596a5deb-9318-48a7-a5bb-9c615696d7d6.png",
       link: "https://woof-pet.lovable.app/"
     }
   ];
