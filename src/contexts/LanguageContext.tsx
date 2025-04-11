@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available languages
@@ -187,11 +188,11 @@ const translations = {
     // Cookie banner translations
     cookies: {
       title: "Cookie Consent",
-      description: "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.",
+      description: "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
       gdprCompliance: "This website is GDPR compliant and respects your privacy rights.",
       accept: "Accept All",
       decline: "Decline",
-      learnMore: "Privacy Policy",
+      learnMore: "Privacy Policy"
     },
     
     // Privacy policy translations
@@ -205,7 +206,7 @@ const translations = {
         description: "We may collect, use, and share the following categories of personal data:",
         item1: "Identity and Contact Data: includes name, email address, and phone number when you contact us or submit a form.",
         item2: "Technical Data: includes internet protocol (IP) address, browser type and version, time zone setting, browser plug-in types and versions, operating system, and device information.",
-        item3: "Usage Data: includes information about how you use our website, products, and services.",
+        item3: "Usage Data: includes information about how you use our website, products, and services."
       },
       
       howWeUse: {
@@ -213,19 +214,19 @@ const translations = {
         description: "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:",
         item1: "To provide you with the services you have requested from us.",
         item2: "To improve our website, products, and services.",
-        item3: "To comply with legal or regulatory requirements.",
+        item3: "To comply with legal or regulatory requirements."
       },
       
       cookies: {
         title: "Cookies",
         description: "Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site.",
         item1: "Essential cookies: These are necessary for the website to function and cannot be switched off in our systems.",
-        item2: "Analytics cookies: These allow us to count visits and traffic sources so we can measure and improve the performance of our site.",
+        item2: "Analytics cookies: These allow us to count visits and traffic sources so we can measure and improve the performance of our site."
       },
       
       thirdParty: {
         title: "Third-Party Disclosure",
-        description: "We do not sell, trade, or otherwise transfer your personal data to outside parties unless we provide you with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential.",
+        description: "We do not sell, trade, or otherwise transfer your personal data to outside parties unless we provide you with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential."
       },
       
       rights: {
@@ -234,21 +235,21 @@ const translations = {
         item1: "Right of access: You have the right to request copies of your personal data.",
         item2: "Right to rectification: You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.",
         item3: "Right to erasure: You have the right to request that we erase your personal data, under certain conditions.",
-        item4: "Right to restrict processing: You have the right to request that we restrict the processing of your personal data, under certain conditions.",
+        item4: "Right to restrict processing: You have the right to request that we restrict the processing of your personal data, under certain conditions."
       },
       
       contact: {
         title: "Contact Us",
-        description: "If you have any questions about this Privacy Policy or our privacy practices, please contact us at:",
+        description: "If you have any questions about this Privacy Policy or our privacy practices, please contact us at:"
       },
       
       updates: {
         title: "Changes to This Privacy Policy",
-        description: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.",
+        description: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page."
       },
       
-      lastUpdated: "Last Updated",
-    },
+      lastUpdated: "Last Updated"
+    }
   },
   
   nl: {
@@ -332,7 +333,7 @@ const translations = {
     "pricing.premium.plan": "of €833/maand voor 3 maanden",
     "pricing.premium.description": "Ontworpen voor founders die professioneel voor de dag willen komen en consistent willen blijven — met een multi-pagina website, custom visuals en een stijlhandleiding die alles mooi samenbrengt.",
     "pricing.premium.includes": "INBEGREPEN:",
-    "pricing.premium.feature1": "Op maat gemaakte website met 4 pagina’s",
+    "pricing.premium.feature1": "Op maat gemaakte website met 4 pagina's",
     "pricing.premium.feature2": "Professioneel logo-ontwerp",
     "pricing.premium.feature3": "Merk stijlgids (logo, kleuren, lettertypen)",
     "pricing.premium.feature4": "5 op maat gemaakte social media templates",
@@ -378,7 +379,7 @@ const translations = {
     "faq.question5.title": "Is dit geschikt voor mij als ik net begin?",
     "faq.question5.answer": "Absoluut. We werken met solo-founders, freelancers en kleine bedrijven in elke fase — of je nu iets nieuws lanceert of je huidige merk een frisse update geeft.",
     "faq.question6.title": "Kan ik later extra pagina's, templates of diensten toevoegen?",
-    "faq.question6.answer": "Ja — extra werk zoals bijkomende pagina’s of marketingmaterialen kan na je lancering toegevoegd worden. Neem gewoon contact met ons op, en we geven je altijd eerst een duidelijke offerte.",
+    "faq.question6.answer": "Ja — extra werk zoals bijkomende pagina's of marketingmaterialen kan na je lancering toegevoegd worden. Neem gewoon contact met ons op, en we geven je altijd eerst een duidelijke offerte.",
     "faq.question7.title": "Waar zijn jullie gevestigd?",
     "faq.question7.answer": "Just Launch is gevestigd in België, maar we werken met klanten in heel Europa en daarbuiten.",
     "faq.moreQuestions": "Nog vragen? We staan voor je klaar!",
@@ -427,7 +428,7 @@ const translations = {
       gdprCompliance: "Deze website voldoet aan de AVG en respecteert uw privacyrechten.",
       accept: "Alles Accepteren",
       decline: "Weigeren",
-      learnMore: "Privacybeleid",
+      learnMore: "Privacybeleid"
     },
     
     // Privacy policy translations in Dutch
@@ -441,7 +442,7 @@ const translations = {
         description: "Wij kunnen de volgende categorieën persoonlijke gegevens verzamelen, gebruiken en delen:",
         item1: "Identiteits- en contactgegevens: inclusief naam, e-mailadres en telefoonnummer wanneer u contact met ons opneemt of een formulier indient.",
         item2: "Technische gegevens: inclusief internetprotocol (IP) adres, browsertype en -versie, tijdzone-instelling, browserplug-intypes en -versies, besturingssysteem en apparaatinformatie.",
-        item3: "Gebruiksgegevens: inclusief informatie over hoe u onze website, producten en diensten gebruikt.",
+        item3: "Gebruiksgegevens: inclusief informatie over hoe u onze website, producten en diensten gebruikt."
       },
       
       howWeUse: {
@@ -449,19 +450,19 @@ const translations = {
         description: "Wij zullen uw persoonlijke gegevens alleen gebruiken wanneer de wet ons dat toestaat. Meestal zullen wij uw persoonlijke gegevens in de volgende omstandigheden gebruiken:",
         item1: "Om u de diensten te leveren die u van ons hebt gevraagd.",
         item2: "Om onze website, producten en diensten te verbeteren.",
-        item3: "Om te voldoen aan wettelijke of regelgevende vereisten.",
+        item3: "Om te voldoen aan wettelijke of regelgevende vereisten."
       },
       
       cookies: {
         title: "Cookies",
         description: "Onze website gebruikt cookies om u te onderscheiden van andere gebruikers van onze website. Dit helpt ons om u een goede ervaring te bieden wanneer u onze website browst en stelt ons ook in staat om onze site te verbeteren.",
         item1: "Essentiële cookies: Deze zijn noodzakelijk voor het functioneren van de website en kunnen niet worden uitgeschakeld in onze systemen.",
-        item2: "Analytische cookies: Hiermee kunnen we bezoeken en verkeersbronnen tellen, zodat we de prestaties van onze site kunnen meten en verbeteren.",
+        item2: "Analytische cookies: Hiermee kunnen we bezoeken en verkeersbronnen tellen, zodat we de prestaties van onze site kunnen meten en verbeteren."
       },
       
       thirdParty: {
         title: "Openbaarmaking aan Derden",
-        description: "Wij verkopen, verhandelen of dragen uw persoonlijke gegevens niet over aan externe partijen, tenzij wij u hiervan vooraf op de hoogte stellen. Dit omvat niet website hosting partners en andere partijen die ons helpen bij het beheren van onze website, het uitvoeren van ons bedrijf of het bedienen van onze gebruikers, zolang deze partijen ermee instemmen deze informatie vertrouwelijk te houden.",
+        description: "Wij verkopen, verhandelen of dragen uw persoonlijke gegevens niet over aan externe partijen, tenzij wij u hiervan vooraf op de hoogte stellen. Dit omvat niet website hosting partners en andere partijen die ons helpen bij het beheren van onze website, het uitvoeren van ons bedrijf of het bedienen van onze gebruikers, zolang deze partijen ermee instemmen deze informatie vertrouwelijk te houden."
       },
       
       rights: {
@@ -470,22 +471,22 @@ const translations = {
         item1: "Recht op inzage: U hebt het recht om kopieën van uw persoonlijke gegevens op te vragen.",
         item2: "Recht op rectificatie: U hebt het recht om te verzoeken dat wij informatie corrigeren die volgens u onjuist is of onvolledige informatie aanvullen.",
         item3: "Recht op wissing: U hebt het recht om te verzoeken dat wij uw persoonlijke gegevens wissen, onder bepaalde voorwaarden.",
-        item4: "Recht op beperking van verwerking: U hebt het recht om te verzoeken dat wij de verwerking van uw persoonlijke gegevens beperken, onder bepaalde voorwaarden.",
+        item4: "Recht op beperking van verwerking: U hebt het recht om te verzoeken dat wij de verwerking van uw persoonlijke gegevens beperken, onder bepaalde voorwaarden."
       },
       
       contact: {
         title: "Neem Contact Met Ons Op",
-        description: "Als u vragen hebt over dit Privacybeleid of onze privacypraktijken, neem dan contact met ons op via:",
+        description: "Als u vragen hebt over dit Privacybeleid of onze privacypraktijken, neem dan contact met ons op via:"
       },
       
       updates: {
         title: "Wijzigingen in Dit Privacybeleid",
-        description: "Wij kunnen ons Privacybeleid van tijd tot tijd bijwerken. Wij zullen u op de hoogte stellen van eventuele wijzigingen door het nieuwe Privacybeleid op deze pagina te plaatsen.",
+        description: "Wij kunnen ons Privacybeleid van tijd tot tijd bijwerken. Wij zullen u op de hoogte stellen van eventuele wijzigingen door het nieuwe Privacybeleid op deze pagina te plaatsen."
       },
       
-      lastUpdated: "Laatst Bijgewerkt",
-    },
-  },
+      lastUpdated: "Laatst Bijgewerkt"
+    }
+  }
 };
 
 // Create Language Provider Component
@@ -494,7 +495,21 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   // Translation function
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key;
+    // Split the key by dots to navigate the nested object
+    const keys = key.split('.');
+    let result: any = translations[language];
+    
+    // Navigate the translations object
+    for (const k of keys) {
+      if (result && k in result) {
+        result = result[k];
+      } else {
+        return key; // Return the key if translation not found
+      }
+    }
+    
+    // Return the translation or the key if the result is not a string
+    return typeof result === 'string' ? result : key;
   };
 
   return (
