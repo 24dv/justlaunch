@@ -4,7 +4,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
-  const rotatingWords = ['Startup', 'Hustle', 'Project', 'Dream', 'Venture'];
+  const rotatingWords = language === 'en' 
+    ? ['Startup', 'Hustle', 'Project', 'Dream', 'Venture']
+    : ['Startup', 'Hustle', 'Project', 'Bedrijf', 'Venture'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   
