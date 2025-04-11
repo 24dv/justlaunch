@@ -6,8 +6,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { ConsentProvider } from "./contexts/ConsentContext";
 import AnimatedBackground from "./components/AnimatedBackground";
+import CookieBanner from "./components/consent/CookieBanner";
+import PrivacyBanner from "./components/consent/PrivacyBanner";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,18 +25,23 @@ const queryClient = new QueryClient({
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="noise-texture" />
-        <AnimatedBackground />
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </HashRouter>
-      </TooltipProvider>
+      <ConsentProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <div className="noise-texture" />
+          <AnimatedBackground />
+          <HashRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <CookieBanner />
+            <PrivacyBanner />
+          </HashRouter>
+        </TooltipProvider>
+      </ConsentProvider>
     </LanguageProvider>
   </QueryClientProvider>
 );
