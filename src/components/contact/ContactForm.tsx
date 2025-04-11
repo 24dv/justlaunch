@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Check, Send } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -40,7 +39,6 @@ const ContactForm = () => {
     setError('');
     
     try {
-      // Use the Formspree endpoint
       const response = await fetch('https://formspree.io/f/mjkyebnn', {
         method: 'POST',
         headers: {
@@ -59,10 +57,8 @@ const ContactForm = () => {
         throw new Error('Failed to submit form');
       }
       
-      // Set form as submitted
       setIsSubmitted(true);
       
-      // Reset form after showing success message
       setTimeout(() => {
         setFormState({
           name: '',
@@ -162,7 +158,7 @@ const ContactForm = () => {
                 </>
               ) : (
                 <>
-                  <option value="launch">Lanceerpakket (€1.500)</option>
+                  <option value="launch">Launch Pakket (€1.500)</option>
                   <option value="premium">Premium Pakket (€2.500)</option>
                   <option value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</option>
                   <option value="not-sure">Nog niet zeker</option>
