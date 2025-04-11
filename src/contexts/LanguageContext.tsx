@@ -1,8 +1,20 @@
+
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
+// Define types for our translations
+type TranslationKeys = string;
+type TranslationValues = string;
+type LanguageCode = 'en' | 'nl';
+
+type Translations = {
+  [key in LanguageCode]: {
+    [key in TranslationKeys]: TranslationValues;
+  };
+};
+
 type LanguageContextType = {
-  language: string;
-  setLanguage: (lang: string) => void;
+  language: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
   t: (key: string, options?: { [key: string]: any }) => string;
 };
 
@@ -10,7 +22,7 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 // English translations
-const translations = {
+const translations: Translations = {
   en: {
     // ... keep existing code (existing English translations)
     
@@ -94,11 +106,19 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<string>('en');
+  const [language, setLanguage] = useState<LanguageCode>('en');
 
   // Translation function
   const t = (key: string, options?: { [key: string]: any }): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key;
+    const translation = translations[language][key as keyof typeof translations[typeof language]] || key;
+    
+    if (options) {
+      return Object.entries(options).reduce((text, [optionKey, optionValue]) => {
+        return text.replace(`{${optionKey}}`, String(optionValue));
+      }, translation);
+    }
+    
+    return translation;
   };
 
   return (
