@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +13,7 @@ import CookieBanner from "./components/CookieBanner";
 import CookieConsentDialog from "./components/CookieConsentDialog";
 import { CookiePreferences } from "./components/cookie/types";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,6 +34,14 @@ const App = () => {
   });
 
   useEffect(() => {
+    // Listen for the custom event to show cookie preferences
+    const handleShowCookiePreferences = () => {
+      setShowCookieDialog(true);
+    };
+    
+    window.addEventListener('showCookiePreferences', handleShowCookiePreferences);
+    
+    // Check if the show cookie preferences flag is set
     const showCookiePrefs = localStorage.getItem("showCookiePreferences");
     if (showCookiePrefs === "true") {
       localStorage.removeItem("showCookiePreferences");
@@ -66,6 +76,11 @@ const App = () => {
         setCookiesAccepted(null);
       }
     }
+    
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener('showCookiePreferences', handleShowCookiePreferences);
+    };
   }, []);
 
   const handleAcceptCookies = () => {
@@ -141,6 +156,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             {cookiesAccepted === null && (
