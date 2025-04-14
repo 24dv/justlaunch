@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,6 @@ const Navbar = () => {
     img.onerror = () => console.error('Logo image failed to load');
     img.src = '/lovable-uploads/dfa51763-aac8-425e-a575-1ea249440af8.png';
   }, []);
-
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -110,7 +109,7 @@ const Navbar = () => {
         <div className="flex items-center md:hidden">
           <LanguageSwitcher />
           <button 
-            className="ml-4 text-[#0D503C] hover:text-[#0A4231] focus:outline-none" 
+            className="ml-4 text-[#0D503C] hover:text-[#0A4231] focus:outline-none relative z-50" 
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -119,36 +118,65 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Redesigned mobile menu */}
       <div
-        className={`fixed inset-0 top-0 left-0 right-0 h-full bg-[#F5F5E9] z-40 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        } md:hidden overflow-auto`}
-        style={{ position: 'fixed', height: '100vh' }}
+        className={`fixed inset-0 bg-[#F5F5E9] z-40 transform transition-all duration-500 ease-in-out ${
+          isOpen 
+            ? 'translate-y-0 opacity-100' 
+            : 'translate-y-full opacity-0 pointer-events-none'
+        }`}
+        style={{ height: '100vh' }}
       >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 relative">
-          <button 
-            className="absolute top-6 right-6 text-[#0D503C] hover:text-[#0A4231] focus:outline-none" 
-            onClick={toggleMenu}
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
-          
-          {navItems.map((item) => (
-            <button
-              key={item.name}
-              onClick={() => scrollToSection(item.id)}
-              className="text-lg font-medium text-[#0D503C] hover:text-[#0A4231] cursor-pointer"
+        <div className="absolute inset-0 bg-[url('/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png')] bg-cover bg-center opacity-5"></div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-[10%] left-[10%] w-16 h-16 rounded-full bg-[#F9A7A7] opacity-20 blur-xl"></div>
+        <div className="absolute bottom-[20%] right-[15%] w-20 h-20 rounded-full bg-[#0D503C] opacity-10 blur-xl"></div>
+        
+        <div className="flex flex-col h-full justify-center items-center p-8 relative">
+          <div className="w-full max-w-md">
+            {navItems.map((item, index) => (
+              <div 
+                key={item.name}
+                className="mb-5 overflow-hidden"
+                style={{ 
+                  animationDelay: isOpen ? `${index * 0.1}s` : '0s'
+                }}
+              >
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`group flex w-full items-center justify-between py-3 text-xl font-medium text-[#0D503C] hover:text-[#0A4231] transition-all transform ${
+                    isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  } transition-all duration-300 ease-out`}
+                  style={{ 
+                    transitionDelay: isOpen ? `${index * 0.1}s` : '0s'
+                  }}
+                >
+                  <span className="relative">
+                    {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0D503C] transition-all duration-300 group-hover:w-full"></span>
+                  </span>
+                  <ChevronRight 
+                    size={18} 
+                    className="transform transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </button>
+              </div>
+            ))}
+            
+            <div 
+              className={`mt-8 ${
+                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              } transition-all duration-500 delay-300`}
             >
-              {item.name}
-            </button>
-          ))}
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-3 text-base font-medium text-[#F5F5E9] hover:bg-[#0A4231] focus:outline-none"
-          >
-            {t('nav.getStarted')}
-          </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="w-full flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-4 text-base font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-300 transform hover:scale-[1.02] focus:outline-none"
+              >
+                {t('nav.getStarted')}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
