@@ -25,6 +25,7 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  const [cookieConsentLoaded, setCookieConsentLoaded] = useState(false);
   const [cookiesAccepted, setCookiesAccepted] = useState<boolean | null>(null);
   const [showCookieDialog, setShowCookieDialog] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>({
@@ -76,6 +77,9 @@ const App = () => {
         setCookiesAccepted(null);
       }
     }
+    
+    // Set cookie consent as loaded after checking local storage
+    setCookieConsentLoaded(true);
     
     // Clean up the event listener on unmount
     return () => {
@@ -164,6 +168,7 @@ const App = () => {
                 onAccept={handleAcceptCookies} 
                 onDecline={handleDeclineCookies}
                 onShowPreferences={handleShowPreferences}
+                isVisible={cookieConsentLoaded} // Only show when consent state is loaded
               />
             )}
             <CookieConsentDialog 

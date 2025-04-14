@@ -11,11 +11,20 @@ interface CookieBannerProps {
   onAccept: () => void;
   onDecline: () => void;
   onShowPreferences: () => void;
+  isVisible: boolean; // Added this prop to control visibility
 }
 
-const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline, onShowPreferences }) => {
+const CookieBanner: React.FC<CookieBannerProps> = ({ 
+  onAccept, 
+  onDecline, 
+  onShowPreferences,
+  isVisible 
+}) => {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  
+  // If not visible, don't render anything
+  if (!isVisible) return null;
   
   const translations: Record<string, CookieTranslations> = {
     en: {
