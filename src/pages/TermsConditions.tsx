@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -113,7 +112,7 @@ const TermsConditions = () => {
   return (
     <div className="min-h-screen bg-[#F5F5E9] text-[#0D503C] antialiased">
       <Navbar />
-      <main className="container mx-auto px-4 py-20 max-w-4xl">
+      <main className="container mx-auto px-4 py-24 max-w-4xl">
         <div className="prose prose-headings:text-[#0D503C] prose-p:text-[#0D503C]/80 max-w-none">
           <div className="flex items-center space-x-2 mb-4">
             <FileText size={24} className="text-[#0D503C]" />
