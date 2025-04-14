@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail, Settings } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,6 +23,13 @@ const Footer = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const handleShowCookieSettings = () => {
+    // Show cookie preferences dialog by setting a flag in localStorage
+    // that App.tsx will read on next render cycle
+    localStorage.setItem("showCookiePreferences", "true");
+    window.location.reload(); // Trigger a reload to show the dialog
   };
   
   return (
@@ -85,8 +92,19 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Just Launch. {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <button className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.privacy')}</button>
-            <button className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm">{t('footer.terms')}</button>
+            <button 
+              onClick={() => navigate('/privacy-policy')}
+              className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm"
+            >
+              {t('footer.privacy')}
+            </button>
+            <button 
+              onClick={handleShowCookieSettings}
+              className="text-[#F5F5E9]/50 hover:text-[#F9A7A7] text-sm flex items-center gap-1"
+            >
+              <Settings size={14} />
+              {language === 'en' ? 'Cookie Settings' : 'Cookie-instellingen'}
+            </button>
           </div>
         </div>
       </div>
