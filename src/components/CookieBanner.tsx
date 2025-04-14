@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -9,7 +9,7 @@ interface CookieBannerProps {
 }
 
 const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline }) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   
   const translations = {
     en: {
@@ -28,7 +28,7 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline }) => {
     }
   };
 
-  const text = translations[language];
+  const text = translations[language as keyof typeof translations];
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[#F5F5E9] shadow-[0_-4px_10px_rgba(0,0,0,0.1)] border-t border-[#0D503C]/10">
