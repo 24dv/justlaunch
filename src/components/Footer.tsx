@@ -26,9 +26,9 @@ const Footer = () => {
   };
 
   const handleShowCookieSettings = () => {
-    // Instead of refreshing the page, we'll dispatch a custom event
-    const event = new CustomEvent('showCookiePreferences');
-    window.dispatchEvent(event);
+    // Fixed the event dispatch code
+    window.dispatchEvent(new CustomEvent('showCookiePreferences'));
+    console.log('Cookie settings button clicked, event dispatched');
   };
   
   return (
