@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -9,6 +10,15 @@ import TermsConditions from './pages/TermsConditions';
 import CookieBanner from './components/CookieBanner';
 import CookieConsentDialog from './components/CookieConsentDialog';
 import { CookiePreferences } from './components/cookie/types';
+
+// Initialize dataLayer
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
+window.dataLayer = window.dataLayer || [];
 
 const App: React.FC = () => {
   const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>({
@@ -111,16 +121,35 @@ const App: React.FC = () => {
   };
 
   const initializeTracking = (preferences: CookiePreferences) => {
+    // Push consent info to dataLayer
+    window.dataLayer.push({
+      'event': 'cookiePreferencesUpdated',
+      'cookiePreferences': {
+        'necessary': preferences.necessary,
+        'analytics': preferences.analytics,
+        'marketing': preferences.marketing
+      }
+    });
+
     if (preferences.analytics) {
       console.log("Initializing analytics tracking...");
+      // Inform GTM that analytics is allowed
+      window.dataLayer.push({ 'analyticsConsent': true });
     }
     
     if (preferences.marketing) {
       console.log("Initializing marketing tracking...");
+      // Inform GTM that marketing is allowed
+      window.dataLayer.push({ 'marketingConsent': true });
     }
     
     if (!preferences.analytics && !preferences.marketing) {
       console.log("No tracking initialized based on user preferences");
+      // Inform GTM that tracking is not allowed
+      window.dataLayer.push({ 
+        'analyticsConsent': false, 
+        'marketingConsent': false 
+      });
     }
   };
 
