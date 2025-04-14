@@ -75,7 +75,9 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
       marketingDesc: "These cookies are used to track visitors across websites to display relevant advertisements.",
       acceptAll: "Accept All",
       savePreferences: "Save Preferences",
-      privacyPolicy: "Privacy Policy"
+      privacyPolicy: "Privacy Policy",
+      decline: "Decline",
+      customize: "Customize"
     },
     nl: {
       title: "Cookie Voorkeuren",
@@ -88,7 +90,9 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
       marketingDesc: "Deze cookies worden gebruikt om bezoekers over websites te volgen om relevante advertenties weer te geven.",
       acceptAll: "Alles Accepteren",
       savePreferences: "Voorkeuren Opslaan",
-      privacyPolicy: "Privacybeleid"
+      privacyPolicy: "Privacybeleid",
+      decline: "Weigeren",
+      customize: "Aanpassen"
     }
   };
   
