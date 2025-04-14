@@ -2,10 +2,16 @@ import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Shield, Lock, Users, FileText, Info, Clock } from 'lucide-react';
+import { Shield, Lock, Users, Clock } from 'lucide-react';
+
+import PrivacyHeader from '../components/privacy-policy/PrivacyHeader';
+import PrivacyIntroduction from '../components/privacy-policy/PrivacyIntroduction';
+import PrivacyDataCollection from '../components/privacy-policy/PrivacyDataCollection';
+import PrivacySection from '../components/privacy-policy/PrivacySection';
+import PrivacyCookiePolicy from '../components/privacy-policy/PrivacyCookiePolicy';
 
 const PrivacyPolicy = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   
   useEffect(() => {
     document.title = language === 'en' ? "Privacy Policy | Just Launch" : "Privacybeleid | Just Launch";
@@ -186,107 +192,59 @@ const PrivacyPolicy = () => {
       <Navbar />
       <main className="container mx-auto px-4 py-24 max-w-4xl">
         <div className="prose prose-headings:text-[#0D503C] prose-p:text-[#0D503C]/80 max-w-none">
-          <div className="flex items-center space-x-2 mb-4">
-            <FileText size={24} className="text-[#0D503C]" />
-            <h1 className="text-3xl font-serif m-0">{text.title}</h1>
-          </div>
+          <PrivacyHeader 
+            title={text.title} 
+            lastUpdated={text.lastUpdated} 
+            formattedDate={formattedDate} 
+          />
           
-          <div className="flex items-center text-sm text-[#0D503C]/60 mb-8">
-            <Clock size={16} className="mr-1" />
-            {text.lastUpdated} {formattedDate}
-          </div>
+          <PrivacyIntroduction 
+            title={text.introduction.title} 
+            content={text.introduction.content} 
+          />
           
-          {/* Introduction */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <Info size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.introduction.title}</h2>
-            </div>
-            <p>{text.introduction.content}</p>
-          </section>
+          <PrivacyDataCollection 
+            title={text.dataCollection.title} 
+            content={text.dataCollection.content} 
+            items={text.dataCollection.items} 
+          />
           
-          {/* Information We Collect */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <Users size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.dataCollection.title}</h2>
-            </div>
-            <p>{text.dataCollection.content}</p>
-            <ul className="space-y-1">
-              {text.dataCollection.items.map((item, index) => (
-                <li key={index} className="text-[#0D503C]/80">{item}</li>
-              ))}
-            </ul>
-          </section>
+          <PrivacySection 
+            title={text.useOfData.title} 
+            content={text.useOfData.content} 
+            items={text.useOfData.items} 
+          />
           
-          {/* How We Use Your Information */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.useOfData.title}</h2>
-            <p>{text.useOfData.content}</p>
-            <ul className="space-y-1">
-              {text.useOfData.items.map((item, index) => (
-                <li key={index} className="text-[#0D503C]/80">{item}</li>
-              ))}
-            </ul>
-          </section>
+          <PrivacyCookiePolicy 
+            title={text.cookies.title} 
+            content={text.cookies.content} 
+            categories={text.cookies.categories} 
+            management={text.cookies.management} 
+          />
           
-          {/* Cookie Policy */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <Shield size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.cookies.title}</h2>
-            </div>
-            <p>{text.cookies.content}</p>
-            <div className="space-y-4 mt-4">
-              {text.cookies.categories.map((category, index) => (
-                <div key={index} className="bg-[#0D503C]/5 rounded-lg p-4">
-                  <h3 className="text-lg font-medium text-[#0D503C] mb-2">{category.name}</h3>
-                  <p className="text-sm text-[#0D503C]/80">{category.description}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-4">{text.cookies.management}</p>
-          </section>
+          <PrivacySection 
+            title={text.thirdParty.title} 
+            content={text.thirdParty.content} 
+            items={text.thirdParty.items} 
+          />
           
-          {/* Third Party Services */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.thirdParty.title}</h2>
-            <p>{text.thirdParty.content}</p>
-            <ul className="space-y-1">
-              {text.thirdParty.items.map((item, index) => (
-                <li key={index} className="text-[#0D503C]/80">{item}</li>
-              ))}
-            </ul>
-          </section>
+          <PrivacySection 
+            title={text.dataRetention.title} 
+            content={text.dataRetention.content} 
+            icon={<Clock size={20} className="text-[#0D503C]" />} 
+          />
           
-          {/* Data Retention */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <Clock size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.dataRetention.title}</h2>
-            </div>
-            <p>{text.dataRetention.content}</p>
-          </section>
+          <PrivacySection 
+            title={text.rights.title} 
+            content={text.rights.content} 
+            items={text.rights.items} 
+            icon={<Lock size={20} className="text-[#0D503C]" />} 
+          />
           
-          {/* Your Rights */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <Lock size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.rights.title}</h2>
-            </div>
-            <p>{text.rights.content}</p>
-            <ul className="space-y-1">
-              {text.rights.items.map((item, index) => (
-                <li key={index} className="text-[#0D503C]/80">{item}</li>
-              ))}
-            </ul>
-          </section>
-          
-          {/* Contact */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.contact.title}</h2>
-            <p>{text.contact.content}</p>
-          </section>
+          <PrivacySection 
+            title={text.contact.title} 
+            content={text.contact.content} 
+          />
         </div>
       </main>
       <Footer />

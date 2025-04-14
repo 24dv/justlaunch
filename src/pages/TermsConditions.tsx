@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
 import { FileText, Info, CheckCircle, AlertTriangle, Clock, AlertCircle } from 'lucide-react';
+import TermsHeader from '../components/terms/TermsHeader';
+import TermsSection from '../components/terms/TermsSection';
 
 const TermsConditions = () => {
   const { language } = useLanguage();
@@ -114,81 +116,60 @@ const TermsConditions = () => {
       <Navbar />
       <main className="container mx-auto px-4 py-24 max-w-4xl">
         <div className="prose prose-headings:text-[#0D503C] prose-p:text-[#0D503C]/80 max-w-none">
-          <div className="flex items-center space-x-2 mb-4">
-            <FileText size={24} className="text-[#0D503C]" />
-            <h1 className="text-3xl font-serif m-0">{text.title}</h1>
-          </div>
+          <TermsHeader 
+            title={text.title} 
+            lastUpdated={text.lastUpdated} 
+            formattedDate={formattedDate} 
+          />
           
-          <div className="flex items-center text-sm text-[#0D503C]/60 mb-8">
-            <Clock size={16} className="mr-1" />
-            {text.lastUpdated} {formattedDate}
-          </div>
+          <TermsSection 
+            title={text.introduction.title} 
+            content={text.introduction.content} 
+            icon={<Info size={20} className="text-[#0D503C]" />} 
+          />
           
-          {/* Introduction */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <Info size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.introduction.title}</h2>
-            </div>
-            <p>{text.introduction.content}</p>
-          </section>
+          <TermsSection 
+            title={text.servicesSection.title} 
+            content={text.servicesSection.content} 
+            icon={<CheckCircle size={20} className="text-[#0D503C]" />} 
+          />
           
-          {/* Services */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <CheckCircle size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.servicesSection.title}</h2>
-            </div>
-            <p>{text.servicesSection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.intellectualPropertySection.title} 
+            content={text.intellectualPropertySection.content} 
+            icon={<AlertCircle size={20} className="text-[#0D503C]" />} 
+          />
           
-          {/* Intellectual Property */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <AlertCircle size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.intellectualPropertySection.title}</h2>
-            </div>
-            <p>{text.intellectualPropertySection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.paymentSection.title} 
+            content={text.paymentSection.content} 
+          />
           
-          {/* Payment Terms */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.paymentSection.title}</h2>
-            <p>{text.paymentSection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.revisionSection.title} 
+            content={text.revisionSection.content} 
+          />
           
-          {/* Revisions */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.revisionSection.title}</h2>
-            <p>{text.revisionSection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.terminationSection.title} 
+            content={text.terminationSection.content} 
+            icon={<AlertTriangle size={20} className="text-[#0D503C]" />} 
+          />
           
-          {/* Termination */}
-          <section className="mb-8">
-            <div className="flex items-center space-x-2 mb-2">
-              <AlertTriangle size={20} className="text-[#0D503C]" />
-              <h2 className="text-xl font-serif m-0">{text.terminationSection.title}</h2>
-            </div>
-            <p>{text.terminationSection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.liabilitySection.title} 
+            content={text.liabilitySection.content} 
+          />
           
-          {/* Limitation of Liability */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.liabilitySection.title}</h2>
-            <p>{text.liabilitySection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.amendmentsSection.title} 
+            content={text.amendmentsSection.content} 
+          />
           
-          {/* Amendments */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.amendmentsSection.title}</h2>
-            <p>{text.amendmentsSection.content}</p>
-          </section>
-          
-          {/* Contact */}
-          <section className="mb-8">
-            <h2 className="text-xl font-serif mb-3">{text.contactSection.title}</h2>
-            <p>{text.contactSection.content}</p>
-          </section>
+          <TermsSection 
+            title={text.contactSection.title} 
+            content={text.contactSection.content} 
+          />
         </div>
       </main>
       <Footer />
