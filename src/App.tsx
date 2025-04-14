@@ -9,7 +9,8 @@ import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import AnimatedBackground from "./components/AnimatedBackground";
 import CookieBanner from "./components/CookieBanner";
-import CookieConsentDialog, { CookiePreferences } from "./components/CookieConsentDialog";
+import CookieConsentDialog from "./components/CookieConsentDialog";
+import { CookiePreferences } from "./components/cookie/types";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient({
@@ -31,14 +32,12 @@ const App = () => {
   });
 
   useEffect(() => {
-    // Check if user wants to show the cookie preferences dialog
     const showCookiePrefs = localStorage.getItem("showCookiePreferences");
     if (showCookiePrefs === "true") {
       localStorage.removeItem("showCookiePreferences");
       setShowCookieDialog(true);
     }
     
-    // Check if user has already made cookie choices
     const savedPreferences = localStorage.getItem("cookiePreferences");
     if (savedPreferences) {
       try {
@@ -50,12 +49,10 @@ const App = () => {
         setCookiesAccepted(null);
       }
     } else {
-      // Check the legacy way for backward compatibility
       const cookieConsent = localStorage.getItem("cookieConsent");
       if (cookieConsent === "accepted" || cookieConsent === "declined") {
         setCookiesAccepted(cookieConsent === "accepted");
         
-        // Migrate old format to new format
         if (cookieConsent === "accepted") {
           const newPreferences = {
             necessary: true,
@@ -79,7 +76,7 @@ const App = () => {
     };
     
     localStorage.setItem("cookiePreferences", JSON.stringify(acceptedPreferences));
-    localStorage.setItem("cookieConsent", "accepted"); // For backward compatibility
+    localStorage.setItem("cookieConsent", "accepted");
     
     setCookiePreferences(acceptedPreferences);
     setCookiesAccepted(true);
@@ -96,10 +93,10 @@ const App = () => {
     };
     
     localStorage.setItem("cookiePreferences", JSON.stringify(declinedPreferences));
-    localStorage.setItem("cookieConsent", "declined"); // For backward compatibility
+    localStorage.setItem("cookieConsent", "declined");
     
     setCookiePreferences(declinedPreferences);
-    setCookiesAccepted(true); // We still consider it "accepted" for banner hiding purposes
+    setCookiesAccepted(true);
     
     console.log("Cookies declined, disabling tracking...");
   };
@@ -111,7 +108,6 @@ const App = () => {
   const handleSavePreferences = (preferences: CookiePreferences) => {
     localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
     
-    // Update legacy cookie consent
     localStorage.setItem("cookieConsent", 
       preferences.analytics || preferences.marketing ? "accepted" : "declined");
     
@@ -126,12 +122,10 @@ const App = () => {
   const initializeTracking = (preferences: CookiePreferences) => {
     if (preferences.analytics) {
       console.log("Initializing analytics tracking...");
-      // Code to initialize Google Analytics would go here
     }
     
     if (preferences.marketing) {
       console.log("Initializing marketing cookies...");
-      // Code to initialize marketing cookies would go here
     }
   };
 

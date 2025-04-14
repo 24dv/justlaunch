@@ -1,14 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { X, Info, Shield, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useNavigate } from 'react-router-dom';
-
-export interface CookiePreferences {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-}
+import { CookiePreferences, CookieTranslations } from './cookie/types';
+import CookieDialogHeader from './cookie/CookieDialogHeader';
+import CookiePreferencesList from './cookie/CookiePreferencesList';
+import CookieDialogFooter from './cookie/CookieDialogFooter';
 
 interface CookieConsentDialogProps {
   isOpen: boolean;
@@ -20,7 +16,6 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
   onSavePreferences 
 }) => {
   const { language } = useLanguage();
-  const navigate = useNavigate();
   
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true,
@@ -65,15 +60,10 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
     onSavePreferences(allAccepted);
   };
   
-  const handlePrivacyPolicyClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate('/privacy-policy');
-  };
-  
   // Early return if dialog is not open
   if (!isOpen) return null;
   
-  const translations = {
+  const translations: Record<string, CookieTranslations> = {
     en: {
       title: "Cookie Preferences",
       description: "We use cookies to improve your browsing experience, show you personalized content, and analyze our website traffic. Please choose which cookies you're willing to allow.",
@@ -107,108 +97,26 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 p-4">
       <div className="bg-[#F5F5E9] rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 z-10 bg-[#F5F5E9] border-b border-[#0D503C]/10 p-4 flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-[#0D503C] flex items-center gap-2">
-            <Shield size={20} />
-            {text.title}
-          </h2>
-          <button 
-            onClick={handleSave}
-            className="text-[#0D503C]/60 hover:text-[#0D503C] transition-colors"
-            aria-label="Close dialog"
-          >
-            <X size={20} />
-          </button>
-        </div>
+        <CookieDialogHeader
+          title={text.title}
+          description={text.description}
+          privacyPolicyText={text.privacyPolicy}
+          onClose={handleSave}
+        />
         
-        <div className="p-4">
-          <p className="text-sm text-[#0D503C]/80 mb-4">{text.description}</p>
-          <div className="mb-3 text-xs">
-            <button
-              onClick={handlePrivacyPolicyClick}
-              className="text-[#0D503C] hover:underline flex items-center gap-1"
-            >
-              <Info size={14} />
-              {text.privacyPolicy}
-            </button>
-          </div>
+        <div className="p-4 pt-0">
+          <CookiePreferencesList
+            preferences={preferences}
+            onChange={handleToggle}
+            translations={text}
+          />
           
-          <div className="space-y-4 my-6">
-            {/* Necessary Cookies */}
-            <div className="border border-[#0D503C]/10 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <Shield size={18} className="text-[#0D503C]" />
-                  <h3 className="font-medium text-[#0D503C]">{text.necessaryCookies}</h3>
-                </div>
-                <div className="relative">
-                  <input
-                    type="checkbox"
-                    checked={preferences.necessary}
-                    disabled={true}
-                    className="appearance-none w-10 h-5 bg-[#0D503C]/20 rounded-full checked:bg-[#0D503C] transition-colors duration-200 cursor-not-allowed relative"
-                  />
-                  <span className={`absolute w-4 h-4 bg-white rounded-full left-0.5 top-0.5 transition-transform duration-200 transform ${preferences.necessary ? 'translate-x-5' : ''}`}></span>
-                </div>
-              </div>
-              <p className="text-xs text-[#0D503C]/70">{text.necessaryDesc}</p>
-            </div>
-            
-            {/* Analytics Cookies */}
-            <div className="border border-[#0D503C]/10 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <Zap size={18} className="text-[#0D503C]" />
-                  <h3 className="font-medium text-[#0D503C]">{text.analyticsCookies}</h3>
-                </div>
-                <div className="relative">
-                  <input
-                    type="checkbox"
-                    checked={preferences.analytics}
-                    onChange={() => handleToggle('analytics')}
-                    className="appearance-none w-10 h-5 bg-[#0D503C]/20 rounded-full checked:bg-[#0D503C] transition-colors duration-200 cursor-pointer relative"
-                  />
-                  <span className={`absolute w-4 h-4 bg-white rounded-full left-0.5 top-0.5 transition-transform duration-200 transform ${preferences.analytics ? 'translate-x-5' : ''}`}></span>
-                </div>
-              </div>
-              <p className="text-xs text-[#0D503C]/70">{text.analyticsDesc}</p>
-            </div>
-            
-            {/* Marketing Cookies */}
-            <div className="border border-[#0D503C]/10 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <Zap size={18} className="text-[#0D503C]" />
-                  <h3 className="font-medium text-[#0D503C]">{text.marketingCookies}</h3>
-                </div>
-                <div className="relative">
-                  <input
-                    type="checkbox"
-                    checked={preferences.marketing}
-                    onChange={() => handleToggle('marketing')}
-                    className="appearance-none w-10 h-5 bg-[#0D503C]/20 rounded-full checked:bg-[#0D503C] transition-colors duration-200 cursor-pointer relative"
-                  />
-                  <span className={`absolute w-4 h-4 bg-white rounded-full left-0.5 top-0.5 transition-transform duration-200 transform ${preferences.marketing ? 'translate-x-5' : ''}`}></span>
-                </div>
-              </div>
-              <p className="text-xs text-[#0D503C]/70">{text.marketingDesc}</p>
-            </div>
-          </div>
-          
-          <div className="flex gap-3 pt-3 border-t border-[#0D503C]/10">
-            <button
-              onClick={handleAcceptAll}
-              className="flex-1 px-4 py-2 text-sm font-medium rounded-full bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] transition-colors"
-            >
-              {text.acceptAll}
-            </button>
-            <button
-              onClick={handleSave}
-              className="flex-1 px-4 py-2 text-sm font-medium rounded-full border border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 transition-colors"
-            >
-              {text.savePreferences}
-            </button>
-          </div>
+          <CookieDialogFooter
+            acceptAllText={text.acceptAll}
+            savePreferencesText={text.savePreferences}
+            onAcceptAll={handleAcceptAll}
+            onSave={handleSave}
+          />
         </div>
       </div>
     </div>
