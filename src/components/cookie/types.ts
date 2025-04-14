@@ -17,4 +17,6 @@ export interface CookieTranslations {
   acceptAll: string;
   savePreferences: string;
   privacyPolicy: string;
+  decline?: string;
+  customize?: string;
 }
