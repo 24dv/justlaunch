@@ -4,12 +4,14 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import AnimatedBackground from "./components/AnimatedBackground";
-import CookieBanner from "./components/CookieBanner";
+
+// Lazy load the cookie banner for better performance
+const CookieBanner = lazy(() => import("./components/CookieBanner"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -64,10 +66,12 @@ const App = () => {
             </Routes>
           </HashRouter>
           {cookiesAccepted === null && (
-            <CookieBanner 
-              onAccept={handleAcceptCookies} 
-              onDecline={handleDeclineCookies} 
-            />
+            <Suspense fallback={null}>
+              <CookieBanner 
+                onAccept={handleAcceptCookies} 
+                onDecline={handleDeclineCookies} 
+              />
+            </Suspense>
           )}
         </TooltipProvider>
       </LanguageProvider>

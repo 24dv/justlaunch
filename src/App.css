@@ -44,19 +44,22 @@
 
 /* Cookie banner styles */
 .cookie-banner-enter {
-  transform: translateY(100%);
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .cookie-banner-enter-active {
+  opacity: 1;
   transform: translateY(0);
-  transition: transform 300ms ease-out;
+  transition: opacity 200ms, transform 200ms;
 }
 
 .cookie-banner-exit {
-  transform: translateY(0);
+  opacity: 1;
 }
 
 .cookie-banner-exit-active {
-  transform: translateY(100%);
-  transition: transform 300ms ease-in;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 200ms, transform 200ms;
 }
