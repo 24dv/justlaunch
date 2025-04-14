@@ -5,7 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
   
   useEffect(() => {
