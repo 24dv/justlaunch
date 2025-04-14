@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,12 +23,9 @@ const App = () => {
   const [cookiesAccepted, setCookiesAccepted] = useState<boolean | null>(null);
 
   useEffect(() => {
-    // Check if the user has already made a cookie choice
     const cookieConsent = localStorage.getItem("cookieConsent");
-    if (cookieConsent) {
+    if (cookieConsent === "accepted" || cookieConsent === "declined") {
       setCookiesAccepted(cookieConsent === "accepted");
-    } else {
-      setCookiesAccepted(null); // Show the cookie banner
     }
   }, []);
 
@@ -37,7 +33,6 @@ const App = () => {
     localStorage.setItem("cookieConsent", "accepted");
     setCookiesAccepted(true);
     
-    // Here you would initialize any tracking or analytics that uses cookies
     console.log("Cookies accepted, initializing tracking...");
   };
 
@@ -45,7 +40,6 @@ const App = () => {
     localStorage.setItem("cookieConsent", "declined");
     setCookiesAccepted(false);
     
-    // Here you would ensure no tracking cookies are used
     console.log("Cookies declined, disabling tracking...");
   };
 
