@@ -14,17 +14,17 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline }) => {
   const translations = {
     en: {
       title: "Cookie Consent",
-      description: "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.",
+      description: "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
       acceptAll: "Accept All",
       decline: "Decline",
-      settings: "Cookie Settings",
+      settings: "Cookie Settings"
     },
     nl: {
       title: "Cookie Toestemming",
-      description: "Wij gebruiken cookies om uw surfervaring te verbeteren, gepersonaliseerde advertenties of inhoud te tonen en ons verkeer te analyseren. Door op "Alles accepteren" te klikken, stemt u in met ons gebruik van cookies.",
+      description: "Wij gebruiken cookies om uw surfervaring te verbeteren, gepersonaliseerde advertenties of inhoud te tonen en ons verkeer te analyseren. Door op \"Alles accepteren\" te klikken, stemt u in met ons gebruik van cookies.",
       acceptAll: "Alles Accepteren",
       decline: "Weigeren",
-      settings: "Cookie-instellingen",
+      settings: "Cookie-instellingen"
     }
   };
 
