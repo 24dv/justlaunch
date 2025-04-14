@@ -32,6 +32,13 @@ const App = () => {
   });
 
   useEffect(() => {
+    // Check if user wants to show the cookie preferences dialog
+    const showCookiePrefs = localStorage.getItem("showCookiePreferences");
+    if (showCookiePrefs === "true") {
+      localStorage.removeItem("showCookiePreferences");
+      setShowCookieDialog(true);
+    }
+    
     // Check if user has already made cookie choices
     const savedPreferences = localStorage.getItem("cookiePreferences");
     if (savedPreferences) {

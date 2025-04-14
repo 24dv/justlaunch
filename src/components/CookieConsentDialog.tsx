@@ -1,206 +1,207 @@
 
-import React, { useState } from 'react';
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogHeader, 
-  DialogTitle, 
-  DialogDescription,
-  DialogFooter
-} from "@/components/ui/dialog";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import { Shield, Settings, Info } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Info, Shield, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+
+export interface CookiePreferences {
+  necessary: boolean;
+  analytics: boolean;
+  marketing: boolean;
+}
 
 interface CookieConsentDialogProps {
   isOpen: boolean;
   onSavePreferences: (preferences: CookiePreferences) => void;
 }
 
-export interface CookiePreferences {
-  necessary: boolean; // Always true
-  analytics: boolean;
-  marketing: boolean;
-}
-
-const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({ isOpen, onSavePreferences }) => {
+const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({ 
+  isOpen, 
+  onSavePreferences 
+}) => {
   const { language } = useLanguage();
-  const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>({
-    necessary: true, // Always required
+  const [preferences, setPreferences] = useState<CookiePreferences>({
+    necessary: true,
     analytics: false,
-    marketing: false,
+    marketing: false
   });
   
-  const translations = {
-    en: {
-      title: "Cookie Preferences",
-      description: "We use cookies to enhance your browsing experience. Select which cookies you want to allow.",
-      necessary: {
-        title: "Necessary Cookies",
-        description: "These cookies are essential for the website to function properly and cannot be disabled."
-      },
-      analytics: {
-        title: "Analytics Cookies",
-        description: "These cookies help us understand how visitors interact with our website, helping us improve our services."
-      },
-      marketing: {
-        title: "Marketing Cookies",
-        description: "These cookies are used to track visitors across websites to display relevant advertisements."
-      },
-      acceptAll: "Accept All",
-      savePreferences: "Save Preferences",
-      privacyPolicy: "View Privacy Policy"
-    },
-    nl: {
-      title: "Cookie Voorkeuren",
-      description: "Wij gebruiken cookies om uw surfervaring te verbeteren. Selecteer welke cookies u wilt toestaan.",
-      necessary: {
-        title: "Noodzakelijke Cookies",
-        description: "Deze cookies zijn essentieel voor het goed functioneren van de website en kunnen niet worden uitgeschakeld."
-      },
-      analytics: {
-        title: "Analytics Cookies",
-        description: "Deze cookies helpen ons te begrijpen hoe bezoekers omgaan met onze website, wat ons helpt onze diensten te verbeteren."
-      },
-      marketing: {
-        title: "Marketing Cookies",
-        description: "Deze cookies worden gebruikt om bezoekers op websites te volgen om relevante advertenties weer te geven."
-      },
-      acceptAll: "Alles Accepteren",
-      savePreferences: "Voorkeuren Opslaan",
-      privacyPolicy: "Bekijk Privacybeleid"
+  useEffect(() => {
+    // Try to load existing preferences when dialog opens
+    if (isOpen) {
+      const savedPreferences = localStorage.getItem("cookiePreferences");
+      if (savedPreferences) {
+        try {
+          setPreferences(JSON.parse(savedPreferences));
+        } catch (e) {
+          console.error("Failed to parse saved cookie preferences", e);
+        }
+      }
     }
+  }, [isOpen]);
+  
+  const handleToggle = (type: keyof CookiePreferences) => {
+    if (type === 'necessary') return; // Necessary cookies can't be toggled
+    
+    setPreferences(prev => ({
+      ...prev,
+      [type]: !prev[type]
+    }));
   };
-
-  const text = translations[language as keyof typeof translations];
-
+  
+  const handleSave = () => {
+    onSavePreferences(preferences);
+  };
+  
   const handleAcceptAll = () => {
     const allAccepted = {
       necessary: true,
       analytics: true,
       marketing: true
     };
-    setCookiePreferences(allAccepted);
+    setPreferences(allAccepted);
     onSavePreferences(allAccepted);
   };
-
-  const handleSavePreferences = () => {
-    onSavePreferences(cookiePreferences);
+  
+  // Early return if dialog is not open
+  if (!isOpen) return null;
+  
+  const translations = {
+    en: {
+      title: "Cookie Preferences",
+      description: "We use cookies to improve your browsing experience, show you personalized content, and analyze our website traffic. Please choose which cookies you're willing to allow.",
+      necessaryCookies: "Necessary Cookies",
+      necessaryDesc: "These cookies are essential for the website to function properly and cannot be disabled.",
+      analyticsCookies: "Analytics Cookies",
+      analyticsDesc: "These cookies help us understand how visitors interact with our website by collecting anonymous information.",
+      marketingCookies: "Marketing Cookies",
+      marketingDesc: "These cookies are used to track visitors across websites to display relevant advertisements.",
+      acceptAll: "Accept All",
+      savePreferences: "Save Preferences",
+      privacyPolicy: "Privacy Policy"
+    },
+    nl: {
+      title: "Cookie Voorkeuren",
+      description: "We gebruiken cookies om je surfervaring te verbeteren, gepersonaliseerde content te tonen en ons websiteverkeer te analyseren. Kies alsjeblieft welke cookies je wilt toestaan.",
+      necessaryCookies: "Noodzakelijke Cookies",
+      necessaryDesc: "Deze cookies zijn essentieel voor het goed functioneren van de website en kunnen niet worden uitgeschakeld.",
+      analyticsCookies: "Analytische Cookies",
+      analyticsDesc: "Deze cookies helpen ons te begrijpen hoe bezoekers met onze website omgaan door anonieme informatie te verzamelen.",
+      marketingCookies: "Marketing Cookies",
+      marketingDesc: "Deze cookies worden gebruikt om bezoekers over websites te volgen om relevante advertenties weer te geven.",
+      acceptAll: "Alles Accepteren",
+      savePreferences: "Voorkeuren Opslaan",
+      privacyPolicy: "Privacybeleid"
+    }
   };
-
-  const handleAnalyticsChange = (value: string) => {
-    setCookiePreferences(prev => ({
-      ...prev,
-      analytics: value === "yes"
-    }));
-  };
-
-  const handleMarketingChange = (value: string) => {
-    setCookiePreferences(prev => ({
-      ...prev,
-      marketing: value === "yes"
-    }));
-  };
-
+  
+  const text = translations[language as keyof typeof translations];
+  
   return (
-    <Dialog open={isOpen}>
-      <DialogContent className="sm:max-w-md bg-[#F5F5E9] border-[#0D503C]/10">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-[#0D503C]">
-            <Shield size={18} />
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 p-4">
+      <div className="bg-[#F5F5E9] rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 z-10 bg-[#F5F5E9] border-b border-[#0D503C]/10 p-4 flex justify-between items-center">
+          <h2 className="text-lg font-semibold text-[#0D503C] flex items-center gap-2">
+            <Shield size={20} />
             {text.title}
-          </DialogTitle>
-          <DialogDescription className="text-[#0D503C]/80">
-            {text.description}
-          </DialogDescription>
-        </DialogHeader>
-
-        <div className="space-y-6 py-4">
-          {/* Necessary Cookies - Always enabled */}
-          <div className="space-y-2 border-b border-[#0D503C]/10 pb-4">
-            <div className="flex items-center justify-between">
-              <Label className="text-sm font-medium text-[#0D503C] flex items-center gap-2">
-                <Settings size={16} />
-                {text.necessary.title}
-              </Label>
-              <span className="text-xs bg-[#0D503C]/10 text-[#0D503C] py-1 px-2 rounded-full">
-                {language === 'en' ? 'Required' : 'Vereist'}
-              </span>
-            </div>
-            <p className="text-xs text-[#0D503C]/70">{text.necessary.description}</p>
-          </div>
-
-          {/* Analytics Cookies */}
-          <div className="space-y-2 border-b border-[#0D503C]/10 pb-4">
-            <Label className="text-sm font-medium text-[#0D503C] flex items-center gap-2">
-              <Info size={16} />
-              {text.analytics.title}
-            </Label>
-            <p className="text-xs text-[#0D503C]/70 mb-3">{text.analytics.description}</p>
-            <RadioGroup 
-              value={cookiePreferences.analytics ? "yes" : "no"} 
-              onValueChange={handleAnalyticsChange}
-              className="flex space-x-4"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="yes" id="analytics-yes" className="border-[#0D503C]" />
-                <Label htmlFor="analytics-yes" className="text-xs">{language === 'en' ? 'Allow' : 'Toestaan'}</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="no" id="analytics-no" className="border-[#0D503C]" />
-                <Label htmlFor="analytics-no" className="text-xs">{language === 'en' ? 'Deny' : 'Weigeren'}</Label>
-              </div>
-            </RadioGroup>
-          </div>
-
-          {/* Marketing Cookies */}
-          <div className="space-y-2">
-            <Label className="text-sm font-medium text-[#0D503C] flex items-center gap-2">
-              <Settings size={16} />
-              {text.marketing.title}
-            </Label>
-            <p className="text-xs text-[#0D503C]/70 mb-3">{text.marketing.description}</p>
-            <RadioGroup 
-              value={cookiePreferences.marketing ? "yes" : "no"} 
-              onValueChange={handleMarketingChange}
-              className="flex space-x-4"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="yes" id="marketing-yes" className="border-[#0D503C]" />
-                <Label htmlFor="marketing-yes" className="text-xs">{language === 'en' ? 'Allow' : 'Toestaan'}</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="no" id="marketing-no" className="border-[#0D503C]" />
-                <Label htmlFor="marketing-no" className="text-xs">{language === 'en' ? 'Deny' : 'Weigeren'}</Label>
-              </div>
-            </RadioGroup>
-          </div>
-
-          <div className="text-xs text-center text-[#0D503C]/60">
-            <Link to="/privacy-policy" className="text-[#0D503C] hover:underline">
+          </h2>
+          <button 
+            onClick={handleSave}
+            className="text-[#0D503C]/60 hover:text-[#0D503C] transition-colors"
+            aria-label="Close dialog"
+          >
+            <X size={20} />
+          </button>
+        </div>
+        
+        <div className="p-4">
+          <p className="text-sm text-[#0D503C]/80 mb-4">{text.description}</p>
+          <div className="mb-3 text-xs">
+            <Link to="/privacy-policy" className="text-[#0D503C] hover:underline flex items-center gap-1">
+              <Info size={14} />
               {text.privacyPolicy}
             </Link>
           </div>
+          
+          <div className="space-y-4 my-6">
+            {/* Necessary Cookies */}
+            <div className="border border-[#0D503C]/10 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Shield size={18} className="text-[#0D503C]" />
+                  <h3 className="font-medium text-[#0D503C]">{text.necessaryCookies}</h3>
+                </div>
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    checked={preferences.necessary}
+                    disabled={true}
+                    className="appearance-none w-10 h-5 bg-[#0D503C]/20 rounded-full checked:bg-[#0D503C] transition-colors duration-200 cursor-not-allowed relative"
+                  />
+                  <span className={`absolute w-4 h-4 bg-white rounded-full left-0.5 top-0.5 transition-transform duration-200 transform ${preferences.necessary ? 'translate-x-5' : ''}`}></span>
+                </div>
+              </div>
+              <p className="text-xs text-[#0D503C]/70">{text.necessaryDesc}</p>
+            </div>
+            
+            {/* Analytics Cookies */}
+            <div className="border border-[#0D503C]/10 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Zap size={18} className="text-[#0D503C]" />
+                  <h3 className="font-medium text-[#0D503C]">{text.analyticsCookies}</h3>
+                </div>
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    checked={preferences.analytics}
+                    onChange={() => handleToggle('analytics')}
+                    className="appearance-none w-10 h-5 bg-[#0D503C]/20 rounded-full checked:bg-[#0D503C] transition-colors duration-200 cursor-pointer relative"
+                  />
+                  <span className={`absolute w-4 h-4 bg-white rounded-full left-0.5 top-0.5 transition-transform duration-200 transform ${preferences.analytics ? 'translate-x-5' : ''}`}></span>
+                </div>
+              </div>
+              <p className="text-xs text-[#0D503C]/70">{text.analyticsDesc}</p>
+            </div>
+            
+            {/* Marketing Cookies */}
+            <div className="border border-[#0D503C]/10 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Zap size={18} className="text-[#0D503C]" />
+                  <h3 className="font-medium text-[#0D503C]">{text.marketingCookies}</h3>
+                </div>
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    checked={preferences.marketing}
+                    onChange={() => handleToggle('marketing')}
+                    className="appearance-none w-10 h-5 bg-[#0D503C]/20 rounded-full checked:bg-[#0D503C] transition-colors duration-200 cursor-pointer relative"
+                  />
+                  <span className={`absolute w-4 h-4 bg-white rounded-full left-0.5 top-0.5 transition-transform duration-200 transform ${preferences.marketing ? 'translate-x-5' : ''}`}></span>
+                </div>
+              </div>
+              <p className="text-xs text-[#0D503C]/70">{text.marketingDesc}</p>
+            </div>
+          </div>
+          
+          <div className="flex gap-3 pt-3 border-t border-[#0D503C]/10">
+            <button
+              onClick={handleAcceptAll}
+              className="flex-1 px-4 py-2 text-sm font-medium rounded-full bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] transition-colors"
+            >
+              {text.acceptAll}
+            </button>
+            <button
+              onClick={handleSave}
+              className="flex-1 px-4 py-2 text-sm font-medium rounded-full border border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 transition-colors"
+            >
+              {text.savePreferences}
+            </button>
+          </div>
         </div>
-
-        <DialogFooter className="sm:justify-between flex flex-col gap-2 sm:flex-row sm:gap-0">
-          <button
-            onClick={handleAcceptAll}
-            className="px-4 py-2 text-xs font-medium rounded-full bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] transition-colors w-full sm:w-auto"
-          >
-            {text.acceptAll}
-          </button>
-          <button
-            onClick={handleSavePreferences}
-            className="px-4 py-2 text-xs font-medium rounded-full border border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 transition-colors w-full sm:w-auto"
-          >
-            {text.savePreferences}
-          </button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
 };
 
