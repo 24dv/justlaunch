@@ -30,6 +30,23 @@ const App: React.FC = () => {
   const [showCookieDialog, setShowCookieDialog] = useState(false);
   const [cookieConsentLoaded, setCookieConsentLoaded] = useState(false);
 
+  // Initialize GTM with default consent preferences
+  useEffect(() => {
+    // Initial GTM setup - denied by default but allowing functionality
+    window.dataLayer.push({
+      'event': 'default_consent',
+      'consentMode': {
+        'functionality_storage': 'granted',
+        'security_storage': 'granted',
+        'analytics_storage': 'denied', 
+        'ad_storage': 'denied',
+        'personalization_storage': 'denied'
+      }
+    });
+    
+    console.log('App: Initialized default GTM consent settings');
+  }, []);
+
   useEffect(() => {
     const loadCookieConsent = () => {
       const savedConsent = localStorage.getItem("cookieConsent");
@@ -98,6 +115,8 @@ const App: React.FC = () => {
     setCookiePreferences(minimalPreferences);
     setCookiesAccepted(true);
     
+    initializeTracking(minimalPreferences);
+    
     console.log("Optional cookies declined");
   };
 
@@ -121,7 +140,19 @@ const App: React.FC = () => {
   };
 
   const initializeTracking = (preferences: CookiePreferences) => {
-    // Push consent info to dataLayer
+    // Update consent mode for GTM
+    window.dataLayer.push({
+      'event': 'consent_update',
+      'consentMode': {
+        'functionality_storage': 'granted', // Always granted for site functionality
+        'security_storage': 'granted',      // Always granted for security
+        'analytics_storage': preferences.analytics ? 'granted' : 'denied',
+        'ad_storage': preferences.marketing ? 'granted' : 'denied',
+        'personalization_storage': preferences.marketing ? 'granted' : 'denied'
+      }
+    });
+
+    // Push additional consent info to dataLayer
     window.dataLayer.push({
       'event': 'cookiePreferencesUpdated',
       'cookiePreferences': {

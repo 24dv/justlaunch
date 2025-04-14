@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import CookieBannerContent from './cookie/CookieBannerContent';
@@ -11,7 +11,7 @@ interface CookieBannerProps {
   onAccept: () => void;
   onDecline: () => void;
   onShowPreferences: () => void;
-  isVisible: boolean; // Added this prop to control visibility
+  isVisible: boolean;
 }
 
 const CookieBanner: React.FC<CookieBannerProps> = ({ 
@@ -22,6 +22,26 @@ const CookieBanner: React.FC<CookieBannerProps> = ({
 }) => {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  
+  // Effect to initialize GTM in debug mode when banner is shown
+  useEffect(() => {
+    if (isVisible) {
+      // Signal to GTM that we're in consent-required mode
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'cookie_consent_pending',
+        'consentMode': {
+          'functionality_storage': 'denied',
+          'security_storage': 'granted',
+          'analytics_storage': 'denied', 
+          'ad_storage': 'denied',
+          'personalization_storage': 'denied'
+        }
+      });
+      
+      console.log('CookieBanner: Initialized GTM with pending consent');
+    }
+  }, [isVisible]);
   
   // If not visible, don't render anything
   if (!isVisible) return null;
@@ -67,7 +87,7 @@ const CookieBanner: React.FC<CookieBannerProps> = ({
   };
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg bg-[#F5F5E9] shadow-lg border border-[#0D503C]/10 overflow-hidden">
+    <div className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg bg-[#F5F5E9] shadow-lg border border-[#0D503C]/10 overflow-hidden" id="cookie-consent-banner">
       <div className="relative p-4">
         <CookieBannerContent
           title={text.title}
