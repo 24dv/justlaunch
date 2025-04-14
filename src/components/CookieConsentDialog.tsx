@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Info, Shield, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export interface CookiePreferences {
   necessary: boolean;
@@ -20,6 +20,8 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
   onSavePreferences 
 }) => {
   const { language } = useLanguage();
+  const navigate = useNavigate();
+  
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true,
     analytics: false,
@@ -61,6 +63,11 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
     };
     setPreferences(allAccepted);
     onSavePreferences(allAccepted);
+  };
+  
+  const handlePrivacyPolicyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/privacy-policy');
   };
   
   // Early return if dialog is not open
@@ -117,10 +124,13 @@ const CookieConsentDialog: React.FC<CookieConsentDialogProps> = ({
         <div className="p-4">
           <p className="text-sm text-[#0D503C]/80 mb-4">{text.description}</p>
           <div className="mb-3 text-xs">
-            <Link to="/privacy-policy" className="text-[#0D503C] hover:underline flex items-center gap-1">
+            <button
+              onClick={handlePrivacyPolicyClick}
+              className="text-[#0D503C] hover:underline flex items-center gap-1"
+            >
               <Info size={14} />
               {text.privacyPolicy}
-            </Link>
+            </button>
           </div>
           
           <div className="space-y-4 my-6">

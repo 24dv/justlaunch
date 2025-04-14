@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -139,30 +138,30 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <div className="noise-texture" />
-          <AnimatedBackground />
-          <HashRouter>
+        <HashRouter>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <div className="noise-texture" />
+            <AnimatedBackground />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </HashRouter>
-          {cookiesAccepted === null && (
-            <CookieBanner 
-              onAccept={handleAcceptCookies} 
-              onDecline={handleDeclineCookies}
-              onShowPreferences={handleShowPreferences}
+            {cookiesAccepted === null && (
+              <CookieBanner 
+                onAccept={handleAcceptCookies} 
+                onDecline={handleDeclineCookies}
+                onShowPreferences={handleShowPreferences}
+              />
+            )}
+            <CookieConsentDialog 
+              isOpen={showCookieDialog} 
+              onSavePreferences={handleSavePreferences}
             />
-          )}
-          <CookieConsentDialog 
-            isOpen={showCookieDialog} 
-            onSavePreferences={handleSavePreferences}
-          />
-        </TooltipProvider>
+          </TooltipProvider>
+        </HashRouter>
       </LanguageProvider>
     </QueryClientProvider>
   );

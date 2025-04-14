@@ -2,7 +2,7 @@
 import React from 'react';
 import { X, Shield } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface CookieBannerProps {
   onAccept: () => void;
@@ -12,6 +12,7 @@ interface CookieBannerProps {
 
 const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline, onShowPreferences }) => {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   
   const translations = {
     en: {
@@ -33,6 +34,11 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline, onShow
   };
 
   const text = translations[language as keyof typeof translations];
+  
+  const handlePrivacyPolicyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/privacy-policy');
+  };
 
   return (
     <div className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg bg-[#F5F5E9] shadow-lg border border-[#0D503C]/10 overflow-hidden">
@@ -44,9 +50,12 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onAccept, onDecline, onShow
           </h3>
           <p className="text-xs text-[#0D503C]/80 mb-3">{text.description}</p>
           <div className="text-xs mb-3">
-            <Link to="/privacy-policy" className="text-[#0D503C] hover:underline">
+            <button 
+              onClick={handlePrivacyPolicyClick}
+              className="text-[#0D503C] hover:underline"
+            >
               {text.privacyPolicy}
-            </Link>
+            </button>
           </div>
         </div>
         
