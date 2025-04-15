@@ -6,6 +6,7 @@ import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import ThankYou from './pages/ThankYou';
 import CookieBanner from './components/CookieBanner';
 import CookieConsentDialog from './components/CookieConsentDialog';
 import { CookiePreferences } from './components/cookie/types';
