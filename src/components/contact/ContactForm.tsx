@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, Send } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -16,6 +17,7 @@ type FormState = {
 
 const ContactForm = () => {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
   const [formState, setFormState] = useState<FormState>({
     name: '',
     email: '',
@@ -57,18 +59,7 @@ const ContactForm = () => {
         throw new Error('Failed to submit form');
       }
       
-      setIsSubmitted(true);
-      
-      setTimeout(() => {
-        setFormState({
-          name: '',
-          email: '',
-          company: '',
-          message: '',
-          package: 'launch'
-        });
-        setIsSubmitted(false);
-      }, 5000);
+      navigate('/thank-you');
     } catch (err) {
       console.error('Failed to send form:', err);
       setError('Failed to send your message. Please try again later.');

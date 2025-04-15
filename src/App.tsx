@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -11,7 +10,6 @@ import CookieBanner from './components/CookieBanner';
 import CookieConsentDialog from './components/CookieConsentDialog';
 import { CookiePreferences } from './components/cookie/types';
 
-// Initialize dataLayer
 declare global {
   interface Window {
     dataLayer: any[];
@@ -30,9 +28,7 @@ const App: React.FC = () => {
   const [showCookieDialog, setShowCookieDialog] = useState(false);
   const [cookieConsentLoaded, setCookieConsentLoaded] = useState(false);
 
-  // Initialize GTM with default consent preferences
   useEffect(() => {
-    // Initial GTM setup - denied by default but allowing functionality
     window.dataLayer.push({
       'event': 'default_consent',
       'consentMode': {
@@ -140,19 +136,17 @@ const App: React.FC = () => {
   };
 
   const initializeTracking = (preferences: CookiePreferences) => {
-    // Update consent mode for GTM
     window.dataLayer.push({
       'event': 'consent_update',
       'consentMode': {
-        'functionality_storage': 'granted', // Always granted for site functionality
-        'security_storage': 'granted',      // Always granted for security
+        'functionality_storage': 'granted',
+        'security_storage': 'granted',
         'analytics_storage': preferences.analytics ? 'granted' : 'denied',
         'ad_storage': preferences.marketing ? 'granted' : 'denied',
         'personalization_storage': preferences.marketing ? 'granted' : 'denied'
       }
     });
 
-    // Push additional consent info to dataLayer
     window.dataLayer.push({
       'event': 'cookiePreferencesUpdated',
       'cookiePreferences': {
@@ -164,19 +158,16 @@ const App: React.FC = () => {
 
     if (preferences.analytics) {
       console.log("Initializing analytics tracking...");
-      // Inform GTM that analytics is allowed
       window.dataLayer.push({ 'analyticsConsent': true });
     }
     
     if (preferences.marketing) {
       console.log("Initializing marketing tracking...");
-      // Inform GTM that marketing is allowed
       window.dataLayer.push({ 'marketingConsent': true });
     }
     
     if (!preferences.analytics && !preferences.marketing) {
       console.log("No tracking initialized based on user preferences");
-      // Inform GTM that tracking is not allowed
       window.dataLayer.push({ 
         'analyticsConsent': false, 
         'marketingConsent': false 
@@ -192,6 +183,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Index />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/thank-you" element={<ThankYou />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           
