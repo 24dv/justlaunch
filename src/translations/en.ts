@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -12,7 +11,7 @@ const translations = {
   // Hero Section
   "hero.badge": "New",
   "hero.badgeText": "Launch your brand in days, not months",
-  "hero.subtitle": "Pro branding and website for €1500—stress-free in 14 days!",
+  "hero.subtitle": "Done-for-you branding and website for €1500—stress-free in 14 days!",
   "hero.cta": "Get Started Today",
   "hero.scroll": "Get started in just a few clicks",
 
