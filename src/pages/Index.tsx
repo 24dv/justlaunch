@@ -10,6 +10,7 @@ import TestimonialSection from '../components/TestimonialSection';
 import FaqSection from '../components/FaqSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const Index = () => {
   useEffect(() => {
@@ -71,6 +72,7 @@ const Index = () => {
   
   return (
     <div className="min-h-screen bg-[#F5F5E9] text-[#0D503C] antialiased">
+      <AnimatedBackground />
       <Navbar />
       <main id="main-content">
         <HeroSection />
