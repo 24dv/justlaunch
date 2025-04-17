@@ -11,7 +11,7 @@ const translations = {
   // Hero Section
   "hero.badge": "Nieuw",
   "hero.badgeText": "Lanceer je merk in dagen, niet maanden",
-  "hero.subtitle": "Kant-en-klare branding en website voor €1500—stressvrij in 14 dagen!",
+  "hero.subtitle": "Op maat gemaakte branding en website voor €1500—stressvrij in 14 dagen!",
   "hero.cta": "Start Vandaag Nog",
   "hero.scroll": "Begin met slechts een paar klikken",
 
