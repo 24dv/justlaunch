@@ -28,7 +28,7 @@ const translations = {
     // Hero Section
     "hero.badge": "New",
     "hero.badgeText": "Launch your brand in days, not months",
-    "hero.subtitle": "Pro branding and websites from €1500 or €833/mo—stress-free in 14 days!",
+    "hero.subtitle": "Pro branding and website for €1500—stress-free in 14 days!",
     "hero.cta": "Get Started Today",
     "hero.scroll": "Get started in just a few clicks",
 
@@ -197,7 +197,7 @@ const translations = {
     // Hero Section
     "hero.badge": "Nieuw",
     "hero.badgeText": "Lanceer je merk in dagen, niet maanden",
-    "hero.subtitle": "Pro branding en websites vanaf €1500 of €833/maand—stressvrij in 14 dagen!",
+    "hero.subtitle": "Pro branding en website voor €1500—stressvrij in 14 dagen!",
     "hero.cta": "Start Vandaag Nog",
     "hero.scroll": "Begin met slechts een paar klikken",
 
