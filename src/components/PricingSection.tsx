@@ -5,6 +5,7 @@ import PlanCard from './pricing/PlanCard';
 import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
+import FeaturesTable from './pricing/FeaturesTable';
 import { Plus } from 'lucide-react';
 
 const PricingSection = () => {
@@ -33,6 +34,11 @@ const PricingSection = () => {
                 <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
               )}
             </div>
+          </div>
+
+          {/* Features Comparison Table */}
+          <div className="mb-16">
+            <FeaturesTable />
           </div>
 
           {/* Plus Sign */}
