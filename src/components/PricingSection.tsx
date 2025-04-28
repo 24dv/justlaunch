@@ -23,25 +23,23 @@ const PricingSection = () => {
         <PricingHeader />
         
         {/* Main pricing cards container */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
             {/* Launch Package */}
-            <PlanCard planType="launch" />
-            {/* Premium Package */}
-            <PlanCard planType="premium" />
-          </div>
-
-          {/* Payment Plan Card - Centered and smaller */}
-          {selectedPlan === 'premium' && (
-            <div className="max-w-xl mx-auto">
-              <div className="flex justify-center my-6">
-                <div className="bg-[#0D503C] rounded-full p-3 shadow-lg">
-                  <Plus size={24} className="text-[#F5F5E9]" />
-                </div>
-              </div>
-              <PaymentPlanCard />
+            <div className="lg:col-span-5">
+              <PlanCard planType="launch" />
             </div>
-          )}
+            
+            {/* Premium Package with Payment Plan */}
+            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-4">
+              <div className="md:col-span-8">
+                <PlanCard planType="premium" />
+              </div>
+              <div className="md:col-span-4">
+                <PaymentPlanCard />
+              </div>
+            </div>
+          </div>
 
           {/* Plus Sign */}
           <div className="flex justify-center my-6">
