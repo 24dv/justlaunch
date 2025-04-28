@@ -1,34 +1,22 @@
 
 import React, { useState } from 'react';
 import PricingHeader from './pricing/PricingHeader';
-import PlanSelector from './pricing/PlanSelector';
 import PlanCard from './pricing/PlanCard';
 import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import { Plus } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const PricingSection = () => {
-  const [selectedPlan, setSelectedPlan] = useState<'launch' | 'premium'>('launch');
   const [showPaymentPlan, setShowPaymentPlan] = useState(false);
-  const { t } = useLanguage();
-
-  const togglePlan = (plan: 'launch' | 'premium') => {
-    setSelectedPlan(plan);
-    if (plan === 'launch') {
-      setShowPaymentPlan(false);
-    }
-  };
 
   return (
     <section id="pricing" className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
         <PricingHeader />
-        <PlanSelector selectedPlan={selectedPlan} onTogglePlan={togglePlan} />
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Launch Package */}
             <PlanCard planType="launch" />
             
