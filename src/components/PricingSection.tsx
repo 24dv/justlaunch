@@ -21,24 +21,15 @@ const PricingSection = () => {
     <section id="pricing" className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
         <PricingHeader />
-        
-        {/* Main pricing cards container */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
-            {/* Launch Package */}
-            <div className="lg:col-span-5">
-              <PlanCard planType="launch" />
-            </div>
-            
-            {/* Premium Package with Payment Plan */}
-            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-4">
-              <div className="md:col-span-8">
-                <PlanCard planType="premium" />
-              </div>
-              <div className="md:col-span-4">
-                <PaymentPlanCard />
-              </div>
-            </div>
+        <PlanSelector selectedPlan={selectedPlan} onTogglePlan={togglePlan} />
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left column - Selected Plan */}
+            <PlanCard planType={selectedPlan} />
+
+            {/* Right column - Premium Payment Plan (only visible when premium is selected) */}
+            {selectedPlan === 'premium' && <PaymentPlanCard />}
           </div>
 
           {/* Plus Sign */}
@@ -48,7 +39,7 @@ const PricingSection = () => {
             </div>
           </div>
 
-          {/* Maintenance Card */}
+          {/* Maintenance & Security Card */}
           <div className="mb-8">
             <MaintenanceCard />
           </div>
