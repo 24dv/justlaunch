@@ -11,10 +11,14 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const PricingSection = () => {
   const [selectedPlan, setSelectedPlan] = useState<'launch' | 'premium'>('launch');
+  const [showPaymentPlan, setShowPaymentPlan] = useState(false);
   const { t } = useLanguage();
 
   const togglePlan = (plan: 'launch' | 'premium') => {
     setSelectedPlan(plan);
+    if (plan === 'launch') {
+      setShowPaymentPlan(false);
+    }
   };
 
   return (
@@ -23,13 +27,24 @@ const PricingSection = () => {
         <PricingHeader />
         <PlanSelector selectedPlan={selectedPlan} onTogglePlan={togglePlan} />
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left column - Selected Plan */}
-            <PlanCard planType={selectedPlan} />
-
-            {/* Right column - Premium Payment Plan (only visible when premium is selected) */}
-            {selectedPlan === 'premium' && <PaymentPlanCard />}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* Launch Package */}
+            <PlanCard planType="launch" />
+            
+            {/* Premium Package with Payment Plan Option */}
+            <div className="relative">
+              <PlanCard 
+                planType="premium" 
+                showPaymentOption 
+                onPaymentOptionClick={() => setShowPaymentPlan(true)} 
+              />
+              
+              {/* Payment Plan Dialog */}
+              {showPaymentPlan && (
+                <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
+              )}
+            </div>
           </div>
 
           {/* Plus Sign */}

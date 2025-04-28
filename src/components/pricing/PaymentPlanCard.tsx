@@ -1,8 +1,13 @@
 
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { X } from 'lucide-react';
 
-const PaymentPlanCard = () => {
+interface PaymentPlanCardProps {
+  onClose: () => void;
+}
+
+const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
   const { t, language } = useLanguage();
 
   const scrollToContact = () => {
@@ -13,75 +18,73 @@ const PaymentPlanCard = () => {
   };
 
   return (
-    <div className="bg-[#0D503C]/5 rounded-2xl shadow-md overflow-hidden border-2 border-[#0D503C] border-dashed relative">
-      <div className="absolute top-0 right-0">
-        <div className="inline-flex items-center bg-[#F9A7A7]/30 text-[#0D503C] rounded-tr-lg rounded-bl-lg px-3 py-1 text-sm font-medium border border-[#F9A7A7]">
-          {language === 'en' ? 'Payment Plan' : 'Betalingsplan'}
-        </div>
-      </div>
-      <div className="p-8 mt-4">
-        <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
-          {t('pricing.paymentPlan.title')}
-        </h3>
-        <div className="flex items-baseline mt-4 mb-6">
-          <span className="text-4xl font-extrabold text-[#0D503C]">
-            {t('pricing.paymentPlan.price')}
-          </span>
-          <span className="ml-2 text-[#0D503C]/70">{language === 'en' ? '+ VAT' : '+ BTW'}</span>
-        </div>
-        <p className="text-[#0D503C]/80 mb-4">
-          {t('pricing.paymentPlan.description')}
-        </p>
-        <button
-          onClick={scrollToContact}
-          className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7] border border-[#0D503C]/20 text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/80 transition-colors"
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+      <div className="bg-[#F5F5E9] rounded-2xl shadow-2xl overflow-hidden border-2 border-[#0D503C] max-w-md w-full animate-scale-up relative">
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 p-2 rounded-full hover:bg-[#0D503C]/10 transition-colors"
         >
-          {t('pricing.paymentPlan.cta')}
+          <X className="h-5 w-5 text-[#0D503C]" />
         </button>
-        <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
-          {t('pricing.paymentPlan.tagline')}
-        </p>
-      </div>
-      <div className="px-8 pb-8">
-        <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
-          {t('pricing.paymentPlan.howItWorks')}
-        </h4>
-        <ul className="space-y-4">
-          <li className="flex items-start">
-            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
-              1
-            </div>
-            <div>
-              <p className="text-[#0D503C]/80">
-                {t('pricing.paymentPlan.step1')}
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start">
-            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
-              2
-            </div>
-            <div>
-              <p className="text-[#0D503C]/80">
-                {t('pricing.paymentPlan.step2')}
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start">
-            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
-              3
-            </div>
-            <div>
-              <p className="text-[#0D503C]/80">
-                {t('pricing.paymentPlan.step3')}
-              </p>
-            </div>
-          </li>
-        </ul>
-        <div className="mt-6 pt-6 border-t border-[#0D503C]/20">
-          <p className="text-sm text-[#0D503C]/70">
-            {t('pricing.paymentPlan.note')}
+        
+        <div className="p-8">
+          <div className="inline-flex items-center bg-[#F9A7A7]/30 text-[#0D503C] rounded-lg px-3 py-1 text-sm font-medium border border-[#F9A7A7] mb-4">
+            {language === 'en' ? 'Easy Monthly Payments' : 'Gemakkelijke Maandelijkse Betalingen'}
+          </div>
+          
+          <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
+            {t('pricing.paymentPlan.title')}
+          </h3>
+          
+          <div className="flex items-baseline mt-4 mb-6">
+            <span className="text-4xl font-extrabold text-[#0D503C]">
+              {t('pricing.paymentPlan.price')}
+            </span>
+            <span className="ml-2 text-[#0D503C]/70">{language === 'en' ? '+ VAT' : '+ BTW'}</span>
+          </div>
+          
+          <p className="text-[#0D503C]/80 mb-6">
+            {t('pricing.paymentPlan.description')}
           </p>
+
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider">
+                {t('pricing.paymentPlan.howItWorks')}
+              </h4>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
+                    1
+                  </div>
+                  <p className="text-[#0D503C]/80">{t('pricing.paymentPlan.step1')}</p>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
+                    2
+                  </div>
+                  <p className="text-[#0D503C]/80">{t('pricing.paymentPlan.step2')}</p>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
+                    3
+                  </div>
+                  <p className="text-[#0D503C]/80">{t('pricing.paymentPlan.step3')}</p>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              onClick={scrollToContact}
+              className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7] border border-[#0D503C]/20 text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/80 transition-colors"
+            >
+              {t('pricing.paymentPlan.cta')}
+            </button>
+
+            <p className="text-sm text-[#0D503C]/70 text-center">
+              {t('pricing.paymentPlan.tagline')}
+            </p>
+          </div>
         </div>
       </div>
     </div>
