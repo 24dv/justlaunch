@@ -38,27 +38,30 @@ const FeaturesTable = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="rounded-lg border border-[#0D503C]/20 bg-white/50 backdrop-blur-sm overflow-hidden">
+    <div className="rounded-2xl border-2 border-[#0D503C] bg-[#F5F5E9] overflow-hidden shadow-xl">
       <Table>
-        <TableHeader className="bg-[#0D503C]/5">
-          <TableRow>
-            <TableHead className="w-[400px] font-medium">
+        <TableHeader className="bg-[#0D503C]/10">
+          <TableRow className="border-b border-[#0D503C]/20">
+            <TableHead className="w-[300px] font-semibold text-[#0D503C]">
               {language === 'en' ? 'Features' : 'Functies'}
             </TableHead>
-            <TableHead className="text-center font-medium">
+            <TableHead className="text-center font-semibold text-[#0D503C]">
               {language === 'en' ? 'Launch Package' : 'Launch Pakket'}
-              <div className="text-sm font-normal text-[#0D503C]/70">€1,500 + VAT</div>
+              <div className="text-sm font-medium text-[#0D503C]/70">€1,500 + VAT</div>
             </TableHead>
-            <TableHead className="text-center font-medium">
+            <TableHead className="text-center font-semibold text-[#0D503C]">
               {language === 'en' ? 'Premium Package' : 'Premium Pakket'}
-              <div className="text-sm font-normal text-[#0D503C]/70">€2,500 + VAT</div>
+              <div className="text-sm font-medium text-[#0D503C]/70">€2,500 + VAT</div>
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {features.map((feature, index) => (
-            <TableRow key={index} className="hover:bg-[#0D503C]/5">
-              <TableCell className="font-medium">
+            <TableRow 
+              key={index} 
+              className="hover:bg-[#0D503C]/5 border-b border-[#0D503C]/10 last:border-none"
+            >
+              <TableCell className="font-medium text-[#0D503C]">
                 {feature.name === "Pages included" ? (
                   <>
                     {language === 'en' ? '1-page website' : '1-pagina website'}
@@ -83,12 +86,20 @@ const FeaturesTable = () => {
               </TableCell>
               <TableCell className="text-center">
                 {feature.launch && (
-                  <Check className="h-5 w-5 text-[#0D503C] mx-auto" />
+                  <div className="mx-auto flex justify-center">
+                    <div className="bg-[#0D503C]/10 rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                      <Check className="h-4 w-4 text-[#0D503C]" />
+                    </div>
+                  </div>
                 )}
               </TableCell>
               <TableCell className="text-center">
                 {feature.premium && (
-                  <Check className="h-5 w-5 text-[#0D503C] mx-auto" />
+                  <div className="mx-auto flex justify-center">
+                    <div className="bg-[#0D503C]/10 rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                      <Check className="h-4 w-4 text-[#0D503C]" />
+                    </div>
+                  </div>
                 )}
               </TableCell>
             </TableRow>
