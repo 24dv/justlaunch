@@ -4,14 +4,7 @@ import { Shield, Settings } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const MaintenanceCard = () => {
-  const { t, language } = useLanguage();
-
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { t } = useLanguage();
 
   return (
     <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C]">
@@ -43,12 +36,6 @@ const MaintenanceCard = () => {
             <div>• {t('pricing.maintenance.feature4')}</div>
           </div>
         </div>
-        <button
-          onClick={scrollToContact}
-          className="w-full mt-4 py-2 px-4 bg-[#F5F5E9] text-[#0D503C] rounded-lg font-medium hover:bg-[#F5F5E9]/90 transition-colors text-sm"
-        >
-          {language === 'en' ? "Let's Launch" : "Aan de Slag!"}
-        </button>
       </div>
     </div>
   );
