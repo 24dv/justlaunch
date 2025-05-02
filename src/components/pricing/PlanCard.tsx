@@ -46,7 +46,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
             onClick={scrollToContact}
             className="block w-full py-3 px-4 rounded-lg bg-[#0D503C] text-[#F5F5E9] text-center font-medium hover:bg-[#0A4231] transition-colors"
           >
-            {language === 'en' ? "Let's Launch" : "Aan de Slag!"}
+            {t('nav.getStarted')}
           </button>
           
           {showPaymentOption && (
