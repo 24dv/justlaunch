@@ -7,7 +7,7 @@ const translations = {
   "nav.pricing": "Prijzen",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
-  "nav.getStarted": "Aan de Slag!",
+  "nav.getStarted": "Begin Nu",
 
   // Hero Section
   "hero.badge": "Nieuw",
@@ -134,13 +134,13 @@ const translations = {
 
   // Contact Section
   "contact.title": "Klaar om je merk snel en zonder stress te lanceren?",
-  "contact.subtitle": "Vul het formulier in en we sturen je een link om een kort introgesprek te plannen. Geen verplichtingen, gewoon een snelle check om te zien of we bij elkaar passen.",
-  "contact.nextSteps": "Dit is wat er daarna gebeurt:",
-  "contact.step1": "Boek een kort introgesprek om het proces door te nemen en je vragen te beantwoorden",
-  "contact.step2": "Als het klikt, sturen we je een slim intake formulier om je verhaal en stijl vast te leggen",
-  "contact.step3": "Daarna gaan we aan de slag — ontwerpen, bouwen, lanceren, allemaal binnen 14 dagen",
-  "contact.questions": "Eerst nog vragen?",
-  "contact.email": "Mail ons direct op hello@justlaunch.be",
+  "contact.subtitle": "Vul het formulier in en we nemen binnen 24 uur contact met je op om een korte kickoff call in te plannen.",
+  "contact.nextSteps": "Wat gebeurt er daarna?",
+  "contact.step1": "We plannen een korte call om je project af te stemmen",
+  "contact.step2": "Je ontvangt een vragenlijst om je stijl, content en visie te delen",
+  "contact.step3": "We sturen je een tijdlijn en beginnen zo snel mogelijk",
+  "contact.questions": "Vragen? Neem direct contact met ons op:",
+  "contact.email": "hello@justlaunch.be",
   "contact.form.name": "Je Naam",
   "contact.form.email": "E-mailadres",
   "contact.form.company": "Bedrijfs-/Projectnaam",
