@@ -42,9 +42,7 @@ const ContactInfoSection = () => {
       <div className="text-[#0D503C]/80">
         <p className="font-medium text-[#0D503C]">{t('contact.questions')}</p>
         <p className="mt-2 text-[#0D503C]">
-          <a href="mailto:hello@justlaunch.be" className="text-[#0D503C] font-medium hover:underline">
-            {t('contact.email')}
-          </a>
+          {t('contact.email')}
         </p>
       </div>
     </>
