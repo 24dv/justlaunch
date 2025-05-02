@@ -6,13 +6,18 @@ import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import FeaturesTable from './pricing/FeaturesTable';
-import { Plus, List } from 'lucide-react';
+import { Plus, List, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from './ui/dialog';
 
 const PricingSection = () => {
   const [showPaymentPlan, setShowPaymentPlan] = useState(false);
-  const [showFeaturesTable, setShowFeaturesTable] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { language } = useLanguage();
 
   return (
@@ -40,26 +45,39 @@ const PricingSection = () => {
             </div>
           </div>
 
-          {/* Compare Features Button */}
+          {/* Compare Features Button with Dialog */}
           <div className="flex justify-center mb-8">
-            <Button 
-              variant="outline" 
-              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C] hover:text-[#F5F5E9] transition-all"
-              onClick={() => setShowFeaturesTable(!showFeaturesTable)}
-            >
-              <List className="mr-2" />
-              {showFeaturesTable 
-                ? (language === 'en' ? 'Hide comparison' : 'Vergelijking verbergen') 
-                : (language === 'en' ? 'Compare packages' : 'Pakketten vergelijken')}
-            </Button>
+            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C] hover:text-[#F5F5E9] transition-all"
+                >
+                  <List className="mr-2" />
+                  {language === 'en' ? 'Compare packages' : 'Pakketten vergelijken'}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="w-full max-w-5xl p-0 bg-[#F5F5E9] border-2 border-[#0D503C]">
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold text-[#0D503C]">
+                      {language === 'en' ? 'Package Comparison' : 'Pakketvergelijking'}
+                    </h3>
+                    <Button 
+                      variant="ghost" 
+                      size="icon"
+                      onClick={() => setDialogOpen(false)}
+                      className="text-[#0D503C] hover:bg-[#0D503C]/10"
+                    >
+                      <X className="h-4 w-4" />
+                      <span className="sr-only">Close</span>
+                    </Button>
+                  </div>
+                  <FeaturesTable />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
-
-          {/* Features Comparison Table */}
-          {showFeaturesTable && (
-            <div className="mb-16 transition-all">
-              <FeaturesTable />
-            </div>
-          )}
 
           {/* Plus Sign */}
           <div className="flex justify-center my-6">
