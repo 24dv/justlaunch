@@ -6,10 +6,14 @@ import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import FeaturesTable from './pricing/FeaturesTable';
-import { Plus } from 'lucide-react';
+import { Plus, List } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { Button } from './ui/button';
 
 const PricingSection = () => {
   const [showPaymentPlan, setShowPaymentPlan] = useState(false);
+  const [showFeaturesTable, setShowFeaturesTable] = useState(false);
+  const { language } = useLanguage();
 
   return (
     <section id="pricing" className="section-padding bg-[#F5F5E9]">
@@ -17,7 +21,7 @@ const PricingSection = () => {
         <PricingHeader />
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* Launch Package */}
             <PlanCard planType="launch" />
             
@@ -36,10 +40,26 @@ const PricingSection = () => {
             </div>
           </div>
 
-          {/* Features Comparison Table */}
-          <div className="mb-16">
-            <FeaturesTable />
+          {/* Compare Features Button */}
+          <div className="flex justify-center mb-8">
+            <Button 
+              variant="outline" 
+              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C] hover:text-[#F5F5E9] transition-all"
+              onClick={() => setShowFeaturesTable(!showFeaturesTable)}
+            >
+              <List className="mr-2" />
+              {showFeaturesTable 
+                ? (language === 'en' ? 'Hide comparison' : 'Vergelijking verbergen') 
+                : (language === 'en' ? 'Compare packages' : 'Pakketten vergelijken')}
+            </Button>
           </div>
+
+          {/* Features Comparison Table */}
+          {showFeaturesTable && (
+            <div className="mb-16 transition-all">
+              <FeaturesTable />
+            </div>
+          )}
 
           {/* Plus Sign */}
           <div className="flex justify-center my-6">
