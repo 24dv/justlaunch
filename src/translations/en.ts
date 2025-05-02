@@ -6,13 +6,13 @@ const translations = {
   "nav.pricing": "Pricing",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
-  "nav.getStarted": "Get Started",
+  "nav.getStarted": "Book Your Free Intro Call",
 
   // Hero Section
   "hero.badge": "New",
   "hero.badgeText": "Launch your brand in days, not months",
   "hero.subtitle": "Done-for-you branding and website for €1500—stress-free in 14 days!",
-  "hero.cta": "Get Started Today",
+  "hero.cta": "Book Your Free Intro Call",
   "hero.scroll": "Get started in just a few clicks",
 
   // Features Section
@@ -59,7 +59,7 @@ const translations = {
   "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
   "process.step4.title": "Launch",
   "process.step4.description": "Your brand and site go live — all within 14 days of kickoff.",
-  "process.getStarted": "Get Started",
+  "process.getStarted": "Book Your Free Intro Call",
 
   // Pricing Section
   "pricing.title": "Transparent Pricing, No Surprises",

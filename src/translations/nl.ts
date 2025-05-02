@@ -6,13 +6,13 @@ const translations = {
   "nav.pricing": "Prijzen",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
-  "nav.getStarted": "Begin Nu",
+  "nav.getStarted": "Plan Je Gratis Introgesprek",
 
   // Hero Section
   "hero.badge": "Nieuw",
   "hero.badgeText": "Lanceer je merk in dagen, niet maanden",
   "hero.subtitle": "Op maat gemaakte branding en website voor €1500—stressvrij in 14 dagen!",
-  "hero.cta": "Start Vandaag Nog",
+  "hero.cta": "Plan Je Gratis Introgesprek",
   "hero.scroll": "Begin met slechts een paar klikken",
 
   // Features Section
@@ -59,7 +59,7 @@ const translations = {
   "process.step3.description": "Bekijk en kies je logo en merkkleuren. Zodra jij tevreden bent, gaan wij aan de slag met je website.",
   "process.step4.title": "Lancering",
   "process.step4.description": "Je merk en website gaan live — allemaal binnen de 14 dagen na de start.",
-  "process.getStarted": "Begin Vandaag",
+  "process.getStarted": "Plan Je Gratis Introgesprek",
 
   // Pricing Section
   "pricing.title": "Transparante Prijzen, Geen Verrassingen",
