@@ -38,7 +38,7 @@ const FeaturesTable = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="rounded-lg overflow-hidden shadow-sm">
+    <div className="rounded-2xl border-2 border-[#0D503C] bg-[#F5F5E9] overflow-hidden shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
       <Table>
         <TableHeader className="bg-[#0D503C]/10">
           <TableRow className="border-b border-[#0D503C]/20">
