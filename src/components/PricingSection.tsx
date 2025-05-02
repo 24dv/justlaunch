@@ -6,7 +6,6 @@ import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import FeaturesTable from './pricing/FeaturesTable';
-import ChatBot from './chatbot/ChatBot';
 import { Plus } from 'lucide-react';
 
 const PricingSection = () => {
@@ -56,9 +55,6 @@ const PricingSection = () => {
 
           <PricingFooter />
         </div>
-
-        {/* Chat Bot */}
-        <ChatBot />
       </div>
     </section>
   );
