@@ -1,17 +1,15 @@
+
 import React, { useState } from 'react';
 import { Check, Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
 import { Label } from '../ui/label';
 
 type FormState = {
   name: string;
   email: string;
-  company: string;
-  message: string;
   package: string;
 };
 
@@ -21,8 +19,6 @@ const ContactForm = () => {
   const [formState, setFormState] = useState<FormState>({
     name: '',
     email: '',
-    company: '',
-    message: '',
     package: 'launch'
   });
   
@@ -30,7 +26,7 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
   };
@@ -49,9 +45,7 @@ const ContactForm = () => {
         body: JSON.stringify({
           name: formState.name,
           email: formState.email,
-          company: formState.company,
           package: formState.package,
-          message: formState.message,
         }),
       });
       
@@ -94,7 +88,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' ? "John Doe" : "Jan Jansen"}
+              placeholder={language === 'en' ? "Thijs Doe" : "Thijs Jansen"}
             />
           </div>
           
@@ -110,22 +104,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' ? "john@example.com" : "jan@voorbeeld.nl"}
-            />
-          </div>
-          
-          <div>
-            <Label htmlFor="company" className="text-sm font-medium text-[#0D503C] mb-1">
-              {t('contact.form.company')}
-            </Label>
-            <Input
-              type="text"
-              id="company"
-              name="company"
-              value={formState.company}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' ? "Your Company" : "Jouw Bedrijf"}
+              placeholder={language === 'en' ? "thijs@yourstartup.com" : "thijs@jouwstartup.nl"}
             />
           </div>
           
@@ -156,23 +135,6 @@ const ContactForm = () => {
                 </>
               )}
             </select>
-          </div>
-          
-          <div>
-            <Label htmlFor="message" className="text-sm font-medium text-[#0D503C] mb-1">
-              {t('contact.form.message')}
-            </Label>
-            <Textarea
-              id="message"
-              name="message"
-              value={formState.message}
-              onChange={handleChange}
-              rows={4}
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' 
-                ? "Share a bit about your project and what you're looking for..." 
-                : "Vertel ons wat over je project en waar je naar op zoek bent..."}
-            />
           </div>
           
           {error && (
