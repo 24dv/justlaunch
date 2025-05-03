@@ -12,12 +12,15 @@ const ContactSection = () => {
     <section id="contact" className="section-padding pb-24 bg-[#F5F5E9]">
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="mt-1">
+          {/* Change from grid layout to flex layout with alignment start */}
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            <div className="mt-1 lg:flex-1">
               <ContactHeader />
               <ContactInfoSection />
             </div>
-            <ContactForm />
+            <div className="w-full lg:flex-1">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>
