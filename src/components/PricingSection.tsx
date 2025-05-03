@@ -20,7 +20,7 @@ const PricingSection = () => {
       <div className="container mx-auto">
         <PricingHeader />
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto"> {/* Increased from max-w-5xl (20% wider) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {/* Launch Site Package */}
             <PlanCard planType="launchsite" />
@@ -71,8 +71,8 @@ const PricingSection = () => {
             </div>
           </div>
 
-          {/* Maintenance & Security Card */}
-          <div className="mb-8">
+          {/* Maintenance & Security Card - width reduced by 30% */}
+          <div className="mb-8 mx-auto w-[70%]">
             <MaintenanceCard />
           </div>
 

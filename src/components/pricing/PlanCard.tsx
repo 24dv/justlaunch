@@ -31,14 +31,14 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               : t('pricing.launchsite.title')}
         </h3>
         <div className="flex items-baseline mt-4 mb-6">
-          <span className="text-4xl font-extrabold text-[#0D503C]">
+          <span className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#0D503C]">
             {planType === 'launch' 
               ? t('pricing.launch.price')
               : planType === 'premium'
                 ? t('pricing.premium.price')
                 : t('pricing.launchsite.price')}
           </span>
-          <span className="ml-2 text-[#0D503C]/70">{language === 'en' ? "+ VAT" : "+ BTW"}</span>
+          <span className="ml-2 text-[#0D503C]/70 text-sm md:text-xs lg:text-sm whitespace-nowrap">{language === 'en' ? "+ VAT" : "+ BTW"}</span>
         </div>
         <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'
@@ -61,7 +61,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/30 transition-colors flex items-center justify-center gap-2"
             >
               <Euro className="h-5 w-5" />
-              {language === 'en' ? 'See Payment Plan' : 'Bekijk Betalingsplan'}
+              {language === 'en' ? 'Payment Plan' : 'Betalingsplan'}
             </button>
           )}
         </div>
