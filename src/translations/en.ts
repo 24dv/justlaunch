@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -56,9 +55,9 @@ const translations = {
   "process.step1.description": "Book a short intro call — no pressure, just to align and see if we're the right fit.",
   "process.step2.title": "Share Your Vision",
   "process.step2.description": "We'll send you a smart questionnaire to gather your brand direction, design style, and website content.",
-  "process.step3.title": "Approve Designs",
+  "process.step3.title": "Review Designs",
   "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
-  "process.step4.title": "Launch",
+  "process.step4.title": "Launch in 14 Days",
   "process.step4.description": "Your brand and site go live — all within 14 days of kickoff.",
   "process.getStarted": "Book Your Free Intro Call",
 

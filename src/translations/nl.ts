@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -56,9 +55,9 @@ const translations = {
   "process.step1.description": "Plan een kort introgesprek — geen verplichtingen, gewoon om af te stemmen en te zien of we bij elkaar passen.",
   "process.step2.title": "Deel Je Visie",
   "process.step2.description": "Je ontvangt van ons een slimme vragenlijst om jouw merkvisie, designstijl en websiteteksten te verzamelen.",
-  "process.step3.title": "Keur Het Ontwerp Goed",
+  "process.step3.title": "Beoordeel Ontwerpen",
   "process.step3.description": "Bekijk en kies je logo en merkkleuren. Zodra jij tevreden bent, gaan wij aan de slag met je website.",
-  "process.step4.title": "Launch",
+  "process.step4.title": "Launch in 14 Dagen",
   "process.step4.description": "Je merk en website gaan live — allemaal binnen de 14 dagen na de start.",
   "process.getStarted": "Plan Je Gratis Introgesprek",
 
@@ -134,11 +133,11 @@ const translations = {
 
   // Contact Section
   "contact.title": "Klaar om je merk snel en zonder stress te lanceren?",
-  "contact.subtitle": "Vul het formulier in en we nemen binnen 24 uur contact met je op om een korte kickoff call in te plannen.",
-  "contact.nextSteps": "Wat gebeurt er daarna?",
-  "contact.step1": "We plannen een korte call om je project af te stemmen",
-  "contact.step2": "Je ontvangt een vragenlijst om je stijl, content en visie te delen",
-  "contact.step3": "We sturen je een tijdlijn en beginnen zo snel mogelijk",
+  "contact.subtitle": "Vul het formulier in om een kort introgesprek te boeken. Geen verplichtingen, gewoon een snelle chat om te zien of we bij elkaar passen.",
+  "contact.nextSteps": "Zo gaat het verder:",
+  "contact.step1": "Boek een kort introgesprek om het proces door te nemen en je vragen te beantwoorden",
+  "contact.step2": "Als we een match zijn, sturen we je een slimme vragenlijst om je verhaal en stijl vast te leggen",
+  "contact.step3": "Daarna gaan we aan de slag — ontwerpen, bouwen, lanceren, allemaal binnen 14 dagen",
   "contact.questions": "Vragen? Neem direct contact met ons op:",
   "contact.email": "hello@justlaunch.be",
   "contact.form.name": "Je Naam",
