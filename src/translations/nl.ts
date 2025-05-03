@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -145,7 +146,7 @@ const translations = {
   "contact.form.company": "Bedrijfs-/Projectnaam",
   "contact.form.package": "Kies je Pakket",
   "contact.form.message": "Vertel ons over je project",
-  "contact.form.submit": "Plan Je Gratis Introgesprek!",
+  "contact.form.submit": "Plan Nu Je Gesprek!",
   "contact.form.submitting": "Versturen...",
   "contact.form.privacy": "Door dit formulier in te dienen, ga je akkoord met ons privacybeleid en onze servicevoorwaarden.",
   "contact.success.title": "Bedankt!",

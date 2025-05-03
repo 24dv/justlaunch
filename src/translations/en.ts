@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -145,7 +146,7 @@ const translations = {
   "contact.form.company": "Company/Project Name",
   "contact.form.package": "Package of Interest",
   "contact.form.message": "Tell us about your project",
-  "contact.form.submit": "Book Your Free Intro Call!",
+  "contact.form.submit": "Book Your Call Now!",
   "contact.form.submitting": "Sending...",
   "contact.form.privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
   "contact.success.title": "Thank you!",
