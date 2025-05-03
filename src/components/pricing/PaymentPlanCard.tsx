@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { X } from 'lucide-react';
 
@@ -9,6 +9,28 @@ interface PaymentPlanCardProps {
 
 const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
   const { t, language } = useLanguage();
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  // Listen for scroll events to close the modal
+  useEffect(() => {
+    const handleScroll = () => {
+      // Add fade-out effect before closing
+      if (modalRef.current) {
+        modalRef.current.style.opacity = '0';
+        modalRef.current.style.transform = 'scale(0.98)';
+        
+        // Close after animation completes
+        setTimeout(() => {
+          onClose();
+        }, 300);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [onClose]);
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -19,7 +41,10 @@ const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#F5F5E9] rounded-2xl shadow-2xl overflow-hidden border-2 border-[#0D503C] max-w-md w-full animate-scale-up relative">
+      <div 
+        ref={modalRef} 
+        className="bg-[#F5F5E9] rounded-2xl shadow-2xl overflow-hidden border-2 border-[#0D503C] max-w-md w-full transition-all duration-300 ease-in-out animate-scale-up relative"
+      >
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 p-2 rounded-full hover:bg-[#0D503C]/10 transition-colors"
@@ -82,7 +107,7 @@ const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
             </button>
 
             <p className="text-sm text-[#0D503C]/70 text-center">
-              {t('pricing.paymentPlan.tagline')}
+              {t('pricing.noPaymentCall')}
             </p>
           </div>
         </div>

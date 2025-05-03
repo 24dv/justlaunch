@@ -88,6 +88,7 @@ const translations = {
   "pricing.premium.feature6": "Launch-ready in just 14 days",
   "pricing.premium.feature7": "Built by pro designers, based in Belgium 🇧🇪",
   "pricing.noPayment": "No payment now — just reserve your spot.",
+  "pricing.noPaymentCall": "No payment now — just book your free call.",
   "pricing.maintenance.title": "Ongoing Maintenance & Security",
   "pricing.maintenance.price": "€10",
   "pricing.maintenance.period": "/ month + VAT",

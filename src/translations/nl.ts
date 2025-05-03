@@ -88,6 +88,7 @@ const translations = {
   "pricing.premium.feature6": "Klaar om te lanceren in slechts 14 dagen",
   "pricing.premium.feature7": "Ontwikkeld door professionele designers uit België 🇧🇪",
   "pricing.noPayment": "Geen betaling nu — reserveer gewoon je plek.",
+  "pricing.noPaymentCall": "Geen betaling nu — plan gewoon je gratis gesprek.",
   "pricing.maintenance.title": "Doorlopend Onderhoud & Beveiliging",
   "pricing.maintenance.price": "€10",
   "pricing.maintenance.period": "/ maand + BTW",

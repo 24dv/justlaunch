@@ -2,7 +2,7 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
-import { CircleDollarSign } from 'lucide-react';
+import { Euro } from 'lucide-react';
 
 interface PlanCardProps {
   planType: 'launch' | 'premium';
@@ -54,13 +54,13 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               onClick={onPaymentOptionClick}
               className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/30 transition-colors flex items-center justify-center gap-2"
             >
-              <CircleDollarSign className="h-5 w-5" />
+              <Euro className="h-5 w-5" />
               {language === 'en' ? 'See Monthly Payment Option' : 'Bekijk Maandelijkse Betalingsoptie'}
             </button>
           )}
         </div>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
-          {t('pricing.noPayment')}
+          {t('pricing.noPaymentCall')}
         </p>
       </div>
       <div className="px-8 pb-8">
