@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -75,6 +74,14 @@ const translations = {
   "pricing.launch.feature4": "1 round of revision",
   "pricing.launch.feature5": "Launch-ready in just 14 days",
   "pricing.launch.feature6": "Built by pro designers, based in Belgium 🇧🇪",
+  "pricing.launchsite.title": "Launch Site",
+  "pricing.launchsite.price": "€995",
+  "pricing.launchsite.description": "Already have a logo? We'll build you a slick, beautiful site to get your business out there — fast.",
+  "pricing.launchsite.includes": "INCLUDES:",
+  "pricing.launchsite.feature1": "Custom 1-page website (like this one!)",
+  "pricing.launchsite.feature2": "1 round of revision",
+  "pricing.launchsite.feature3": "Launch-ready in just 14 days",
+  "pricing.launchsite.feature4": "Built by pro designers, based in Belgium 🇧🇪",
   "pricing.premium.title": "Premium Package",
   "pricing.premium.price": "€2,500",
   "pricing.premium.plan": "or €833/month for 3 months",

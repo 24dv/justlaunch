@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -75,6 +74,14 @@ const translations = {
   "pricing.launch.feature4": "1 revisieronde",
   "pricing.launch.feature5": "Klaar om te lanceren in slechts 14 dagen",
   "pricing.launch.feature6": "Ontwikkeld door professionele designers uit België 🇧🇪",
+  "pricing.launchsite.title": "Launch Site",
+  "pricing.launchsite.price": "€995",
+  "pricing.launchsite.description": "Heb je al een logo? We bouwen een strakke, mooie website om je business snel online te krijgen.",
+  "pricing.launchsite.includes": "INBEGREPEN:",
+  "pricing.launchsite.feature1": "Op maat gemaakte 1-pagina website (zoals deze!)",
+  "pricing.launchsite.feature2": "1 revisieronde",
+  "pricing.launchsite.feature3": "Klaar om te lanceren in slechts 14 dagen",
+  "pricing.launchsite.feature4": "Ontwikkeld door professionele designers uit België 🇧🇪",
   "pricing.premium.title": "Premium Pakket",
   "pricing.premium.price": "€2.500",
   "pricing.premium.plan": "of €833/maand voor 3 maanden",
