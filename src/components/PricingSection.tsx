@@ -44,7 +44,7 @@ const PricingSection = () => {
           <div className="flex justify-center mb-8">
             <Button 
               variant="outline" 
-              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C] hover:text-[#F5F5E9] transition-all"
+              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C] hover:text-[#F5F5E9] transition-all bg-[#0D503C]/10"
               onClick={() => setShowFeaturesTable(!showFeaturesTable)}
             >
               <List className="mr-2" />

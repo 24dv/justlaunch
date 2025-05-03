@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 interface PlanSelectorProps {
   selectedPlan: 'launch' | 'premium';
