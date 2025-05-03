@@ -181,7 +181,7 @@ const ContactForm = () => {
             )}
           </Button>
           
-          <p className="text-xs text-[#0D503C]/70 text-center pt-2 pb-2">
+          <p className="text-xs text-[#0D503C]/70 text-center mt-4">
             {t('contact.form.privacy')}
           </p>
         </form>
@@ -191,3 +191,4 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
