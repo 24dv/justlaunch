@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { X } from 'lucide-react';
@@ -14,17 +13,8 @@ const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
   // Listen for scroll events to close the modal
   useEffect(() => {
     const handleScroll = () => {
-      // Add smooth fade-out effect before closing
-      if (modalRef.current) {
-        modalRef.current.style.opacity = '0';
-        modalRef.current.style.transform = 'scale(0.98) translateY(10px)';
-        modalRef.current.style.transition = 'opacity 300ms ease-out, transform 300ms ease-out';
-        
-        // Close after animation completes
-        setTimeout(() => {
-          onClose();
-        }, 300);
-      }
+      // Simply close the modal on scroll
+      onClose();
     };
 
     window.addEventListener('scroll', handleScroll);
