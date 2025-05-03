@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
@@ -60,7 +59,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
           )}
         </div>
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
-          {t('pricing.noPayment')}
+          {language === 'en' ? 'No payment now — just book your free call.' : 'Geen betaling nu — plan gewoon je gratis gesprek.'}
         </p>
       </div>
       <div className="px-8 pb-8">

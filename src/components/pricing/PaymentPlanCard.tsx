@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { X } from 'lucide-react';
+import { X, Euro } from 'lucide-react';
 
 interface PaymentPlanCardProps {
   onClose: () => void;
@@ -16,6 +16,19 @@ const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Add effect to close the modal on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      onClose();
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [onClose]);
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
@@ -82,7 +95,7 @@ const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
             </button>
 
             <p className="text-sm text-[#0D503C]/70 text-center">
-              {t('pricing.paymentPlan.tagline')}
+              {language === 'en' ? 'No payment now — just book your free call.' : 'Geen betaling nu — plan gewoon je gratis gesprek.'}
             </p>
           </div>
         </div>
