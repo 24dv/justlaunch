@@ -9,7 +9,7 @@ const ContactSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="section-padding bg-[#F5F5E9]">
+    <section id="contact" className="section-padding pb-24 bg-[#F5F5E9]">
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -26,3 +26,4 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
+

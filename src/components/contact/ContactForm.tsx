@@ -1,11 +1,18 @@
 
 import React, { useState } from 'react';
-import { Check, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 type FormState = {
   name: string;
@@ -26,9 +33,13 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handlePackageChange = (value: string) => {
+    setFormState(prev => ({ ...prev, package: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,11 +74,13 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-[#F5F5E9] rounded-xl shadow-lg p-8 border-2 border-[#0D503C]">
+    <div className="bg-[#F5F5E9] rounded-xl shadow-lg p-8 pb-10 border-2 border-[#0D503C]">
       {isSubmitted ? (
         <div className="h-full flex flex-col items-center justify-center text-center p-6">
           <div className="h-12 w-12 bg-[#F9A7A7]/30 rounded-full flex items-center justify-center mb-4 border border-[#F9A7A7]">
-            <Check className="h-6 w-6 text-[#0D503C]" />
+            <svg className="h-6 w-6 text-[#0D503C]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
           </div>
           <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">{t('contact.success.title')}</h3>
           <p className="text-[#0D503C]/80">
@@ -108,33 +121,35 @@ const ContactForm = () => {
             />
           </div>
           
-          <div>
+          <div className="mb-2">
             <Label htmlFor="package" className="text-sm font-medium text-[#0D503C] mb-1">
               {t('contact.form.package')}
             </Label>
-            <select
-              id="package"
-              name="package"
-              value={formState.package}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
+            <Select 
+              value={formState.package} 
+              onValueChange={handlePackageChange}
             >
-              {language === 'en' ? (
-                <>
-                  <option value="launch">Launch Package (€1,500)</option>
-                  <option value="premium">Premium Package (€2,500)</option>
-                  <option value="premium-plan">Premium Package - Payment Plan (€833/month)</option>
-                  <option value="not-sure">Not sure yet</option>
-                </>
-              ) : (
-                <>
-                  <option value="launch">Launch Pakket (€1.500)</option>
-                  <option value="premium">Premium Pakket (€2.500)</option>
-                  <option value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</option>
-                  <option value="not-sure">Nog niet zeker</option>
-                </>
-              )}
-            </select>
+              <SelectTrigger id="package" className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9] h-auto">
+                <SelectValue placeholder={t('contact.form.selectPackage')} />
+              </SelectTrigger>
+              <SelectContent>
+                {language === 'en' ? (
+                  <>
+                    <SelectItem value="launch">Launch Package (€1,500)</SelectItem>
+                    <SelectItem value="premium">Premium Package (€2,500)</SelectItem>
+                    <SelectItem value="premium-plan">Premium Package - Payment Plan (€833/month)</SelectItem>
+                    <SelectItem value="not-sure">Not sure yet</SelectItem>
+                  </>
+                ) : (
+                  <>
+                    <SelectItem value="launch">Launch Pakket (€1.500)</SelectItem>
+                    <SelectItem value="premium">Premium Pakket (€2.500)</SelectItem>
+                    <SelectItem value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</SelectItem>
+                    <SelectItem value="not-sure">Nog niet zeker</SelectItem>
+                  </>
+                )}
+              </SelectContent>
+            </Select>
           </div>
           
           {error && (
@@ -146,7 +161,7 @@ const ContactForm = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 px-4 flex items-center justify-center rounded-lg text-[#F5F5E9] font-medium transition-colors ${
+            className={`w-full py-3 px-4 mt-4 flex items-center justify-center rounded-lg text-[#F5F5E9] font-medium transition-colors ${
               isSubmitting
                 ? 'bg-[#0D503C]/50 cursor-not-allowed'
                 : 'bg-[#0D503C] hover:bg-[#0A4231]'
@@ -168,7 +183,7 @@ const ContactForm = () => {
             )}
           </Button>
           
-          <p className="text-xs text-[#0D503C]/70 text-center mt-4">
+          <p className="text-xs text-[#0D503C]/70 text-center mt-4 mb-2">
             {t('contact.form.privacy')}
           </p>
         </form>
@@ -178,3 +193,4 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
