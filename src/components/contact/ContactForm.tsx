@@ -1,17 +1,22 @@
+
 import React, { useState } from 'react';
 import { Check, Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
 import { Label } from '../ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 type FormState = {
   name: string;
   email: string;
-  company: string;
-  message: string;
   package: string;
 };
 
@@ -21,8 +26,6 @@ const ContactForm = () => {
   const [formState, setFormState] = useState<FormState>({
     name: '',
     email: '',
-    company: '',
-    message: '',
     package: 'launch'
   });
   
@@ -30,9 +33,13 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handlePackageChange = (value: string) => {
+    setFormState(prev => ({ ...prev, package: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,9 +56,7 @@ const ContactForm = () => {
         body: JSON.stringify({
           name: formState.name,
           email: formState.email,
-          company: formState.company,
           package: formState.package,
-          message: formState.message,
         }),
       });
       
@@ -82,8 +87,8 @@ const ContactForm = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <Label htmlFor="name" className="text-sm font-medium text-[#0D503C] mb-1">
+          <div className="space-y-1.5">
+            <Label htmlFor="name" className="text-sm font-medium text-[#0D503C]">
               {t('contact.form.name')}
             </Label>
             <Input
@@ -94,12 +99,12 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' ? "John Doe" : "Jan Jansen"}
+              placeholder={language === 'en' ? "Thijs Doe" : "Jan Jansen"}
             />
           </div>
           
-          <div>
-            <Label htmlFor="email" className="text-sm font-medium text-[#0D503C] mb-1">
+          <div className="space-y-1.5">
+            <Label htmlFor="email" className="text-sm font-medium text-[#0D503C]">
               {t('contact.form.email')}
             </Label>
             <Input
@@ -110,69 +115,39 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' ? "john@example.com" : "jan@voorbeeld.nl"}
+              placeholder={language === 'en' ? "thijs@yourstartup.com" : "jan@voorbeeld.nl"}
             />
           </div>
           
-          <div>
-            <Label htmlFor="company" className="text-sm font-medium text-[#0D503C] mb-1">
-              {t('contact.form.company')}
-            </Label>
-            <Input
-              type="text"
-              id="company"
-              name="company"
-              value={formState.company}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' ? "Your Company" : "Jouw Bedrijf"}
-            />
-          </div>
-          
-          <div>
-            <Label htmlFor="package" className="text-sm font-medium text-[#0D503C] mb-1">
+          <div className="space-y-1.5 mb-6">
+            <Label htmlFor="package" className="text-sm font-medium text-[#0D503C]">
               {t('contact.form.package')}
             </Label>
-            <select
-              id="package"
-              name="package"
+            <Select
               value={formState.package}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
+              onValueChange={handlePackageChange}
             >
-              {language === 'en' ? (
-                <>
-                  <option value="launch">Launch Package (€1,500)</option>
-                  <option value="premium">Premium Package (€2,500)</option>
-                  <option value="premium-plan">Premium Package - Payment Plan (€833/month)</option>
-                  <option value="not-sure">Not sure yet</option>
-                </>
-              ) : (
-                <>
-                  <option value="launch">Launch Pakket (€1.500)</option>
-                  <option value="premium">Premium Pakket (€2.500)</option>
-                  <option value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</option>
-                  <option value="not-sure">Nog niet zeker</option>
-                </>
-              )}
-            </select>
-          </div>
-          
-          <div>
-            <Label htmlFor="message" className="text-sm font-medium text-[#0D503C] mb-1">
-              {t('contact.form.message')}
-            </Label>
-            <Textarea
-              id="message"
-              name="message"
-              value={formState.message}
-              onChange={handleChange}
-              rows={4}
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
-              placeholder={language === 'en' 
-                ? "Share a bit about your project and what you're looking for..." 
-                : "Vertel ons wat over je project en waar je naar op zoek bent..."}
-            />
+              <SelectTrigger className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]">
+                <SelectValue placeholder={language === 'en' ? "Select a package" : "Selecteer een pakket"} />
+              </SelectTrigger>
+              <SelectContent>
+                {language === 'en' ? (
+                  <>
+                    <SelectItem value="launch">Launch Package (€1,500)</SelectItem>
+                    <SelectItem value="premium">Premium Package (€2,500)</SelectItem>
+                    <SelectItem value="premium-plan">Premium Package - Payment Plan (€833/month)</SelectItem>
+                    <SelectItem value="not-sure">Not sure yet</SelectItem>
+                  </>
+                ) : (
+                  <>
+                    <SelectItem value="launch">Launch Pakket (€1.500)</SelectItem>
+                    <SelectItem value="premium">Premium Pakket (€2.500)</SelectItem>
+                    <SelectItem value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</SelectItem>
+                    <SelectItem value="not-sure">Nog niet zeker</SelectItem>
+                  </>
+                )}
+              </SelectContent>
+            </Select>
           </div>
           
           {error && (
@@ -200,13 +175,13 @@ const ContactForm = () => {
               </span>
             ) : (
               <span className="flex items-center">
-                {t('contact.form.submit')}
+                {language === 'en' ? 'Book Your Free Intro Call!' : 'Plan je gratis introgesprek!'}
                 <Send className="ml-2 h-4 w-4" />
               </span>
             )}
           </Button>
           
-          <p className="text-xs text-[#0D503C]/70 text-center mt-4">
+          <p className="text-xs text-[#0D503C]/70 text-center pt-2 pb-2">
             {t('contact.form.privacy')}
           </p>
         </form>
