@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -58,7 +59,7 @@ const translations = {
   "process.step3.title": "Beoordeel Ontwerpen",
   "process.step3.description": "Bekijk en kies je logo en merkkleuren. Zodra jij tevreden bent, gaan wij aan de slag met je website.",
   "process.step4.title": "Launch in 14 Dagen",
-  "process.step4.description": "Je merk en website gaan live — allemaal binnen de 14 dagen na de start.",
+  "process.step4.description": "Alles gaat snel, schoon en met vertrouwen live.",
   "process.getStarted": "Plan Je Gratis Introgesprek",
 
   // Pricing Section

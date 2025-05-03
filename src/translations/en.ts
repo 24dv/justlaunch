@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -58,7 +59,7 @@ const translations = {
   "process.step3.title": "Review Designs",
   "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
   "process.step4.title": "Launch in 14 Days",
-  "process.step4.description": "Your brand and site go live — all within 14 days of kickoff.",
+  "process.step4.description": "Everything goes live fast, clean, and confidently done.",
   "process.getStarted": "Book Your Free Intro Call",
 
   // Pricing Section
