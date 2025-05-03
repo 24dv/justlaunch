@@ -6,7 +6,7 @@ import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import FeaturesTable from './pricing/FeaturesTable';
-import { Plus, List, Euro } from 'lucide-react';
+import { Plus, List } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
 
