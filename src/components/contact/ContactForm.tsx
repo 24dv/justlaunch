@@ -74,9 +74,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-[#F5F5E9] rounded-xl shadow-lg p-8 border-2 border-[#0D503C]">
+    <div className="bg-[#F5F5E9] rounded-xl shadow-lg border-2 border-[#0D503C] overflow-hidden">
       {isSubmitted ? (
-        <div className="h-full flex flex-col items-center justify-center text-center p-6">
+        <div className="h-full flex flex-col items-center justify-center text-center p-8">
           <div className="h-12 w-12 bg-[#F9A7A7]/30 rounded-full flex items-center justify-center mb-4 border border-[#F9A7A7]">
             <Check className="h-6 w-6 text-[#0D503C]" />
           </div>
@@ -86,9 +86,12 @@ const ContactForm = () => {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-1.5">
-            <Label htmlFor="name" className="text-sm font-medium text-[#0D503C]">
+        <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          <div>
+            <Label 
+              htmlFor="name" 
+              className="text-sm font-medium text-[#0D503C] block mb-2"
+            >
               {t('contact.form.name')}
             </Label>
             <Input
@@ -98,13 +101,16 @@ const ContactForm = () => {
               value={formState.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
+              className="w-full border-2 border-[#0D503C]/30 rounded-md focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
               placeholder={language === 'en' ? "Thijs Doe" : "Jan Jansen"}
             />
           </div>
           
-          <div className="space-y-1.5">
-            <Label htmlFor="email" className="text-sm font-medium text-[#0D503C]">
+          <div>
+            <Label 
+              htmlFor="email" 
+              className="text-sm font-medium text-[#0D503C] block mb-2"
+            >
               {t('contact.form.email')}
             </Label>
             <Input
@@ -114,20 +120,25 @@ const ContactForm = () => {
               value={formState.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
+              className="w-full border-2 border-[#0D503C]/30 rounded-md focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
               placeholder={language === 'en' ? "thijs@yourstartup.com" : "jan@voorbeeld.nl"}
             />
           </div>
           
-          <div className="space-y-1.5 mb-6">
-            <Label htmlFor="package" className="text-sm font-medium text-[#0D503C]">
+          <div>
+            <Label 
+              htmlFor="package" 
+              className="text-sm font-medium text-[#0D503C] block mb-2"
+            >
               {t('contact.form.package')}
             </Label>
             <Select
               value={formState.package}
               onValueChange={handlePackageChange}
             >
-              <SelectTrigger className="w-full px-4 py-3 border-2 border-[#0D503C]/30 rounded-lg focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]">
+              <SelectTrigger 
+                className="w-full border-2 border-[#0D503C]/30 rounded-md bg-[#F5F5E9] focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C]"
+              >
                 <SelectValue placeholder={language === 'en' ? "Select a package" : "Selecteer een pakket"} />
               </SelectTrigger>
               <SelectContent>
@@ -151,7 +162,7 @@ const ContactForm = () => {
           </div>
           
           {error && (
-            <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
+            <div className="p-3 bg-red-100 border border-red-300 text-red-700 rounded-md text-sm">
               {error}
             </div>
           )}
@@ -159,11 +170,7 @@ const ContactForm = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 px-4 flex items-center justify-center rounded-lg text-[#F5F5E9] font-medium transition-colors ${
-              isSubmitting
-                ? 'bg-[#0D503C]/50 cursor-not-allowed'
-                : 'bg-[#0D503C] hover:bg-[#0A4231]'
-            }`}
+            className="w-full py-3 bg-[#0D503C] hover:bg-[#0A4231] text-[#F5F5E9] font-medium rounded-md transition-colors flex items-center justify-center"
           >
             {isSubmitting ? (
               <span className="flex items-center">
@@ -181,7 +188,7 @@ const ContactForm = () => {
             )}
           </Button>
           
-          <p className="text-xs text-[#0D503C]/70 text-center mt-4">
+          <p className="text-xs text-[#0D503C]/70 text-center">
             {t('contact.form.privacy')}
           </p>
         </form>
@@ -191,4 +198,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
