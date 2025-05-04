@@ -1,14 +1,15 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const img = new Image();
@@ -85,25 +86,29 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
+        <div className="hidden md:flex items-center">
+          <div className="flex items-center space-x-3 lg:space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.id)}
+                className="text-xs md:text-[13px] lg:text-sm font-medium text-[#0D503C] hover:text-[#0A4231] transition-colors duration-200 cursor-pointer whitespace-nowrap"
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+          
+          <div className="flex items-center ml-3 lg:ml-8">
+            <LanguageSwitcher />
+            
             <button
-              key={item.name}
-              onClick={() => scrollToSection(item.id)}
-              className="text-sm font-medium text-[#0D503C] hover:text-[#0A4231] transition-colors duration-200 cursor-pointer"
+              onClick={() => scrollToSection('contact')}
+              className="ml-3 lg:ml-4 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-3 md:px-4 lg:px-5 py-2 md:py-2.5 text-xs md:text-[13px] lg:text-sm font-medium text-[#F5F5E9] transition-colors hover:bg-[#0A4231] focus:outline-none whitespace-nowrap"
             >
-              {item.name}
+              {t('nav.getStarted')}
             </button>
-          ))}
-          
-          <LanguageSwitcher />
-          
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="ml-4 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-5 py-2.5 text-sm font-medium text-[#F5F5E9] transition-colors hover:bg-[#0A4231] focus:outline-none"
-          >
-            {t('nav.getStarted')}
-          </button>
+          </div>
         </div>
 
         <div className="flex items-center md:hidden">
@@ -118,7 +123,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Redesigned mobile menu */}
+      {/* Mobile menu - keep existing code */}
       <div
         className={`fixed inset-0 bg-[#F5F5E9] z-40 transform transition-all duration-500 ease-in-out ${
           isOpen 
@@ -127,6 +132,7 @@ const Navbar = () => {
         }`}
         style={{ height: '100vh' }}
       >
+        {/* ... keep existing code (mobile menu content) */}
         <div className="absolute inset-0 bg-[url('/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png')] bg-cover bg-center opacity-5"></div>
         
         {/* Decorative elements */}
