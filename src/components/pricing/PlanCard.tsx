@@ -61,7 +61,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               className="block w-full py-3 px-4 rounded-lg bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] text-center font-medium hover:bg-[#F9A7A7]/30 transition-colors flex items-center justify-center gap-2"
             >
               <Euro className="h-5 w-5" />
-              {language === 'en' ? 'Payment Plan' : 'Betalingsplan'}
+              € {language === 'en' ? 'Payment Plan' : 'Betalingsplan'}
             </button>
           )}
         </div>
@@ -78,31 +78,31 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               : t('pricing.launchsite.includes')}
         </h4>
         <ul className="space-y-3">
-          {planType === 'launch' ? (
+          {planType === 'launchsite' ? (
             <>
-              <PlanFeatureItem text={t('pricing.launch.feature1')} />
-              <PlanFeatureItem text={t('pricing.launch.feature2')} />
-              <PlanFeatureItem text={t('pricing.launch.feature3')} />
-              <PlanFeatureItem text={t('pricing.launch.feature4')} />
-              <PlanFeatureItem text={t('pricing.launch.feature5')} />
-              <PlanFeatureItem text={t('pricing.launch.feature6')} />
+              <PlanFeatureItem text="Launch-ready in 14 days" bold={true} />
+              <PlanFeatureItem text="Custom 1-page website (like this one!)" />
+              <PlanFeatureItem text="1 round of revision" />
+              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
             </>
-          ) : planType === 'premium' ? (
+          ) : planType === 'launch' ? (
             <>
-              <PlanFeatureItem text={t('pricing.premium.feature1')} />
-              <PlanFeatureItem text={t('pricing.premium.feature2')} />
-              <PlanFeatureItem text={t('pricing.premium.feature3')} />
-              <PlanFeatureItem text={t('pricing.premium.feature4')} />
-              <PlanFeatureItem text={t('pricing.premium.feature5')} />
-              <PlanFeatureItem text={t('pricing.premium.feature6')} />
-              <PlanFeatureItem text={t('pricing.premium.feature7')} />
+              <PlanFeatureItem text="Launch-ready in 14 days" bold={true} />
+              <PlanFeatureItem text="Custom 1-page website (like this one!)" />
+              <PlanFeatureItem text="Professional logo design" bold={true} />
+              <PlanFeatureItem text="Tailored brand color palette" bold={true} />
+              <PlanFeatureItem text="1 round of revision" />
+              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
             </>
           ) : (
             <>
-              <PlanFeatureItem text={t('pricing.launchsite.feature1')} />
-              <PlanFeatureItem text={t('pricing.launchsite.feature2')} />
-              <PlanFeatureItem text={t('pricing.launchsite.feature3')} />
-              <PlanFeatureItem text={t('pricing.launchsite.feature4')} />
+              <PlanFeatureItem text="Launch-ready in 14 days" bold={true} />
+              <PlanFeatureItem text="Custom 5-page website" bold={true} />
+              <PlanFeatureItem text="Professional logo design" />
+              <PlanFeatureItem text="Brand style guide (logo, colors, fonts)" bold={true} />
+              <PlanFeatureItem text="5 custom social media templates" />
+              <PlanFeatureItem text="2 rounds of revisions" bold={true} />
+              <PlanFeatureItem text="Built by pro designers, based in Belgium 🇧🇪" />
             </>
           )}
         </ul>
