@@ -3,14 +3,16 @@ import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
 import { Euro } from 'lucide-react';
+import { Badge } from '../ui/badge';
 
 interface PlanCardProps {
   planType: 'launch' | 'premium' | 'launchsite';
   showPaymentOption?: boolean;
   onPaymentOptionClick?: () => void;
+  isPopular?: boolean;
 }
 
-const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCardProps) => {
+const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular = false }: PlanCardProps) => {
   const { t, language } = useLanguage();
 
   const scrollToContact = () => {
@@ -21,15 +23,22 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
   };
 
   return (
-    <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C] relative h-fit">
+    <div className={`bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl ${isPopular ? 'border-3 border-[#0D503C] shadow-[0_0_15px_rgba(13,80,60,0.2)]' : 'border-2 border-[#0D503C]'} relative h-fit`}>
       <div className="p-8">
-        <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
-          {planType === 'launch' 
-            ? t('pricing.launch.title')
-            : planType === 'premium'
-              ? t('pricing.premium.title')
-              : t('pricing.launchsite.title')}
-        </h3>
+        <div className="flex items-center gap-2 mb-2">
+          {isPopular && (
+            <Badge className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90">
+              {t('pricing.mostPopular')}
+            </Badge>
+          )}
+          <h3 className="text-2xl font-bold text-[#0D503C] font-serif">
+            {planType === 'launch' 
+              ? t('pricing.launch.title')
+              : planType === 'premium'
+                ? t('pricing.premium.title')
+                : t('pricing.launchsite.title')}
+          </h3>
+        </div>
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#0D503C]">
             {planType === 'launch' 

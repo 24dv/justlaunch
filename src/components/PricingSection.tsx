@@ -40,9 +40,9 @@ const PricingSection = () => {
             // Packages - Show Launch and Premium packages
             <div className="flex justify-center mb-8">
               <div className="flex gap-8 max-w-5xl">
-                {/* Launch Package */}
+                {/* Launch Package - Now with isPopular prop */}
                 <div className="max-w-md w-full">
-                  <PlanCard planType="launch" />
+                  <PlanCard planType="launch" isPopular={true} />
                 </div>
                 
                 {/* Premium Package with Payment Plan Option */}
