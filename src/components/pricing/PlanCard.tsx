@@ -100,7 +100,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               <PlanFeatureItem text={t('pricing.premium.feature2')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature3')} />
               <PlanFeatureItem text={t('pricing.premium.feature4')} isBold={true} />
-              <PlanFeatureItem text={t('pricing.premium.feature5')} />
+              <PlanFeatureItem text={t('pricing.premium.feature5')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature6')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature7')} />
             </>
