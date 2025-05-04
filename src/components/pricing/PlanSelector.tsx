@@ -4,8 +4,8 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 interface PlanSelectorProps {
-  selectedPlan: 'launch' | 'premium';
-  onTogglePlan: (plan: 'launch' | 'premium') => void;
+  selectedPlan: 'website' | 'packages';
+  onTogglePlan: (plan: 'website' | 'packages') => void;
 }
 
 const PlanSelector = ({ selectedPlan, onTogglePlan }: PlanSelectorProps) => {
@@ -15,24 +15,24 @@ const PlanSelector = ({ selectedPlan, onTogglePlan }: PlanSelectorProps) => {
     <div className="flex justify-center mb-12">
       <div className="inline-flex p-1 rounded-lg bg-[#0D503C]/10 border border-[#0D503C]/30">
         <button
-          onClick={() => onTogglePlan('launch')}
+          onClick={() => onTogglePlan('website')}
           className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-            selectedPlan === 'launch'
+            selectedPlan === 'website'
               ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
               : 'text-[#0D503C] hover:bg-[#0D503C]/10'
           }`}
         >
-          {t('pricing.launch.title')}
+          {t('pricing.toggle.websiteOnly')}
         </button>
         <button
-          onClick={() => onTogglePlan('premium')}
+          onClick={() => onTogglePlan('packages')}
           className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-            selectedPlan === 'premium'
+            selectedPlan === 'packages'
               ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
               : 'text-[#0D503C] hover:bg-[#0D503C]/10'
           }`}
         >
-          {t('pricing.premium.title')}
+          {t('pricing.toggle.packages')}
         </button>
       </div>
     </div>
