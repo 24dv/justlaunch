@@ -2,15 +2,17 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
+import { Badge } from '../ui/badge';
 import { Euro } from 'lucide-react';
 
 interface PlanCardProps {
   planType: 'launch' | 'premium' | 'launchsite';
   showPaymentOption?: boolean;
   onPaymentOptionClick?: () => void;
+  isPopular?: boolean;
 }
 
-const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCardProps) => {
+const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular }: PlanCardProps) => {
   const { t, language } = useLanguage();
 
   const scrollToContact = () => {
@@ -21,15 +23,22 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
   };
 
   return (
-    <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C] relative h-fit">
+    <div className={`bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 ${isPopular ? 'border-[#0D503C] bg-[#F2FCE2]/30' : 'border-[#0D503C]'} relative h-fit ${isPopular ? 'ring-2 ring-[#0D503C]/20' : ''}`}>
       <div className="p-8">
-        <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
-          {planType === 'launch' 
-            ? t('pricing.launch.title')
-            : planType === 'premium'
-              ? t('pricing.premium.title')
-              : t('pricing.launchsite.title')}
-        </h3>
+        <div className="flex items-center gap-2 mb-2">
+          <h3 className="text-2xl font-bold text-[#0D503C] font-serif">
+            {planType === 'launch' 
+              ? t('pricing.launch.title')
+              : planType === 'premium'
+                ? t('pricing.premium.title')
+                : t('pricing.launchsite.title')}
+          </h3>
+          {isPopular && (
+            <Badge className="bg-[#0D503C] text-[#F5F5E9] ml-2 font-medium">
+              {t('pricing.mostPopular')}
+            </Badge>
+          )}
+        </div>
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#0D503C]">
             {planType === 'launch' 
@@ -50,7 +59,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
         <div className="space-y-3">
           <button
             onClick={scrollToContact}
-            className="block w-full py-3 px-4 rounded-lg bg-[#0D503C] text-[#F5F5E9] text-center font-medium hover:bg-[#0A4231] transition-colors"
+            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:bg-[#0A4231] transition-colors`}
           >
             {t('nav.getStarted')}
           </button>

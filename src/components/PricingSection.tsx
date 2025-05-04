@@ -30,32 +30,34 @@ const PricingSection = () => {
 
         <div className="max-w-6xl mx-auto">
           {selectedPlan === 'website' ? (
-            // Website Only - Show only Launch Site package centered
+            // Website Only - Show only Launch Site package
             <div className="flex justify-center mb-8">
               <div className="max-w-md w-full">
                 <PlanCard planType="launchsite" />
               </div>
             </div>
           ) : (
-            // Packages - Show Launch and Premium packages with equal width
-            <div className="flex flex-col md:flex-row justify-center gap-8 mb-8">
-              {/* Launch Package */}
-              <div className="md:w-1/2 max-w-md mx-auto">
-                <PlanCard planType="launch" />
-              </div>
-              
-              {/* Premium Package with Payment Plan Option */}
-              <div className="md:w-1/2 max-w-md mx-auto relative">
-                <PlanCard 
-                  planType="premium" 
-                  showPaymentOption 
-                  onPaymentOptionClick={() => setShowPaymentPlan(true)} 
-                />
+            // Packages - Show Launch and Premium packages
+            <div className="flex justify-center mb-8">
+              <div className="flex gap-8 max-w-5xl">
+                {/* Launch Package - with Most Popular badge */}
+                <div className="max-w-md w-full">
+                  <PlanCard planType="launch" isPopular={true} />
+                </div>
                 
-                {/* Payment Plan Dialog */}
-                {showPaymentPlan && (
-                  <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
-                )}
+                {/* Premium Package with Payment Plan Option */}
+                <div className="max-w-md w-full relative">
+                  <PlanCard 
+                    planType="premium" 
+                    showPaymentOption 
+                    onPaymentOptionClick={() => setShowPaymentPlan(true)} 
+                  />
+                  
+                  {/* Payment Plan Dialog */}
+                  {showPaymentPlan && (
+                    <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
+                  )}
+                </div>
               </div>
             </div>
           )}
