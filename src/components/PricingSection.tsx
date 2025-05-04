@@ -30,20 +30,22 @@ const PricingSection = () => {
 
         <div className="max-w-6xl mx-auto">
           {selectedPlan === 'website' ? (
-            // Website Only - Show only Launch Site package
+            // Website Only - Show only Launch Site package centered
             <div className="flex justify-center mb-8">
               <div className="max-w-md w-full">
                 <PlanCard planType="launchsite" />
               </div>
             </div>
           ) : (
-            // Packages - Show Launch and Premium packages
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            // Packages - Show Launch and Premium packages with equal width
+            <div className="flex flex-col md:flex-row justify-center gap-8 mb-8">
               {/* Launch Package */}
-              <PlanCard planType="launch" />
+              <div className="md:w-1/2 max-w-md mx-auto">
+                <PlanCard planType="launch" />
+              </div>
               
               {/* Premium Package with Payment Plan Option */}
-              <div className="relative">
+              <div className="md:w-1/2 max-w-md mx-auto relative">
                 <PlanCard 
                   planType="premium" 
                   showPaymentOption 
