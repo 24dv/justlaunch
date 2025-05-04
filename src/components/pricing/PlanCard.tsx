@@ -23,16 +23,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
   };
 
   return (
-    <div className={`bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${isPopular ? 'border-2 border-[#0D503C]' : 'border-2 border-[#0D503C]'} relative h-fit`}>
-      {/* Ribbon Badge */}
-      {isPopular && (
-        <div className="absolute -right-10 top-6 z-10 transform rotate-45">
-          <div className="bg-[#F9A7A7]/20 text-[#0D503C] text-xs font-bold py-1 px-10 shadow-md border border-[#F9A7A7]">
-            {t('pricing.mostPopular')}
-          </div>
-        </div>
-      )}
-      
+    <div className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${isPopular ? 'bg-[#F9A7A7]/10 border-2 border-[#F9A7A7]' : 'bg-[#F5F5E9] border-2 border-[#0D503C]'} relative h-fit`}>
       <div className="p-8">
         <div className="flex items-center gap-2 mb-2">
           <h3 className="text-2xl font-bold text-[#0D503C] font-serif">
@@ -42,6 +33,13 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
                 ? t('pricing.premium.title')
                 : t('pricing.launchsite.title')}
           </h3>
+          
+          {/* Inline Badge */}
+          {isPopular && (
+            <Badge className="bg-[#F9A7A7]/20 text-[#0D503C] border border-[#F9A7A7] ml-2 px-2">
+              {t('pricing.mostPopular')}
+            </Badge>
+          )}
         </div>
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#0D503C]">
@@ -63,7 +61,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
         <div className="space-y-3">
           <button
             onClick={scrollToContact}
-            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md font-semibold' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:bg-[#0A4231] transition-colors`}
+            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#F9A7A7] text-[#0D503C] font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:opacity-90 transition-opacity`}
           >
             {t('nav.getStarted')}
           </button>
