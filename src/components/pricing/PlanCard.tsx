@@ -78,31 +78,31 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCar
               : t('pricing.launchsite.includes')}
         </h4>
         <ul className="space-y-3">
-          {planType === 'launch' ? (
+          {planType === 'launchsite' ? (
             <>
-              <PlanFeatureItem text={t('pricing.launch.feature1')} />
-              <PlanFeatureItem text={t('pricing.launch.feature2')} />
-              <PlanFeatureItem text={t('pricing.launch.feature3')} />
-              <PlanFeatureItem text={t('pricing.launch.feature4')} />
-              <PlanFeatureItem text={t('pricing.launch.feature5')} />
-              <PlanFeatureItem text={t('pricing.launch.feature6')} />
-            </>
-          ) : planType === 'premium' ? (
-            <>
-              <PlanFeatureItem text={t('pricing.premium.feature1')} />
-              <PlanFeatureItem text={t('pricing.premium.feature2')} />
-              <PlanFeatureItem text={t('pricing.premium.feature3')} />
-              <PlanFeatureItem text={t('pricing.premium.feature4')} />
-              <PlanFeatureItem text={t('pricing.premium.feature5')} />
-              <PlanFeatureItem text={t('pricing.premium.feature6')} />
-              <PlanFeatureItem text={t('pricing.premium.feature7')} />
-            </>
-          ) : (
-            <>
-              <PlanFeatureItem text={t('pricing.launchsite.feature1')} />
+              <PlanFeatureItem text={t('pricing.launchsite.feature1')} isBold={true} />
               <PlanFeatureItem text={t('pricing.launchsite.feature2')} />
               <PlanFeatureItem text={t('pricing.launchsite.feature3')} />
               <PlanFeatureItem text={t('pricing.launchsite.feature4')} />
+            </>
+          ) : planType === 'launch' ? (
+            <>
+              <PlanFeatureItem text={t('pricing.launch.feature1')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.launch.feature2')} />
+              <PlanFeatureItem text={t('pricing.launch.feature3')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.launch.feature4')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.launch.feature5')} />
+              <PlanFeatureItem text={t('pricing.launch.feature6')} />
+            </>
+          ) : (
+            <>
+              <PlanFeatureItem text={t('pricing.premium.feature1')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.premium.feature2')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.premium.feature3')} />
+              <PlanFeatureItem text={t('pricing.premium.feature4')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.premium.feature5')} />
+              <PlanFeatureItem text={t('pricing.premium.feature6')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.premium.feature7')} />
             </>
           )}
         </ul>
