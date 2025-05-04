@@ -67,7 +67,6 @@ const translations = {
   "pricing.subtitle": "Kies het pakket dat past bij jouw behoeften en budget.",
   "pricing.toggle.websiteOnly": "Alleen Website",
   "pricing.toggle.packages": "Pakketten",
-  "pricing.mostPopular": "Meest Gekozen",
   "pricing.launch.title": "Launch Pakket",
   "pricing.launch.price": "€1.500",
   "pricing.launch.description": "Alles wat je nodig hebt om een sterk en professioneel merk te lanceren — zonder het hoge prijskaartje van een agency.",

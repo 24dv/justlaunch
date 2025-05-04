@@ -121,11 +121,6 @@
   .noise-texture {
     display: none;
   }
-  
-  /* Adding custom border-3 width class */
-  .border-3 {
-    border-width: 3px;
-  }
 }
 
 @keyframes fadeInUp {
