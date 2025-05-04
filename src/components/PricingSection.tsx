@@ -37,8 +37,8 @@ const PricingSection = () => {
               </div>
             </div>
           ) : (
-            // Packages - Show Launch and Premium packages with equal width and reduced gap
-            <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
+            // Packages - Show Launch and Premium packages with equal width and minimal gap
+            <div className="flex flex-col md:flex-row justify-center gap-1 mb-8">
               {/* Launch Package */}
               <div className="md:w-1/2 max-w-md mx-auto">
                 <PlanCard planType="launch" />
