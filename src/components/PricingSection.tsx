@@ -6,11 +6,13 @@ import PaymentPlanCard from './pricing/PaymentPlanCard';
 import MaintenanceCard from './pricing/MaintenanceCard';
 import PricingFooter from './pricing/PricingFooter';
 import FeaturesTable from './pricing/FeaturesTable';
+import PlanSelector from './pricing/PlanSelector';
 import { Plus, List } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
 
 const PricingSection = () => {
+  const [selectedOption, setSelectedOption] = useState<'website' | 'packages'>('packages');
   const [showPaymentPlan, setShowPaymentPlan] = useState(false);
   const [showFeaturesTable, setShowFeaturesTable] = useState(false);
   const { language } = useLanguage();
@@ -21,26 +23,44 @@ const PricingSection = () => {
         <PricingHeader />
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            {/* Launch Site Package */}
-            <PlanCard planType="launchsite" />
+          {/* Toggle between Website Only and Packages */}
+          <PlanSelector 
+            selectedOption={selectedOption} 
+            onToggleOption={setSelectedOption} 
+          />
+
+          {/* Pricing Cards */}
+          <div className={`grid gap-8 mb-8 ${
+            selectedOption === 'website' 
+              ? 'grid-cols-1 max-w-md mx-auto' 
+              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto'
+          }`}>
+            {/* Website Only Option */}
+            {selectedOption === 'website' && (
+              <PlanCard planType="launchsite" />
+            )}
             
-            {/* Launch Package - Most Popular */}
-            <PlanCard planType="launch" isPopular={true} />
-            
-            {/* Premium Package with Payment Plan Option */}
-            <div className="relative">
-              <PlanCard 
-                planType="premium" 
-                showPaymentOption 
-                onPaymentOptionClick={() => setShowPaymentPlan(true)} 
-              />
-              
-              {/* Payment Plan Dialog */}
-              {showPaymentPlan && (
-                <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
-              )}
-            </div>
+            {/* Packages Option */}
+            {selectedOption === 'packages' && (
+              <>
+                {/* Launch Package - Most Popular */}
+                <PlanCard planType="launch" isPopular={true} />
+                
+                {/* Premium Package with Payment Plan Option */}
+                <div className="relative">
+                  <PlanCard 
+                    planType="premium" 
+                    showPaymentOption 
+                    onPaymentOptionClick={() => setShowPaymentPlan(true)} 
+                  />
+                  
+                  {/* Payment Plan Dialog */}
+                  {showPaymentPlan && (
+                    <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
+                  )}
+                </div>
+              </>
+            )}
           </div>
 
           {/* Compare Features Button */}

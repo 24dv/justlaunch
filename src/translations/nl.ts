@@ -65,6 +65,8 @@ const translations = {
   "pricing.title": "Transparante Prijzen, Geen Verrassingen",
   "pricing.subtitle": "Kies het pakket dat past bij jouw behoeften en budget.",
   "pricing.mostPopular": "Meest Gekozen",
+  "pricing.toggle.websiteOnly": "Alleen Website",
+  "pricing.toggle.packages": "Pakketten",
   "pricing.launch.title": "Launch Pakket",
   "pricing.launch.price": "€1.500",
   "pricing.launch.description": "Alles wat je nodig hebt om een sterk en professioneel merk te lanceren — zonder het hoge prijskaartje van een agency.",
@@ -97,6 +99,8 @@ const translations = {
   "pricing.premium.feature7": "Ontwikkeld door professionele designers uit België 🇧🇪",
   "pricing.noPayment": "Geen betaling nu — reserveer gewoon je plek.",
   "pricing.noPaymentCall": "Geen betaling nu — plan gewoon je gratis gesprek.",
+  
+  // Maintenance & Security
   "pricing.maintenance.title": "Doorlopend Onderhoud & Beveiliging",
   "pricing.maintenance.price": "€10",
   "pricing.maintenance.period": "/ maand + BTW",
@@ -106,6 +110,8 @@ const translations = {
   "pricing.maintenance.feature2": "Beveiligingsmonitoring",
   "pricing.maintenance.feature3": "Regelmatige software-updates",
   "pricing.maintenance.feature4": "Prestatieoptimalisatie",
+
+  // Payment Plan
   "pricing.paymentPlan.title": "Betalen In 3 Keer",
   "pricing.paymentPlan.price": "€833",
   "pricing.paymentPlan.description": "Start met een lager voorschot. Dezelfde topservice, verdeeld in drie haalbare maandelijkse betalingen.",
