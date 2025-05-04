@@ -20,13 +20,13 @@ const PricingSection = () => {
       <div className="container mx-auto">
         <PricingHeader />
 
-        <div className="max-w-6xl mx-auto"> {/* Increased from max-w-5xl (20% wider) */}
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {/* Launch Site Package */}
             <PlanCard planType="launchsite" />
             
-            {/* Launch Package */}
-            <PlanCard planType="launch" />
+            {/* Launch Package - Most Popular */}
+            <PlanCard planType="launch" isPopular={true} />
             
             {/* Premium Package with Payment Plan Option */}
             <div className="relative">
