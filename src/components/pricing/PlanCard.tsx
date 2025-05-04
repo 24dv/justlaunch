@@ -34,14 +34,13 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
                 : t('pricing.launchsite.title')}
           </h3>
           
-          {/* Inline Badge with hover effect removed */}
+          {/* Inline Badge */}
           {isPopular && (
-            <Badge className="bg-[#F9A7A7]/20 text-[#0D503C] border border-[#F9A7A7] ml-2 px-2 pointer-events-none">
+            <Badge className="bg-[#0D503C]/10 text-[#0D503C] border border-[#0D503C] ml-2 px-2">
               {t('pricing.mostPopular')}
             </Badge>
           )}
         </div>
-        
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#0D503C]">
             {planType === 'launch' 
@@ -52,7 +51,6 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
           </span>
           <span className="ml-2 text-[#0D503C]/70 text-sm md:text-xs lg:text-sm whitespace-nowrap">{language === 'en' ? "+ VAT" : "+ BTW"}</span>
         </div>
-        
         <p className="text-[#0D503C]/80 mb-4">
           {planType === 'launch'
             ? t('pricing.launch.description')
@@ -60,11 +58,10 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
               ? t('pricing.premium.description')
               : t('pricing.launchsite.description')}
         </p>
-        
         <div className="space-y-3">
           <button
             onClick={scrollToContact}
-            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#F9A7A7] text-[#0D503C] border border-[#0D503C]/20 font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:opacity-90 transition-opacity`}
+            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#0D503C] text-[#F5F5E9] font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:opacity-90 transition-opacity`}
           >
             {t('nav.getStarted')}
           </button>
@@ -79,12 +76,10 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
             </button>
           )}
         </div>
-        
         <p className="text-sm text-[#0D503C]/70 mt-3 text-center">
           {t('pricing.noPaymentCall')}
         </p>
       </div>
-      
       <div className="px-8 pb-8">
         <h4 className="text-sm font-semibold text-[#0D503C] uppercase tracking-wider mb-4">
           {planType === 'launch' 
@@ -93,7 +88,6 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
               ? t('pricing.premium.includes')
               : t('pricing.launchsite.includes')}
         </h4>
-        
         <ul className="space-y-3">
           {planType === 'launchsite' ? (
             <>
