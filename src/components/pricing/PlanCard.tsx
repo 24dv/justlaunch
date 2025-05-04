@@ -34,9 +34,9 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
                 : t('pricing.launchsite.title')}
           </h3>
           
-          {/* Inline Badge with light green color */}
+          {/* Badge with softer green color and rounded corners */}
           {isPopular && (
-            <Badge className="bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/30 ml-2 px-2 pointer-events-none">
+            <Badge className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C]/30 ml-2 px-3 py-0.5 rounded-full pointer-events-none">
               {t('pricing.mostPopular')}
             </Badge>
           )}
