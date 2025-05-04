@@ -34,9 +34,9 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
                 : t('pricing.launchsite.title')}
           </h3>
           
-          {/* Inline Badge with hover effect removed */}
+          {/* Inline Badge with light green color */}
           {isPopular && (
-            <Badge className="bg-[#F9A7A7]/20 text-[#0D503C] border border-[#F9A7A7] ml-2 px-2 pointer-events-none">
+            <Badge className="bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/30 ml-2 px-2 pointer-events-none">
               {t('pricing.mostPopular')}
             </Badge>
           )}
@@ -64,7 +64,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
         <div className="space-y-3">
           <button
             onClick={scrollToContact}
-            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#F9A7A7] text-[#0D503C] border border-[#0D503C]/20 font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:opacity-90 transition-opacity`}
+            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#0D503C] text-[#F5F5E9] font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:opacity-90 transition-opacity`}
           >
             {t('nav.getStarted')}
           </button>
