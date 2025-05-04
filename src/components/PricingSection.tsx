@@ -38,22 +38,26 @@ const PricingSection = () => {
             </div>
           ) : (
             // Packages - Show Launch and Premium packages
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              {/* Launch Package */}
-              <PlanCard planType="launch" />
-              
-              {/* Premium Package with Payment Plan Option */}
-              <div className="relative">
-                <PlanCard 
-                  planType="premium" 
-                  showPaymentOption 
-                  onPaymentOptionClick={() => setShowPaymentPlan(true)} 
-                />
+            <div className="flex justify-center mb-8">
+              <div className="flex gap-8 max-w-5xl">
+                {/* Launch Package */}
+                <div className="max-w-md w-full">
+                  <PlanCard planType="launch" />
+                </div>
                 
-                {/* Payment Plan Dialog */}
-                {showPaymentPlan && (
-                  <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
-                )}
+                {/* Premium Package with Payment Plan Option */}
+                <div className="max-w-md w-full relative">
+                  <PlanCard 
+                    planType="premium" 
+                    showPaymentOption 
+                    onPaymentOptionClick={() => setShowPaymentPlan(true)} 
+                  />
+                  
+                  {/* Payment Plan Dialog */}
+                  {showPaymentPlan && (
+                    <PaymentPlanCard onClose={() => setShowPaymentPlan(false)} />
+                  )}
+                </div>
               </div>
             </div>
           )}
