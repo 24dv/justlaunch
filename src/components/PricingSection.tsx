@@ -40,8 +40,8 @@ const PricingSection = () => {
             // Packages - Show Launch and Premium packages
             <div className="flex justify-center mb-8">
               <div className="flex flex-col md:flex-row gap-8 max-w-5xl">
-                {/* Launch Package - with Most Popular ribbon badge */}
-                <div className="max-w-md w-full md:transform md:z-10">
+                {/* Launch Package - with Most Popular subtle badge */}
+                <div className="max-w-md w-full">
                   <PlanCard planType="launch" isPopular={true} />
                 </div>
                 
