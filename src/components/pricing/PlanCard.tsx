@@ -3,16 +3,14 @@ import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
 import { Euro } from 'lucide-react';
-import { Badge } from '../ui/badge';
 
 interface PlanCardProps {
   planType: 'launch' | 'premium' | 'launchsite';
   showPaymentOption?: boolean;
   onPaymentOptionClick?: () => void;
-  isPopular?: boolean;
 }
 
-const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular = false }: PlanCardProps) => {
+const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick }: PlanCardProps) => {
   const { t, language } = useLanguage();
 
   const scrollToContact = () => {
@@ -23,28 +21,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
   };
 
   return (
-    <div 
-      className={`
-        bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden 
-        transform transition-all duration-300 hover:shadow-2xl 
-        border-2 relative h-fit
-        ${isPopular 
-          ? 'border-[#F9A7A7] scale-105 shadow-2xl bg-gradient-to-b from-[#F5F5E9] to-[#F5F5E9]/90' 
-          : 'border-[#0D503C]'}
-      `}
-    >
-      {/* Most Popular Badge */}
-      {isPopular && (
-        <div className="absolute -top-1 -right-1 transform rotate-12">
-          <Badge 
-            variant="default"
-            className="bg-[#F9A7A7] text-[#0D503C] px-3 py-1 font-bold shadow-md"
-          >
-            {t('pricing.mostPopular')}
-          </Badge>
-        </div>
-      )}
-
+    <div className="bg-[#F5F5E9] rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl border-2 border-[#0D503C] relative h-fit">
       <div className="p-8">
         <h3 className="text-2xl font-bold text-[#0D503C] mb-2 font-serif">
           {planType === 'launch' 
@@ -73,10 +50,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
         <div className="space-y-3">
           <button
             onClick={scrollToContact}
-            className={`block w-full py-3 px-4 rounded-lg text-[#F5F5E9] text-center font-medium transition-colors
-              ${isPopular 
-                ? 'bg-[#F9A7A7]/90 text-[#0D503C] hover:bg-[#F9A7A7]' 
-                : 'bg-[#0D503C] hover:bg-[#0A4231]'}`}
+            className="block w-full py-3 px-4 rounded-lg bg-[#0D503C] text-[#F5F5E9] text-center font-medium hover:bg-[#0A4231] transition-colors"
           >
             {t('nav.getStarted')}
           </button>

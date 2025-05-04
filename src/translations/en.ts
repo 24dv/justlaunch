@@ -64,9 +64,6 @@ const translations = {
   // Pricing Section
   "pricing.title": "Transparent Pricing, No Surprises",
   "pricing.subtitle": "Choose the package that suits your needs and budget.",
-  "pricing.mostPopular": "Most Popular",
-  "pricing.toggle.websiteOnly": "Website Only",
-  "pricing.toggle.packages": "Packages",
   "pricing.launch.title": "Launch Package",
   "pricing.launch.price": "€1,500",
   "pricing.launch.description": "Everything you need to launch a polished, professional brand — without the agency price tag.",
