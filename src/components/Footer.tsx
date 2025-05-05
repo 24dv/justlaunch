@@ -75,14 +75,23 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
-            <h3 className="text-lg font-semibold mb-4 font-serif">{t('footer.quickLinks')}</h3>
-            <ul className="space-y-2">
-              <li><button onClick={() => scrollToSection('work')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.work')}</button></li>
-              <li><button onClick={() => scrollToSection('process')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.process')}</button></li>
-              <li><button onClick={() => scrollToSection('pricing')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.pricing')}</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.contactUs')}</button></li>
-            </ul>
+          <div className="flex flex-col">
+            <h3 className="text-lg font-semibold mb-3 font-serif">
+              {language === 'en' ? 'Still figuring things out?' : 'Nog aan het uitzoeken?'}
+            </h3>
+            <p className="text-[#F5F5E9]/70 mb-4 text-sm">
+              {language === 'en' 
+                ? 'Take our 2-minute quiz and find out if you're ready to launch.' 
+                : 'Doe onze quiz van 2 minuten en ontdek of je klaar bent om te lanceren.'}
+            </p>
+            <a 
+              href="https://tally.so/r/yourquizlink" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 bg-[#F9A7A7] text-[#0D503C] rounded-md hover:bg-[#F9A7A7]/90 transition-colors font-medium text-center w-fit"
+            >
+              {language === 'en' ? 'Take the Quiz' : 'Doe de Quiz'}
+            </a>
           </div>
         </div>
         
