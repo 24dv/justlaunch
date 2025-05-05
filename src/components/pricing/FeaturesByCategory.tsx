@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { TableBody } from "@/components/ui/table";
 import CategoryHeader from './CategoryHeader';
 import FeatureRow from './FeatureRow';
 import { Feature } from './types';
@@ -19,7 +18,7 @@ const FeaturesByCategory = ({
   getFeatureName
 }: FeaturesByCategoryProps) => {
   return (
-    <TableBody>
+    <>
       {categories.map((category) => (
         <React.Fragment key={category}>
           <CategoryHeader categoryName={getCategoryName(category)} />
@@ -35,7 +34,7 @@ const FeaturesByCategory = ({
           }
         </React.Fragment>
       ))}
-    </TableBody>
+    </>
   );
 };
 
