@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
 import { Badge } from '../ui/badge';
 import { Euro } from 'lucide-react';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 interface PlanCardProps {
   planType: 'launch' | 'premium' | 'launchsite';
@@ -13,6 +15,7 @@ interface PlanCardProps {
 
 const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular }: PlanCardProps) => {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -23,6 +26,15 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
 
   return (
     <div className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${isPopular ? 'bg-[#F5F5E9] border-2 border-[#0D503C]' : 'bg-[#F5F5E9] border-2 border-[#0D503C]'} relative h-fit`}>
+      {/* Top center ribbon for mobile/tablet */}
+      {isPopular && isMobile && (
+        <div className="absolute top-0 left-0 right-0 flex justify-center z-10">
+          <div className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] px-4 py-1 rounded-b-xl text-sm font-medium shadow-md transform translate-y-[-1px]">
+            {t('pricing.mostPopular')}
+          </div>
+        </div>
+      )}
+      
       <div className="p-8">
         <div className="flex items-center gap-2 mb-2">
           <h3 className="text-2xl font-bold text-[#0D503C] font-serif">
@@ -33,13 +45,14 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
                 : t('pricing.launchsite.title')}
           </h3>
           
-          {/* Inline Badge */}
-          {isPopular && (
+          {/* Inline Badge - only show on desktop */}
+          {isPopular && !isMobile && (
             <Badge className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] ml-2 px-2 rounded-full pointer-events-none">
               {t('pricing.mostPopular')}
             </Badge>
           )}
         </div>
+        
         <div className="flex items-baseline mt-4 mb-6">
           <span className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#0D503C]">
             {planType === 'launch' 
