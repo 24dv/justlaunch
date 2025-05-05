@@ -3,7 +3,6 @@ import React from 'react';
 import { TableRow, TableCell } from "@/components/ui/table";
 import FeatureStatus from './FeatureStatus';
 import { Feature } from './types';
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface FeatureRowProps {
   feature: Feature;
@@ -11,20 +10,18 @@ interface FeatureRowProps {
 }
 
 const FeatureRow = ({ feature, featureNameHtml }: FeatureRowProps) => {
-  const isMobile = useIsMobile();
-  
   return (
     <TableRow className="hover:bg-[#0D503C]/5 border-b border-[#0D503C]/10">
-      <TableCell className={`font-medium text-[#0D503C] w-[40%] ${isMobile ? 'text-xs py-1 px-2' : 'text-sm p-4'}`}>
+      <TableCell className="font-medium text-[#0D503C] w-[40%] md:w-[400px] text-sm md:text-base">
         <div dangerouslySetInnerHTML={{ __html: featureNameHtml }} />
       </TableCell>
-      <TableCell className="text-center w-[20%]">
+      <TableCell className="text-center w-[20%] md:w-[200px]">
         <FeatureStatus isIncluded={feature.launchSite} />
       </TableCell>
-      <TableCell className="text-center w-[20%]">
+      <TableCell className="text-center w-[20%] md:w-[200px]">
         <FeatureStatus isIncluded={feature.launch} />
       </TableCell>
-      <TableCell className="text-center w-[20%]">
+      <TableCell className="text-center w-[20%] md:w-[200px]">
         <FeatureStatus isIncluded={feature.premium} />
       </TableCell>
     </TableRow>

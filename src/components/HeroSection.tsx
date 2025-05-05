@@ -82,7 +82,7 @@ const HeroSection = () => {
           
           <div className="animate-fade-in animate-delay-500 text-center w-full mt-4">
             <p className="text-sm text-[#0D503C] font-medium">
-              {language === 'en' ? "Let's figure it out together" : "Laten we het samen uitzoeken"}
+              {language === 'en' ? "No commitment. Just clarity." : "Geen verplichtingen. Alleen duidelijkheid."}
             </p>
           </div>
         </div>

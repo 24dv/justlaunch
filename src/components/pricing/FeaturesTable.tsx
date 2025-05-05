@@ -12,15 +12,18 @@ const FeaturesTable = () => {
 
   return (
     <div className="rounded-2xl border-2 border-[#0D503C] bg-[#F5F5E9] overflow-hidden shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
-      <div className="max-h-[600px] overflow-y-auto relative">
-        <Table className="w-full table-fixed">
-          <FeaturesTableHeader language={language} />
+      {/* Table header outside the scrollable area */}
+      <FeaturesTableHeader language={language} />
+      
+      {/* Scrollable table body */}
+      <div className="max-h-[600px] overflow-y-auto">
+        <Table className="table-fixed">
           <TableBody>
             <FeaturesByCategory 
               categories={categories} 
               features={features} 
               getCategoryName={getCategoryName} 
-              getFeatureName={getFeatureName} 
+              getFeatureName={getFeatureName}
             />
           </TableBody>
         </Table>
