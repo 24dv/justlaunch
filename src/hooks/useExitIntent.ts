@@ -22,8 +22,8 @@ export const useExitIntent = ({
   useCookie = true,
   cookieExpiry = 7,
   cookieName = 'exit_intent_shown',
-  topThreshold = 100, // Increased from 20px to 100px for earlier detection
-  initialDelay = 0 // No delay by default, show immediately
+  topThreshold = 100, 
+  initialDelay = 0 
 }: UseExitIntentOptions = {}) => {
   const [showExitIntent, setShowExitIntent] = useState(false);
   const [lastDetection, setLastDetection] = useState(0);
@@ -35,6 +35,7 @@ export const useExitIntent = ({
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
     document.cookie = `${name}=${value};${expires};path=/`;
+    console.log(`Cookie ${name} set for ${days} days`);
   };
   
   const getCookie = (name: string) => {
@@ -49,16 +50,27 @@ export const useExitIntent = ({
     return '';
   };
 
+  // Explicitly mark the popup as seen by the user
+  const markPopupAsSeen = () => {
+    if (useCookie) {
+      setCookie(cookieName, 'true', cookieExpiry);
+      console.log(`Exit intent popup marked as seen, won't show again for ${cookieExpiry} days`);
+    }
+  };
+
   // Track mouse velocity for prediction
   const [mousePositions, setMousePositions] = useState<{ x: number, y: number, timestamp: number }[]>([]);
   
   useEffect(() => {
     // Check if user has already seen the popup
     const hasSeenPopup = useCookie && getCookie(cookieName) === 'true';
-    setIsFirstTimeVisitor(!hasSeenPopup);
     
     if (hasSeenPopup) {
+      console.log('User has already seen the exit intent popup, not showing it again');
+      setIsFirstTimeVisitor(false);
       return;
+    } else {
+      setIsFirstTimeVisitor(true);
     }
     
     // For desktop: track mouse movement to detect if cursor is moving toward the top of the page
@@ -153,16 +165,10 @@ export const useExitIntent = ({
       if (initialDelay > 0) {
         setTimeout(() => {
           setShowExitIntent(true);
-          if (useCookie) {
-            setCookie(cookieName, 'true', cookieExpiry);
-          }
         }, initialDelay);
       } else {
         // Show immediately
         setShowExitIntent(true);
-        if (useCookie) {
-          setCookie(cookieName, 'true', cookieExpiry);
-        }
       }
     };
 
@@ -213,6 +219,7 @@ export const useExitIntent = ({
   return {
     showExitIntent,
     hideExitIntent,
-    isFirstTimeVisitor
+    isFirstTimeVisitor,
+    markPopupAsSeen
   };
 };

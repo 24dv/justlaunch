@@ -3,15 +3,19 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { X } from 'lucide-react';
 import { useExitIntent } from '../../hooks/useExitIntent';
-import { Dialog, DialogContent, DialogTitle } from '../ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '../ui/dialog';
 
 const ExitIntentPopup: React.FC = () => {
   const { language } = useLanguage();
-  const { showExitIntent, hideExitIntent } = useExitIntent({
+  const { 
+    showExitIntent, 
+    hideExitIntent, 
+    markPopupAsSeen 
+  } = useExitIntent({
     cookieExpiry: 7,
     cookieName: 'quiz_exit_intent_shown',
-    topThreshold: 100, // Detect earlier - within 100px of top
-    initialDelay: 0 // Show immediately - no delay
+    topThreshold: 100,
+    initialDelay: 0
   });
   const [mounted, setMounted] = useState(false);
 
@@ -19,15 +23,25 @@ const ExitIntentPopup: React.FC = () => {
     setMounted(true);
   }, []);
 
+  const handleQuizClick = () => {
+    markPopupAsSeen();
+    hideExitIntent();
+  };
+
+  const handleClose = () => {
+    markPopupAsSeen();
+    hideExitIntent();
+  };
+
   if (!mounted) return null;
 
   return (
-    <Dialog open={showExitIntent} onOpenChange={hideExitIntent}>
+    <Dialog open={showExitIntent} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md p-0 rounded-xl border-0 overflow-hidden shadow-xl">
         <div className="relative bg-[#F5F5E9]">
           <div className="absolute top-2 right-2">
             <button
-              onClick={hideExitIntent}
+              onClick={handleClose}
               className="rounded-full p-1 bg-[#0D503C]/10 hover:bg-[#0D503C]/20 transition-colors text-[#0D503C]"
               aria-label="Close"
             >
@@ -37,6 +51,9 @@ const ExitIntentPopup: React.FC = () => {
           
           <div className="flex flex-col items-start px-6 py-7">
             <DialogTitle className="sr-only">Exit Intent Quiz Popup</DialogTitle>
+            <DialogDescription id="dialog-description" className="sr-only">
+              Quiz prompt for users thinking about leaving the site
+            </DialogDescription>
             
             <h3 className="text-2xl font-serif text-[#0D503C] mb-2.5">
               {language === 'en' 
@@ -44,7 +61,7 @@ const ExitIntentPopup: React.FC = () => {
                 : "Niet zeker of je klaar bent om te lanceren?"}
             </h3>
             
-            <p className="text-[#0D503C]/80 mb-6" id="dialog-description">
+            <p className="text-[#0D503C]/80 mb-6">
               {language === 'en' 
                 ? "Take the quick quiz and get clarity." 
                 : "Doe de snelle quiz en krijg duidelijkheid."}
@@ -55,7 +72,7 @@ const ExitIntentPopup: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/90 transition-all rounded-md font-medium text-center"
-              onClick={hideExitIntent}
+              onClick={handleQuizClick}
             >
               {language === 'en' ? 'Start Quiz' : 'Begin Quiz'}
             </a>
