@@ -11,7 +11,10 @@ const FeaturesTableHeader = ({ language }: FeaturesTableHeaderProps) => {
   const isMobile = useIsMobile();
   
   return (
-    <TableHeader className="bg-[#0D503C]/10 border-b border-[#0D503C]/20 sticky top-0 z-10" style={{ position: 'sticky' }}>
+    <TableHeader 
+      className="bg-[#0D503C]/10 border-b border-[#0D503C]/20 sticky top-0 z-10" 
+      style={{ position: 'sticky', top: 0 }}
+    >
       <TableRow>
         <TableHead className={`w-[40%] font-semibold text-[#0D503C] ${isMobile ? 'py-2 px-2 text-xs' : 'p-4 text-sm'}`}>
           {language === 'en' ? 'Features' : 'Functies'}
