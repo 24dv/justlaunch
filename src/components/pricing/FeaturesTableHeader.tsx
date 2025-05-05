@@ -8,7 +8,7 @@ interface FeaturesTableHeaderProps {
 
 const FeaturesTableHeader = ({ language }: FeaturesTableHeaderProps) => {
   return (
-    <TableHeader className="bg-[#0D503C]/10 sticky top-0 z-10">
+    <TableHeader className="bg-[#0D503C]/10 sticky top-0 z-20">
       <TableRow className="border-b border-[#0D503C]/20">
         <TableHead className="w-[400px] font-semibold text-[#0D503C]">
           {language === 'en' ? 'Features' : 'Functies'}
