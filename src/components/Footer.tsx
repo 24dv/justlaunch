@@ -31,15 +31,11 @@ const Footer = () => {
     console.log('Cookie settings button clicked, event dispatched');
   };
   
-  const openExternalQuiz = () => {
-    window.open('https://tally.so/r/yourquizlink', '_blank');
-  };
-  
   return (
     <footer className="bg-[#0D503C] text-[#F5F5E9]">
       <div className="container mx-auto py-12 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-2">
             <div className="mb-4">
               <img 
                 src="/lovable-uploads/f7577929-19cd-4196-95bb-48bffbe339ca.png" 
@@ -80,20 +76,13 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-3 font-serif">
-              {language === 'en' ? 'Still figuring things out?' : 'Nog aan het uitzoeken?'}
-            </h3>
-            <p className="text-[#F5F5E9]/80 mb-4">
-              {language === 'en' 
-                ? 'Take our 2-minute quiz and find out if you\'re ready to launch.' 
-                : 'Doe onze quiz van 2 minuten en ontdek of je klaar bent om te lanceren.'}
-            </p>
-            <button
-              onClick={openExternalQuiz}
-              className="px-4 py-2 bg-[#F9A7A7] text-[#0D503C] rounded-full hover:bg-[#F9A7A7]/90 transition-colors font-medium"
-            >
-              {language === 'en' ? 'Take the Quiz' : 'Doe de Quiz'}
-            </button>
+            <h3 className="text-lg font-semibold mb-4 font-serif">{t('footer.quickLinks')}</h3>
+            <ul className="space-y-2">
+              <li><button onClick={() => scrollToSection('work')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.work')}</button></li>
+              <li><button onClick={() => scrollToSection('process')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.process')}</button></li>
+              <li><button onClick={() => scrollToSection('pricing')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.pricing')}</button></li>
+              <li><button onClick={() => scrollToSection('contact')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.contactUs')}</button></li>
+            </ul>
           </div>
         </div>
         
