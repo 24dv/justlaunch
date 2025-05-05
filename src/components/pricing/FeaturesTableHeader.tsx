@@ -12,12 +12,13 @@ const FeaturesTableHeader = ({ language }: FeaturesTableHeaderProps) => {
   
   return (
     <TableHeader 
-      className="sticky top-0 z-20 bg-[#0D503C]/10 border-b border-[#0D503C]/20"
+      className="sticky top-0 z-30 bg-[#0D503C]/10 border-b border-[#0D503C]/20"
       style={{ 
         position: 'sticky',
         top: 0,
-        backgroundColor: 'rgba(13, 80, 60, 0.1)',
-        zIndex: 20
+        backgroundColor: 'rgba(13, 80, 60, 0.15)',
+        zIndex: 30,
+        willChange: 'transform'
       }}
     >
       <TableRow>
