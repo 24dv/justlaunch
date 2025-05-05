@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Table, TableBody } from "@/components/ui/table";
+import { Table, TableBody, TableHeader } from "@/components/ui/table";
 import { useLanguage } from '../../contexts/LanguageContext';
 import FeaturesTableHeader from './FeaturesTableHeader';
 import FeaturesByCategory from './FeaturesByCategory';
@@ -12,22 +12,17 @@ const FeaturesTable = () => {
 
   return (
     <div className="rounded-2xl border-2 border-[#0D503C] bg-[#F5F5E9] overflow-hidden shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
-      {/* Table header outside the scrollable area */}
-      <FeaturesTableHeader language={language} />
-      
-      {/* Scrollable table body */}
-      <div className="max-h-[600px] overflow-y-auto">
-        <table className="w-full table-fixed">
-          <TableBody>
-            <FeaturesByCategory 
-              categories={categories} 
-              features={features} 
-              getCategoryName={getCategoryName} 
-              getFeatureName={getFeatureName}
-            />
-          </TableBody>
-        </table>
-      </div>
+      <Table className="w-full table-fixed">
+        <FeaturesTableHeader language={language} />
+        <TableBody className="max-h-[600px] overflow-y-auto">
+          <FeaturesByCategory 
+            categories={categories} 
+            features={features} 
+            getCategoryName={getCategoryName} 
+            getFeatureName={getFeatureName}
+          />
+        </TableBody>
+      </Table>
     </div>
   );
 };

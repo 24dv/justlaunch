@@ -15,7 +15,7 @@ const FeatureRow = ({ feature, featureNameHtml }: FeatureRowProps) => {
   
   return (
     <TableRow className="hover:bg-[#0D503C]/5 border-b border-[#0D503C]/10">
-      <TableCell className={`font-medium text-[#0D503C] w-[40%] ${isMobile ? 'text-xs p-2' : 'text-sm p-4'}`}>
+      <TableCell className={`font-medium text-[#0D503C] w-[40%] ${isMobile ? 'text-xs py-1 px-2' : 'text-sm p-4'}`}>
         <div dangerouslySetInnerHTML={{ __html: featureNameHtml }} />
       </TableCell>
       <TableCell className="text-center w-[20%]">
