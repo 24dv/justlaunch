@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { TableRow, TableHead } from "@/components/ui/table";
-import { Table } from "@/components/ui/table";
+import { TableHeader, TableRow, TableHead } from "@/components/ui/table";
 
 interface FeaturesTableHeaderProps {
   language: 'en' | 'nl';
@@ -9,25 +8,25 @@ interface FeaturesTableHeaderProps {
 
 const FeaturesTableHeader = ({ language }: FeaturesTableHeaderProps) => {
   return (
-    <Table className="w-full table-fixed">
+    <TableHeader className="bg-[#0D503C]/10 sticky top-0 z-20">
       <TableRow className="border-b border-[#0D503C]/20">
-        <TableHead className="w-[45%] font-semibold text-[#0D503C] text-left">
+        <TableHead className="w-[400px] font-semibold text-[#0D503C]">
           {language === 'en' ? 'Features' : 'Functies'}
         </TableHead>
-        <TableHead className="w-[18%] font-semibold text-[#0D503C] text-center">
+        <TableHead className="text-center font-semibold text-[#0D503C]">
           {language === 'en' ? 'Launch Site' : 'Launch Site'}
           <div className="text-sm font-medium text-[#0D503C]/70">€995 {language === 'en' ? '+ VAT' : '+ BTW'}</div>
         </TableHead>
-        <TableHead className="w-[18%] font-semibold text-[#0D503C] text-center">
+        <TableHead className="text-center font-semibold text-[#0D503C]">
           {language === 'en' ? 'Launch Package' : 'Launch Pakket'}
           <div className="text-sm font-medium text-[#0D503C]/70">€1,500 {language === 'en' ? '+ VAT' : '+ BTW'}</div>
         </TableHead>
-        <TableHead className="w-[19%] font-semibold text-[#0D503C] text-center">
+        <TableHead className="text-center font-semibold text-[#0D503C]">
           {language === 'en' ? 'Premium Package' : 'Premium Pakket'}
           <div className="text-sm font-medium text-[#0D503C]/70">€2,500 {language === 'en' ? '+ VAT' : '+ BTW'}</div>
         </TableHead>
       </TableRow>
-    </Table>
+    </TableHeader>
   );
 };
 
