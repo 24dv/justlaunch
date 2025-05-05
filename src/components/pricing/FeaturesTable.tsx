@@ -17,7 +17,7 @@ const FeaturesTable = () => {
       
       {/* Scrollable table body */}
       <div className="max-h-[600px] overflow-y-auto">
-        <Table>
+        <Table className="table-fixed">
           <TableBody>
             <FeaturesByCategory 
               categories={categories} 
