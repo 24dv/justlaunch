@@ -89,21 +89,39 @@ const FeaturesTable = () => {
     const featureMap: Record<string, { en: string; nl: string }> = {
       delivery14days: { en: "Delivery in 14 days", nl: "Oplevering binnen 14 dagen" },
       custom1page: { en: "Custom 1-page website", nl: "Aangepaste 1-pagina website" },
-      custom5page: { en: "Custom multi-page website (5 pages included)", nl: "Aangepaste multi-pagina website (5 pagina's inbegrepen)" },
+      custom5page: { 
+        en: "Custom multi-page website <span class='text-xs font-normal'>(5 pages included)</span>", 
+        nl: "Aangepaste multi-pagina website <span class='text-xs font-normal'>(5 pagina's inbegrepen)</span>" 
+      },
       additionalPages: { en: "Additional pages on request", nl: "Extra pagina's op aanvraag" },
       mobileOptimization: { en: "Mobile optimization", nl: "Mobiele optimalisatie" },
       calendarIntegration: { en: "Calendar integration", nl: "Agenda-integratie" },
-      contactForm: { en: "Contact form integration (via Formspree)", nl: "Contactformulier integratie (via Formspree)" },
+      contactForm: { 
+        en: "Contact form integration <span class='text-xs font-normal'>(via Formspree)</span>", 
+        nl: "Contactformulier integratie <span class='text-xs font-normal'>(via Formspree)</span>" 
+      },
       domainConnection: { en: "Domain connection support", nl: "Ondersteuning voor domeinverbinding" },
-      blogSetup: { en: "Optional blog setup (via Supabase)", nl: "Optionele blog setup (via Supabase)" },
+      blogSetup: { 
+        en: "Optional blog setup <span class='text-xs font-normal'>(via Supabase) +10€/mo</span>", 
+        nl: "Optionele blog setup <span class='text-xs font-normal'>(via Supabase) +10€/mo</span>" 
+      },
       logoDesign: { en: "Professional logo design", nl: "Professioneel logo-ontwerp" },
       colorPalette: { en: "Brand color palette", nl: "Merk kleurenpalet" },
-      styleGuide: { en: "Brand style guide (logo, fonts, colors)", nl: "Merkstijlgids (logo, lettertypen, kleuren)" },
+      styleGuide: { 
+        en: "Brand style guide <span class='text-xs font-normal'>(logo, fonts, colors)</span>", 
+        nl: "Merkstijlgids <span class='text-xs font-normal'>(logo, lettertypen, kleuren)</span>" 
+      },
       socialTemplates: { en: "Social media templates", nl: "Social media templates" },
-      seoSetup: { en: "Basic SEO setup (meta titles, descriptions, headers)", nl: "Basis SEO setup (meta titels, beschrijvingen, headers)" },
+      seoSetup: { 
+        en: "Basic SEO setup <span class='text-xs font-normal'>(meta titles, descriptions, headers)</span>", 
+        nl: "Basis SEO setup <span class='text-xs font-normal'>(meta titels, beschrijvingen, headers)</span>" 
+      },
       sitemap: { en: "Sitemap & indexing ready", nl: "Sitemap & indexering gereed" },
-      aiImages: { en: "Custom AI-generated images (if needed)", nl: "Aangepaste AI-gegenereerde afbeeldingen (indien nodig)" },
-      cookieBanner: { en: "Cookie banner + Privacy/Terms pages", nl: "Cookie banner + Privacy/Voorwaarden pagina's" },
+      aiImages: { 
+        en: "Custom AI-generated images <span class='text-xs font-normal'>(if needed)</span>", 
+        nl: "Aangepaste AI-gegenereerde afbeeldingen <span class='text-xs font-normal'>(indien nodig)</span>" 
+      },
+      cookieBanner: { en: "Cookie banner + Privacy/Terms", nl: "Cookie banner + Privacy/Voorwaarden" },
       gdprCompliant: { en: "GDPR compliant", nl: "AVG-conform" },
       ownership: { en: "Ownership of all files & assets", nl: "Eigendom van alle bestanden & assets" },
       paymentPlan: { en: "Payment plan", nl: "Betalingsplan" },
@@ -112,16 +130,13 @@ const FeaturesTable = () => {
     };
     
     let name = language === 'en' ? featureMap[feature.name].en : featureMap[feature.name].nl;
-    if (feature.note && feature.name === "blogSetup") {
-      name += ` ${feature.note}`;
-    }
     return name;
   };
 
   return (
     <div className="rounded-2xl border-2 border-[#0D503C] bg-[#F5F5E9] overflow-hidden shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
       <Table>
-        <TableHeader className="bg-[#0D503C]/10">
+        <TableHeader className="bg-[#0D503C]/10 sticky top-0 z-10">
           <TableRow className="border-b border-[#0D503C]/20">
             <TableHead className="w-[400px] font-semibold text-[#0D503C]">
               {language === 'en' ? 'Features' : 'Functies'}
@@ -157,7 +172,7 @@ const FeaturesTable = () => {
                   className="hover:bg-[#0D503C]/5 border-b border-[#0D503C]/10"
                 >
                   <TableCell className="font-medium text-[#0D503C]">
-                    {getFeatureName(feature)}
+                    <div dangerouslySetInnerHTML={{ __html: getFeatureName(feature) }} />
                   </TableCell>
                   <TableCell className="text-center">
                     {feature.launchSite ? (
