@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -8,6 +7,7 @@ const translations = {
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
   "nav.getStarted": "Begin Nu",
+  "nav.freeIntroCall": "Gratis Introgesprek",
 
   // Hero Section
   "hero.badge": "Nieuw",

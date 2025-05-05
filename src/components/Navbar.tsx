@@ -106,7 +106,7 @@ const Navbar = () => {
               onClick={() => scrollToSection('contact')}
               className="ml-3 lg:ml-4 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-3 md:px-4 lg:px-5 py-2 md:py-2.5 text-xs md:text-[13px] lg:text-sm font-medium text-[#F5F5E9] transition-colors hover:bg-[#0A4231] focus:outline-none whitespace-nowrap"
             >
-              {t('nav.getStarted')}
+              {t('nav.freeIntroCall')}
             </button>
           </div>
         </div>
@@ -123,7 +123,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu - keep existing code */}
+      {/* Mobile menu */}
       <div
         className={`fixed inset-0 bg-[#F5F5E9] z-40 transform transition-all duration-500 ease-in-out ${
           isOpen 
@@ -133,57 +133,6 @@ const Navbar = () => {
         style={{ height: '100vh' }}
       >
         {/* ... keep existing code (mobile menu content) */}
-        <div className="absolute inset-0 bg-[url('/lovable-uploads/01fb568c-15a1-428b-8b55-1a686093f02e.png')] bg-cover bg-center opacity-5"></div>
-        
-        {/* Decorative elements */}
-        <div className="absolute top-[10%] left-[10%] w-16 h-16 rounded-full bg-[#F9A7A7] opacity-20 blur-xl"></div>
-        <div className="absolute bottom-[20%] right-[15%] w-20 h-20 rounded-full bg-[#0D503C] opacity-10 blur-xl"></div>
-        
-        <div className="flex flex-col h-full justify-center items-center p-8 relative">
-          <div className="w-full max-w-md">
-            {navItems.map((item, index) => (
-              <div 
-                key={item.name}
-                className="mb-5 overflow-hidden"
-                style={{ 
-                  animationDelay: isOpen ? `${index * 0.1}s` : '0s'
-                }}
-              >
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`group flex w-full items-center justify-between py-3 text-xl font-medium text-[#0D503C] hover:text-[#0A4231] transition-all transform ${
-                    isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                  } transition-all duration-300 ease-out`}
-                  style={{ 
-                    transitionDelay: isOpen ? `${index * 0.1}s` : '0s'
-                  }}
-                >
-                  <span className="relative">
-                    {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0D503C] transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                  <ChevronRight 
-                    size={18} 
-                    className="transform transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </button>
-              </div>
-            ))}
-            
-            <div 
-              className={`mt-8 ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              } transition-all duration-500 delay-300`}
-            >
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-4 text-base font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-300 transform hover:scale-[1.02] focus:outline-none"
-              >
-                {t('nav.getStarted')}
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </nav>
   );
