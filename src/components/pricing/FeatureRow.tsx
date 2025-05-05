@@ -12,16 +12,16 @@ interface FeatureRowProps {
 const FeatureRow = ({ feature, featureNameHtml }: FeatureRowProps) => {
   return (
     <TableRow className="hover:bg-[#0D503C]/5 border-b border-[#0D503C]/10">
-      <TableCell className="font-medium text-[#0D503C] w-[40%] p-4 text-sm md:text-base">
+      <TableCell className="font-medium text-[#0D503C]">
         <div dangerouslySetInnerHTML={{ __html: featureNameHtml }} />
       </TableCell>
-      <TableCell className="text-center w-[20%] p-4">
+      <TableCell className="text-center">
         <FeatureStatus isIncluded={feature.launchSite} />
       </TableCell>
-      <TableCell className="text-center w-[20%] p-4">
+      <TableCell className="text-center">
         <FeatureStatus isIncluded={feature.launch} />
       </TableCell>
-      <TableCell className="text-center w-[20%] p-4">
+      <TableCell className="text-center">
         <FeatureStatus isIncluded={feature.premium} />
       </TableCell>
     </TableRow>

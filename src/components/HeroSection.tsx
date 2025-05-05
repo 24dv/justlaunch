@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -82,7 +81,7 @@ const HeroSection = () => {
           
           <div className="animate-fade-in animate-delay-500 text-center w-full mt-4">
             <p className="text-sm text-[#0D503C] font-medium">
-              {language === 'en' ? "No commitment. Just clarity." : "Geen verplichtingen. Alleen duidelijkheid."}
+              {t('hero.scroll')}
             </p>
           </div>
         </div>
