@@ -9,6 +9,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import ThankYou from './pages/ThankYou';
 import CookieConsentWrapper from './components/cookie/CookieConsentWrapper';
+import ExitIntentPopup from './components/quiz/ExitIntentPopup';
 
 declare global {
   interface Window {
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           </Routes>
           
           <CookieConsentWrapper />
+          <ExitIntentPopup />
           <Toaster />
         </div>
       </Router>
