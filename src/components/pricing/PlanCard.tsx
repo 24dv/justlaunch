@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
@@ -28,8 +29,8 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
       {/* Popular Ribbon for mobile/tablet */}
       {isPopular && isMobile && (
         <div className="absolute top-0 right-0 z-10">
-          <div className="bg-[#0D503C] text-[#F5F5E9] py-1 px-3 transform rotate-45 translate-x-[30%] translate-y-[-10%] shadow-md">
-            <span className="text-xs font-semibold flex items-center">
+          <div className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] py-1 px-4 transform rotate-45 translate-x-[40%] translate-y-[-5%] shadow-md">
+            <span className="text-sm font-semibold whitespace-nowrap flex items-center">
               <Ribbon className="h-3 w-3 mr-1" />
               {t('pricing.mostPopular')}
             </span>
