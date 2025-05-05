@@ -8,20 +8,20 @@ interface FeaturesTableHeaderProps {
 
 const FeaturesTableHeader = ({ language }: FeaturesTableHeaderProps) => {
   return (
-    <TableHeader className="bg-[#F5F5E9] sticky top-0 z-10 shadow-sm">
+    <TableHeader className="bg-[#0D503C]/10 sticky top-0 z-10">
       <TableRow className="border-b border-[#0D503C]/20">
-        <TableHead className="w-[400px] font-semibold text-[#0D503C] bg-[#F5F5E9]">
+        <TableHead className="w-[400px] font-semibold text-[#0D503C]">
           {language === 'en' ? 'Features' : 'Functies'}
         </TableHead>
-        <TableHead className="text-center font-semibold text-[#0D503C] bg-[#E8E8D9]">
+        <TableHead className="text-center font-semibold text-[#0D503C]">
           {language === 'en' ? 'Launch Site' : 'Launch Site'}
           <div className="text-sm font-medium text-[#0D503C]/70">€995 {language === 'en' ? '+ VAT' : '+ BTW'}</div>
         </TableHead>
-        <TableHead className="text-center font-semibold text-[#0D503C] bg-[#E8E8D9]">
+        <TableHead className="text-center font-semibold text-[#0D503C]">
           {language === 'en' ? 'Launch Package' : 'Launch Pakket'}
           <div className="text-sm font-medium text-[#0D503C]/70">€1,500 {language === 'en' ? '+ VAT' : '+ BTW'}</div>
         </TableHead>
-        <TableHead className="text-center font-semibold text-[#0D503C] bg-[#E8E8D9]">
+        <TableHead className="text-center font-semibold text-[#0D503C]">
           {language === 'en' ? 'Premium Package' : 'Premium Pakket'}
           <div className="text-sm font-medium text-[#0D503C]/70">€2,500 {language === 'en' ? '+ VAT' : '+ BTW'}</div>
         </TableHead>
