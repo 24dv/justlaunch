@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
@@ -33,9 +34,9 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
                 : t('pricing.launchsite.title')}
           </h3>
           
-          {/* Inline Badge */}
+          {/* Improved Badge with better text centering */}
           {isPopular && (
-            <Badge className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] ml-2 px-2 rounded-full pointer-events-none">
+            <Badge className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] ml-2 px-3 py-0.5 rounded-full pointer-events-none flex items-center justify-center text-xs font-semibold">
               {t('pricing.mostPopular')}
             </Badge>
           )}
