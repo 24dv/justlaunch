@@ -26,10 +26,10 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
 
   return (
     <div className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${isPopular ? 'bg-[#F5F5E9] border-2 border-[#0D503C]' : 'bg-[#F5F5E9] border-2 border-[#0D503C]'} relative h-fit`}>
-      {/* Top center ribbon for mobile/tablet */}
+      {/* Top center ribbon for mobile/tablet - positioned to straddle the border */}
       {isPopular && isMobile && (
         <div className="absolute top-0 left-0 right-0 flex justify-center z-10">
-          <div className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] px-4 py-1 rounded-b-xl text-sm font-medium shadow-md transform translate-y-[-1px]">
+          <div className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] px-4 py-1 rounded-full text-sm font-medium shadow-md transform translate-y-[-50%]">
             {t('pricing.mostPopular')}
           </div>
         </div>
