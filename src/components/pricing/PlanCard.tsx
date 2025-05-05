@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
@@ -28,16 +27,9 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
     <div className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${isPopular ? 'bg-[#F5F5E9] border-2 border-[#0D503C]' : 'bg-[#F5F5E9] border-2 border-[#0D503C]'} relative h-fit`}>
       {/* Popular Ribbon for mobile/tablet */}
       {isPopular && isMobile && (
-        <div className="absolute top-0 right-0">
-          <div className="bg-[#0D503C] text-[#F5F5E9] font-semibold py-1 px-3 shadow-md transform rotate-45 origin-bottom-right" 
-               style={{
-                 position: 'absolute',
-                 top: '10px',
-                 right: '-25px',
-                 width: '120px',
-                 textAlign: 'center',
-               }}>
-            <span className="whitespace-nowrap flex items-center justify-center text-xs">
+        <div className="absolute top-0 right-0 z-10">
+          <div className="bg-[#0D503C] text-[#F5F5E9] py-1 px-3 transform rotate-45 translate-x-[30%] translate-y-[-10%] shadow-md">
+            <span className="text-xs font-semibold flex items-center">
               <Ribbon className="h-3 w-3 mr-1" />
               {t('pricing.mostPopular')}
             </span>
@@ -57,7 +49,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
           
           {/* Desktop Badge (only show on larger screens) */}
           {isPopular && !isMobile && (
-            <Badge className="bg-[#0D503C] text-[#F5F5E9] ml-2 px-2 rounded-full pointer-events-none">
+            <Badge className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] ml-2 px-2 rounded-full pointer-events-none">
               {t('pricing.mostPopular')}
             </Badge>
           )}
