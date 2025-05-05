@@ -12,15 +12,17 @@ const FeaturesTable = () => {
 
   return (
     <div className="rounded-2xl border-2 border-[#0D503C] bg-[#F5F5E9] overflow-hidden shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
-      <Table>
-        <FeaturesTableHeader language={language} />
-        <FeaturesByCategory 
-          categories={categories} 
-          features={features} 
-          getCategoryName={getCategoryName} 
-          getFeatureName={getFeatureName}
-        />
-      </Table>
+      <div className="max-h-[600px] overflow-y-auto">
+        <Table>
+          <FeaturesTableHeader language={language} />
+          <FeaturesByCategory 
+            categories={categories} 
+            features={features} 
+            getCategoryName={getCategoryName} 
+            getFeatureName={getFeatureName}
+          />
+        </Table>
+      </div>
     </div>
   );
 };
