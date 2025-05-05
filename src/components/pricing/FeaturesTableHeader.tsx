@@ -13,7 +13,12 @@ const FeaturesTableHeader = ({ language }: FeaturesTableHeaderProps) => {
   return (
     <TableHeader 
       className="sticky top-0 z-20 bg-[#0D503C]/10 border-b border-[#0D503C]/20"
-      style={{ position: 'sticky', backgroundColor: 'rgba(13, 80, 60, 0.1)' }}
+      style={{ 
+        position: 'sticky',
+        top: 0,
+        backgroundColor: 'rgba(13, 80, 60, 0.1)',
+        zIndex: 20
+      }}
     >
       <TableRow>
         <TableHead className={`w-[40%] font-semibold text-[#0D503C] ${isMobile ? 'py-2 px-2 text-xs' : 'p-4 text-sm'}`}>
