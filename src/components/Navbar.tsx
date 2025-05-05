@@ -8,7 +8,7 @@ import { useIsMobile } from '../hooks/use-mobile';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -106,7 +106,7 @@ const Navbar = () => {
               onClick={() => scrollToSection('contact')}
               className="ml-3 lg:ml-4 inline-flex items-center justify-center rounded-full bg-[#0D503C] px-3 md:px-4 lg:px-5 py-2 md:py-2.5 text-xs md:text-[13px] lg:text-sm font-medium text-[#F5F5E9] transition-colors hover:bg-[#0A4231] focus:outline-none whitespace-nowrap"
             >
-              {t('nav.getStarted')}
+              {language === 'en' ? 'Free Intro Call' : 'Gratis Introgesprek'}
             </button>
           </div>
         </div>
@@ -123,7 +123,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu - keep existing code */}
+      {/* Mobile menu */}
       <div
         className={`fixed inset-0 bg-[#F5F5E9] z-40 transform transition-all duration-500 ease-in-out ${
           isOpen 
