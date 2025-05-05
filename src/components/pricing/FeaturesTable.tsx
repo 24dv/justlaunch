@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Check } from 'lucide-react';
+import { Check, Minus } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface Feature {
@@ -160,28 +160,46 @@ const FeaturesTable = () => {
                     {getFeatureName(feature)}
                   </TableCell>
                   <TableCell className="text-center">
-                    {feature.launchSite && (
+                    {feature.launchSite ? (
                       <div className="mx-auto flex justify-center">
                         <div className="bg-[#0D503C]/10 rounded-full p-1 w-8 h-8 flex items-center justify-center">
                           <Check className="h-4 w-4 text-[#0D503C]" />
                         </div>
                       </div>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-center">
-                    {feature.launch && (
+                    ) : (
                       <div className="mx-auto flex justify-center">
-                        <div className="bg-[#0D503C]/10 rounded-full p-1 w-8 h-8 flex items-center justify-center">
-                          <Check className="h-4 w-4 text-[#0D503C]" />
+                        <div className="rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                          <Minus className="h-4 w-4 text-[#8E9196]" />
                         </div>
                       </div>
                     )}
                   </TableCell>
                   <TableCell className="text-center">
-                    {feature.premium && (
+                    {feature.launch ? (
                       <div className="mx-auto flex justify-center">
                         <div className="bg-[#0D503C]/10 rounded-full p-1 w-8 h-8 flex items-center justify-center">
                           <Check className="h-4 w-4 text-[#0D503C]" />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="mx-auto flex justify-center">
+                        <div className="rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                          <Minus className="h-4 w-4 text-[#8E9196]" />
+                        </div>
+                      </div>
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {feature.premium ? (
+                      <div className="mx-auto flex justify-center">
+                        <div className="bg-[#0D503C]/10 rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                          <Check className="h-4 w-4 text-[#0D503C]" />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="mx-auto flex justify-center">
+                        <div className="rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                          <Minus className="h-4 w-4 text-[#8E9196]" />
                         </div>
                       </div>
                     )}
