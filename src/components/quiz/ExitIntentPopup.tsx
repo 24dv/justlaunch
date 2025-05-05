@@ -36,14 +36,14 @@ const ExitIntentPopup: React.FC = () => {
           <div className="flex flex-col items-start px-6 py-7">
             <h3 className="text-2xl font-serif text-[#0D503C] mb-2.5">
               {language === 'en' 
-                ? 'Not sure you're ready to launch?' 
-                : 'Niet zeker of je klaar bent om te lanceren?'}
+                ? "Not sure you're ready to launch?" 
+                : "Niet zeker of je klaar bent om te lanceren?"}
             </h3>
             
             <p className="text-[#0D503C]/80 mb-6">
               {language === 'en' 
-                ? 'Take the quick quiz and get clarity.' 
-                : 'Doe de snelle quiz en krijg duidelijkheid.'}
+                ? "Take the quick quiz and get clarity." 
+                : "Doe de snelle quiz en krijg duidelijkheid."}
             </p>
             
             <a 

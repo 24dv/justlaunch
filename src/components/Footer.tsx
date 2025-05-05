@@ -77,12 +77,12 @@ const Footer = () => {
           
           <div className="flex flex-col">
             <h3 className="text-lg font-semibold mb-3 font-serif">
-              {language === 'en' ? 'Still figuring things out?' : 'Nog aan het uitzoeken?'}
+              {language === 'en' ? "Still figuring things out?" : "Nog aan het uitzoeken?"}
             </h3>
             <p className="text-[#F5F5E9]/70 mb-4 text-sm">
               {language === 'en' 
-                ? 'Take our 2-minute quiz and find out if you're ready to launch.' 
-                : 'Doe onze quiz van 2 minuten en ontdek of je klaar bent om te lanceren.'}
+                ? "Take our 2-minute quiz and find out if you're ready to launch." 
+                : "Doe onze quiz van 2 minuten en ontdek of je klaar bent om te lanceren."}
             </p>
             <a 
               href="https://tally.so/r/yourquizlink" 
