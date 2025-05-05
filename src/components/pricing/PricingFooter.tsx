@@ -18,7 +18,7 @@ const PricingFooter = () => {
         <button
           onClick={scrollToContact}
           className="inline-block px-6 py-3 bg-[#0D503C] text-[#F5F5E9] rounded-full 
-          hover:bg-[#0A4231] transition-all duration-300 
+          hover:bg-[#0A4231] transition-colors 
           transform hover:scale-105 focus:outline-none focus:ring-2 
           focus:ring-[#0D503C] focus:ring-offset-2"
         >

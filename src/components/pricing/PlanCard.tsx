@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
@@ -36,7 +35,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
           
           {/* Inline Badge */}
           {isPopular && (
-            <Badge className="bg-[#0D503C]/10 text-[#0D503C] border border-[#0D503C] ml-2 px-2">
+            <Badge className="bg-[#e6f0dd] text-[#0D503C] border border-[#0D503C] ml-2 px-2 rounded-full pointer-events-none">
               {t('pricing.mostPopular')}
             </Badge>
           )}
@@ -61,7 +60,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
         <div className="space-y-3">
           <button
             onClick={scrollToContact}
-            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#0D503C] text-[#F5F5E9] font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:opacity-90 transition-opacity`}
+            className={`block w-full py-3 px-4 rounded-lg ${isPopular ? 'bg-[#0D503C] text-[#F5F5E9] font-semibold shadow-md' : 'bg-[#0D503C] text-[#F5F5E9]'} text-center font-medium hover:bg-[#0A4231] transition-colors`}
           >
             {t('nav.getStarted')}
           </button>
