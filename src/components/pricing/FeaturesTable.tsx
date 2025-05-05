@@ -20,7 +20,7 @@ const FeaturesTable = () => {
         
         {/* Scrollable content */}
         <div className="max-h-[500px] overflow-y-auto">
-          <Table>
+          <Table className="w-full table-fixed">
             <FeaturesByCategory 
               categories={categories} 
               features={features} 

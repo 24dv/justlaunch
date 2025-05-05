@@ -11,7 +11,7 @@ const CategoryHeader = ({ categoryName }: CategoryHeaderProps) => {
     <TableRow className="bg-[#0D503C]/5 hover:bg-[#0D503C]/10">
       <TableCell 
         colSpan={4} 
-        className="font-semibold text-[#0D503C] py-2"
+        className="font-semibold text-[#0D503C] py-2 pl-4"
       >
         {categoryName}
       </TableCell>
