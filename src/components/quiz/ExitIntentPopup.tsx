@@ -21,12 +21,12 @@ const ExitIntentPopup: React.FC = () => {
       const lastClosedDate = new Date(Number(lastClosed));
       const currentDate = new Date();
       
-      // Calculate the difference in hours
+      // Calculate the difference in days
       const differenceInTime = currentDate.getTime() - lastClosedDate.getTime();
-      const differenceInHours = differenceInTime / (1000 * 3600);
+      const differenceInDays = differenceInTime / (1000 * 3600 * 24);
       
-      // If it's been less than 48 hours, don't show
-      if (differenceInHours < 48) {
+      // If it's been less than 7 days, don't show
+      if (differenceInDays < 7) {
         return false;
       }
     }
@@ -50,43 +50,27 @@ const ExitIntentPopup: React.FC = () => {
     };
   }, [checkIfShouldShow]);
 
-  // Handle for mobile/tablet: improved quick scroll up detection
+  // Handle for mobile/tablet: quick scroll up or tab visibility change
   useEffect(() => {
     let lastScrollTop = 0;
     let scrollingUp = false;
-    let scrollUpCounter = 0;
-    let scrollTimer: ReturnType<typeof setTimeout> | null = null;
     
     const handleScroll = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Reset the scroll counter if scrolling down or after a timeout
-      if (scrollTimer) {
-        clearTimeout(scrollTimer);
-      }
-      
-      // Detect scroll direction
+      // Detect quick scroll up
       if (st < lastScrollTop) {
         // Scrolling up
-        scrollingUp = true;
-        scrollUpCounter += 1;
-        
-        // Trigger faster based on scroll count or position
-        // Now activates after just 2 consecutive upward scrolls OR if user is near top (500px vs 300px before)
-        if (checkIfShouldShow() && 
-            (scrollUpCounter >= 2 || window.scrollY < 500)) {
-          setIsOpen(true);
-          scrollUpCounter = 0; // Reset counter after showing
+        if (!scrollingUp) {
+          scrollingUp = true;
+          if (checkIfShouldShow() && window.scrollY < 300) {
+            setIsOpen(true);
+          }
         }
-      } else if (st > lastScrollTop) {
+      } else {
         // Scrolling down
         scrollingUp = false;
       }
-      
-      // Reset scroll counter after a short period of no scrolling
-      scrollTimer = setTimeout(() => {
-        scrollUpCounter = 0;
-      }, 800);
       
       lastScrollTop = st <= 0 ? 0 : st;
     };
@@ -103,9 +87,6 @@ const ExitIntentPopup: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      if (scrollTimer) {
-        clearTimeout(scrollTimer);
-      }
     };
   }, [checkIfShouldShow]);
 
