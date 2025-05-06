@@ -94,8 +94,8 @@ const ExitIntentPopup: React.FC = () => {
   };
 
   const openQuiz = () => {
-    // Replace with actual Tally quiz URL
-    window.open('https://tally.so/r/yourquizlink', '_blank');
+    // Updated Tally quiz URL
+    window.open('https://forms.justlaunch.be/', '_blank');
     localStorage.setItem('quizTaken', 'true');
     handleClose();
   };
@@ -113,7 +113,7 @@ const ExitIntentPopup: React.FC = () => {
       >
         {/* Use global styles that specifically target our dialog to hide the default close button */}
         <style dangerouslySetInnerHTML={{ __html: `
-          [data-custom-dialog="quiz-popup"] [data-radix-collection-item] {
+          [data-custom-dialog="quiz-popup"] .absolute.right-4.top-4.rounded-sm.opacity-70 {
             display: none !important;
           }
         `}} />

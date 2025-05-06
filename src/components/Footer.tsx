@@ -32,8 +32,8 @@ const Footer = () => {
   };
 
   const openQuiz = () => {
-    // Replace with your actual Tally quiz URL
-    window.open('https://tally.so/r/yourquizlink', '_blank');
+    // Updated Tally quiz URL
+    window.open('https://forms.justlaunch.be/', '_blank');
     // Set flag to prevent exit intent popup from showing
     localStorage.setItem('quizTaken', 'true');
   };
