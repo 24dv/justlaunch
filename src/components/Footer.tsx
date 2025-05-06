@@ -34,6 +34,8 @@ const Footer = () => {
   const openQuiz = () => {
     // Replace with your actual Tally quiz URL
     window.open('https://tally.so/r/yourquizlink', '_blank');
+    // Mark that the user has taken the quiz
+    localStorage.setItem('quizTaken', 'true');
   };
   
   return (
