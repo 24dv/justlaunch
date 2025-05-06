@@ -101,6 +101,7 @@ const ExitIntentPopup: React.FC = () => {
         shadow-xl max-w-md w-[90vw] mx-auto animate-in fade-in slide-in-from-top-0 duration-300"
         onEscapeKeyDown={handleClose}
         onPointerDownOutside={handleClose}
+        hideCloseButton={true} // Hide the default close button
       >
         <button 
           onClick={handleClose} 
