@@ -53,24 +53,28 @@ const ExitIntentPopup: React.FC = () => {
     };
   }, [checkIfShouldShow, isMobile]);
 
-  // Enhanced mobile detection with better responsiveness
+  // Enhanced mobile detection with improved scroll logic
   useEffect(() => {
     if (!isMobile) return; // Only for mobile devices
     
     let lastScrollTop = 0;
     let consecutiveUpScrolls = 0;
-    const scrollThreshold = 500; // Increased detection area (top 500px of page)
+    const scrollThreshold = 500; // Top area of the page where scrolling up is more likely to indicate exit intent
     
     const handleScroll = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Detect upward scrolling with enhanced sensitivity
+      // Detect upward scrolling
       if (st < lastScrollTop) {
         // Scrolling up
         consecutiveUpScrolls += 1;
         
-        // Trigger after just 2 consecutive upward scrolls OR when in top area
-        if ((consecutiveUpScrolls >= 2 || window.scrollY < scrollThreshold) && checkIfShouldShow()) {
+        // Only trigger after EXACTLY 2 consecutive upward scrolls 
+        // OR when in top area with multiple scroll actions
+        if (consecutiveUpScrolls === 2 && checkIfShouldShow()) {
+          setIsOpen(true);
+        } else if (window.scrollY < scrollThreshold && consecutiveUpScrolls >= 3 && checkIfShouldShow()) {
+          // Additional trigger for top area with more consecutive scrolls
           setIsOpen(true);
         }
       } else {
@@ -84,7 +88,8 @@ const ExitIntentPopup: React.FC = () => {
     // Tab visibility change detection (for when users switch tabs and come back)
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible' && checkIfShouldShow() && window.scrollY < scrollThreshold) {
-        setIsOpen(true);
+        // Don't immediately show on visibility change - set counter to 1 instead
+        consecutiveUpScrolls = 1;
       }
     };
 
