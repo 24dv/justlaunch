@@ -102,13 +102,14 @@ const ExitIntentPopup: React.FC = () => {
         onEscapeKeyDown={handleClose}
         onPointerDownOutside={handleClose}
       >
-        {/* Remove the default close button using CSS */}
-        <style jsx global>{`
-          .bg-\\[\\#F5F5E9\\] [&>button]:hidden {
-            visibility: hidden !important;
-            display: none !important;
-          }
-        `}</style>
+        {/* Add a class to the DialogContent to select and hide the default close button */}
+        <style>
+          {`
+            .bg-\\[\\#F5F5E9\\] [data-state=open]:bg-accent {
+              display: none !important;
+            }
+          `}
+        </style>
         
         <button 
           onClick={handleClose} 
