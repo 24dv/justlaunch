@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, HelpCircle } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
@@ -55,6 +55,14 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
+  const openQuiz = () => {
+    window.open('https://forms.justlaunch.be/', '_blank');
+    localStorage.setItem('quizTaken', 'true');
     if (isOpen) {
       setIsOpen(false);
     }
@@ -169,6 +177,30 @@ const Navbar = () => {
                 </button>
               </div>
             ))}
+            
+            {/* Quiz Link */}
+            <div 
+              className={`mb-5 overflow-hidden ${
+                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              } transition-all duration-500 delay-200`}
+            >
+              <button
+                onClick={openQuiz}
+                className="group flex w-full items-center justify-between py-3 text-base font-medium text-[#0D503C] bg-[#0D503C]/10 px-4 rounded-lg hover:bg-[#0D503C]/15 transition-all"
+              >
+                <div className="flex items-center">
+                  <HelpCircle size={20} className="mr-3 flex-shrink-0" />
+                  <span className="relative">
+                    {t('quiz.footer.title') || "Am I Ready to Launch?"} <br />
+                    <span className="text-sm font-normal">{t('quiz.footer.description') || "Take our quiz to find out"}</span>
+                  </span>
+                </div>
+                <ChevronRight 
+                  size={18} 
+                  className="transform transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
+                />
+              </button>
+            </div>
             
             <div 
               className={`mt-8 ${
