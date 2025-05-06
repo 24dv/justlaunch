@@ -3,12 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { X, Star } from 'lucide-react';
 import { Dialog, DialogContent, DialogOverlay } from '@/components/ui/dialog';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const ExitIntentPopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language } = useLanguage();
-  const isMobile = useIsMobile();
   
   const checkIfShouldShow = useCallback(() => {
     const lastClosed = localStorage.getItem('quizPopupLastClosed');
@@ -38,8 +36,6 @@ const ExitIntentPopup: React.FC = () => {
 
   // Handle exit intent for desktop
   useEffect(() => {
-    if (isMobile) return; // Skip for mobile devices
-    
     const handleMouseLeave = (e: MouseEvent) => {
       // Only trigger when mouse moves toward the top of the page
       if (e.clientY < 20 && checkIfShouldShow()) {
@@ -52,44 +48,36 @@ const ExitIntentPopup: React.FC = () => {
     return () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [checkIfShouldShow, isMobile]);
+  }, [checkIfShouldShow]);
 
-  // Enhanced mobile detection with improved scroll logic
+  // Handle for mobile/tablet: quick scroll up or tab visibility change
   useEffect(() => {
-    if (!isMobile) return; // Only for mobile devices
-    
     let lastScrollTop = 0;
-    let consecutiveUpScrolls = 0;
-    const scrollThreshold = 300; // Top area of the page where scrolling up is more likely to indicate exit intent
+    let scrollingUp = false;
     
     const handleScroll = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Detect upward scrolling
+      // Detect quick scroll up
       if (st < lastScrollTop) {
         // Scrolling up
-        consecutiveUpScrolls += 1;
-        
-        // Require 3-4 consecutive upward scrolls to show popup
-        if (consecutiveUpScrolls === 3 && checkIfShouldShow()) {
-          setIsOpen(true);
-        } else if (window.scrollY < scrollThreshold && consecutiveUpScrolls >= 4 && checkIfShouldShow()) {
-          // Additional trigger for top area with more consecutive scrolls
-          setIsOpen(true);
+        if (!scrollingUp) {
+          scrollingUp = true;
+          if (checkIfShouldShow() && window.scrollY < 300) {
+            setIsOpen(true);
+          }
         }
       } else {
-        // Reset counter when scrolling down
-        consecutiveUpScrolls = 0;
+        // Scrolling down
+        scrollingUp = false;
       }
       
       lastScrollTop = st <= 0 ? 0 : st;
     };
 
-    // Tab visibility change detection (for when users switch tabs and come back)
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible' && checkIfShouldShow() && window.scrollY < scrollThreshold) {
-        // Don't immediately show on visibility change - set counter to 2 instead
-        consecutiveUpScrolls = 2;
+      if (document.visibilityState === 'visible' && checkIfShouldShow()) {
+        setIsOpen(true);
       }
     };
 
@@ -100,7 +88,7 @@ const ExitIntentPopup: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [checkIfShouldShow, isMobile]);
+  }, [checkIfShouldShow]);
 
   const handleClose = () => {
     setIsOpen(false);
