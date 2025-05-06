@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import PlanFeatureItem from './PlanFeatureItem';
 import { Badge } from '../ui/badge';
-import { Euro, Star, Tag } from 'lucide-react';
+import { Euro, Star } from 'lucide-react';
 
 interface PlanCardProps {
   planType: 'launch' | 'premium' | 'launchsite';
@@ -23,11 +24,11 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
 
   return (
     <div className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${isPopular ? 'bg-[#F5F5E9] border-2 border-[#0D503C]' : 'bg-[#F5F5E9] border-2 border-[#0D503C]'} relative h-fit`}>
-      {/* Light green badge in the corner */}
+      {/* New Top-positioned Most Popular Badge */}
       {isPopular && (
-        <div className="absolute top-0 right-0">
-          <div className="bg-[#0D503C]/10 border border-[#0D503C]/30 text-[#0D503C] px-3 py-1 rounded-bl-lg shadow-sm flex items-center gap-1 transform translate-y-0 z-10">
-            <Tag className="h-3 w-3" />
+        <div className="absolute top-0 left-0 right-0 flex justify-center">
+          <div className="bg-[#0D503C] text-[#F5F5E9] px-4 py-1 rounded-b-lg shadow-md flex items-center gap-1 transform translate-y-0 z-10">
+            <Star className="h-3 w-3" />
             <span className="text-xs font-medium">{t('pricing.mostPopular')}</span>
           </div>
         </div>
