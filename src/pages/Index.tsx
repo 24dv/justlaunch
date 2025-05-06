@@ -11,6 +11,7 @@ import FaqSection from '../components/FaqSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
+import ExitIntentPopup from '../components/quiz/ExitIntentPopup';
 
 const Index = () => {
   useEffect(() => {
@@ -87,6 +88,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <ExitIntentPopup />
     </div>
   );
 };

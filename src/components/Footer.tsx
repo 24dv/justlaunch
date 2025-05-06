@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Instagram, Mail, Settings, FileText } from 'lucide-react';
+import { Instagram, Mail, Settings, FileText, Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,6 +29,11 @@ const Footer = () => {
     // Fixed the event dispatch code
     window.dispatchEvent(new CustomEvent('showCookiePreferences'));
     console.log('Cookie settings button clicked, event dispatched');
+  };
+
+  const openQuiz = () => {
+    // Replace with your actual Tally quiz URL
+    window.open('https://tally.so/r/yourquizlink', '_blank');
   };
   
   return (
@@ -75,14 +80,20 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
-            <h3 className="text-lg font-semibold mb-4 font-serif">{t('footer.quickLinks')}</h3>
-            <ul className="space-y-2">
-              <li><button onClick={() => scrollToSection('work')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.work')}</button></li>
-              <li><button onClick={() => scrollToSection('process')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.process')}</button></li>
-              <li><button onClick={() => scrollToSection('pricing')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.pricing')}</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="text-[#F5F5E9]/70 hover:text-[#F9A7A7] transition-colors cursor-pointer">{t('footer.contactUs')}</button></li>
-            </ul>
+          {/* Quiz Section - Replaced Quick Links */}
+          <div className="bg-[#0A4231] rounded-lg p-5 flex flex-col items-start">
+            <h3 className="text-lg font-semibold mb-2 font-serif">Still figuring things out?</h3>
+            <p className="text-sm text-[#F5F5E9]/80 mb-4">
+              Take our 2-minute quiz and find out if you're ready to launch.
+            </p>
+            <button
+              onClick={openQuiz}
+              className="inline-flex items-center justify-center gap-1 px-4 py-2 bg-[#F5F5E9]/10 hover:bg-[#F5F5E9]/20 
+              text-[#F5F5E9] transition-all duration-200 rounded-full border border-[#F5F5E9]/30"
+            >
+              <Star className="h-3.5 w-3.5" />
+              <span>Take the Quiz</span>
+            </button>
           </div>
         </div>
         
