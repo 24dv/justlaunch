@@ -108,24 +108,15 @@ const ExitIntentPopup: React.FC = () => {
         shadow-xl max-w-md w-[90vw] mx-auto animate-in fade-in slide-in-from-top-0 duration-300"
         onEscapeKeyDown={handleClose}
         onPointerDownOutside={handleClose}
+        // Add this class to identify our custom content
+        data-custom-dialog="quiz-popup"
       >
-        {/* Hide the default close button with CSS */}
-        <style>
-          {`
-            /* Hide the default DialogContent close button */
-            .dialog-content-wrapper [data-radix-collection-item] {
-              display: none !important;
-            }
-          `}
-        </style>
-        
-        <button 
-          onClick={handleClose} 
-          className="absolute top-4 right-4 text-[#0D503C]/60 hover:text-[#0D503C] transition-colors"
-          aria-label="Close dialog"
-        >
-          <X size={20} />
-        </button>
+        {/* Use global styles that specifically target our dialog to hide the default close button */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          [data-custom-dialog="quiz-popup"] [data-radix-collection-item] {
+            display: none !important;
+          }
+        `}} />
         
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full 
@@ -142,6 +133,15 @@ const ExitIntentPopup: React.FC = () => {
             hover:bg-[#0A4231] transition-all duration-200 shadow-sm flex items-center justify-center gap-2"
           >
             <span>Start Quiz</span>
+          </button>
+          
+          {/* Custom close button positioned absolutely */}
+          <button 
+            onClick={handleClose} 
+            className="absolute top-4 right-4 text-[#0D503C]/60 hover:text-[#0D503C] transition-colors"
+            aria-label="Close dialog"
+          >
+            <X size={20} />
           </button>
         </div>
       </DialogContent>
