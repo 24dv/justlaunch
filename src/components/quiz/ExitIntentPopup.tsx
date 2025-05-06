@@ -21,12 +21,12 @@ const ExitIntentPopup: React.FC = () => {
       const lastClosedDate = new Date(Number(lastClosed));
       const currentDate = new Date();
       
-      // Calculate the difference in days
+      // Calculate the difference in hours
       const differenceInTime = currentDate.getTime() - lastClosedDate.getTime();
-      const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+      const differenceInHours = differenceInTime / (1000 * 3600); // Convert milliseconds to hours
       
-      // If it's been less than 7 days, don't show
-      if (differenceInDays < 7) {
+      // If it's been less than 48 hours, don't show
+      if (differenceInHours < 48) {
         return false;
       }
     }
