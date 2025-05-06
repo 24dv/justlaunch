@@ -2,9 +2,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, Star } from 'lucide-react';
 import { Dialog, DialogContent, DialogOverlay } from '@/components/ui/dialog';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const ExitIntentPopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, language } = useLanguage();
   
   const checkIfShouldShow = useCallback(() => {
     const lastClosed = localStorage.getItem('quizPopupLastClosed');
@@ -124,15 +126,15 @@ const ExitIntentPopup: React.FC = () => {
             <Star className="text-[#0D503C] w-6 h-6" />
           </div>
           
-          <h2 className="text-2xl font-semibold mb-2">Not sure you're ready to launch?</h2>
-          <p className="text-[#0D503C]/70 mb-6">Take our 2-minute quiz and get clarity.</p>
+          <h2 className="text-2xl font-semibold mb-2">{t('quiz.popup.title')}</h2>
+          <p className="text-[#0D503C]/70 mb-6">{t('quiz.popup.description')}</p>
           
           <button
             onClick={openQuiz}
             className="w-full px-6 py-3 bg-[#0D503C] text-[#F5F5E9] rounded-full 
             hover:bg-[#0A4231] transition-all duration-200 shadow-sm flex items-center justify-center gap-2"
           >
-            <span>Start Quiz</span>
+            <span>{t('quiz.popup.buttonText')}</span>
           </button>
           
           {/* Custom close button positioned absolutely */}

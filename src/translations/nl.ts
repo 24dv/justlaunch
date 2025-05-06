@@ -120,6 +120,14 @@ const translations = {
   "pricing.paymentPlan.step3": "Laatste betaling van €834, één maand na de tweede betaling",
   "pricing.paymentPlan.note": "Uitsluitend beschikbaar voor het Premiumpakket. Totale kost blijft hetzelfde (€2.500).",
 
+  // Quiz Popup & Footer
+  "quiz.popup.title": "Twijfel je of je klaar bent om te lanceren?",
+  "quiz.popup.description": "Doe onze quiz van 2 minuten en krijg duidelijkheid.",
+  "quiz.popup.buttonText": "Start de Quiz",
+  "quiz.footer.title": "Ben je er nog niet helemaal uit?",
+  "quiz.footer.description": "Doe onze quiz van 2 minuten en ontdek of je klaar bent om te lanceren.",
+  "quiz.footer.buttonText": "Doe de Quiz",
+
   // Testimonials Section
   "testimonials.title": "Wat Onze Klanten Zeggen",
   "testimonials.subtitle": "Founders zoals jij delen hun ervaring met Just Launch.",

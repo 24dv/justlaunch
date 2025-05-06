@@ -84,9 +84,9 @@ const Footer = () => {
           
           {/* Quiz Section - Replaced Quick Links */}
           <div className="bg-[#0A4231] rounded-lg p-5 flex flex-col items-start">
-            <h3 className="text-lg font-semibold mb-2 font-serif">Still figuring things out?</h3>
+            <h3 className="text-lg font-semibold mb-2 font-serif">{t('quiz.footer.title')}</h3>
             <p className="text-sm text-[#F5F5E9]/80 mb-4">
-              Take our 2-minute quiz and find out if you're ready to launch.
+              {t('quiz.footer.description')}
             </p>
             <button
               onClick={openQuiz}
@@ -94,7 +94,7 @@ const Footer = () => {
               text-[#F5F5E9] transition-all duration-200 rounded-full border border-[#F5F5E9]/30"
             >
               <Star className="h-3.5 w-3.5" />
-              <span>Take the Quiz</span>
+              <span>{t('quiz.footer.buttonText')}</span>
             </button>
           </div>
         </div>
