@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, Star } from 'lucide-react';
 import { Dialog, DialogContent, DialogOverlay } from '@/components/ui/dialog';
@@ -59,7 +60,7 @@ const ExitIntentPopup: React.FC = () => {
     
     let lastScrollTop = 0;
     let consecutiveUpScrolls = 0;
-    const scrollThreshold = 500; // Top area of the page where scrolling up is more likely to indicate exit intent
+    const scrollThreshold = 300; // Top area of the page where scrolling up is more likely to indicate exit intent
     
     const handleScroll = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -69,11 +70,10 @@ const ExitIntentPopup: React.FC = () => {
         // Scrolling up
         consecutiveUpScrolls += 1;
         
-        // Only trigger after EXACTLY 2 consecutive upward scrolls 
-        // OR when in top area with multiple scroll actions
-        if (consecutiveUpScrolls === 2 && checkIfShouldShow()) {
+        // Require 3-4 consecutive upward scrolls to show popup
+        if (consecutiveUpScrolls === 3 && checkIfShouldShow()) {
           setIsOpen(true);
-        } else if (window.scrollY < scrollThreshold && consecutiveUpScrolls >= 3 && checkIfShouldShow()) {
+        } else if (window.scrollY < scrollThreshold && consecutiveUpScrolls >= 4 && checkIfShouldShow()) {
           // Additional trigger for top area with more consecutive scrolls
           setIsOpen(true);
         }
@@ -88,8 +88,8 @@ const ExitIntentPopup: React.FC = () => {
     // Tab visibility change detection (for when users switch tabs and come back)
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible' && checkIfShouldShow() && window.scrollY < scrollThreshold) {
-        // Don't immediately show on visibility change - set counter to 1 instead
-        consecutiveUpScrolls = 1;
+        // Don't immediately show on visibility change - set counter to 2 instead
+        consecutiveUpScrolls = 2;
       }
     };
 
