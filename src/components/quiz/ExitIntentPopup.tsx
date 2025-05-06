@@ -8,12 +8,6 @@ const ExitIntentPopup: React.FC = () => {
   
   const checkIfShouldShow = useCallback(() => {
     const lastClosed = localStorage.getItem('quizPopupLastClosed');
-    const quizTaken = localStorage.getItem('quizTaken');
-    
-    // Don't show if quiz was already taken
-    if (quizTaken === 'true') {
-      return false;
-    }
     
     if (lastClosed) {
       const lastClosedDate = new Date(Number(lastClosed));
@@ -97,8 +91,6 @@ const ExitIntentPopup: React.FC = () => {
     // Replace with actual Tally quiz URL
     window.open('https://tally.so/r/yourquizlink', '_blank');
     handleClose();
-    // Mark that the user has taken the quiz
-    localStorage.setItem('quizTaken', 'true');
   };
 
   return (
@@ -110,11 +102,6 @@ const ExitIntentPopup: React.FC = () => {
         onEscapeKeyDown={handleClose}
         onPointerDownOutside={handleClose}
       >
-        <style>
-          {`:global(.DialogContent-root button[aria-label="Close dialog"]) {
-            display: none;
-          }`}
-        </style>
         <button 
           onClick={handleClose} 
           className="absolute top-4 right-4 text-[#0D503C]/60 hover:text-[#0D503C] transition-colors"
@@ -130,7 +117,7 @@ const ExitIntentPopup: React.FC = () => {
           </div>
           
           <h2 className="text-2xl font-semibold mb-2">Not sure you're ready to launch?</h2>
-          <p className="text-[#0D503C]/70 mb-6">Take our 2-minute quiz and get clarity.</p>
+          <p className="text-[#0D503C]/70 mb-6">Take the quick quiz and get clarity.</p>
           
           <button
             onClick={openQuiz}
