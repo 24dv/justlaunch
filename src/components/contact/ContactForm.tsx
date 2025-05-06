@@ -145,6 +145,7 @@ const ContactForm = () => {
                 {language === 'en' ? (
                   <>
                     <SelectItem value="launch">Launch Package (€1,500)</SelectItem>
+                    <SelectItem value="launchsite">Launch Site (€995)</SelectItem>
                     <SelectItem value="premium">Premium Package (€2,500)</SelectItem>
                     <SelectItem value="premium-plan">Premium Package - Payment Plan (€833/month)</SelectItem>
                     <SelectItem value="not-sure">Not sure yet</SelectItem>
@@ -152,6 +153,7 @@ const ContactForm = () => {
                 ) : (
                   <>
                     <SelectItem value="launch">Launch Pakket (€1.500)</SelectItem>
+                    <SelectItem value="launchsite">Launch Site (€995)</SelectItem>
                     <SelectItem value="premium">Premium Pakket (€2.500)</SelectItem>
                     <SelectItem value="premium-plan">Premium Pakket - Betalingsplan (€833/maand)</SelectItem>
                     <SelectItem value="not-sure">Nog niet zeker</SelectItem>
