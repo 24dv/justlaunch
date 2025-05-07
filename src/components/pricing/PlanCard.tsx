@@ -113,7 +113,7 @@ const PlanCard = ({ planType, showPaymentOption, onPaymentOptionClick, isPopular
               <PlanFeatureItem text={t('pricing.premium.feature1')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature2')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature3')} />
-              <PlanFeatureItem text={t('pricing.premium.feature4')} isBold={true} />
+              <PlanFeatureItem text={t('pricing.premium.feature4')} />
               <PlanFeatureItem text={t('pricing.premium.feature5')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature6')} isBold={true} />
               <PlanFeatureItem text={t('pricing.premium.feature7')} />

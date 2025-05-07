@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -94,10 +95,11 @@ const translations = {
   "pricing.premium.feature1": "Klaar om te lanceren in slechts 14 dagen",
   "pricing.premium.feature2": "Op maat gemaakte website met 5 pagina's",
   "pricing.premium.feature3": "Professioneel logo-ontwerp",
-  "pricing.premium.feature4": "Merk stijlgids (logo, kleuren, lettertypen)",
-  "pricing.premium.feature5": "5 op maat gemaakte social media templates",
-  "pricing.premium.feature6": "2 revisierondes",
-  "pricing.premium.feature7": "Ontwikkeld door professionele designers uit België 🇧🇪",
+  "pricing.premium.feature4": "Gepersonaliseerd kleurenpalet",
+  "pricing.premium.feature5": "Merk stijlgids (logo, kleuren, lettertypen)",
+  "pricing.premium.feature6": "5 op maat gemaakte social media templates",
+  "pricing.premium.feature7": "2 revisierondes",
+  "pricing.premium.feature8": "Ontwikkeld door professionele designers uit België 🇧🇪",
   "pricing.noPayment": "Geen betaling nu — reserveer gewoon je plek.",
   "pricing.noPaymentCall": "Geen betaling nu — plan gewoon je gratis gesprek.",
   "pricing.maintenance.title": "Doorlopend Onderhoud & Beveiliging",

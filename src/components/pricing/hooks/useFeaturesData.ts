@@ -88,7 +88,7 @@ export const useFeaturesData = () => {
         nl: "Optionele blog setup <span class='text-xs font-normal'>(via Supabase) +10€/mo</span>" 
       },
       logoDesign: { en: "Professional logo design", nl: "Professioneel logo-ontwerp" },
-      colorPalette: { en: "Brand color palette", nl: "Merk kleurenpalet" },
+      colorPalette: { en: "Tailored brand color palette", nl: "Gepersonaliseerd kleurenpalet" },
       styleGuide: { 
         en: "Brand style guide <span class='text-xs font-normal'>(logo, fonts, colors)</span>", 
         nl: "Merkstijlgids <span class='text-xs font-normal'>(logo, lettertypen, kleuren)</span>" 
