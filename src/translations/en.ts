@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -94,10 +95,11 @@ const translations = {
   "pricing.premium.feature1": "Launch-ready in just 14 days",
   "pricing.premium.feature2": "Custom 5-page website", 
   "pricing.premium.feature3": "Professional logo design",
-  "pricing.premium.feature4": "Brand style guide (logo, colors, fonts)",
-  "pricing.premium.feature5": "5 custom social media templates",
-  "pricing.premium.feature6": "2 rounds of revisions",
-  "pricing.premium.feature7": "Built by pro designers, based in Belgium 🇧🇪",
+  "pricing.premium.feature4": "Tailored brand color palette",
+  "pricing.premium.feature5": "Brand style guide (logo, colors, fonts)",
+  "pricing.premium.feature6": "5 custom social media templates",
+  "pricing.premium.feature7": "2 rounds of revisions",
+  "pricing.premium.feature8": "Built by pro designers, based in Belgium 🇧🇪",
   "pricing.noPayment": "No payment now — just reserve your spot.",
   "pricing.noPaymentCall": "No payment now — just book your free call.",
   "pricing.maintenance.title": "Ongoing Maintenance & Security",
