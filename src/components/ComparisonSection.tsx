@@ -30,14 +30,7 @@ const ComparisonSection: React.FC = () => {
       <CardContent className="p-4">
         {Object.entries(data).map(([category, value], idx) => (
           <div key={category} className={`py-3 ${idx !== Object.entries(data).length - 1 ? 'border-b border-[#0D503C]/10' : ''}`}>
-            <div className="font-medium mb-1 flex items-center gap-2">
-              {categoryIcons[category] && (
-                <div className="text-[#0D503C]">
-                  {categoryIcons[category]}
-                </div>
-              )}
-              {category}
-            </div>
+            <div className="font-medium mb-1">{category}</div>
             <div className="text-sm text-[#0D503C]/80">{value}</div>
           </div>
         ))}
@@ -235,7 +228,7 @@ const ComparisonSection: React.FC = () => {
             </TableHeader>
             <TableBody>
               {categories.map(category => (
-                <TableRow key={category} className="hover:bg-[#FFDEE2]/20 transition-colors">
+                <TableRow key={category}>
                   <TableCell className="font-medium">
                     <div className="flex items-center gap-2">
                       {categoryIcons[category]}
@@ -273,7 +266,7 @@ const ComparisonSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
-              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 h-auto rounded-full text-base"
+              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 rounded-full text-base"
             >
               Book Your Free Intro Call
             </Button>
@@ -281,7 +274,7 @@ const ComparisonSection: React.FC = () => {
             <Button 
               onClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
               variant="outline"
-              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 px-6 py-3 h-auto rounded-full text-base bg-[#0D503C]/10"
+              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 px-6 py-3 rounded-full text-base"
             >
               Am I Ready to Launch?
             </Button>
