@@ -7,11 +7,22 @@ import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './ui/table';
 import { Button } from './ui/button';
 
+// Define types for our comparison data
+type ComparisonValue = React.ReactNode;
+type CategoryData = Record<string, ComparisonValue>;
+type ComparisonData = Record<string, CategoryData>;
+
+interface ComparisonCardProps {
+  title: string;
+  data: CategoryData;
+  highlight?: boolean;
+}
+
 const ComparisonSection: React.FC = () => {
   const { t } = useLanguage();
   
   // Helper function for the mobile comparison cards
-  const ComparisonCard = ({ title, data, highlight = false }) => (
+  const ComparisonCard: React.FC<ComparisonCardProps> = ({ title, data, highlight = false }) => (
     <Card className={`mb-6 overflow-hidden transition-all duration-200 ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30 shadow-lg' : ''}`}>
       <CardHeader className={`pb-2 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
         <CardTitle className="text-lg font-bold text-center">{title}</CardTitle>
@@ -28,7 +39,7 @@ const ComparisonSection: React.FC = () => {
   );
 
   // Comparison data
-  const comparisonData = {
+  const comparisonData: ComparisonData = {
     'Just Launch': {
       'Upfront Cost': (
         <div className="flex items-center gap-2">
