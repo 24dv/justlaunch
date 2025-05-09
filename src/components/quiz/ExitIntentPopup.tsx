@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { X, Star } from 'lucide-react';
 import { Dialog, DialogContent, DialogOverlay } from '@/components/ui/dialog';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -8,22 +8,12 @@ const ExitIntentPopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language } = useLanguage();
   
-  // Refs for tracking scroll and time behavior
-  const lastScrollTop = useRef(0);
-  const scrollVelocity = useRef(0);
-  const scrollTimeStamp = useRef(Date.now());
-  const pageEntryTime = useRef(Date.now());
-  const hasShownRef = useRef(false);
-  const maxScrollDepth = useRef(0);
-  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const hasEngaged = useRef(false);
-  
   const checkIfShouldShow = useCallback(() => {
     const lastClosed = localStorage.getItem('quizPopupLastClosed');
     const quizTaken = localStorage.getItem('quizTaken');
     
     // Don't show if user has already taken the quiz
-    if (quizTaken === 'true' || hasShownRef.current) {
+    if (quizTaken === 'true') {
       return false;
     }
     
@@ -44,162 +34,61 @@ const ExitIntentPopup: React.FC = () => {
     return true;
   }, []);
 
-  // Function to show the popup if conditions are met
-  const tryToShowPopup = useCallback(() => {
-    if (checkIfShouldShow() && !hasShownRef.current) {
-      setIsOpen(true);
-      hasShownRef.current = true;
-    }
-  }, [checkIfShouldShow]);
-
   // Handle exit intent for desktop
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
       // Only trigger when mouse moves toward the top of the page
-      if (e.clientY < 20) {
-        tryToShowPopup();
+      if (e.clientY < 20 && checkIfShouldShow()) {
+        setIsOpen(true);
       }
     };
 
-    // Add for desktop only
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (!isMobile) {
-      document.addEventListener('mouseleave', handleMouseLeave);
-      
-      return () => {
-        document.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
-    return undefined;
-  }, [tryToShowPopup]);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [checkIfShouldShow]);
 
-  // 1. Improved scroll detection for mobile
+  // Handle for mobile/tablet: quick scroll up or tab visibility change
   useEffect(() => {
-    // Tracking variables for scroll behavior
-    let scrollTimer: ReturnType<typeof setTimeout>;
-    let lastScrollTime = Date.now();
+    let lastScrollTop = 0;
+    let scrollingUp = false;
     
     const handleScroll = () => {
-      // Reset idle timer whenever user scrolls
-      if (idleTimer.current) {
-        clearTimeout(idleTimer.current);
-      }
+      const st = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Update engaged state when user scrolls
-      hasEngaged.current = true;
-      
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const currentTime = Date.now();
-      const timeDelta = currentTime - scrollTimeStamp.current;
-      
-      // Update max scroll depth
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-      const scrollPercent = (currentScrollTop / (scrollHeight - clientHeight)) * 100;
-      maxScrollDepth.current = Math.max(maxScrollDepth.current, scrollPercent);
-      
-      // Calculate scroll velocity (px per millisecond)
-      if (timeDelta > 0) {
-        scrollVelocity.current = Math.abs(currentScrollTop - lastScrollTop.current) / timeDelta;
-      }
-      
-      // Detect bounce patterns: fast upward scroll near top
-      const isScrollingUp = currentScrollTop < lastScrollTop.current;
-      const isNearTop = currentScrollTop < 300;
-      const isScrollingFast = scrollVelocity.current > 0.5; // Threshold for "fast" scrolling
-      const isQuickDirection = currentTime - lastScrollTime < 200; // Quick direction change
-      
-      if (isScrollingUp && (isNearTop || isScrollingFast)) {
-        // Higher chance of exit intent - show popup
-        if (scrollVelocity.current > 1.0 || isQuickDirection) {
-          tryToShowPopup();
+      // Detect quick scroll up
+      if (st < lastScrollTop) {
+        // Scrolling up
+        if (!scrollingUp) {
+          scrollingUp = true;
+          if (checkIfShouldShow() && window.scrollY < 300) {
+            setIsOpen(true);
+          }
         }
+      } else {
+        // Scrolling down
+        scrollingUp = false;
       }
       
-      // Set idle timer after scrolling stops
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        // Check if user has scrolled significantly then stopped
-        if (maxScrollDepth.current > 60 && hasEngaged.current) {
-          idleTimer.current = setTimeout(() => {
-            tryToShowPopup();
-          }, 5000); // Show after 5 seconds of inactivity after scrolling deeply
-        }
-      }, 200);
-      
-      // Update tracking variables
-      lastScrollTop.current = currentScrollTop;
-      scrollTimeStamp.current = currentTime;
-      lastScrollTime = currentTime;
+      lastScrollTop = st <= 0 ? 0 : st;
     };
 
-    // 2. Visibility change detection
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        // If the user returns to the tab and has been on the page for a while
-        const timeOnPage = Date.now() - pageEntryTime.current;
-        if (timeOnPage > 15000) { // 15 seconds
-          tryToShowPopup();
-        }
+      if (document.visibilityState === 'visible' && checkIfShouldShow()) {
+        setIsOpen(true);
       }
     };
-    
-    // 3. Touch events detection
-    const handleTouchStart = (e: TouchEvent) => {
-      hasEngaged.current = true;
-    };
-    
-    const handleTouchEnd = (e: TouchEvent) => {
-      // Detect edge swipes that might indicate trying to go back/exit
-      if (e.changedTouches && e.changedTouches[0]) {
-        const touchX = e.changedTouches[0].clientX;
-        const touchY = e.changedTouches[0].clientY;
-        
-        // Edge swipe detection
-        if (touchX < 20 || touchX > window.innerWidth - 20 || touchY < 20) {
-          tryToShowPopup();
-        }
-      }
-    };
-    
-    // 4. Time-based trigger
-    const timeBasedPopupTrigger = setTimeout(() => {
-      // Show popup after 45 seconds if user is still on the page
-      if (hasEngaged.current) {
-        tryToShowPopup();
-      }
-    }, 45000);
-    
-    // Add all event listeners (without bottom-of-page detection)
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
     
     return () => {
-      // Clean up all event listeners
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
-      clearTimeout(timeBasedPopupTrigger);
-      if (idleTimer.current) clearTimeout(idleTimer.current);
-      clearTimeout(scrollTimer);
     };
-  }, [tryToShowPopup]);
-
-  // Reset tracking when component mounts
-  useEffect(() => {
-    pageEntryTime.current = Date.now();
-    hasShownRef.current = false;
-    maxScrollDepth.current = 0;
-    hasEngaged.current = false;
-    
-    return () => {
-      // Clear any lingering timers on unmount
-      if (idleTimer.current) clearTimeout(idleTimer.current);
-    };
-  }, []);
+  }, [checkIfShouldShow]);
 
   const handleClose = () => {
     setIsOpen(false);
