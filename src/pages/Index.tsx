@@ -7,6 +7,7 @@ import Carousel from '../components/Carousel';
 import ProcessSection from '../components/ProcessSection';
 import PricingSection from '../components/PricingSection';
 import TestimonialSection from '../components/TestimonialSection';
+import ComparisonSection from '../components/ComparisonSection';
 import FaqSection from '../components/FaqSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -84,6 +85,7 @@ const Index = () => {
         <ProcessSection />
         <PricingSection />
         <TestimonialSection />
+        <ComparisonSection />
         <FaqSection />
         <ContactSection />
       </main>
