@@ -170,20 +170,8 @@ const ExitIntentPopup: React.FC = () => {
       }
     }, 45000);
     
-    // 5. Bottom of page trigger
-    const handleScrollForBottom = () => {
-      const scrollPosition = window.pageYOffset + window.innerHeight;
-      const totalHeight = document.documentElement.scrollHeight;
-      
-      // If user reaches bottom of page
-      if (totalHeight - scrollPosition < 100) {
-        tryToShowPopup();
-      }
-    };
-
-    // Add all event listeners
+    // Add all event listeners (without bottom-of-page detection)
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('scroll', handleScrollForBottom, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange);
     document.addEventListener('touchstart', handleTouchStart, { passive: true });
     document.addEventListener('touchend', handleTouchEnd, { passive: true });
@@ -191,7 +179,6 @@ const ExitIntentPopup: React.FC = () => {
     return () => {
       // Clean up all event listeners
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('scroll', handleScrollForBottom);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchend', handleTouchEnd);
