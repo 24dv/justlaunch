@@ -70,7 +70,7 @@ const ProcessSection = () => {
             <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex justify-between">
               {steps.map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[#F9A7A7] rounded-full flex items-center justify-center text-[#0D503C] font-bold">
+                  <div className="absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[#F9A7A7]/30 rounded-full flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
                     {step.number}
                   </div>
                 </div>
@@ -108,7 +108,7 @@ const ProcessSection = () => {
               </div>
               
               <Card className="ml-10 border-[#0D503C]/20 bg-[#F5F5E9]/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-                <div className="absolute -left-4 top-8 w-8 h-8 bg-[#F9A7A7] rounded-full flex items-center justify-center text-[#0D503C] font-bold">
+                <div className="absolute -left-4 top-8 w-8 h-8 bg-[#F9A7A7]/30 rounded-full flex items-center justify-center text-[#0D503C] font-bold">
                   {step.number}
                 </div>
                 <div className="h-2 w-full bg-[#0D503C]" />
