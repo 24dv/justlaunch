@@ -202,10 +202,10 @@ const ComparisonSection: React.FC = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
-            Just Launch (€1,500) vs. Agency vs. Freelancer vs. DIY
+            {t('compare.title') || "Just Launch vs. Agency vs. Freelancer vs. DIY"}
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto">
-            See how we compare to the alternatives for launching your brand online
+            {t('compare.subtitle') || "We designed Just Launch after seeing too many startups waste time and money doing it the hard way"}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>

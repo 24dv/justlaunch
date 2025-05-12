@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -153,6 +152,10 @@ const translations = {
   "faq.question7.answer": "Just Launch is based in Belgium, but we work with clients all over Europe and beyond.",
   "faq.moreQuestions": "Still have questions? We're here to help!",
   "faq.contactUs": "Contact Us",
+
+  // Comparison Section
+  "compare.title": "Just Launch vs. Agency vs. Freelancer vs. DIY",
+  "compare.subtitle": "We designed Just Launch after seeing too many startups waste time and money doing it the hard way",
 
   // Contact Section
   "contact.title": "Ready to launch your brand — fast and stress-free?",

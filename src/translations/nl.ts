@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -121,6 +120,10 @@ const translations = {
   "pricing.paymentPlan.step2": "Tweede betaling van €833, één maand na de start",
   "pricing.paymentPlan.step3": "Laatste betaling van €834, één maand na de tweede betaling",
   "pricing.paymentPlan.note": "Uitsluitend beschikbaar voor het Premiumpakket. Totale kost blijft hetzelfde (€2.500).",
+
+  // Comparison Section
+  "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
+  "compare.subtitle": "We hebben Just Launch ontworpen nadat we te veel startups tijd en geld zagen verspillen door het op de moeilijke manier te doen",
 
   // Quiz Popup & Footer
   "quiz.popup.title": "Twijfel je of je klaar bent om te lanceren?",
