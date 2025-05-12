@@ -18,7 +18,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onQuizCli
       <div className="flex flex-col sm:flex-row gap-4">
         <Button 
           onClick={onContactClick}
-          className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] h-12 px-6 py-3 rounded-full text-base font-medium transition-colors"
+          className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] h-12 px-6 py-3 rounded-full text-base font-medium transition-all duration-200 transform hover:scale-105"
         >
           {t('process.getStarted')}
         </Button>
@@ -26,7 +26,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onQuizCli
         <Button 
           onClick={onQuizClick}
           variant="outline"
-          className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#0D503C]/5 h-12 px-6 py-3 rounded-full text-base font-medium transition-colors"
+          className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#0D503C]/5 h-12 px-6 py-3 rounded-full text-base font-medium transition-all duration-200 transform hover:scale-105"
         >
           {t('comparison.readyToLaunch')}
         </Button>
