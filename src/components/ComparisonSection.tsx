@@ -39,11 +39,11 @@ const ComparisonSection: React.FC = () => {
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
         
-        {/* Deliverables line with pink background - Updated with pink border */}
+        {/* Deliverables line with pink background - Updated with pink border and bold for "Deliverables:" */}
         <div className="text-center mb-8">
           <p className="text-sm font-medium text-[#0D503C] inline-flex items-center justify-center">
             <span className="bg-[#F9A7A7]/30 border border-[#F9A7A7] px-4 py-1.5 rounded-full">
-              {t('compare.deliverables') || "Deliverables: Logo + Color palette + Custom 1-page website"}
+              <span className="font-bold">Deliverables:</span> Logo + Color palette + Custom 1-page website
             </span>
           </p>
         </div>
