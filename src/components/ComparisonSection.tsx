@@ -25,27 +25,25 @@ const ComparisonSection: React.FC = () => {
   };
   
   return (
-    <section className="section-padding bg-[#F5F5E9]" id="compare">
+    <section className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-5 font-serif tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
             {t('compare.title')}
           </h2>
-          <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto mb-6">
+          <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto">
             {t('compare.subtitle')}
           </p>
-          <div className="w-24 h-1 bg-[#0D503C] mx-auto mb-8" />
+          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
         
         {/* Deliverables line with pink background */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center">
-            <div className="bg-[#F9A7A7]/30 border border-[#F9A7A7] px-6 py-2.5 rounded-full shadow-sm">
-              <p className="text-sm md:text-base font-medium text-[#0D503C]">
-                <span className="font-bold">{t('compare.deliverables.prefix')}:</span> {t('compare.deliverables.content')}
-              </p>
-            </div>
-          </div>
+        <div className="text-center mb-8">
+          <p className="text-sm font-medium text-[#0D503C] inline-flex items-center justify-center">
+            <span className="bg-[#F9A7A7]/30 border border-[#F9A7A7] px-4 py-1.5 rounded-full">
+              <span className="font-bold">{t('compare.deliverables.prefix')}:</span> {t('compare.deliverables.content')}
+            </span>
+          </p>
         </div>
         
         {/* Desktop version - Table */}
