@@ -117,7 +117,7 @@ const translations = {
   "pricing.paymentPlan.tagline": "Geen betaling nu — reserveer gewoon je plek.",
   "pricing.paymentPlan.howItWorks": "Hoe het werkt:",
   "pricing.paymentPlan.step1": "Betaal €833 om je project te starten",
-  "pricing.paymentPlan.step2": "Tweede betaling van €833, één maand na de start",
+  "pricing.paymentPlan.step2": "Tweede betaling van €833, é��n maand na de start",
   "pricing.paymentPlan.step3": "Laatste betaling van €834, één maand na de tweede betaling",
   "pricing.paymentPlan.note": "Uitsluitend beschikbaar voor het Premiumpakket. Totale kost blijft hetzelfde (€2.500).",
 
@@ -126,7 +126,22 @@ const translations = {
   "compare.subtitle": "Vergelijk je opties voordat je tijd en geld verspilt aan de verkeerde aanpak. Ontdek hoe wij ons verhouden tot de gebruikelijke manieren waarop founders online gaan.",
   "compare.deliverables.prefix": "Inbegrepen",
   "compare.deliverables.content": "Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
-
+  "compare.category": "Categorie",
+  "compare.providers.justlaunch": "Just Launch",
+  "compare.providers.agency": "Bureau",
+  "compare.providers.freelancer": "Freelancer",
+  "compare.providers.diy": "DIY",
+  "compare.categories.upfrontcost": "Opstartkosten",
+  "compare.categories.ongoingcost": "Doorlopende kosten",
+  "compare.categories.timetolaunch": "Tijd tot lancering",
+  "compare.categories.easeofprocess": "Gemak van proces",
+  "compare.categories.designquality": "Design kwaliteit",
+  "compare.categories.scalability": "Schaalbaarheid",
+  "compare.categories.conversion&visibility": "Conversie & Zichtbaarheid",
+  "compare.cta.freeIntroCall": "Plan Je Gratis Introgesprek",
+  "compare.cta.readyToLaunch": "Ben Ik Klaar Om Te Lanceren?",
+  "compare.cta.whatWeCanDo": "Zie wat we in 14 dagen voor je kunnen doen!",
+  
   // Quiz Popup & Footer
   "quiz.popup.title": "Twijfel je of je klaar bent om te lanceren?",
   "quiz.popup.description": "Doe onze quiz van 2 minuten en krijg duidelijkheid.",
