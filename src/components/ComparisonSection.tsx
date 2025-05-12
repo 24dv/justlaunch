@@ -54,7 +54,7 @@ const ComparisonSection: React.FC = () => {
           categoryIcons={categoryIcons}
         />
         
-        {/* Mobile version - Cards */}
+        {/* Mobile version - Stacked Cards */}
         <ComparisonCardsGrid 
           providers={providers}
           comparisonData={comparisonData}
