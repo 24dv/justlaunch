@@ -16,10 +16,18 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
   const getProviderName = (provider: string) => {
     return t(`compare.providers.${provider.toLowerCase().replace(/\s+/g, '')}`);
   };
+
+  // Reorder providers to put Just Launch first
+  const orderedProviders = [...providers].sort((a, b) => {
+    if (a === 'Just Launch') return -1;
+    if (b === 'Just Launch') return 1;
+    return 0;
+  });
   
   return (
-    <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      {providers.map((provider) => (
+    <div className="lg:hidden space-y-8 mb-12">
+      {/* First show Just Launch card prominently */}
+      {orderedProviders.map((provider) => (
         <ComparisonCard 
           key={provider} 
           title={getProviderName(provider)} 

@@ -25,22 +25,26 @@ const ComparisonSection: React.FC = () => {
   };
   
   return (
-    <section className="section-padding bg-[#F5F5E9]">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
+    <section className="section-padding bg-[#F5F5E9] relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#F9A7A7]/5 -z-10"></div>
+      <div className="absolute bottom-40 left-10 w-48 h-48 rounded-full bg-[#0D503C]/5 -z-10"></div>
+      
+      <div className="container mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#0D503C] mb-6 font-serif tracking-tight">
             {t('compare.title')}
           </h2>
-          <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto">
+          <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto mb-8">
             {t('compare.subtitle')}
           </p>
-          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
+          <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-2" />
         </div>
         
         {/* Deliverables line with pink background */}
-        <div className="text-center mb-8">
-          <p className="text-sm font-medium text-[#0D503C] inline-flex items-center justify-center">
-            <span className="bg-[#F9A7A7]/30 border border-[#F9A7A7] px-4 py-1.5 rounded-full">
+        <div className="text-center mb-12">
+          <p className="text-sm md:text-base font-medium text-[#0D503C] inline-flex items-center justify-center">
+            <span className="bg-[#F9A7A7]/30 border border-[#F9A7A7] px-5 py-2.5 rounded-full shadow-sm">
               <span className="font-bold">{t('compare.deliverables.prefix')}:</span> {t('compare.deliverables.content')}
             </span>
           </p>

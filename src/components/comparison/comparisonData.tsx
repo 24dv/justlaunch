@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, CheckCircle } from 'lucide-react';
 import { ComparisonData } from './types';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -144,7 +144,7 @@ export const useComparisonData = () => {
   };
 };
 
-// Category icons using emojis
+// Category icons using emojis - enhanced with slightly better styling
 export const categoryIcons = {
   'Upfront Cost': <span className="text-xl">💶</span>,
   'Ongoing Cost': <span className="text-xl">📅</span>,
