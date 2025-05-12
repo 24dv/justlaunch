@@ -13,7 +13,7 @@ const ContactInfoSection = () => {
         </h3>
         <ul className="space-y-4">
           <li className="flex items-start">
-            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 text-[#0D503C] flex items-center justify-center mr-3 border border-[#0D503C]/20">
+            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/30 text-[#0D503C] flex items-center justify-center mr-3 border border-[#0D503C]/20">
               <span className="text-sm font-medium">1</span>
             </div>
             <p className="text-[#0D503C]/80">
@@ -21,7 +21,7 @@ const ContactInfoSection = () => {
             </p>
           </li>
           <li className="flex items-start">
-            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 text-[#0D503C] flex items-center justify-center mr-3 border border-[#0D503C]/20">
+            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/30 text-[#0D503C] flex items-center justify-center mr-3 border border-[#0D503C]/20">
               <span className="text-sm font-medium">2</span>
             </div>
             <p className="text-[#0D503C]/80">
@@ -29,7 +29,7 @@ const ContactInfoSection = () => {
             </p>
           </li>
           <li className="flex items-start">
-            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 text-[#0D503C] flex items-center justify-center mr-3 border border-[#0D503C]/20">
+            <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/30 text-[#0D503C] flex items-center justify-center mr-3 border border-[#0D503C]/20">
               <span className="text-sm font-medium">3</span>
             </div>
             <p className="text-[#0D503C]/80">
