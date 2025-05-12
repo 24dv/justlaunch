@@ -209,10 +209,10 @@ const ComparisonSection: React.FC = () => {
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
         
-        {/* Deliverables line with pink background */}
+        {/* Deliverables line with pink background - Updated to use #F9A7A7 pink from contact steps */}
         <div className="text-center mb-8">
           <p className="text-lg font-medium text-[#0D503C] inline-flex items-center justify-center">
-            <span className="bg-[#FFDEE2] px-6 py-2 rounded-full">
+            <span className="bg-[#F9A7A7]/50 px-6 py-2 rounded-full">
               {t('compare.deliverables') || "Deliverables: Logo + Color palette + Custom 1-page website"}
             </span>
           </p>
@@ -269,12 +269,12 @@ const ComparisonSection: React.FC = () => {
           ))}
         </div>
         
-        {/* CTA Section with hover effects and standardized heights */}
+        {/* CTA Section with updated button padding to match "Book Your Free Intro Call" button */}
         <div className="flex flex-col items-center justify-center gap-6 mt-10">
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
-              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
+              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-5 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
             >
               Book Your Free Intro Call
             </Button>
@@ -282,7 +282,7 @@ const ComparisonSection: React.FC = () => {
             <Button 
               onClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
               variant="outline"
-              className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#F2FCE2]/80 px-6 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
+              className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#F2FCE2]/80 px-5 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
             >
               Am I Ready to Launch?
             </Button>
