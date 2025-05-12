@@ -23,8 +23,11 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
   
   return (
     <div className="lg:hidden flex flex-col gap-8 mb-12">
-      {competitorProviders.map((competitorProvider) => (
-        <div key={competitorProvider} className="card-animation">
+      <div className="text-center mb-4 text-sm text-[#0D503C]/70">
+        <p>{t('compare.mobileInstructions') || 'Swipe below to see how Just Launch compares to alternatives'}</p>
+      </div>
+      {competitorProviders.map((competitorProvider, index) => (
+        <div key={competitorProvider} className={`card-animation delay-${index * 100}`}>
           <ComparisonCard 
             title={`${getProviderName('Just Launch')} vs ${getProviderName(competitorProvider)}`}
             mainProvider="Just Launch"
