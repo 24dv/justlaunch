@@ -1,182 +1,13 @@
+
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Check, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './ui/table';
-import { Button } from './ui/button';
-
-// Define types for our comparison data
-type ComparisonValue = React.ReactNode;
-type CategoryData = Record<string, ComparisonValue>;
-type ComparisonData = Record<string, CategoryData>;
-
-interface ComparisonCardProps {
-  title: string;
-  data: CategoryData;
-  highlight?: boolean;
-}
+import ComparisonTable from './comparison/ComparisonTable';
+import ComparisonCardsGrid from './comparison/ComparisonCardsGrid';
+import ComparisonCTA from './comparison/ComparisonCTA';
+import { comparisonData, categoryIcons, categories } from './comparison/comparisonData';
 
 const ComparisonSection: React.FC = () => {
   const { t } = useLanguage();
-  
-  // Helper function for the mobile comparison cards
-  const ComparisonCard: React.FC<ComparisonCardProps> = ({ title, data, highlight = false }) => (
-    <Card className={`mb-6 overflow-hidden transition-all duration-200 ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30 shadow-lg' : ''}`}>
-      <CardHeader className={`pb-2 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
-        <CardTitle className="text-lg font-bold text-center">{title}</CardTitle>
-      </CardHeader>
-      <CardContent className="p-4">
-        {Object.entries(data).map(([category, value], idx) => (
-          <div key={category} className={`py-3 ${idx !== Object.entries(data).length - 1 ? 'border-b border-[#0D503C]/10' : ''}`}>
-            <div className="font-medium mb-1">{category}</div>
-            <div className="text-sm text-[#0D503C]/80">{value}</div>
-          </div>
-        ))}
-      </CardContent>
-    </Card>
-  );
-
-  // Comparison data
-  const comparisonData: ComparisonData = {
-    'Just Launch': {
-      'Upfront Cost': (
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">€1,500</span>
-          <Check size={18} className="text-green-600" />
-        </div>
-      ),
-      'Ongoing Cost': (
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">€10/mo</span>
-          <Check size={18} className="text-green-600" />
-        </div>
-      ),
-      'Time to Launch': (
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">14 days</span>
-          <Check size={18} className="text-green-600" />
-        </div>
-      ),
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">Done-for-you:</span> Minimal effort
-          <div className="text-xs text-[#0D503C]/70">We handle design, tech, setup; 1 revision round</div>
-        </div>
-      ),
-      'Design Quality': (
-        <div>
-          Professional, custom logo & website
-          <div className="text-xs text-[#0D503C]/70">Belgium designers, mobile-optimized</div>
-        </div>
-      ),
-      'Scalability': (
-        <div>
-          <span className="font-medium">Easy to scale:</span> Add pages and other features for low prices
-        </div>
-      ),
-      'Conversion & Visibility': (
-        <div>
-          <span className="font-medium">Built to convert:</span> Clear CTAs, SEO-friendly
-          <div className="text-xs text-[#0D503C]/70">Tailored for your audience</div>
-        </div>
-      ),
-    },
-    'Traditional Agency': {
-      'Upfront Cost': '€4,000-€8,000',
-      'Ongoing Cost': '€50-€150/mo',
-      'Time to Launch': '4-12 weeks',
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">High effort:</span> Multiple meetings, revisions, approvals
-        </div>
-      ),
-      'Design Quality': (
-        <div>
-          Highly custom, premium
-          <div className="text-xs text-[#0D503C]/70">Often overkill for startups</div>
-        </div>
-      ),
-      'Scalability': (
-        <div>
-          <span className="font-medium">Scalable but costly:</span> New features often €1,000+
-        </div>
-      ),
-      'Conversion & Visibility': (
-        <div>
-          Strong conversion focus
-          <div className="text-xs text-[#0D503C]/70">But costly and slow</div>
-        </div>
-      ),
-    },
-    'Freelancer': {
-      'Upfront Cost': '€2,500-€5,000',
-      'Ongoing Cost': '€30-€50/mo',
-      'Time to Launch': '3-5 weeks',
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">Moderate effort:</span> Manage freelancer, revisions, communication
-        </div>
-      ),
-      'Design Quality': (
-        <div>
-          Professional but inconsistent
-          <div className="text-xs text-[#0D503C]/70">Depends on freelancer skill</div>
-        </div>
-      ),
-      'Scalability': (
-        <div>
-          <span className="font-medium">Limited:</span> Scaling depends on freelancer availability, skills
-        </div>
-      ),
-      'Conversion & Visibility': (
-        <div>
-          <span className="font-medium">Varies:</span> Conversion focus depends on freelancer expertise
-        </div>
-      ),
-    },
-    'DIY': {
-      'Upfront Cost': '€0-€500',
-      'Ongoing Cost': '€5-€50/mo',
-      'Time to Launch': '1 week-3 months',
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">High effort:</span> Learn Canva/Wix, design, troubleshoot
-          <div className="text-xs text-[#0D503C]/70">Steep learning curve</div>
-        </div>
-      ),
-      'Design Quality': (
-        <div>
-          Template-based, risks looking generic
-          <div className="text-xs text-[#0D503C]/70">Depends on skill</div>
-        </div>
-      ),
-      'Scalability': (
-        <div>
-          <span className="font-medium">Limited:</span> Templates restrict growth; scaling often requires starting over
-        </div>
-      ),
-      'Conversion & Visibility': (
-        <div>
-          <span className="font-medium">Basic:</span> Limited SEO/UX unless you're skilled or buy plugins
-        </div>
-      ),
-    }
-  };
-
-  // Category icons - replaced with emojis
-  const categoryIcons = {
-    'Upfront Cost': <span className="text-xl">💶</span>,
-    'Ongoing Cost': <span className="text-xl">📅💸</span>,
-    'Time to Launch': <span className="text-xl">🚀</span>,
-    'Ease of Process': <span className="text-xl">🔄</span>,
-    'Design Quality': <span className="text-xl">🎨</span>,
-    'Scalability': <span className="text-xl">🧩</span>,
-    'Conversion & Visibility': <span className="text-xl">👁️</span>
-  };
-
-  // Extract categories - reordered to put Ease of Process before Design Quality
-  const categories = ['Upfront Cost', 'Ongoing Cost', 'Time to Launch', 'Ease of Process', 'Design Quality', 'Scalability', 'Conversion & Visibility'];
   
   // Get providers
   const providers = Object.keys(comparisonData);
@@ -218,83 +49,24 @@ const ComparisonSection: React.FC = () => {
         </div>
         
         {/* Desktop version - Table */}
-        <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C]/20 shadow-md">
-          <Table>
-            <TableHeader className="bg-[#0D503C]/5">
-              <TableRow>
-                <TableHead className="w-[180px]">Category</TableHead>
-                {providers.map(provider => (
-                  <TableHead 
-                    key={provider} 
-                    className={`text-center ${provider === 'Just Launch' ? 'bg-[#0D503C] text-[#F5F5E9]' : ''}`}
-                  >
-                    {provider}
-                  </TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {categories.map(category => (
-                <TableRow key={category}>
-                  <TableCell className="font-medium">
-                    <div className="flex items-center gap-2">
-                      {categoryIcons[category]}
-                      {category}
-                    </div>
-                  </TableCell>
-                  {providers.map(provider => (
-                    <TableCell 
-                      key={`${provider}-${category}`}
-                      className={`${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
-                    >
-                      {comparisonData[provider][category]}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+        <ComparisonTable 
+          categories={categories}
+          providers={providers}
+          comparisonData={comparisonData}
+          categoryIcons={categoryIcons}
+        />
         
         {/* Mobile version - Cards */}
-        <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {providers.map((provider, index) => (
-            <ComparisonCard 
-              key={provider} 
-              title={provider} 
-              data={comparisonData[provider]}
-              highlight={provider === 'Just Launch'}
-            />
-          ))}
-        </div>
+        <ComparisonCardsGrid 
+          providers={providers}
+          comparisonData={comparisonData}
+        />
         
-        {/* CTA Section with updated button padding to match "Book Your Free Intro Call" button */}
-        <div className="flex flex-col items-center justify-center gap-6 mt-10">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              onClick={scrollToContact}
-              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-5 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
-            >
-              Book Your Free Intro Call
-            </Button>
-            
-            <Button 
-              onClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
-              variant="outline"
-              className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#F2FCE2]/80 px-5 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
-            >
-              Am I Ready to Launch?
-            </Button>
-          </div>
-          
-          <button 
-            onClick={scrollToWorks}
-            className="flex items-center gap-1 text-[#0D503C] hover:text-[#0A4231] underline underline-offset-4 font-medium"
-          >
-            See what we can do for you in 14 days!
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
-        </div>
+        {/* CTA Section */}
+        <ComparisonCTA
+          onContactClick={scrollToContact}
+          onFormClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
+        />
       </div>
     </section>
   );
