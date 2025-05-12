@@ -20,7 +20,7 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({ title, data, highlight 
   };
 
   return (
-    <Card className={`mb-6 overflow-hidden transition-all duration-200 bg-[#F5F5E9] ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30 shadow-lg' : ''}`}>
+    <Card className={`mb-6 overflow-hidden transition-all duration-200 ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30 shadow-lg' : ''}`}>
       <CardHeader className={`pb-2 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
         <CardTitle className="text-lg font-bold text-center">{title}</CardTitle>
       </CardHeader>
