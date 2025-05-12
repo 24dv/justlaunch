@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Check, Euro, Clock, Scale, Palette, ArrowRight, MousePointer, ArrowUpRight, Layers } from 'lucide-react';
+import { Check, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './ui/table';
@@ -164,15 +164,15 @@ const ComparisonSection: React.FC = () => {
     }
   };
 
-  // Category icons
+  // Category icons - replaced with emojis
   const categoryIcons = {
-    'Upfront Cost': <Euro className="w-5 h-5" />,
-    'Ongoing Cost': <Euro className="w-5 h-5" />,
-    'Time to Launch': <Clock className="w-5 h-5" />,
-    'Design Quality': <Palette className="w-5 h-5" />,
-    'Ease of Process': <ArrowRight className="w-5 h-5" />,
-    'Scalability': <Layers className="w-5 h-5" />,
-    'Conversion & Visibility': <MousePointer className="w-5 h-5" />
+    'Upfront Cost': <span className="text-xl">💶</span>,
+    'Ongoing Cost': <span className="text-xl">📅💸</span>,
+    'Time to Launch': <span className="text-xl">🚀</span>,
+    'Ease of Process': <span className="text-xl">🔄</span>,
+    'Design Quality': <span className="text-xl">🎨</span>,
+    'Scalability': <span className="text-xl">🧩</span>,
+    'Conversion & Visibility': <span className="text-xl">👁️</span>
   };
 
   // Extract categories - reordered to put Ease of Process before Design Quality
