@@ -30,9 +30,9 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
   };
   
   return (
-    <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C] shadow-md bg-white">
+    <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C] shadow-md">
       <Table>
-        <TableHeader className="bg-[#F5F5E9]">
+        <TableHeader className="bg-[#0D503C]/5">
           <TableRow>
             <TableHead className="w-[180px]">{t('compare.category')}</TableHead>
             {providers.map(provider => (
@@ -48,7 +48,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
         <TableBody>
           {categories.map(category => (
             <TableRow key={category}>
-              <TableCell className="font-medium bg-[#F5F5E9]">
+              <TableCell className="font-medium">
                 <div className="flex items-center gap-2">
                   {categoryIcons[category]}
                   {getCategoryName(category)}
@@ -57,7 +57,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
               {providers.map(provider => (
                 <TableCell 
                   key={`${provider}-${category}`}
-                  className={`${provider === 'Just Launch' ? 'bg-[#F5F5E9]/80' : 'bg-white'}`}
+                  className={`${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
                 >
                   {comparisonData[provider][category]}
                 </TableCell>

@@ -18,7 +18,7 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
   };
   
   return (
-    <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 bg-transparent">
+    <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
       {providers.map((provider) => (
         <ComparisonCard 
           key={provider} 
