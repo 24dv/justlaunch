@@ -34,15 +34,15 @@ const ComparisonSection: React.FC = () => {
             {t('compare.title') || "Just Launch vs. Agency vs. Freelancer vs. DIY"}
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto">
-            {t('compare.subtitle') || "We designed Just Launch after seeing too many startups waste time and money doing it the hard way"}
+            {t('compare.subtitle') || "Compare your options before wasting time and money on the wrong path. See how we stack up against common ways founders launch online."}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
         
-        {/* Deliverables line with pink background - Updated opacity to 30% */}
+        {/* Deliverables line with pink background - Updated size to be smaller */}
         <div className="text-center mb-8">
-          <p className="text-lg font-medium text-[#0D503C] inline-flex items-center justify-center">
-            <span className="bg-[#F9A7A7]/30 px-6 py-2 rounded-full">
+          <p className="text-sm font-medium text-[#0D503C] inline-flex items-center justify-center">
+            <span className="bg-[#F9A7A7]/30 px-4 py-1.5 rounded-full">
               {t('compare.deliverables') || "Deliverables: Logo + Color palette + Custom 1-page website"}
             </span>
           </p>

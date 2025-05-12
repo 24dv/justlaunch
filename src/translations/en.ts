@@ -155,7 +155,7 @@ const translations = {
 
   // Comparison Section
   "compare.title": "Just Launch vs. Agency vs. Freelancer vs. DIY",
-  "compare.subtitle": "We designed Just Launch after seeing too many startups waste time and money doing it the hard way",
+  "compare.subtitle": "Compare your options before wasting time and money on the wrong path. See how we stack up against common ways founders launch online.",
   "compare.deliverables": "Deliverables: Logo + Color palette + Custom 1-page website",
 
   // Contact Section
