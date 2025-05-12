@@ -40,145 +40,145 @@ const ComparisonSection: React.FC = () => {
 
   // Comparison data
   const comparisonData: ComparisonData = {
-    'Just Launch': {
-      'Upfront Cost': (
+    [t('comparison.justLaunch')]: {
+      [t('comparison.upfrontCost')]: (
         <div className="flex items-center gap-2">
           <span className="font-bold text-[#0D503C]">€1,500</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
-      'Ongoing Cost': (
+      [t('comparison.ongoingCost')]: (
         <div className="flex items-center gap-2">
           <span className="font-bold text-[#0D503C]">€10/mo</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
-      'Time to Launch': (
+      [t('comparison.timeToLaunch')]: (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">14 days</span>
+          <span className="font-bold text-[#0D503C]">14 {t('comparison.days')}</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
-      'Design Quality': (
+      [t('comparison.designQuality')]: (
         <div>
-          Professional, custom logo & website
-          <div className="text-xs text-[#0D503C]/70">Belgium designers, mobile-optimized</div>
+          {t('comparison.professionalCustom')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.belgiumDesigners')}</div>
         </div>
       ),
-      'Ease of Process': (
+      [t('comparison.easeOfProcess')]: (
         <div>
-          <span className="font-medium">Done-for-you:</span> Minimal effort
-          <div className="text-xs text-[#0D503C]/70">We handle design, tech, setup; 1 revision round</div>
+          <span className="font-medium">{t('comparison.doneForYou')}</span> {t('comparison.minimalEffort')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.weHandle')}</div>
         </div>
       ),
-      'Scalability': (
+      [t('comparison.scalability')]: (
         <div>
-          <span className="font-medium">Easy to scale:</span> Add pages, features, or e-commerce later
-          <div className="text-xs text-[#0D503C]/70">€10/mo keeps it secure</div>
+          <span className="font-medium">{t('comparison.easyToScale')}</span> {t('comparison.addPagesFeatures')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.tenEuroMo')}</div>
         </div>
       ),
-      'Client Attraction': (
+      [t('comparison.clientAttraction')]: (
         <div>
-          <span className="font-medium">Built to convert:</span> Clear CTAs, SEO-friendly
-          <div className="text-xs text-[#0D503C]/70">Tailored for your audience</div>
-        </div>
-      ),
-    },
-    'Traditional Agency': {
-      'Upfront Cost': '€4,000-€8,000',
-      'Ongoing Cost': '€100-€150/mo',
-      'Time to Launch': '4-12 weeks',
-      'Design Quality': (
-        <div>
-          Highly custom, premium
-          <div className="text-xs text-[#0D503C]/70">Often overkill for startups</div>
-        </div>
-      ),
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">High effort:</span> Multiple meetings, revisions, approvals
-        </div>
-      ),
-      'Scalability': (
-        <div>
-          <span className="font-medium">Scalable but costly:</span> New features often €1,000+
-        </div>
-      ),
-      'Client Attraction': (
-        <div>
-          Strong conversion focus
-          <div className="text-xs text-[#0D503C]/70">But costly and slow</div>
+          <span className="font-medium">{t('comparison.builtToConvert')}</span> {t('comparison.clearCTAs')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.tailoredForAudience')}</div>
         </div>
       ),
     },
-    'Freelancer': {
-      'Upfront Cost': '€2,500-€5,000',
-      'Ongoing Cost': '€30-€50/mo',
-      'Time to Launch': '3-5 weeks',
-      'Design Quality': (
+    [t('comparison.agency')]: {
+      [t('comparison.upfrontCost')]: '€4,000-€8,000',
+      [t('comparison.ongoingCost')]: '€100-€150/mo',
+      [t('comparison.timeToLaunch')]: '4-12 ' + t('comparison.weeks'),
+      [t('comparison.designQuality')]: (
         <div>
-          Professional but inconsistent
-          <div className="text-xs text-[#0D503C]/70">Depends on freelancer skill</div>
+          {t('comparison.highlyCustom')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.oftenOverkill')}</div>
         </div>
       ),
-      'Ease of Process': (
+      [t('comparison.easeOfProcess')]: (
         <div>
-          <span className="font-medium">Moderate effort:</span> Manage freelancer, revisions, communication
+          <span className="font-medium">{t('comparison.highEffort')}</span> {t('comparison.multipleMeetings')}
         </div>
       ),
-      'Scalability': (
+      [t('comparison.scalability')]: (
         <div>
-          <span className="font-medium">Limited:</span> Scaling depends on freelancer availability, skills
+          <span className="font-medium">{t('comparison.scalableCostly')}</span> {t('comparison.featuresExpensive')}
         </div>
       ),
-      'Client Attraction': (
+      [t('comparison.clientAttraction')]: (
         <div>
-          <span className="font-medium">Varies:</span> Conversion focus depends on freelancer expertise
+          {t('comparison.strongConversion')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.costlySlow')}</div>
         </div>
       ),
     },
-    'DIY': {
-      'Upfront Cost': '€0-€500',
-      'Ongoing Cost': '€5-€50/mo',
-      'Time to Launch': '1 week-3 months',
-      'Design Quality': (
+    [t('comparison.freelancer')]: {
+      [t('comparison.upfrontCost')]: '€2,500-€5,000',
+      [t('comparison.ongoingCost')]: '€30-€50/mo',
+      [t('comparison.timeToLaunch')]: '3-5 ' + t('comparison.weeks'),
+      [t('comparison.designQuality')]: (
         <div>
-          Template-based, risks looking generic
-          <div className="text-xs text-[#0D503C]/70">Depends on skill</div>
+          {t('comparison.professionalInconsistent')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.dependsFreelancer')}</div>
         </div>
       ),
-      'Ease of Process': (
+      [t('comparison.easeOfProcess')]: (
         <div>
-          <span className="font-medium">High effort:</span> Learn Canva/Wix, design, troubleshoot
-          <div className="text-xs text-[#0D503C]/70">Steep learning curve</div>
+          <span className="font-medium">{t('comparison.moderateEffort')}</span> {t('comparison.manageFreelancer')}
         </div>
       ),
-      'Scalability': (
+      [t('comparison.scalability')]: (
         <div>
-          <span className="font-medium">Limited:</span> Templates restrict growth; scaling often requires starting over
+          <span className="font-medium">{t('comparison.limited')}</span> {t('comparison.scalingDependsFreelancer')}
         </div>
       ),
-      'Client Attraction': (
+      [t('comparison.clientAttraction')]: (
         <div>
-          <span className="font-medium">Basic:</span> Limited SEO/UX unless you're skilled or buy plugins
+          <span className="font-medium">{t('comparison.varies')}</span> {t('comparison.conversionFreelancer')}
+        </div>
+      ),
+    },
+    [t('comparison.diy')]: {
+      [t('comparison.upfrontCost')]: '€0-€500',
+      [t('comparison.ongoingCost')]: '€5-€50/mo',
+      [t('comparison.timeToLaunch')]: '1 ' + t('comparison.week') + '-3 ' + t('comparison.months'),
+      [t('comparison.designQuality')]: (
+        <div>
+          {t('comparison.templateBased')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.dependsSkill')}</div>
+        </div>
+      ),
+      [t('comparison.easeOfProcess')]: (
+        <div>
+          <span className="font-medium">{t('comparison.highEffort')}</span> {t('comparison.learnTroubleshoot')}
+          <div className="text-xs text-[#0D503C]/70">{t('comparison.steepLearning')}</div>
+        </div>
+      ),
+      [t('comparison.scalability')]: (
+        <div>
+          <span className="font-medium">{t('comparison.limited')}</span> {t('comparison.templatesRestrict')}
+        </div>
+      ),
+      [t('comparison.clientAttraction')]: (
+        <div>
+          <span className="font-medium">{t('comparison.basic')}</span> {t('comparison.limitedSEO')}
         </div>
       ),
     }
   };
 
-  // Category icons
+  // Category icons with styled colors
   const categoryIcons = {
-    'Upfront Cost': <DollarSign className="w-5 h-5" />,
-    'Ongoing Cost': <DollarSign className="w-5 h-5" />,
-    'Time to Launch': <Clock className="w-5 h-5" />,
-    'Design Quality': <Palette className="w-5 h-5" />,
-    'Ease of Process': <ArrowRight className="w-5 h-5" />,
-    'Scalability': <Layers className="w-5 h-5" />,
-    'Client Attraction': <MousePointer className="w-5 h-5" />
+    [t('comparison.upfrontCost')]: <DollarSign className="w-5 h-5 text-[#0D503C]" />,
+    [t('comparison.ongoingCost')]: <DollarSign className="w-5 h-5 text-[#0D503C]" />,
+    [t('comparison.timeToLaunch')]: <Clock className="w-5 h-5 text-[#0D503C]" />,
+    [t('comparison.designQuality')]: <Palette className="w-5 h-5 text-[#0D503C]" />,
+    [t('comparison.easeOfProcess')]: <ArrowRight className="w-5 h-5 text-[#0D503C]" />,
+    [t('comparison.scalability')]: <Layers className="w-5 h-5 text-[#0D503C]" />,
+    [t('comparison.clientAttraction')]: <MousePointer className="w-5 h-5 text-[#0D503C]" />
   };
 
   // Extract categories
-  const categories = Object.keys(comparisonData['Just Launch']);
+  const categories = Object.keys(comparisonData[t('comparison.justLaunch')]);
   
   // Get providers
   const providers = Object.keys(comparisonData);
@@ -198,14 +198,14 @@ const ComparisonSection: React.FC = () => {
   };
   
   return (
-    <section className="section-padding bg-[#F5F5E9] border-y border-[#0D503C]/10">
+    <section id="compare" className="section-padding bg-[#F5F5E9] border-y border-[#0D503C]/10">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
-            Just Launch (€1,500) vs. Agency vs. Freelancer vs. DIY
+            {t('comparison.title')}
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto">
-            See how we compare to the alternatives for launching your brand online
+            {t('comparison.subtitle')}
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
@@ -215,11 +215,11 @@ const ComparisonSection: React.FC = () => {
           <Table>
             <TableHeader className="bg-[#0D503C]/5">
               <TableRow>
-                <TableHead className="w-[180px]">Category</TableHead>
+                <TableHead className="w-[180px]">{t('comparison.category')}</TableHead>
                 {providers.map(provider => (
                   <TableHead 
                     key={provider} 
-                    className={`text-center ${provider === 'Just Launch' ? 'bg-[#0D503C] text-[#F5F5E9]' : ''}`}
+                    className={`text-center ${provider === t('comparison.justLaunch') ? 'bg-[#0D503C] text-[#F5F5E9]' : ''}`}
                   >
                     {provider}
                   </TableHead>
@@ -228,7 +228,10 @@ const ComparisonSection: React.FC = () => {
             </TableHeader>
             <TableBody>
               {categories.map(category => (
-                <TableRow key={category}>
+                <TableRow 
+                  key={category} 
+                  className="hover:bg-[#F2FCE2] transition-colors duration-200"
+                >
                   <TableCell className="font-medium">
                     <div className="flex items-center gap-2">
                       {categoryIcons[category]}
@@ -238,7 +241,7 @@ const ComparisonSection: React.FC = () => {
                   {providers.map(provider => (
                     <TableCell 
                       key={`${provider}-${category}`}
-                      className={`${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
+                      className={`${provider === t('comparison.justLaunch') ? 'bg-[#0D503C]/5' : ''}`}
                     >
                       {comparisonData[provider][category]}
                     </TableCell>
@@ -256,7 +259,7 @@ const ComparisonSection: React.FC = () => {
               key={provider} 
               title={provider} 
               data={comparisonData[provider]}
-              highlight={provider === 'Just Launch'}
+              highlight={provider === t('comparison.justLaunch')}
             />
           ))}
         </div>
@@ -266,17 +269,17 @@ const ComparisonSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
-              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 rounded-full text-base"
+              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] h-12 px-6 py-3 rounded-full text-base font-medium transition-colors"
             >
-              Book Your Free Intro Call
+              {t('process.getStarted')}
             </Button>
             
             <Button 
               onClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
               variant="outline"
-              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 px-6 py-3 rounded-full text-base"
+              className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#0D503C]/5 h-12 px-6 py-3 rounded-full text-base font-medium transition-colors"
             >
-              Am I Ready to Launch?
+              {t('comparison.readyToLaunch')}
             </Button>
           </div>
           
@@ -284,7 +287,7 @@ const ComparisonSection: React.FC = () => {
             onClick={scrollToWorks}
             className="flex items-center gap-1 text-[#0D503C] hover:text-[#0A4231] underline underline-offset-4 font-medium"
           >
-            See what we can do for you in 14 days!
+            {t('comparison.seeWhatWeCanDo')}
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
