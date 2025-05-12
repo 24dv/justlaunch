@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Check, DollarSign, Clock, Scale, Palette, ArrowRight, MousePointer, ArrowUpRight, Layers } from 'lucide-react';
+import { Check, Euro, Clock, Scale, Palette, ArrowRight, MousePointer, ArrowUpRight, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './ui/table';
@@ -59,25 +59,24 @@ const ComparisonSection: React.FC = () => {
           <Check size={18} className="text-green-600" />
         </div>
       ),
-      'Design Quality': (
-        <div>
-          Professional, custom logo & website
-          <div className="text-xs text-[#0D503C]/70">Belgium designers, mobile-optimized</div>
-        </div>
-      ),
       'Ease of Process': (
         <div>
           <span className="font-medium">Done-for-you:</span> Minimal effort
           <div className="text-xs text-[#0D503C]/70">We handle design, tech, setup; 1 revision round</div>
         </div>
       ),
-      'Scalability': (
+      'Design Quality': (
         <div>
-          <span className="font-medium">Easy to scale:</span> Add pages, features, or e-commerce later
-          <div className="text-xs text-[#0D503C]/70">€10/mo keeps it secure</div>
+          Professional, custom logo & website
+          <div className="text-xs text-[#0D503C]/70">Belgium designers, mobile-optimized</div>
         </div>
       ),
-      'Client Attraction': (
+      'Scalability': (
+        <div>
+          <span className="font-medium">Easy to scale:</span> Add pages and other features for low prices
+        </div>
+      ),
+      'Conversion & Visibility': (
         <div>
           <span className="font-medium">Built to convert:</span> Clear CTAs, SEO-friendly
           <div className="text-xs text-[#0D503C]/70">Tailored for your audience</div>
@@ -86,17 +85,17 @@ const ComparisonSection: React.FC = () => {
     },
     'Traditional Agency': {
       'Upfront Cost': '€4,000-€8,000',
-      'Ongoing Cost': '€100-€150/mo',
+      'Ongoing Cost': '€50-€150/mo',
       'Time to Launch': '4-12 weeks',
+      'Ease of Process': (
+        <div>
+          <span className="font-medium">High effort:</span> Multiple meetings, revisions, approvals
+        </div>
+      ),
       'Design Quality': (
         <div>
           Highly custom, premium
           <div className="text-xs text-[#0D503C]/70">Often overkill for startups</div>
-        </div>
-      ),
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">High effort:</span> Multiple meetings, revisions, approvals
         </div>
       ),
       'Scalability': (
@@ -104,7 +103,7 @@ const ComparisonSection: React.FC = () => {
           <span className="font-medium">Scalable but costly:</span> New features often €1,000+
         </div>
       ),
-      'Client Attraction': (
+      'Conversion & Visibility': (
         <div>
           Strong conversion focus
           <div className="text-xs text-[#0D503C]/70">But costly and slow</div>
@@ -115,15 +114,15 @@ const ComparisonSection: React.FC = () => {
       'Upfront Cost': '€2,500-€5,000',
       'Ongoing Cost': '€30-€50/mo',
       'Time to Launch': '3-5 weeks',
+      'Ease of Process': (
+        <div>
+          <span className="font-medium">Moderate effort:</span> Manage freelancer, revisions, communication
+        </div>
+      ),
       'Design Quality': (
         <div>
           Professional but inconsistent
           <div className="text-xs text-[#0D503C]/70">Depends on freelancer skill</div>
-        </div>
-      ),
-      'Ease of Process': (
-        <div>
-          <span className="font-medium">Moderate effort:</span> Manage freelancer, revisions, communication
         </div>
       ),
       'Scalability': (
@@ -131,7 +130,7 @@ const ComparisonSection: React.FC = () => {
           <span className="font-medium">Limited:</span> Scaling depends on freelancer availability, skills
         </div>
       ),
-      'Client Attraction': (
+      'Conversion & Visibility': (
         <div>
           <span className="font-medium">Varies:</span> Conversion focus depends on freelancer expertise
         </div>
@@ -141,16 +140,16 @@ const ComparisonSection: React.FC = () => {
       'Upfront Cost': '€0-€500',
       'Ongoing Cost': '€5-€50/mo',
       'Time to Launch': '1 week-3 months',
-      'Design Quality': (
-        <div>
-          Template-based, risks looking generic
-          <div className="text-xs text-[#0D503C]/70">Depends on skill</div>
-        </div>
-      ),
       'Ease of Process': (
         <div>
           <span className="font-medium">High effort:</span> Learn Canva/Wix, design, troubleshoot
           <div className="text-xs text-[#0D503C]/70">Steep learning curve</div>
+        </div>
+      ),
+      'Design Quality': (
+        <div>
+          Template-based, risks looking generic
+          <div className="text-xs text-[#0D503C]/70">Depends on skill</div>
         </div>
       ),
       'Scalability': (
@@ -158,7 +157,7 @@ const ComparisonSection: React.FC = () => {
           <span className="font-medium">Limited:</span> Templates restrict growth; scaling often requires starting over
         </div>
       ),
-      'Client Attraction': (
+      'Conversion & Visibility': (
         <div>
           <span className="font-medium">Basic:</span> Limited SEO/UX unless you're skilled or buy plugins
         </div>
@@ -168,17 +167,17 @@ const ComparisonSection: React.FC = () => {
 
   // Category icons
   const categoryIcons = {
-    'Upfront Cost': <DollarSign className="w-5 h-5" />,
-    'Ongoing Cost': <DollarSign className="w-5 h-5" />,
+    'Upfront Cost': <Euro className="w-5 h-5" />,
+    'Ongoing Cost': <Euro className="w-5 h-5" />,
     'Time to Launch': <Clock className="w-5 h-5" />,
     'Design Quality': <Palette className="w-5 h-5" />,
     'Ease of Process': <ArrowRight className="w-5 h-5" />,
     'Scalability': <Layers className="w-5 h-5" />,
-    'Client Attraction': <MousePointer className="w-5 h-5" />
+    'Conversion & Visibility': <MousePointer className="w-5 h-5" />
   };
 
-  // Extract categories
-  const categories = Object.keys(comparisonData['Just Launch']);
+  // Extract categories - reordered to put Ease of Process before Design Quality
+  const categories = ['Upfront Cost', 'Ongoing Cost', 'Time to Launch', 'Ease of Process', 'Design Quality', 'Scalability', 'Conversion & Visibility'];
   
   // Get providers
   const providers = Object.keys(comparisonData);
@@ -210,10 +209,10 @@ const ComparisonSection: React.FC = () => {
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
         
-        {/* Deliverables line */}
+        {/* Deliverables line with pink background */}
         <div className="text-center mb-8">
           <p className="text-lg font-medium text-[#0D503C] inline-flex items-center justify-center">
-            <span className="bg-[#F2FCE2] px-6 py-2 rounded-full">
+            <span className="bg-[#FFDEE2] px-6 py-2 rounded-full">
               {t('compare.deliverables') || "Deliverables: Logo + Color palette + Custom 1-page website"}
             </span>
           </p>
@@ -270,12 +269,12 @@ const ComparisonSection: React.FC = () => {
           ))}
         </div>
         
-        {/* CTA Section */}
+        {/* CTA Section with hover effects and standardized heights */}
         <div className="flex flex-col items-center justify-center gap-6 mt-10">
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
-              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 rounded-full text-base"
+              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
             >
               Book Your Free Intro Call
             </Button>
@@ -283,7 +282,7 @@ const ComparisonSection: React.FC = () => {
             <Button 
               onClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
               variant="outline"
-              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 px-6 py-3 rounded-full text-base"
+              className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#F2FCE2]/80 px-6 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
             >
               Am I Ready to Launch?
             </Button>

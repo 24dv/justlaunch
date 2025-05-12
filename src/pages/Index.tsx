@@ -85,7 +85,9 @@ const Index = () => {
         <ProcessSection />
         <PricingSection />
         <TestimonialSection />
-        <ComparisonSection />
+        <div id="compare">
+          <ComparisonSection />
+        </div>
         <FaqSection />
         <ContactSection />
       </main>

@@ -69,10 +69,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: t('nav.features'), id: 'features' },
     { name: t('nav.work'), id: 'work' },
     { name: t('nav.process'), id: 'process' },
     { name: t('nav.pricing'), id: 'pricing' },
+    { name: t('nav.compare'), id: 'compare' },
     { name: t('nav.faq'), id: 'faq' },
   ];
 

@@ -1,10 +1,9 @@
-
 const translations = {
   // Navigation
-  "nav.features": "Kenmerken",
   "nav.work": "Portfolio",
   "nav.process": "Proces",
   "nav.pricing": "Prijzen",
+  "nav.compare": "Vergelijken",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
   "nav.getStarted": "Begin Nu",
@@ -190,6 +189,7 @@ const translations = {
   "footer.work": "Portfolio",
   "footer.process": "Proces",
   "footer.pricing": "Prijzen",
+  "footer.compare": "Vergelijken",
   "footer.contactUs": "Contact",
   "footer.copyright": "Alle rechten voorbehouden.",
   "footer.privacy": "Privacybeleid",
