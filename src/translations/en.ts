@@ -1,10 +1,10 @@
+
 const translations = {
   // Navigation
   "nav.features": "Features",
   "nav.work": "Work",
   "nav.process": "Process",
   "nav.pricing": "Pricing",
-  "nav.compare": "Compare",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
   "nav.getStarted": "Get Started",
@@ -190,7 +190,6 @@ const translations = {
   "footer.work": "Work",
   "footer.process": "Process",
   "footer.pricing": "Pricing",
-  "footer.compare": "Compare",
   "footer.contactUs": "Contact Us",
   "footer.copyright": "All rights reserved.",
   "footer.privacy": "Privacy Policy",
