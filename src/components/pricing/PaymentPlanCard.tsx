@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { X } from 'lucide-react';
@@ -71,19 +70,19 @@ const PaymentPlanCard = ({ onClose }: PaymentPlanCardProps) => {
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/30 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
+                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
                     1
                   </div>
                   <p className="text-[#0D503C]/80">{t('pricing.paymentPlan.step1')}</p>
                 </li>
                 <li className="flex items-start">
-                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/30 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
+                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
                     2
                   </div>
                   <p className="text-[#0D503C]/80">{t('pricing.paymentPlan.step2')}</p>
                 </li>
                 <li className="flex items-start">
-                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/30 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
+                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#F9A7A7]/50 flex items-center justify-center text-xs font-bold text-[#0D503C] mr-3 border border-[#0D503C]/20">
                     3
                   </div>
                   <p className="text-[#0D503C]/80">{t('pricing.paymentPlan.step3')}</p>
