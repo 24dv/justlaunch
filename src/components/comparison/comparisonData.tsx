@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
 import { ComparisonData } from './types';
@@ -48,7 +47,7 @@ export const comparisonData: ComparisonData = {
       </div>
     ),
   },
-  'Traditional Agency': {
+  'Agency': {
     'Upfront Cost': '€4,000-€8,000',
     'Ongoing Cost': '€50-€150/mo',
     'Time to Launch': '4-12 weeks',
@@ -133,7 +132,7 @@ export const comparisonData: ComparisonData = {
 // Category icons using emojis
 export const categoryIcons = {
   'Upfront Cost': <span className="text-xl">💶</span>,
-  'Ongoing Cost': <span className="text-xl">📅💸</span>,
+  'Ongoing Cost': <span className="text-xl">📅</span>,
   'Time to Launch': <span className="text-xl">🚀</span>,
   'Ease of Process': <span className="text-xl">🔄</span>,
   'Design Quality': <span className="text-xl">🎨</span>,
