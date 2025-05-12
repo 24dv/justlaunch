@@ -19,6 +19,16 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
 }) => {
   const { t } = useLanguage();
   
+  // Map provider names to translation keys
+  const getProviderName = (provider: string) => {
+    return t(`compare.providers.${provider.toLowerCase().replace(/\s+/g, '')}`);
+  };
+
+  // Map category names to translation keys
+  const getCategoryName = (category: string) => {
+    return t(`compare.categories.${category.toLowerCase().replace(/\s+/g, '')}`);
+  };
+  
   return (
     <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C] shadow-md">
       <Table>
@@ -30,7 +40,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
                 key={provider} 
                 className={`text-center ${provider === 'Just Launch' ? 'bg-[#0D503C] text-[#F5F5E9]' : ''}`}
               >
-                {t(`compare.providers.${provider.toLowerCase().replace(' ', '')}`)}
+                {getProviderName(provider)}
               </TableHead>
             ))}
           </TableRow>
@@ -41,7 +51,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
               <TableCell className="font-medium">
                 <div className="flex items-center gap-2">
                   {categoryIcons[category]}
-                  {t(`compare.categories.${category.toLowerCase().replace(/ /g, '')}`)}
+                  {getCategoryName(category)}
                 </div>
               </TableCell>
               {providers.map(provider => (

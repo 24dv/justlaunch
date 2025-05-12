@@ -1,132 +1,147 @@
+
 import React from 'react';
 import { Check } from 'lucide-react';
 import { ComparisonData } from './types';
+import { useLanguage } from '../../contexts/LanguageContext';
 
-// Comparison data
-export const comparisonData: ComparisonData = {
-  'Just Launch': {
-    'Upfront Cost': (
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-[#0D503C]">€1,500</span>
-        <Check size={18} className="text-green-600" />
-      </div>
-    ),
-    'Ongoing Cost': (
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-[#0D503C]">€10/mo</span>
-        <Check size={18} className="text-green-600" />
-      </div>
-    ),
-    'Time to Launch': (
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-[#0D503C]">14 days</span>
-        <Check size={18} className="text-green-600" />
-      </div>
-    ),
-    'Ease of Process': (
-      <div>
-        <span className="font-medium">Done-for-you:</span> Minimal effort
-        <div className="text-xs text-[#0D503C]/70">We handle design, tech, setup; 1 revision round</div>
-      </div>
-    ),
-    'Design Quality': (
-      <div>
-        Professional, custom logo & website
-        <div className="text-xs text-[#0D503C]/70">Belgium designers, mobile-optimized</div>
-      </div>
-    ),
-    'Scalability': (
-      <div>
-        <span className="font-medium">Easy to scale:</span> Add pages and other features for low prices
-      </div>
-    ),
-    'Conversion & Visibility': (
-      <div>
-        <span className="font-medium">Built to convert:</span> Clear CTAs, SEO-friendly
-        <div className="text-xs text-[#0D503C]/70">Tailored for your audience</div>
-      </div>
-    ),
-  },
-  'Agency': {
-    'Upfront Cost': '€4,000-€8,000',
-    'Ongoing Cost': '€50-€150/mo',
-    'Time to Launch': '4-12 weeks',
-    'Ease of Process': (
-      <div>
-        <span className="font-medium">High effort:</span> Multiple meetings, revisions, approvals
-      </div>
-    ),
-    'Design Quality': (
-      <div>
-        Highly custom, premium
-        <div className="text-xs text-[#0D503C]/70">Often overkill for startups</div>
-      </div>
-    ),
-    'Scalability': (
-      <div>
-        <span className="font-medium">Scalable but costly:</span> New features often €1,000+
-      </div>
-    ),
-    'Conversion & Visibility': (
-      <div>
-        Strong conversion focus
-        <div className="text-xs text-[#0D503C]/70">But costly and slow</div>
-      </div>
-    ),
-  },
-  'Freelancer': {
-    'Upfront Cost': '€2,500-€5,000',
-    'Ongoing Cost': '€30-€50/mo',
-    'Time to Launch': '3-5 weeks',
-    'Ease of Process': (
-      <div>
-        <span className="font-medium">Moderate effort:</span> Manage freelancer, revisions, communication
-      </div>
-    ),
-    'Design Quality': (
-      <div>
-        Professional but inconsistent
-        <div className="text-xs text-[#0D503C]/70">Depends on freelancer skill</div>
-      </div>
-    ),
-    'Scalability': (
-      <div>
-        <span className="font-medium">Limited:</span> Scaling depends on freelancer availability, skills
-      </div>
-    ),
-    'Conversion & Visibility': (
-      <div>
-        <span className="font-medium">Varies:</span> Conversion focus depends on freelancer expertise
-      </div>
-    ),
-  },
-  'DIY': {
-    'Upfront Cost': '€0-€500',
-    'Ongoing Cost': '€5-€50/mo',
-    'Time to Launch': '1 week-3 months',
-    'Ease of Process': (
-      <div>
-        <span className="font-medium">High effort:</span> Learn Canva/Wix, design, troubleshoot
-        <div className="text-xs text-[#0D503C]/70">Steep learning curve</div>
-      </div>
-    ),
-    'Design Quality': (
-      <div>
-        Template-based, risks looking generic
-        <div className="text-xs text-[#0D503C]/70">Depends on skill</div>
-      </div>
-    ),
-    'Scalability': (
-      <div>
-        <span className="font-medium">Limited:</span> Templates restrict growth; scaling often requires starting over
-      </div>
-    ),
-    'Conversion & Visibility': (
-      <div>
-        <span className="font-medium">Basic:</span> Limited SEO/UX unless you're skilled or buy plugins
-      </div>
-    ),
-  }
+// Create a function to get the translated comparison data
+export const useComparisonData = () => {
+  const { t } = useLanguage();
+  
+  // Comparison data
+  const comparisonData: ComparisonData = {
+    'Just Launch': {
+      'Upfront Cost': (
+        <div className="flex items-center gap-2">
+          <span className="font-bold text-[#0D503C]">€1,500</span>
+          <Check size={18} className="text-green-600" />
+        </div>
+      ),
+      'Ongoing Cost': (
+        <div className="flex items-center gap-2">
+          <span className="font-bold text-[#0D503C]">€10/mo</span>
+          <Check size={18} className="text-green-600" />
+        </div>
+      ),
+      'Time to Launch': (
+        <div className="flex items-center gap-2">
+          <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.timeToLaunch.days')}</span>
+          <Check size={18} className="text-green-600" />
+        </div>
+      ),
+      'Ease of Process': (
+        <div>
+          <span className="font-medium">{t('compare.data.justlaunch.easeOfProcess.label')}:</span> {t('compare.data.justlaunch.easeOfProcess.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.easeOfProcess.note')}</div>
+        </div>
+      ),
+      'Design Quality': (
+        <div>
+          {t('compare.data.justlaunch.designQuality.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.designQuality.note')}</div>
+        </div>
+      ),
+      'Scalability': (
+        <div>
+          <span className="font-medium">{t('compare.data.justlaunch.scalability.label')}:</span> {t('compare.data.justlaunch.scalability.value')}
+        </div>
+      ),
+      'Conversion & Visibility': (
+        <div>
+          <span className="font-medium">{t('compare.data.justlaunch.conversion.label')}:</span> {t('compare.data.justlaunch.conversion.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.conversion.note')}</div>
+        </div>
+      ),
+    },
+    'Agency': {
+      'Upfront Cost': t('compare.data.agency.upfrontCost'),
+      'Ongoing Cost': t('compare.data.agency.ongoingCost'),
+      'Time to Launch': t('compare.data.agency.timeToLaunch'),
+      'Ease of Process': (
+        <div>
+          <span className="font-medium">{t('compare.data.agency.easeOfProcess.label')}:</span> {t('compare.data.agency.easeOfProcess.value')}
+        </div>
+      ),
+      'Design Quality': (
+        <div>
+          {t('compare.data.agency.designQuality.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.agency.designQuality.note')}</div>
+        </div>
+      ),
+      'Scalability': (
+        <div>
+          <span className="font-medium">{t('compare.data.agency.scalability.label')}:</span> {t('compare.data.agency.scalability.value')}
+        </div>
+      ),
+      'Conversion & Visibility': (
+        <div>
+          {t('compare.data.agency.conversion.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.agency.conversion.note')}</div>
+        </div>
+      ),
+    },
+    'Freelancer': {
+      'Upfront Cost': t('compare.data.freelancer.upfrontCost'),
+      'Ongoing Cost': t('compare.data.freelancer.ongoingCost'),
+      'Time to Launch': t('compare.data.freelancer.timeToLaunch'),
+      'Ease of Process': (
+        <div>
+          <span className="font-medium">{t('compare.data.freelancer.easeOfProcess.label')}:</span> {t('compare.data.freelancer.easeOfProcess.value')}
+        </div>
+      ),
+      'Design Quality': (
+        <div>
+          {t('compare.data.freelancer.designQuality.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.freelancer.designQuality.note')}</div>
+        </div>
+      ),
+      'Scalability': (
+        <div>
+          <span className="font-medium">{t('compare.data.freelancer.scalability.label')}:</span> {t('compare.data.freelancer.scalability.value')}
+        </div>
+      ),
+      'Conversion & Visibility': (
+        <div>
+          <span className="font-medium">{t('compare.data.freelancer.conversion.label')}:</span> {t('compare.data.freelancer.conversion.value')}
+        </div>
+      ),
+    },
+    'DIY': {
+      'Upfront Cost': t('compare.data.diy.upfrontCost'),
+      'Ongoing Cost': t('compare.data.diy.ongoingCost'),
+      'Time to Launch': t('compare.data.diy.timeToLaunch'),
+      'Ease of Process': (
+        <div>
+          <span className="font-medium">{t('compare.data.diy.easeOfProcess.label')}:</span> {t('compare.data.diy.easeOfProcess.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.diy.easeOfProcess.note')}</div>
+        </div>
+      ),
+      'Design Quality': (
+        <div>
+          {t('compare.data.diy.designQuality.value')}
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.diy.designQuality.note')}</div>
+        </div>
+      ),
+      'Scalability': (
+        <div>
+          <span className="font-medium">{t('compare.data.diy.scalability.label')}:</span> {t('compare.data.diy.scalability.value')}
+        </div>
+      ),
+      'Conversion & Visibility': (
+        <div>
+          <span className="font-medium">{t('compare.data.diy.conversion.label')}:</span> {t('compare.data.diy.conversion.value')}
+        </div>
+      ),
+    }
+  };
+
+  // Get provider keys
+  const providers = Object.keys(comparisonData);
+
+  return {
+    comparisonData,
+    providers
+  };
 };
 
 // Category icons using emojis

@@ -4,13 +4,11 @@ import { useLanguage } from '../contexts/LanguageContext';
 import ComparisonTable from './comparison/ComparisonTable';
 import ComparisonCardsGrid from './comparison/ComparisonCardsGrid';
 import ComparisonCTA from './comparison/ComparisonCTA';
-import { comparisonData, categoryIcons, categories } from './comparison/comparisonData';
+import { useComparisonData, categoryIcons, categories } from './comparison/comparisonData';
 
 const ComparisonSection: React.FC = () => {
   const { t } = useLanguage();
-  
-  // Get providers
-  const providers = Object.keys(comparisonData);
+  const { comparisonData, providers } = useComparisonData();
   
   const scrollToContact = () => {
     const element = document.getElementById('contact');
