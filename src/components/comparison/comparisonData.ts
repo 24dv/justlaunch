@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Check } from 'lucide-react';
 import { ComparisonData } from './types';
 
@@ -130,7 +129,7 @@ export const comparisonData: ComparisonData = {
   }
 };
 
-// Category icons - replaced with emojis
+// Category icons using emojis
 export const categoryIcons = {
   'Upfront Cost': <span className="text-xl">💶</span>,
   'Ongoing Cost': <span className="text-xl">📅💸</span>,
@@ -141,7 +140,7 @@ export const categoryIcons = {
   'Conversion & Visibility': <span className="text-xl">👁️</span>
 };
 
-// Extract categories - reordered to put Ease of Process before Design Quality
+// Categories order
 export const categories = [
   'Upfront Cost', 
   'Ongoing Cost', 
