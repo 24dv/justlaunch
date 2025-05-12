@@ -17,7 +17,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
   categoryIcons 
 }) => {
   return (
-    <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C]/20 shadow-md">
+    <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C] shadow-md">
       <Table>
         <TableHeader className="bg-[#0D503C]/5">
           <TableRow>
