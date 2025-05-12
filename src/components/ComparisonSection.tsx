@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { DollarSign, Clock, Scale, Palette, ArrowRight, MousePointer, ArrowUpRight, Layers, Check } from 'lucide-react';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './ui/table';
+import { Check, DollarSign, Clock, Scale, Palette, ArrowRight, MousePointer, ArrowUpRight, Layers } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './ui/table';
 import { Button } from './ui/button';
 
 // Define types for our comparison data
@@ -29,7 +30,7 @@ const ComparisonSection: React.FC = () => {
       <CardContent className="p-4">
         {Object.entries(data).map(([category, value], idx) => (
           <div key={category} className={`py-3 ${idx !== Object.entries(data).length - 1 ? 'border-b border-[#0D503C]/10' : ''}`}>
-            <div className="font-medium mb-1">{getCategoryName(category)}</div>
+            <div className="font-medium mb-1">{category}</div>
             <div className="text-sm text-[#0D503C]/80">{value}</div>
           </div>
         ))}
@@ -37,157 +38,143 @@ const ComparisonSection: React.FC = () => {
     </Card>
   );
 
-  // Helper function to get the translated category name
-  const getCategoryName = (category: string) => {
-    const categoryMap: Record<string, string> = {
-      'Upfront Cost': t('comparison.category.upfrontCost'),
-      'Ongoing Cost': t('comparison.category.ongoingCost'),
-      'Time to Launch': t('comparison.category.timeToLaunch'),
-      'Design Quality': t('comparison.category.designQuality'),
-      'Ease of Process': t('comparison.category.easeOfProcess'),
-      'Scalability': t('comparison.category.scalability'),
-      'Client Attraction': t('comparison.category.clientAttraction')
-    };
-    return categoryMap[category] || category;
-  };
-
   // Comparison data
   const comparisonData: ComparisonData = {
     'Just Launch': {
       'Upfront Cost': (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">{t('comparison.justLaunch.upfrontCost')}</span>
+          <span className="font-bold text-[#0D503C]">€1,500</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Ongoing Cost': (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">{t('comparison.justLaunch.ongoingCost')}</span>
+          <span className="font-bold text-[#0D503C]">€10/mo</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Time to Launch': (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">{t('comparison.justLaunch.timeToLaunch')}</span>
+          <span className="font-bold text-[#0D503C]">14 days</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Design Quality': (
         <div>
-          {t('comparison.justLaunch.designQuality.title')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.justLaunch.designQuality.subtitle')}</div>
+          Professional, custom logo & website
+          <div className="text-xs text-[#0D503C]/70">Belgium designers, mobile-optimized</div>
         </div>
       ),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('comparison.justLaunch.easeOfProcess.title')}</span> {t('comparison.justLaunch.easeOfProcess.subtitle')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.justLaunch.easeOfProcess.description')}</div>
+          <span className="font-medium">Done-for-you:</span> Minimal effort
+          <div className="text-xs text-[#0D503C]/70">We handle design, tech, setup; 1 revision round</div>
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('comparison.justLaunch.scalability.title')}</span> {t('comparison.justLaunch.scalability.subtitle')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.justLaunch.scalability.description')}</div>
+          <span className="font-medium">Easy to scale:</span> Add pages, features, or e-commerce later
+          <div className="text-xs text-[#0D503C]/70">€10/mo keeps it secure</div>
         </div>
       ),
       'Client Attraction': (
         <div>
-          <span className="font-medium">{t('comparison.justLaunch.clientAttraction.title')}</span> {t('comparison.justLaunch.clientAttraction.subtitle')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.justLaunch.clientAttraction.description')}</div>
+          <span className="font-medium">Built to convert:</span> Clear CTAs, SEO-friendly
+          <div className="text-xs text-[#0D503C]/70">Tailored for your audience</div>
         </div>
       ),
     },
     'Traditional Agency': {
-      'Upfront Cost': t('comparison.agency.upfrontCost'),
-      'Ongoing Cost': t('comparison.agency.ongoingCost'),
-      'Time to Launch': t('comparison.agency.timeToLaunch'),
+      'Upfront Cost': '€4,000-€8,000',
+      'Ongoing Cost': '€100-€150/mo',
+      'Time to Launch': '4-12 weeks',
       'Design Quality': (
         <div>
-          {t('comparison.agency.designQuality.title')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.agency.designQuality.description')}</div>
+          Highly custom, premium
+          <div className="text-xs text-[#0D503C]/70">Often overkill for startups</div>
         </div>
       ),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('comparison.agency.easeOfProcess.title')}</span> {t('comparison.agency.easeOfProcess.description')}
+          <span className="font-medium">High effort:</span> Multiple meetings, revisions, approvals
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('comparison.agency.scalability.title')}</span> {t('comparison.agency.scalability.description')}
+          <span className="font-medium">Scalable but costly:</span> New features often €1,000+
         </div>
       ),
       'Client Attraction': (
         <div>
-          {t('comparison.agency.clientAttraction.title')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.agency.clientAttraction.description')}</div>
+          Strong conversion focus
+          <div className="text-xs text-[#0D503C]/70">But costly and slow</div>
         </div>
       ),
     },
     'Freelancer': {
-      'Upfront Cost': t('comparison.freelancer.upfrontCost'),
-      'Ongoing Cost': t('comparison.freelancer.ongoingCost'),
-      'Time to Launch': t('comparison.freelancer.timeToLaunch'),
+      'Upfront Cost': '€2,500-€5,000',
+      'Ongoing Cost': '€30-€50/mo',
+      'Time to Launch': '3-5 weeks',
       'Design Quality': (
         <div>
-          {t('comparison.freelancer.designQuality.title')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.freelancer.designQuality.description')}</div>
+          Professional but inconsistent
+          <div className="text-xs text-[#0D503C]/70">Depends on freelancer skill</div>
         </div>
       ),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('comparison.freelancer.easeOfProcess.title')}</span> {t('comparison.freelancer.easeOfProcess.description')}
+          <span className="font-medium">Moderate effort:</span> Manage freelancer, revisions, communication
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('comparison.freelancer.scalability.title')}</span> {t('comparison.freelancer.scalability.description')}
+          <span className="font-medium">Limited:</span> Scaling depends on freelancer availability, skills
         </div>
       ),
       'Client Attraction': (
         <div>
-          <span className="font-medium">{t('comparison.freelancer.clientAttraction.title')}</span> {t('comparison.freelancer.clientAttraction.description')}
+          <span className="font-medium">Varies:</span> Conversion focus depends on freelancer expertise
         </div>
       ),
     },
     'DIY': {
-      'Upfront Cost': t('comparison.diy.upfrontCost'),
-      'Ongoing Cost': t('comparison.diy.ongoingCost'),
-      'Time to Launch': t('comparison.diy.timeToLaunch'),
+      'Upfront Cost': '€0-€500',
+      'Ongoing Cost': '€5-€50/mo',
+      'Time to Launch': '1 week-3 months',
       'Design Quality': (
         <div>
-          {t('comparison.diy.designQuality.title')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.diy.designQuality.description')}</div>
+          Template-based, risks looking generic
+          <div className="text-xs text-[#0D503C]/70">Depends on skill</div>
         </div>
       ),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('comparison.diy.easeOfProcess.title')}</span> {t('comparison.diy.easeOfProcess.description')}
-          <div className="text-xs text-[#0D503C]/70">{t('comparison.diy.easeOfProcess.subtitle')}</div>
+          <span className="font-medium">High effort:</span> Learn Canva/Wix, design, troubleshoot
+          <div className="text-xs text-[#0D503C]/70">Steep learning curve</div>
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('comparison.diy.scalability.title')}</span> {t('comparison.diy.scalability.description')}
+          <span className="font-medium">Limited:</span> Templates restrict growth; scaling often requires starting over
         </div>
       ),
       'Client Attraction': (
         <div>
-          <span className="font-medium">{t('comparison.diy.clientAttraction.title')}</span> {t('comparison.diy.clientAttraction.description')}
+          <span className="font-medium">Basic:</span> Limited SEO/UX unless you're skilled or buy plugins
         </div>
       ),
     }
   };
 
-  // Category icons with feature-style styling
+  // Category icons
   const categoryIcons = {
-    'Upfront Cost': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><DollarSign className="w-5 h-5 text-[#0D503C]" /></div>,
-    'Ongoing Cost': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><DollarSign className="w-5 h-5 text-[#0D503C]" /></div>,
-    'Time to Launch': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><Clock className="w-5 h-5 text-[#0D503C]" /></div>,
-    'Design Quality': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><Palette className="w-5 h-5 text-[#0D503C]" /></div>,
-    'Ease of Process': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><ArrowRight className="w-5 h-5 text-[#0D503C]" /></div>,
-    'Scalability': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><Layers className="w-5 h-5 text-[#0D503C]" /></div>,
-    'Client Attraction': <div className="flex items-center justify-center w-10 h-10 bg-[#F2FCE2] rounded-full"><MousePointer className="w-5 h-5 text-[#0D503C]" /></div>
+    'Upfront Cost': <DollarSign className="w-5 h-5" />,
+    'Ongoing Cost': <DollarSign className="w-5 h-5" />,
+    'Time to Launch': <Clock className="w-5 h-5" />,
+    'Design Quality': <Palette className="w-5 h-5" />,
+    'Ease of Process': <ArrowRight className="w-5 h-5" />,
+    'Scalability': <Layers className="w-5 h-5" />,
+    'Client Attraction': <MousePointer className="w-5 h-5" />
   };
 
   // Extract categories
@@ -211,14 +198,14 @@ const ComparisonSection: React.FC = () => {
   };
   
   return (
-    <section id="compare" className="section-padding bg-[#F5F5E9] border-y border-[#0D503C]/10">
+    <section className="section-padding bg-[#F5F5E9] border-y border-[#0D503C]/10">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
-            {t('comparison.title')}
+            Just Launch (€1,500) vs. Agency vs. Freelancer vs. DIY
           </h2>
           <p className="text-xl text-[#0D503C]/80 max-w-3xl mx-auto">
-            {t('comparison.subtitle')}
+            See how we compare to the alternatives for launching your brand online
           </p>
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
@@ -228,7 +215,7 @@ const ComparisonSection: React.FC = () => {
           <Table>
             <TableHeader className="bg-[#0D503C]/5">
               <TableRow>
-                <TableHead className="w-[180px]">{t('comparison.category.upfrontCost')}</TableHead>
+                <TableHead className="w-[180px]">Category</TableHead>
                 {providers.map(provider => (
                   <TableHead 
                     key={provider} 
@@ -241,11 +228,11 @@ const ComparisonSection: React.FC = () => {
             </TableHeader>
             <TableBody>
               {categories.map(category => (
-                <TableRow key={category} className="hover:bg-[#F2FCE2]">
+                <TableRow key={category}>
                   <TableCell className="font-medium">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                       {categoryIcons[category]}
-                      {getCategoryName(category)}
+                      {category}
                     </div>
                   </TableCell>
                   {providers.map(provider => (
@@ -279,17 +266,17 @@ const ComparisonSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
-              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-6 h-auto rounded-full text-base transition-transform hover:scale-105"
+              className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-6 py-3 rounded-full text-base"
             >
-              {t('comparison.cta.bookCall')}
+              Book Your Free Intro Call
             </Button>
             
             <Button 
               onClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
               variant="outline"
-              className="border-[#0D503C] text-[#0D503C] bg-[#F2FCE2] hover:bg-[#F2FCE2]/80 px-6 py-6 h-auto rounded-full text-base transition-transform hover:scale-105"
+              className="border-[#0D503C] text-[#0D503C] hover:bg-[#0D503C]/5 px-6 py-3 rounded-full text-base"
             >
-              {t('comparison.cta.takeQuiz')}
+              Am I Ready to Launch?
             </Button>
           </div>
           
@@ -297,7 +284,7 @@ const ComparisonSection: React.FC = () => {
             onClick={scrollToWorks}
             className="flex items-center gap-1 text-[#0D503C] hover:text-[#0A4231] underline underline-offset-4 font-medium"
           >
-            {t('comparison.cta.seeWork')}
+            See what we can do for you in 14 days!
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
