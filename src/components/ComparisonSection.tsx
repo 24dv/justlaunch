@@ -210,6 +210,15 @@ const ComparisonSection: React.FC = () => {
           <div className="w-24 h-1 bg-[#0D503C] mx-auto mt-6" />
         </div>
         
+        {/* Deliverables line */}
+        <div className="text-center mb-8">
+          <p className="text-lg font-medium text-[#0D503C] inline-flex items-center justify-center">
+            <span className="bg-[#F2FCE2] px-6 py-2 rounded-full">
+              {t('compare.deliverables') || "Deliverables: Logo + Color palette + Custom 1-page website"}
+            </span>
+          </p>
+        </div>
+        
         {/* Desktop version - Table */}
         <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C]/20 shadow-md">
           <Table>

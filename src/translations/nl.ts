@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Kenmerken",
@@ -124,6 +125,7 @@ const translations = {
   // Comparison Section
   "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
   "compare.subtitle": "We hebben Just Launch ontworpen nadat we te veel startups tijd en geld zagen verspillen door het op de moeilijke manier te doen",
+  "compare.deliverables": "Inbegrepen: Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
 
   // Quiz Popup & Footer
   "quiz.popup.title": "Twijfel je of je klaar bent om te lanceren?",

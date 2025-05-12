@@ -1,3 +1,4 @@
+
 const translations = {
   // Navigation
   "nav.features": "Features",
@@ -156,6 +157,7 @@ const translations = {
   // Comparison Section
   "compare.title": "Just Launch vs. Agency vs. Freelancer vs. DIY",
   "compare.subtitle": "We designed Just Launch after seeing too many startups waste time and money doing it the hard way",
+  "compare.deliverables": "Deliverables: Logo + Color palette + Custom 1-page website",
 
   // Contact Section
   "contact.title": "Ready to launch your brand — fast and stress-free?",
