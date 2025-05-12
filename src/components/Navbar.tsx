@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, HelpCircle } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -68,10 +69,10 @@ const Navbar = () => {
   };
 
   const navItems = [
+    { name: t('nav.features'), id: 'features' },
     { name: t('nav.work'), id: 'work' },
     { name: t('nav.process'), id: 'process' },
     { name: t('nav.pricing'), id: 'pricing' },
-    { name: t('nav.compare'), id: 'compare' },
     { name: t('nav.faq'), id: 'faq' },
   ];
 
