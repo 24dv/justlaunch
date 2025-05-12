@@ -30,7 +30,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
   };
   
   return (
-    <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C] shadow-md">
+    <div className="hidden lg:block mb-12 overflow-hidden rounded-xl border border-[#0D503C] shadow-md bg-[#F5F5E9]">
       <Table>
         <TableHeader className="bg-[#0D503C]/5">
           <TableRow>
