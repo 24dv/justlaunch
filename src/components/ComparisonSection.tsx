@@ -26,8 +26,15 @@ const ComparisonSection: React.FC = () => {
     }
   };
   
+  const scrollToWork = () => {
+    const element = document.getElementById('work');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
-    <section className="section-padding bg-[#F5F5E9] border-y border-[#0D503C]/10">
+    <section className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0D503C] mb-4 font-serif tracking-tight">
@@ -43,7 +50,7 @@ const ComparisonSection: React.FC = () => {
         <div className="text-center mb-8">
           <p className="text-sm font-medium text-[#0D503C] inline-flex items-center justify-center">
             <span className="bg-[#F9A7A7]/30 border border-[#F9A7A7] px-4 py-1.5 rounded-full">
-              <span className="font-bold">Deliverables:</span> Logo + Color palette + Custom 1-page website
+              <span className="font-bold">{t('compare.deliverables.prefix')}:</span> {t('compare.deliverables.content')}
             </span>
           </p>
         </div>
@@ -66,6 +73,7 @@ const ComparisonSection: React.FC = () => {
         <ComparisonCTA
           onContactClick={scrollToContact}
           onFormClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
+          onWorkClick={scrollToWork}
         />
       </div>
     </section>

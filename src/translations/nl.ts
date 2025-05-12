@@ -1,4 +1,3 @@
-
 const translations = {
   // Navigation
   "nav.work": "Portfolio",
@@ -125,7 +124,8 @@ const translations = {
   // Comparison Section
   "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
   "compare.subtitle": "Vergelijk je opties voordat je tijd en geld verspilt aan de verkeerde aanpak. Ontdek hoe wij ons verhouden tot de gebruikelijke manieren waarop founders online gaan.",
-  "compare.deliverables": "Inbegrepen: Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
+  "compare.deliverables.prefix": "Inbegrepen",
+  "compare.deliverables.content": "Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
 
   // Quiz Popup & Footer
   "quiz.popup.title": "Twijfel je of je klaar bent om te lanceren?",

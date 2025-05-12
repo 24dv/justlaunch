@@ -6,9 +6,10 @@ import { ArrowUpRight } from 'lucide-react';
 interface ComparisonCTAProps {
   onContactClick: () => void;
   onFormClick: () => void;
+  onWorkClick: () => void;
 }
 
-const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormClick }) => {
+const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormClick, onWorkClick }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-6 mt-10">
       <div className="flex flex-col sm:flex-row gap-4">
@@ -29,7 +30,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormCli
       </div>
       
       <button 
-        onClick={onContactClick}
+        onClick={onWorkClick}
         className="flex items-center gap-1 text-[#0D503C] hover:text-[#0A4231] underline underline-offset-4 font-medium"
       >
         See what we can do for you in 14 days!
