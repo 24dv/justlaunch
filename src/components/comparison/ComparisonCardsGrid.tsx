@@ -40,36 +40,38 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
         <p>{t('compare.mobileInstructions') || 'Swipe to compare Just Launch with alternatives'}</p>
       </div>
 
-      <Carousel
-        opts={{
-          align: "center",
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {competitorProviders.map((competitorProvider, index) => (
-            <CarouselItem key={competitorProvider} className="basis-full">
-              <div className="p-1">
-                <MobileComparisonCard 
-                  mainProvider={getProviderName('Just Launch')}
-                  comparisonProvider={getProviderName(competitorProvider)}
-                  justLaunchData={justLaunchData}
-                  competitorData={comparisonData[competitorProvider]}
-                  categoryIcons={categoryIcons}
-                  categories={categories}
-                  getCategoryName={getCategoryName}
-                  highlight={true}
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="flex justify-center mt-4 gap-2">
-          <CarouselPrevious className="relative static transform-none translate-y-0 mx-2 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none" />
-          <CarouselNext className="relative static transform-none translate-y-0 mx-2 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none" />
-        </div>
-      </Carousel>
+      <div className="relative">
+        <Carousel
+          opts={{
+            align: "center",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none" />
+          
+          <CarouselContent>
+            {competitorProviders.map((competitorProvider, index) => (
+              <CarouselItem key={competitorProvider} className="basis-full">
+                <div className="p-1">
+                  <MobileComparisonCard 
+                    mainProvider={getProviderName('Just Launch')}
+                    comparisonProvider={getProviderName(competitorProvider)}
+                    justLaunchData={justLaunchData}
+                    competitorData={comparisonData[competitorProvider]}
+                    categoryIcons={categoryIcons}
+                    categories={categories}
+                    getCategoryName={getCategoryName}
+                    highlight={true}
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none" />
+        </Carousel>
+      </div>
     </div>
   );
 };
