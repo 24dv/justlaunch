@@ -40,7 +40,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   return (
     <Card className={`overflow-hidden bg-[#F5F5E9] ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''}`}>
       <CardHeader className={`pb-2 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
-        <CardTitle className="text-lg font-bold text-center flex justify-between items-center">
+        <CardTitle className="text-lg font-bold text-center flex justify-center items-center">
           <span>{mainProvider}</span>
           <ArrowRight className="h-4 w-4 mx-2" />
           <span>{comparisonProvider}</span>
@@ -54,11 +54,13 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               key={category} 
               className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
             >
-              <div className="p-3 font-medium border-b border-[#0D503C]/10 flex items-center gap-2">
-                {categoryIcons[category]}
-                <span>{getCategoryName(category)}</span>
+              <div className="p-3 font-medium text-center border-b border-[#0D503C]/10 flex flex-col items-center gap-2">
+                <div className="flex items-center gap-2 text-base">
+                  {categoryIcons[category]}
+                  <span>{getCategoryName(category)}</span>
+                </div>
                 {hasAdvantage(category) && (
-                  <Badge className="ml-auto text-xs bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
+                  <Badge className="text-xs bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
                     Advantage
                   </Badge>
                 )}
@@ -70,7 +72,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                   "p-3", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
                 )}>
-                  <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center justify-center gap-2">
                     <div className="flex justify-center">
                       {renderValue(justLaunchData[category])}
                     </div>
@@ -79,7 +81,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                 
                 {/* Competitor Side */}
                 <div className="p-3">
-                  <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center justify-center gap-2">
                     <div className="flex justify-center">
                       {renderValue(competitorData[category])}
                     </div>
