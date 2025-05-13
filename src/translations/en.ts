@@ -173,6 +173,7 @@ const translations = {
   "compare.cta.freeIntroCall": "Book Your Free Intro Call",
   "compare.cta.readyToLaunch": "Am I Ready to Launch?",
   "compare.cta.whatWeCanDo": "See what we can do for you in 14 days!",
+  "compare.swipe": "Swipe to compare",
   
   // Comparison Data - Just Launch
   "compare.data.justlaunch.timeToLaunch.days": "14 days",

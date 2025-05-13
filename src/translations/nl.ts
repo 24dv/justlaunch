@@ -117,13 +117,14 @@ const translations = {
   "pricing.paymentPlan.tagline": "Geen betaling nu — reserveer gewoon je plek.",
   "pricing.paymentPlan.howItWorks": "Hoe het werkt:",
   "pricing.paymentPlan.step1": "Betaal €833 om je project te starten",
-  "pricing.paymentPlan.step2": "Tweede betaling van €833, é��n maand na de start",
+  "pricing.paymentPlan.step2": "Tweede betaling van €833, ����n maand na de start",
   "pricing.paymentPlan.step3": "Laatste betaling van €834, één maand na de tweede betaling",
   "pricing.paymentPlan.note": "Uitsluitend beschikbaar voor het Premiumpakket. Totale kost blijft hetzelfde (€2.500).",
 
   // Comparison Section
   "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
   "compare.subtitle": "Vergelijk je opties voordat je tijd en geld verspilt aan de verkeerde aanpak. Ontdek hoe wij ons verhouden tot de gebruikelijke manieren waarop founders online gaan.",
+  "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
   "compare.deliverables.content": "Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
   "compare.category": "Categorie",
