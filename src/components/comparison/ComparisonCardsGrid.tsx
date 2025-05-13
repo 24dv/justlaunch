@@ -36,16 +36,12 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
   
   return (
     <div className="lg:hidden mb-12">
-      <div className="text-center mb-6 text-sm text-[#0D503C]/70">
-        <p>{t('compare.mobileInstructions') || 'Swipe to compare Just Launch with alternatives'}</p>
-      </div>
-
       <Carousel
         opts={{
           align: "center",
           loop: true,
         }}
-        className="w-full"
+        className="w-full relative"
       >
         <CarouselContent>
           {competitorProviders.map((competitorProvider, index) => (
@@ -65,9 +61,13 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex justify-center mt-4 gap-2">
-          <CarouselPrevious className="relative static transform-none translate-y-0 mx-2 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none" />
-          <CarouselNext className="relative static transform-none translate-y-0 mx-2 bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none" />
+        
+        {/* Enhanced visibility for carousel navigation buttons */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="flex items-center justify-between h-full px-1 pointer-events-none">
+            <CarouselPrevious className="relative pointer-events-auto bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none shadow-md" />
+            <CarouselNext className="relative pointer-events-auto bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0D503C]/80 border-none shadow-md" />
+          </div>
         </div>
       </Carousel>
     </div>
@@ -75,3 +75,4 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
 };
 
 export default ComparisonCardsGrid;
+
