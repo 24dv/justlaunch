@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Check, X, Minus, ArrowRight } from 'lucide-react';
+import { Check, X, Minus, ArrowRight, Trophy } from 'lucide-react';
 import { categoryIcons } from './comparisonData';
 
 export type CategoryData = Record<string, React.ReactNode>;
@@ -55,24 +55,10 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
     ...Object.keys(competitorData)
   ])];
 
-  // Provider display names for column headers
-  const getProviderDisplayName = (provider: string) => {
-    return t(`compare.providers.${provider.toLowerCase().replace(/\s+/g, '')}`);
-  };
-
   return (
     <Card className={`overflow-hidden transition-all duration-200 shadow-md bg-[#F5F5E9] ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''}`}>
       <CardHeader className={`pb-3 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
         <CardTitle className="text-lg font-bold text-center">{title}</CardTitle>
-        
-        {/* Column headers */}
-        <div className="flex justify-between mt-2 text-sm font-medium">
-          <div className="flex-1 text-center">{getProviderDisplayName(mainProvider)}</div>
-          <div className="w-6 flex items-center justify-center">
-            <ArrowRight className="h-4 w-4" />
-          </div>
-          <div className="flex-1 text-center">{getProviderDisplayName(comparisonProvider)}</div>
-        </div>
       </CardHeader>
       
       <CardContent className="p-0">
@@ -81,19 +67,39 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
             key={category} 
             className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'} border-b border-[#0D503C]/10 last:border-b-0`}
           >
-            <div className="p-3 font-medium border-b border-[#0D503C]/10 flex items-center gap-2">
-              {categoryIcons[category]}
-              {getCategoryName(category)}
-            </div>
-            <div className="grid grid-cols-2">
-              <div className={`p-3 border-r border-[#0D503C]/10 ${hasAdvantage(category) ? 'bg-[#0D503C]/10' : ''}`}>
-                <div className="flex justify-center items-center h-full">
-                  {renderValue(justLaunchData[category])}
-                </div>
+            <div className="p-3 font-medium border-b border-[#0D503C]/10 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {categoryIcons[category]}
+                <span>{getCategoryName(category)}</span>
               </div>
-              <div className={`p-3 ${!hasAdvantage(category) && competitorData[category] !== justLaunchData[category] ? 'bg-[#0D503C]/5' : ''}`}>
-                <div className="flex justify-center items-center h-full">
-                  {renderValue(competitorData[category])}
+              {hasAdvantage(category) && (
+                <span className="text-xs px-2 py-1 rounded-full bg-[#0D503C]/10 text-[#0D503C] font-medium">
+                  {t('compare.advantage')}
+                </span>
+              )}
+            </div>
+            <div className="p-4">
+              <div className="flex flex-col gap-3">
+                <div className={`p-3 rounded ${hasAdvantage(category) ? 'bg-[#0D503C]/10 border border-[#0D503C]/20' : ''}`}>
+                  <div className="flex items-center justify-between">
+                    <div className="font-medium text-[#0D503C]">{mainProvider}</div>
+                    <div className="flex justify-center items-center">
+                      {renderValue(justLaunchData[category])}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-center my-1">
+                  <div className="w-px h-6 bg-[#0D503C]/20"></div>
+                </div>
+                
+                <div className={`p-3 rounded ${!hasAdvantage(category) && competitorData[category] !== justLaunchData[category] ? 'bg-[#0D503C]/5' : ''}`}>
+                  <div className="flex items-center justify-between">
+                    <div className="font-medium text-[#0D503C]/80">{comparisonProvider}</div>
+                    <div className="flex justify-center items-center">
+                      {renderValue(competitorData[category])}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
