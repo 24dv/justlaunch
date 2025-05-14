@@ -57,7 +57,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
           <div className="flex gap-2 items-center">
             <CardTitle className="text-sm font-bold">{comparisonProvider}</CardTitle>
             <div className="w-7 h-7 flex items-center justify-center bg-[#F5F5E9]/10 rounded-full border border-[#F5F5E9]/30">
-              <span className={highlight ? "text-[#F5F5E9]" : "text-[#0D503C]"} className="text-xs font-bold">VS</span>
+              <span className={highlight ? "text-[#F5F5E9]" : "text-[#0D503C]"}>VS</span>
             </div>
           </div>
         </div>
