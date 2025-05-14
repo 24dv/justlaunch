@@ -23,10 +23,10 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
 }) => {
   // Function to render icon or value
   const renderValue = (value: React.ReactNode) => {
-    if (value === true) return <Check className="h-5 w-5 text-green-500" />;
-    if (value === false) return <X className="h-5 w-5 text-red-500" />;
-    if (value === null || value === undefined) return <Minus className="h-5 w-5 text-gray-400" />;
-    return value;
+    if (value === true) return <Check className="h-4 w-4 text-green-500" />;
+    if (value === false) return <X className="h-4 w-4 text-red-500" />;
+    if (value === null || value === undefined) return <Minus className="h-4 w-4 text-gray-400" />;
+    return <span className="text-xs">{value}</span>;
   };
 
   // Function to determine if Just Launch has an advantage
@@ -40,20 +40,17 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   return (
     <Card className={cn(
       "overflow-hidden bg-[#F5F5E9]",
-      highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''
+      highlight ? 'border-[#0D503C] shadow-sm' : ''
     )}>
-      <CardHeader className={cn(
-        "py-3",
-        highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'
-      )}>
+      <CardHeader className="py-2 px-3 bg-[#0D503C] text-[#F5F5E9]">
         <div className="grid grid-cols-2 gap-2">
           <div className="text-center">
-            <CardTitle className="text-lg font-bold font-serif">
+            <CardTitle className="text-sm font-serif">
               {mainProvider}
             </CardTitle>
           </div>
           <div className="text-center border-l border-[#F5F5E9]/30">
-            <CardTitle className="text-lg font-bold font-serif">
+            <CardTitle className="text-sm font-serif">
               {comparisonProvider}
             </CardTitle>
           </div>
@@ -67,13 +64,13 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               key={category} 
               className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
             >
-              <div className="p-3 font-medium text-center border-b border-[#0D503C]/10 flex flex-col items-center gap-2">
-                <div className="flex items-center gap-2 text-base justify-center">
-                  {categoryIcons[category]}
+              <div className="p-2 font-medium text-center border-b border-[#0D503C]/10 flex flex-col items-center gap-1">
+                <div className="flex items-center gap-1 text-xs justify-center">
+                  {React.cloneElement(categoryIcons[category] as React.ReactElement, { className: 'h-3 w-3' })}
                   <span>{getCategoryName(category)}</span>
                 </div>
                 {hasAdvantage(category) && (
-                  <Badge className="text-xs bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
+                  <Badge className="text-[10px] px-1 py-0 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
                     Advantage
                   </Badge>
                 )}
@@ -82,7 +79,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               <div className="grid grid-cols-2 divide-x divide-[#0D503C]/10">
                 {/* Just Launch Side */}
                 <div className={cn(
-                  "p-3 flex flex-col items-center justify-center text-center", 
+                  "p-2 flex flex-col items-center justify-center text-center", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
                 )}>
                   <div className="flex justify-center">
@@ -91,7 +88,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                 </div>
                 
                 {/* Competitor Side */}
-                <div className="p-3 flex flex-col items-center justify-center text-center">
+                <div className="p-2 flex flex-col items-center justify-center text-center">
                   <div className="flex justify-center">
                     {renderValue(competitorData[category])}
                   </div>
