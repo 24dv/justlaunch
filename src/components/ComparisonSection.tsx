@@ -17,13 +17,6 @@ const ComparisonSection: React.FC = () => {
     }
   };
   
-  const scrollToWork = () => {
-    const element = document.getElementById('carousel');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  
   return (
     <section className="section-padding bg-[#F5F5E9]">
       <div className="container mx-auto">
@@ -64,7 +57,6 @@ const ComparisonSection: React.FC = () => {
         <ComparisonCTA
           onContactClick={scrollToContact}
           onFormClick={() => window.open("https://forms.justlaunch.be/", "_blank")}
-          onWorkClick={scrollToWork}
         />
       </div>
     </section>

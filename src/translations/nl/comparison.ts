@@ -1,4 +1,3 @@
-
 const comparison = {
   "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
   "compare.subtitle": "Vergelijk je opties voordat je tijd en geld verspilt aan de verkeerde aanpak. Ontdek hoe wij ons verhouden tot de gebruikelijke manieren waarop founders online gaan.",
@@ -19,7 +18,7 @@ const comparison = {
   "compare.categories.conversion&visibility": "Conversie & Zichtbaarheid",
   "compare.cta.freeIntroCall": "Plan Je Gratis Introgesprek",
   "compare.cta.readyToLaunch": "Ben Ik Klaar Om Te Lanceren?",
-  "compare.cta.whatWeCanDo": "Zie wat we in 14 dagen voor je kunnen doen!",
+  "compare.cta.hardWay": "Doe je het nog op de moeilijke manier?",
   "compare.advantage": "Voordeel",
   
   // Simplified Comparison Data - Just Launch

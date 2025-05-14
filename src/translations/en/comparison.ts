@@ -1,4 +1,3 @@
-
 const comparison = {
   "compare.title": "Just Launch vs. Agency vs. Freelancer vs. DIY",
   "compare.subtitle": "Compare your options before wasting time and money on the wrong path. See how we stack up against common ways founders launch online.",
@@ -18,7 +17,7 @@ const comparison = {
   "compare.categories.conversion&visibility": "Conversion & Visibility",
   "compare.cta.freeIntroCall": "Book Your Free Intro Call",
   "compare.cta.readyToLaunch": "Am I Ready to Launch?",
-  "compare.cta.whatWeCanDo": "See what we can do for you in 14 days!",
+  "compare.cta.hardWay": "Still doing it the hard way?",
   "compare.swipe": "Swipe to compare",
   "compare.advantage": "Advantage",
   

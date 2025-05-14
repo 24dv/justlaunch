@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '../ui/button';
-import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface ComparisonCTAProps {
@@ -10,11 +9,15 @@ interface ComparisonCTAProps {
   onWorkClick: () => void;
 }
 
-const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormClick, onWorkClick }) => {
+const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormClick }) => {
   const { t } = useLanguage();
   
   return (
     <div className="flex flex-col items-center justify-center gap-6 mt-10">
+      <h3 className="text-xl font-medium text-[#0D503C]">
+        {t('compare.cta.hardWay')}
+      </h3>
+      
       <div className="flex flex-col sm:flex-row gap-4">
         <Button 
           onClick={onContactClick}
@@ -31,14 +34,6 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormCli
           {t('compare.cta.readyToLaunch')}
         </Button>
       </div>
-      
-      <button 
-        onClick={onWorkClick}
-        className="flex items-center gap-1 text-[#0D503C] hover:text-[#0A4231] underline underline-offset-4 font-medium"
-      >
-        {t('compare.cta.whatWeCanDo')}
-        <ArrowUpRight className="w-4 h-4" />
-      </button>
     </div>
   );
 };
