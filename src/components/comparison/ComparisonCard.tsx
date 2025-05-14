@@ -67,13 +67,13 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
             key={category} 
             className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'} border-b border-[#0D503C]/10 last:border-b-0`}
           >
-            <div className="p-3 font-medium border-b border-[#0D503C]/10 flex items-center justify-between">
+            <div className="p-3 font-medium border-b border-[#0D503C]/10 flex items-center justify-center">
               <div className="flex items-center gap-2">
                 {categoryIcons[category]}
                 <span>{getCategoryName(category)}</span>
               </div>
               {hasAdvantage(category) && (
-                <span className="text-xs px-2 py-1 rounded-full bg-[#0D503C]/10 text-[#0D503C] font-medium">
+                <span className="text-xs px-2 py-1 rounded-full bg-[#0D503C]/10 text-[#0D503C] font-medium ml-2">
                   {t('compare.advantage')}
                 </span>
               )}
@@ -82,8 +82,8 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
               <div className="flex flex-col gap-3">
                 <div className={`p-3 rounded ${hasAdvantage(category) ? 'bg-[#0D503C]/10 border border-[#0D503C]/20' : ''}`}>
                   <div className="flex items-center justify-between">
-                    <div className="font-medium text-[#0D503C]">{mainProvider}</div>
-                    <div className="flex justify-center items-center text-center">
+                    <div className="font-medium text-[#0D503C] text-center w-1/2">{mainProvider}</div>
+                    <div className="flex justify-center items-center text-center w-1/2">
                       {renderValue(justLaunchData[category])}
                     </div>
                   </div>
@@ -95,8 +95,8 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 
                 <div className={`p-3 rounded ${!hasAdvantage(category) && competitorData[category] !== justLaunchData[category] ? 'bg-[#0D503C]/5' : ''}`}>
                   <div className="flex items-center justify-between">
-                    <div className="font-medium text-[#0D503C]/80">{comparisonProvider}</div>
-                    <div className="flex justify-center items-center text-center">
+                    <div className="font-medium text-[#0D503C]/80 text-center w-1/2">{comparisonProvider}</div>
+                    <div className="flex justify-center items-center text-center w-1/2">
                       {renderValue(competitorData[category])}
                     </div>
                   </div>

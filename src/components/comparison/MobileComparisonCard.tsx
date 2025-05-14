@@ -55,7 +55,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
             >
               <div className="p-3 font-medium text-center border-b border-[#0D503C]/10 flex flex-col items-center gap-2">
-                <div className="flex items-center gap-2 text-base">
+                <div className="flex items-center gap-2 text-base justify-center">
                   {categoryIcons[category]}
                   <span>{getCategoryName(category)}</span>
                 </div>

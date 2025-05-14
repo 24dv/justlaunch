@@ -34,7 +34,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
       <Table>
         <TableHeader className="bg-[#0D503C]/5">
           <TableRow>
-            <TableHead className="w-[180px]">{t('compare.category')}</TableHead>
+            <TableHead className="w-[180px] text-center">{t('compare.category')}</TableHead>
             {providers.map(provider => (
               <TableHead 
                 key={provider} 
@@ -48,8 +48,8 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
         <TableBody>
           {categories.map((category, idx) => (
             <TableRow key={category} className={idx % 2 === 0 ? '' : 'bg-[#0D503C]/5'}>
-              <TableCell className="font-medium">
-                <div className="flex items-center gap-2">
+              <TableCell className="font-medium text-center">
+                <div className="flex items-center justify-center gap-2">
                   {categoryIcons[category]}
                   {getCategoryName(category)}
                 </div>
