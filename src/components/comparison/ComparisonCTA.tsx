@@ -6,7 +6,6 @@ import { useLanguage } from '../../contexts/LanguageContext';
 interface ComparisonCTAProps {
   onContactClick: () => void;
   onFormClick: () => void;
-  onWorkClick: () => void;
 }
 
 const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormClick }) => {
