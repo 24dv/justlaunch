@@ -69,7 +69,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               <div className="grid grid-cols-2 divide-x divide-[#0D503C]/10">
                 {/* Just Launch Side */}
                 <div className={cn(
-                  "p-3", 
+                  "p-3 flex flex-col items-center justify-center text-center", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
                 )}>
                   <div className="flex items-center justify-center gap-2">
@@ -80,7 +80,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                 </div>
                 
                 {/* Competitor Side */}
-                <div className="p-3">
+                <div className="p-3 flex flex-col items-center justify-center text-center">
                   <div className="flex items-center justify-center gap-2">
                     <div className="flex justify-center">
                       {renderValue(competitorData[category])}
@@ -97,4 +97,3 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
 };
 
 export default MobileComparisonCard;
-

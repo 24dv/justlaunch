@@ -57,7 +57,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
               {providers.map(provider => (
                 <TableCell 
                   key={`${provider}-${category}`}
-                  className={`${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
+                  className={`text-center ${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
                 >
                   {comparisonData[provider][category]}
                 </TableCell>

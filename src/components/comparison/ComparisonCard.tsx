@@ -83,7 +83,7 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 <div className={`p-3 rounded ${hasAdvantage(category) ? 'bg-[#0D503C]/10 border border-[#0D503C]/20' : ''}`}>
                   <div className="flex items-center justify-between">
                     <div className="font-medium text-[#0D503C]">{mainProvider}</div>
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center text-center">
                       {renderValue(justLaunchData[category])}
                     </div>
                   </div>
@@ -96,7 +96,7 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
                 <div className={`p-3 rounded ${!hasAdvantage(category) && competitorData[category] !== justLaunchData[category] ? 'bg-[#0D503C]/5' : ''}`}>
                   <div className="flex items-center justify-between">
                     <div className="font-medium text-[#0D503C]/80">{comparisonProvider}</div>
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center text-center">
                       {renderValue(competitorData[category])}
                     </div>
                   </div>
