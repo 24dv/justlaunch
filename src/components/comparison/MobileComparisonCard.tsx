@@ -6,10 +6,15 @@ import {
   CardTitle, 
   CardContent 
 } from '../ui/card';
-import { Check, X, Minus, ArrowRight } from 'lucide-react';
-import { Badge } from '../ui/badge';
 import { MobileComparisonCardProps } from './types';
 import { cn } from '@/lib/utils';
+import { 
+  Table,
+  TableBody,
+  TableRow,
+  TableCell
+} from '@/components/ui/table';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   mainProvider,
@@ -21,75 +26,69 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   getCategoryName,
   highlight = false
 }) => {
-  // Function to render icon or value
+  const { t } = useLanguage();
+
+  // Function to render value
   const renderValue = (value: React.ReactNode) => {
-    if (value === true) return <Check className="h-5 w-5 text-green-500" />;
-    if (value === false) return <X className="h-5 w-5 text-red-500" />;
-    if (value === null || value === undefined) return <Minus className="h-5 w-5 text-gray-400" />;
+    if (value === true) return "Yes";
+    if (value === false) return "No";
+    if (value === null || value === undefined) return "-";
     return value;
   };
 
-  // Function to determine if Just Launch has an advantage
-  const hasAdvantage = (category: string): boolean => {
-    // Simple comparison for boolean values
-    if (justLaunchData[category] === true && competitorData[category] !== true) return true;
-    // For other types, we can't automatically determine advantage
-    return false;
-  };
-
   return (
-    <Card className={`overflow-hidden bg-[#F5F5E9] ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''}`}>
-      <CardHeader className={`py-2 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
-        <CardTitle className="text-lg font-bold text-center flex justify-center items-center">
-          <span>{mainProvider}</span>
-          <ArrowRight className="h-4 w-4 mx-2" />
-          <span>{comparisonProvider}</span>
-        </CardTitle>
+    <Card className={cn(
+      "overflow-hidden bg-[#F5F5E9]", 
+      highlight ? "border-[#0D503C] ring-1 ring-[#0D503C]/30" : ""
+    )}>
+      <CardHeader className={cn(
+        "py-3 flex flex-row justify-between items-center", 
+        highlight ? "bg-[#0D503C] text-[#F5F5E9]" : "bg-[#0D503C]/5"
+      )}>
+        <div className="flex gap-2 items-center">
+          <div className="w-8 h-8 flex items-center justify-center bg-[#F5F5E9] rounded-full">
+            <span className="text-[#0D503C] text-xs font-bold">JL</span>
+          </div>
+          <CardTitle className="text-lg font-bold">{mainProvider}</CardTitle>
+        </div>
+        <div className="flex gap-2 items-center">
+          <CardTitle className="text-lg font-bold">{comparisonProvider}</CardTitle>
+          <div className="w-8 h-8 flex items-center justify-center bg-[#F5F5E9]/10 rounded-full border border-[#F5F5E9]/30">
+            <span className="text-[#F5F5E9] text-xs font-bold">VS</span>
+          </div>
+        </div>
       </CardHeader>
       
       <CardContent className="p-0">
-        <div className="grid grid-cols-1 divide-y divide-[#0D503C]/10">
-          {categories.map((category, idx) => (
-            <div 
-              key={category} 
-              className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
-            >
-              <div className="p-3 font-medium text-center border-b border-[#0D503C]/10 flex flex-col items-center gap-2">
-                <div className="flex items-center gap-2 text-base justify-center">
-                  {categoryIcons[category]}
-                  <span>{getCategoryName(category)}</span>
-                </div>
-                {hasAdvantage(category) && (
-                  <Badge className="text-xs bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
-                    Advantage
-                  </Badge>
-                )}
-              </div>
-              
-              <div className="grid grid-cols-2 divide-x divide-[#0D503C]/10">
-                {/* Just Launch Side */}
-                <div className={cn(
-                  "p-3 flex flex-col items-center justify-center text-center", 
-                  hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
-                )}>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="flex justify-center">
-                      {renderValue(justLaunchData[category])}
+        <Table>
+          <TableBody>
+            {categories.map((category) => (
+              <TableRow key={category} className="hover:bg-[#0D503C]/5">
+                <TableCell className="font-medium border-r border-[#0D503C]/10 bg-[#0D503C]/5 w-1/3">
+                  <div className="flex flex-col gap-1 items-start">
+                    <div className="flex items-center gap-1.5 text-sm">
+                      {categoryIcons[category]}
+                      <span>{getCategoryName(category)}</span>
                     </div>
                   </div>
-                </div>
-                
-                {/* Competitor Side */}
-                <div className="p-3 flex flex-col items-center justify-center text-center">
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="flex justify-center">
-                      {renderValue(competitorData[category])}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+                </TableCell>
+                <TableCell className="text-center border-r border-[#0D503C]/10 w-1/3">
+                  <div className="font-medium">{renderValue(justLaunchData[category])}</div>
+                </TableCell>
+                <TableCell className="text-center w-1/3">
+                  <div className="font-medium">{renderValue(competitorData[category])}</div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        
+        <div className="p-4 bg-[#0D503C]/5 border-t border-[#0D503C]/10">
+          <button 
+            className="w-full py-2.5 bg-[#0D503C] text-[#F5F5E9] rounded-md font-medium hover:bg-[#0D503C]/90 transition"
+          >
+            {t('compare.cta.freeIntroCall')}
+          </button>
         </div>
       </CardContent>
     </Card>
