@@ -13,43 +13,40 @@ export const useComparisonData = () => {
     'Just Launch': {
       'Upfront Cost': (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">€1,500</span>
+          <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.upfrontCost')}</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Ongoing Cost': (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">€10/mo</span>
+          <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.ongoingCost')}</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Time to Launch': (
         <div className="flex items-center gap-2">
-          <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.timeToLaunch.days')}</span>
+          <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.timeToLaunch')}</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('compare.data.justlaunch.easeOfProcess.label')}:</span> {t('compare.data.justlaunch.easeOfProcess.value')}
-          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.easeOfProcess.note')}</div>
+          <span className="font-medium">{t('compare.data.justlaunch.easeOfProcess')}</span>
         </div>
       ),
       'Design Quality': (
         <div>
-          {t('compare.data.justlaunch.designQuality.value')}
-          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.designQuality.note')}</div>
+          <span className="font-medium">{t('compare.data.justlaunch.designQuality')}</span>
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('compare.data.justlaunch.scalability.label')}:</span> {t('compare.data.justlaunch.scalability.value')}
+          <span className="font-medium">{t('compare.data.justlaunch.scalability')}</span>
         </div>
       ),
       'Conversion & Visibility': (
         <div>
-          <span className="font-medium">{t('compare.data.justlaunch.conversion.label')}:</span> {t('compare.data.justlaunch.conversion.value')}
-          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.conversion.note')}</div>
+          <span className="font-medium">{t('compare.data.justlaunch.conversion')}</span>
         </div>
       ),
     },
@@ -59,23 +56,22 @@ export const useComparisonData = () => {
       'Time to Launch': t('compare.data.agency.timeToLaunch'),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('compare.data.agency.easeOfProcess.label')}:</span> {t('compare.data.agency.easeOfProcess.value')}
+          <span className="font-medium">{t('compare.data.agency.easeOfProcess')}</span>
         </div>
       ),
       'Design Quality': (
         <div>
-          {t('compare.data.agency.designQuality.value')}
-          <div className="text-xs text-[#0D503C]/70">{t('compare.data.agency.designQuality.note')}</div>
+          <span className="font-medium">{t('compare.data.agency.designQuality')}</span>
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('compare.data.agency.scalability.label')}:</span> {t('compare.data.agency.scalability.value')}
+          <span className="font-medium">{t('compare.data.agency.scalability')}</span>
         </div>
       ),
       'Conversion & Visibility': (
         <div>
-          {t('compare.data.agency.conversion.value')}
+          <span className="font-medium">{t('compare.data.agency.conversion')}</span>
           <div className="text-xs text-[#0D503C]/70">{t('compare.data.agency.conversion.note')}</div>
         </div>
       ),
@@ -86,23 +82,23 @@ export const useComparisonData = () => {
       'Time to Launch': t('compare.data.freelancer.timeToLaunch'),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('compare.data.freelancer.easeOfProcess.label')}:</span> {t('compare.data.freelancer.easeOfProcess.value')}
+          <span className="font-medium">{t('compare.data.freelancer.easeOfProcess')}</span>
         </div>
       ),
       'Design Quality': (
         <div>
-          {t('compare.data.freelancer.designQuality.value')}
+          <span className="font-medium">{t('compare.data.freelancer.designQuality')}</span>
           <div className="text-xs text-[#0D503C]/70">{t('compare.data.freelancer.designQuality.note')}</div>
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('compare.data.freelancer.scalability.label')}:</span> {t('compare.data.freelancer.scalability.value')}
+          <span className="font-medium">{t('compare.data.freelancer.scalability')}</span>
         </div>
       ),
       'Conversion & Visibility': (
         <div>
-          <span className="font-medium">{t('compare.data.freelancer.conversion.label')}:</span> {t('compare.data.freelancer.conversion.value')}
+          <span className="font-medium">{t('compare.data.freelancer.conversion')}</span>
         </div>
       ),
     },
@@ -112,24 +108,22 @@ export const useComparisonData = () => {
       'Time to Launch': t('compare.data.diy.timeToLaunch'),
       'Ease of Process': (
         <div>
-          <span className="font-medium">{t('compare.data.diy.easeOfProcess.label')}:</span> {t('compare.data.diy.easeOfProcess.value')}
-          <div className="text-xs text-[#0D503C]/70">{t('compare.data.diy.easeOfProcess.note')}</div>
+          <span className="font-medium">{t('compare.data.diy.easeOfProcess')}</span>
         </div>
       ),
       'Design Quality': (
         <div>
-          {t('compare.data.diy.designQuality.value')}
-          <div className="text-xs text-[#0D503C]/70">{t('compare.data.diy.designQuality.note')}</div>
+          <span className="font-medium">{t('compare.data.diy.designQuality')}</span>
         </div>
       ),
       'Scalability': (
         <div>
-          <span className="font-medium">{t('compare.data.diy.scalability.label')}:</span> {t('compare.data.diy.scalability.value')}
+          <span className="font-medium">{t('compare.data.diy.scalability')}</span>
         </div>
       ),
       'Conversion & Visibility': (
         <div>
-          <span className="font-medium">{t('compare.data.diy.conversion.label')}:</span> {t('compare.data.diy.conversion.value')}
+          <span className="font-medium">{t('compare.data.diy.conversion')}</span>
         </div>
       ),
     }
