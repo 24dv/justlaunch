@@ -6,7 +6,7 @@ import {
   CardTitle, 
   CardContent 
 } from '../ui/card';
-import { Check, X, Minus, ArrowRight } from 'lucide-react';
+import { Check, X, Minus } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { MobileComparisonCardProps } from './types';
 import { cn } from '@/lib/utils';
@@ -38,13 +38,26 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   };
 
   return (
-    <Card className={`overflow-hidden bg-[#F5F5E9] ${highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''}`}>
-      <CardHeader className={`py-2 ${highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}>
-        <CardTitle className="text-lg font-bold text-center flex justify-center items-center">
-          <span>{mainProvider}</span>
-          <ArrowRight className="h-4 w-4 mx-2" />
-          <span>{comparisonProvider}</span>
-        </CardTitle>
+    <Card className={cn(
+      "overflow-hidden bg-[#F5F5E9]",
+      highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''
+    )}>
+      <CardHeader className={cn(
+        "py-3",
+        highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'
+      )}>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="text-center">
+            <CardTitle className="text-lg font-bold font-serif">
+              {mainProvider}
+            </CardTitle>
+          </div>
+          <div className="text-center border-l border-[#F5F5E9]/30">
+            <CardTitle className="text-lg font-bold font-serif">
+              {comparisonProvider}
+            </CardTitle>
+          </div>
+        </div>
       </CardHeader>
       
       <CardContent className="p-0">
@@ -72,19 +85,15 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                   "p-3 flex flex-col items-center justify-center text-center", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
                 )}>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="flex justify-center">
-                      {renderValue(justLaunchData[category])}
-                    </div>
+                  <div className="flex justify-center">
+                    {renderValue(justLaunchData[category])}
                   </div>
                 </div>
                 
                 {/* Competitor Side */}
                 <div className="p-3 flex flex-col items-center justify-center text-center">
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="flex justify-center">
-                      {renderValue(competitorData[category])}
-                    </div>
+                  <div className="flex justify-center">
+                    {renderValue(competitorData[category])}
                   </div>
                 </div>
               </div>

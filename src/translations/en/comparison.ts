@@ -1,3 +1,4 @@
+
 const comparison = {
   "compare.title": "Just Launch vs. Agency vs. Freelancer vs. DIY",
   "compare.subtitle": "Compare your options before wasting time and money on the wrong path. See how we stack up against common ways founders launch online.",
@@ -20,6 +21,7 @@ const comparison = {
   "compare.cta.hardWay": "Still doing it the hard way?",
   "compare.swipe": "Swipe to compare",
   "compare.advantage": "Advantage",
+  "compare.selectCompetitor": "Compare Just Launch with:",
   
   // Simplified Comparison Data - Just Launch
   "compare.data.justlaunch.upfrontCost": "€1,500",
