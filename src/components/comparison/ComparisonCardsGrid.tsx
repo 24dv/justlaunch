@@ -4,6 +4,7 @@ import { ComparisonData } from './types';
 import { useLanguage } from '../../contexts/LanguageContext';
 import MobileComparisonCard from './MobileComparisonCard';
 import { categoryIcons, categories } from './comparisonData';
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 interface ComparisonCardsGridProps {
   providers: string[];
@@ -32,22 +33,22 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
   return (
     <div className="lg:hidden mb-12">
       {/* Toggle group for competitor selection */}
-      <div className="flex flex-col items-center mb-4">
-        <div className="inline-flex p-1 rounded-lg bg-[#E8F0E9] border border-[#0D503C]/20">
-          {competitorProviders.map((competitor, idx) => (
-            <button
+      <div className="flex flex-col items-center mb-4 space-y-4">
+        <div className="text-center text-sm text-[#0D503C]/80">
+          {t('compare.selectCompetitor')}
+        </div>
+        <ToggleGroup type="single" value={selectedCompetitor} onValueChange={(value) => value && setSelectedCompetitor(value)}>
+          {competitorProviders.map((competitor) => (
+            <ToggleGroupItem
               key={competitor}
-              onClick={() => setSelectedCompetitor(competitor)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                selectedCompetitor === competitor
-                  ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
-                  : 'bg-transparent text-[#0D503C] hover:bg-[#0D503C]/10'
-              }`}
+              value={competitor}
+              aria-label={`Compare with ${getProviderName(competitor)}`}
+              className="px-3 py-2 text-sm border border-[#0D503C]/20 data-[state=on]:bg-[#0D503C] data-[state=on]:text-[#F5F5E9]"
             >
               {getProviderName(competitor)}
-            </button>
+            </ToggleGroupItem>
           ))}
-        </div>
+        </ToggleGroup>
       </div>
 
       {/* Comparison Card */}
