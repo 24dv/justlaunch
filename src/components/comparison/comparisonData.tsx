@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
 import { ComparisonData } from './types';
@@ -12,19 +11,19 @@ export const useComparisonData = () => {
   const comparisonData: ComparisonData = {
     'Just Launch': {
       'Upfront Cost': (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.upfrontCost')}</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Ongoing Cost': (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.ongoingCost')}</span>
           <Check size={18} className="text-green-600" />
         </div>
       ),
       'Time to Launch': (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <span className="font-bold text-[#0D503C]">{t('compare.data.justlaunch.timeToLaunch')}</span>
           <Check size={18} className="text-green-600" />
         </div>
