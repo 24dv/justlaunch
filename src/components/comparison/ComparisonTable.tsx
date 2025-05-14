@@ -34,11 +34,11 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
       <Table>
         <TableHeader className="bg-[#0D503C]/5">
           <TableRow>
-            <TableHead className="w-[180px] text-center">{t('compare.category')}</TableHead>
+            <TableHead className="w-[180px] text-center text-sm">{t('compare.category')}</TableHead>
             {providers.map(provider => (
               <TableHead 
                 key={provider} 
-                className={`text-center ${provider === 'Just Launch' ? 'bg-[#0D503C] text-[#F5F5E9]' : ''}`}
+                className={`text-center text-sm ${provider === 'Just Launch' ? 'bg-[#0D503C] text-[#F5F5E9]' : ''}`}
               >
                 {getProviderName(provider)}
               </TableHead>
@@ -51,13 +51,13 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
               <TableCell className="font-medium text-center">
                 <div className="flex items-center justify-center gap-2">
                   {categoryIcons[category]}
-                  {getCategoryName(category)}
+                  <span className="text-sm">{getCategoryName(category)}</span>
                 </div>
               </TableCell>
               {providers.map(provider => (
                 <TableCell 
                   key={`${provider}-${category}`}
-                  className={`text-center ${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
+                  className={`text-center text-sm ${provider === 'Just Launch' ? 'bg-[#0D503C]/5' : ''}`}
                 >
                   {comparisonData[provider][category]}
                 </TableCell>

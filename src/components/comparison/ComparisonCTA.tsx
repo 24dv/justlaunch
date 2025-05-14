@@ -13,7 +13,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormCli
   
   return (
     <div className="flex flex-col items-center justify-center gap-6 mt-10">
-      <p className="text-base font-medium text-[#0D503C]">
+      <p className="text-base text-[#0D503C]/80">
         {t('compare.cta.hardWay')}
       </p>
       
