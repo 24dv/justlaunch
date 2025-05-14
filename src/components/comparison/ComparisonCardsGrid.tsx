@@ -39,7 +39,7 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
         onToggleProvider={setSelectedProvider}
       />
       
-      <div className="p-1">
+      <div className="px-4">
         <MobileComparisonCard 
           mainProvider={getProviderName('Just Launch')}
           comparisonProvider={getProviderName(selectedProvider)}

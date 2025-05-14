@@ -12,7 +12,8 @@ import {
   Table,
   TableBody,
   TableRow,
-  TableCell
+  TableCell,
+  TableHead
 } from '@/components/ui/table';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -38,58 +39,71 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
 
   return (
     <Card className={cn(
-      "overflow-hidden bg-[#F5F5E9]", 
+      "overflow-hidden bg-[#F5F5E9] shadow-lg border-[#0D503C]/20", 
       highlight ? "border-[#0D503C] ring-1 ring-[#0D503C]/30" : ""
     )}>
       <CardHeader className={cn(
-        "py-3 flex flex-row justify-between items-center", 
+        "p-3", 
         highlight ? "bg-[#0D503C] text-[#F5F5E9]" : "bg-[#0D503C]/5"
       )}>
-        <div className="flex gap-2 items-center">
-          <div className="w-8 h-8 flex items-center justify-center bg-[#F5F5E9] rounded-full">
-            <span className="text-[#0D503C] text-xs font-bold">JL</span>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-2 items-center">
+            <div className="w-7 h-7 flex items-center justify-center bg-[#F5F5E9] rounded-full">
+              <span className="text-[#0D503C] text-xs font-bold">JL</span>
+            </div>
+            <CardTitle className="text-sm font-bold">{mainProvider}</CardTitle>
           </div>
-          <CardTitle className="text-lg font-bold">{mainProvider}</CardTitle>
-        </div>
-        <div className="flex gap-2 items-center">
-          <CardTitle className="text-lg font-bold">{comparisonProvider}</CardTitle>
-          <div className="w-8 h-8 flex items-center justify-center bg-[#F5F5E9]/10 rounded-full border border-[#F5F5E9]/30">
-            <span className="text-[#F5F5E9] text-xs font-bold">VS</span>
+          <div className="text-sm font-medium opacity-80">VS</div>
+          <div className="flex gap-2 items-center">
+            <CardTitle className="text-sm font-bold">{comparisonProvider}</CardTitle>
+            <div className="w-7 h-7 flex items-center justify-center bg-[#F5F5E9]/10 rounded-full border border-[#F5F5E9]/30">
+              <span className={highlight ? "text-[#F5F5E9]" : "text-[#0D503C]"} className="text-xs font-bold">VS</span>
+            </div>
           </div>
         </div>
       </CardHeader>
       
       <CardContent className="p-0">
         <Table>
+          <TableHead>
+            <TableRow className="hover:bg-transparent border-b border-[#0D503C]/10">
+              <TableCell className="py-2 px-2 font-semibold text-xs text-[#0D503C]/70 w-1/3">
+                {t('compare.category')}
+              </TableCell>
+              <TableCell className="py-2 px-1 font-semibold text-xs text-center text-[#0D503C]/70 w-1/3">
+                {mainProvider}
+              </TableCell>
+              <TableCell className="py-2 px-1 font-semibold text-xs text-center text-[#0D503C]/70 w-1/3">
+                {comparisonProvider}
+              </TableCell>
+            </TableRow>
+          </TableHead>
           <TableBody>
             {categories.map((category) => (
-              <TableRow key={category} className="hover:bg-[#0D503C]/5">
-                <TableCell className="font-medium border-r border-[#0D503C]/10 bg-[#0D503C]/5 w-1/3">
-                  <div className="flex flex-col gap-1 items-start">
-                    <div className="flex items-center gap-1.5 text-sm">
-                      {categoryIcons[category]}
-                      <span>{getCategoryName(category)}</span>
-                    </div>
+              <TableRow key={category} className="hover:bg-[#0D503C]/5 border-b border-[#0D503C]/10 last:border-b-0">
+                <TableCell className="font-medium py-2 px-2 text-[#0D503C] text-xs w-1/3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-base">{categoryIcons[category]}</span>
+                    <span>{getCategoryName(category)}</span>
                   </div>
                 </TableCell>
-                <TableCell className="text-center border-r border-[#0D503C]/10 w-1/3">
-                  <div className="font-medium">{renderValue(justLaunchData[category])}</div>
+                <TableCell className="text-center py-2 px-1 text-xs w-1/3">
+                  <div className={cn(
+                    "font-medium", 
+                    justLaunchData[category] === true ? "text-green-600" : ""
+                  )}>
+                    {renderValue(justLaunchData[category])}
+                  </div>
                 </TableCell>
-                <TableCell className="text-center w-1/3">
-                  <div className="font-medium">{renderValue(competitorData[category])}</div>
+                <TableCell className="text-center py-2 px-1 text-xs w-1/3">
+                  <div className="font-medium">
+                    {renderValue(competitorData[category])}
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
-        
-        <div className="p-4 bg-[#0D503C]/5 border-t border-[#0D503C]/10">
-          <button 
-            className="w-full py-2.5 bg-[#0D503C] text-[#F5F5E9] rounded-md font-medium hover:bg-[#0D503C]/90 transition"
-          >
-            {t('compare.cta.freeIntroCall')}
-          </button>
-        </div>
       </CardContent>
     </Card>
   );

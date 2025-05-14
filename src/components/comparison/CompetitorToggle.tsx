@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group';
 
 interface CompetitorToggleProps {
   providers: string[];
@@ -20,22 +21,23 @@ const CompetitorToggle = ({ providers, selectedProvider, onToggleProvider }: Com
   };
 
   return (
-    <div className="flex justify-center mb-4 mt-2">
-      <div className="inline-flex p-1 rounded-lg bg-[#0D503C]/10 border border-[#0D503C]/30">
+    <div className="flex justify-center mb-6 mt-4">
+      <ToggleGroup type="single" value={selectedProvider} onValueChange={(value) => value && onToggleProvider(value)}>
         {competitorProviders.map((provider) => (
-          <button
-            key={provider}
-            onClick={() => onToggleProvider(provider)}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-              selectedProvider === provider
-                ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
+          <ToggleGroupItem 
+            key={provider} 
+            value={provider}
+            className={`px-4 py-2 text-sm font-medium ${
+              selectedProvider === provider 
+                ? 'bg-[#0D503C] text-[#F5F5E9]' 
                 : 'text-[#0D503C] hover:bg-[#0D503C]/10'
             }`}
+            aria-label={getProviderName(provider)}
           >
             {getProviderName(provider)}
-          </button>
+          </ToggleGroupItem>
         ))}
-      </div>
+      </ToggleGroup>
     </div>
   );
 };
