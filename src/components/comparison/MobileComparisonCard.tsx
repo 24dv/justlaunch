@@ -23,10 +23,10 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
 }) => {
   // Function to render icon or value
   const renderValue = (value: React.ReactNode) => {
-    if (value === true) return <Check className="h-5 w-5 text-green-500" />;
-    if (value === false) return <X className="h-5 w-5 text-red-500" />;
-    if (value === null || value === undefined) return <Minus className="h-5 w-5 text-gray-400" />;
-    return value;
+    if (value === true) return <Check className="h-4 w-4 text-green-500" />;
+    if (value === false) return <X className="h-4 w-4 text-red-500" />;
+    if (value === null || value === undefined) return <Minus className="h-4 w-4 text-gray-400" />;
+    return <span className="text-xs md:text-sm">{value}</span>;
   };
 
   // Function to determine if Just Launch has an advantage
@@ -43,17 +43,22 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
       highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''
     )}>
       <CardHeader className={cn(
-        "py-2",
+        "py-1.5 px-2",
         highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'
       )}>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-3 gap-1">
           <div className="text-center">
-            <CardTitle className="text-sm md:text-base font-bold font-serif">
+            <CardTitle className="text-xs font-bold">
+              Category
+            </CardTitle>
+          </div>
+          <div className="text-center border-l border-[#F5F5E9]/30">
+            <CardTitle className="text-xs font-bold">
               {mainProvider}
             </CardTitle>
           </div>
           <div className="text-center border-l border-[#F5F5E9]/30">
-            <CardTitle className="text-sm md:text-base font-bold font-serif">
+            <CardTitle className="text-xs font-bold">
               {comparisonProvider}
             </CardTitle>
           </div>
@@ -67,36 +72,28 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               key={category} 
               className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
             >
-              <div className="p-2 font-medium text-center border-b border-[#0D503C]/10 flex flex-col items-center gap-1">
-                <div className="flex items-center gap-1 text-sm justify-center">
-                  {React.cloneElement(categoryIcons[category] as React.ReactElement, {
-                    className: "h-4 w-4"
-                  })}
-                  <span>{getCategoryName(category)}</span>
+              <div className="grid grid-cols-3 divide-x divide-[#0D503C]/10">
+                {/* Category Column */}
+                <div className="p-1.5 text-left text-xs font-medium">
+                  <span className="line-clamp-2">{getCategoryName(category)}</span>
+                  {hasAdvantage(category) && (
+                    <Badge className="mt-1 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
+                      Advantage
+                    </Badge>
+                  )}
                 </div>
-                {hasAdvantage(category) && (
-                  <Badge className="text-xs bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
-                    Advantage
-                  </Badge>
-                )}
-              </div>
-              
-              <div className="grid grid-cols-2 divide-x divide-[#0D503C]/10">
+                
                 {/* Just Launch Side */}
                 <div className={cn(
-                  "p-2 flex flex-col items-center justify-center text-center text-sm", 
+                  "p-1.5 flex items-center justify-center", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
                 )}>
-                  <div className="flex justify-center">
-                    {renderValue(justLaunchData[category])}
-                  </div>
+                  {renderValue(justLaunchData[category])}
                 </div>
                 
                 {/* Competitor Side */}
-                <div className="p-2 flex flex-col items-center justify-center text-center text-sm">
-                  <div className="flex justify-center">
-                    {renderValue(competitorData[category])}
-                  </div>
+                <div className="p-1.5 flex items-center justify-center">
+                  {renderValue(competitorData[category])}
                 </div>
               </div>
             </div>

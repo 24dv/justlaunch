@@ -31,14 +31,14 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
 
   return (
     <div className="lg:hidden mb-12">
-      {/* Toggle group for competitor selection */}
-      <div className="flex flex-col items-center mb-4 space-y-4">
-        <div className="inline-flex p-1 rounded-lg bg-[#0D503C]/10 border border-[#0D503C]/30">
+      {/* Toggle group for competitor selection - smaller size */}
+      <div className="flex flex-col items-center mb-2 space-y-2">
+        <div className="inline-flex p-0.5 rounded-lg bg-[#0D503C]/10 border border-[#0D503C]/30">
           {competitorProviders.map((competitor) => (
             <button
               key={competitor}
               onClick={() => setSelectedCompetitor(competitor)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+              className={`px-2 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
                 selectedCompetitor === competitor
                   ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
                   : 'text-[#0D503C] hover:bg-[#0D503C]/10'
@@ -50,7 +50,7 @@ const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, co
         </div>
       </div>
 
-      {/* Comparison Card */}
+      {/* Comparison Card with new 3-column layout */}
       <div className="p-1">
         <MobileComparisonCard 
           mainProvider={getProviderName('Just Launch')}

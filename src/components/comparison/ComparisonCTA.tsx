@@ -28,7 +28,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormCli
         <Button 
           onClick={onFormClick}
           variant="outline"
-          className="bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] hover:bg-[#F9A7A7]/30 px-5 py-3 rounded-full text-base h-[44px] transition-colors"
+          className="bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] hover:bg-[#F9A7A7]/30 px-5 py-3 rounded-full text-base h-[44px] transition-colors hover:text-[#0D503C]"
         >
           {t('compare.cta.readyToLaunch')}
         </Button>
