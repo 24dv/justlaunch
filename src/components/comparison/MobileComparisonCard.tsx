@@ -26,7 +26,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
     if (value === true) return <Check className="h-4 w-4 text-green-500" />;
     if (value === false) return <X className="h-4 w-4 text-red-500" />;
     if (value === null || value === undefined) return <Minus className="h-4 w-4 text-gray-400" />;
-    return <span className="text-xs md:text-sm">{value}</span>;
+    return <span className="text-xs sm:text-sm">{value}</span>;
   };
 
   // Function to determine if Just Launch has an advantage
@@ -47,7 +47,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
         highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'
       )}>
         <div className="grid grid-cols-3 gap-1">
-          <div className="text-center">
+          <div className="text-left">
             <CardTitle className="text-xs font-bold">
               Category
             </CardTitle>
@@ -73,17 +73,17 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
             >
               <div className="grid grid-cols-3 divide-x divide-[#0D503C]/10">
-                {/* Category Column */}
-                <div className="p-1.5 text-left text-xs font-medium">
+                {/* Category Column - Left aligned */}
+                <div className="p-1.5 text-left flex items-center text-xs sm:text-sm font-medium">
                   <span className="line-clamp-2">{getCategoryName(category)}</span>
                   {hasAdvantage(category) && (
-                    <Badge className="mt-1 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
+                    <Badge className="ml-1 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
                       Advantage
                     </Badge>
                   )}
                 </div>
                 
-                {/* Just Launch Side */}
+                {/* Just Launch Side - Center aligned */}
                 <div className={cn(
                   "p-1.5 flex items-center justify-center", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
@@ -91,7 +91,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                   {renderValue(justLaunchData[category])}
                 </div>
                 
-                {/* Competitor Side */}
+                {/* Competitor Side - Center aligned */}
                 <div className="p-1.5 flex items-center justify-center">
                   {renderValue(competitorData[category])}
                 </div>
