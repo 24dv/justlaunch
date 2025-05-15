@@ -20,7 +20,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormCli
       <div className="flex flex-col sm:flex-row gap-4">
         <Button 
           onClick={onContactClick}
-          className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-5 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
+          className="bg-[#0D503C] text-[#F5F5E9] hover:bg-[#0A4231] px-5 py-3 rounded-full text-base h-[44px] transition-colors"
         >
           {t('compare.cta.freeIntroCall')}
         </Button>
@@ -28,7 +28,7 @@ const ComparisonCTA: React.FC<ComparisonCTAProps> = ({ onContactClick, onFormCli
         <Button 
           onClick={onFormClick}
           variant="outline"
-          className="bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] hover:bg-[#F9A7A7]/30 px-5 py-3 rounded-full text-base h-[44px] transform transition-transform hover:scale-[1.02]"
+          className="bg-[#F9A7A7]/20 border border-[#F9A7A7] text-[#0D503C] hover:bg-[#F9A7A7]/30 px-5 py-3 rounded-full text-base h-[44px] transition-colors"
         >
           {t('compare.cta.readyToLaunch')}
         </Button>

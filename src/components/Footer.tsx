@@ -91,7 +91,7 @@ const Footer = () => {
             <button
               onClick={openQuiz}
               className="inline-flex items-center justify-center gap-1 px-4 py-2 bg-[#F5F5E9]/10 hover:bg-[#F5F5E9]/20 
-              text-[#F5F5E9] transition-all duration-200 rounded-full border border-[#F5F5E9]/30"
+              text-[#F5F5E9] transition-colors duration-200 rounded-full border border-[#F5F5E9]/30"
             >
               <Star className="h-3.5 w-3.5" />
               <span>{t('quiz.footer.buttonText')}</span>
