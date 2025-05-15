@@ -31,15 +31,15 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
     if (typeof value === 'string' && value.includes('\n')) {
       const lines = value.split('\n');
       return (
-        <div className="text-center text-xs sm:text-sm">
+        <div className="flex flex-col items-center justify-center text-center">
           {lines.map((line, i) => (
-            <div key={i}>{line}</div>
+            <div key={i} className="text-xs sm:text-sm">{line}</div>
           ))}
         </div>
       );
     }
     
-    return <span className="text-xs sm:text-sm">{value}</span>;
+    return <span className="text-xs sm:text-sm text-center">{value}</span>;
   };
 
   // Function to determine if Just Launch has an advantage
@@ -101,14 +101,14 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                   "p-1.5 flex items-center justify-center", 
                   hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
                 )}>
-                  <div className="flex items-center justify-center w-full">
+                  <div className="flex items-center justify-center w-full h-full">
                     {renderValue(justLaunchData[category])}
                   </div>
                 </div>
                 
                 {/* Competitor Side */}
                 <div className="p-1.5 flex items-center justify-center">
-                  <div className="flex items-center justify-center w-full">
+                  <div className="flex items-center justify-center w-full h-full">
                     {renderValue(competitorData[category])}
                   </div>
                 </div>
