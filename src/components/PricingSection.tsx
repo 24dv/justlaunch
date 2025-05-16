@@ -90,8 +90,8 @@ const PricingSection = () => {
             </div>
           </div>
 
-          {/* Maintenance & Security Card - width reduced by 30% */}
-          <div className="mb-8 mx-auto w-[70%]">
+          {/* Maintenance & Security Card - increased width on mobile */}
+          <div className="mb-8 mx-auto w-[85%] sm:w-[80%] md:w-[70%]">
             <MaintenanceCard />
           </div>
 

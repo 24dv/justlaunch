@@ -33,13 +33,13 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
       return (
         <div className="flex flex-col items-center justify-center text-center">
           {lines.map((line, i) => (
-            <div key={i} className="text-xs sm:text-sm">{line}</div>
+            <div key={i} className="text-xs sm:text-sm text-[#0D503C]">{line}</div>
           ))}
         </div>
       );
     }
     
-    return <span className="text-xs sm:text-sm text-center">{value}</span>;
+    return <span className="text-xs sm:text-sm text-center text-[#0D503C]">{value}</span>;
   };
 
   // Function to determine if Just Launch has an advantage
@@ -87,7 +87,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
             >
               <div className="grid grid-cols-3 divide-x divide-[#0D503C]/10">
                 {/* Category Column */}
-                <div className="p-1.5 text-left flex items-center text-xs font-medium">
+                <div className="p-1.5 text-left flex items-center text-xs font-medium text-[#0D503C]">
                   <span className="line-clamp-2">{getCategoryName(category)}</span>
                   {hasAdvantage(category) && (
                     <Badge className="ml-1 mt-0 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
