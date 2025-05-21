@@ -23,7 +23,18 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { comparisonData } = useComparisonData();
   
-  const serviceData = comparisonData.find(item => item.service === service);
+  // Fix: Convert services to their display names for matching with the comparisonData keys
+  const serviceToDisplayName: Record<string, string> = {
+    'just_launch': 'Just Launch',
+    'agency': 'Agency',
+    'freelancer': 'Freelancer',
+    'diy': 'DIY'
+  };
+  
+  // Get the appropriate service data using the mapping
+  const displayName = serviceToDisplayName[service];
+  const serviceData = displayName ? comparisonData[displayName] : null;
+  
   if (!serviceData) return null;
   
   const getCategoryName = (category: ComparisonCategory) => {
@@ -39,9 +50,13 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   };
   
   const hasAdvantage = (category: ComparisonCategory) => {
-    // Fixed: Check if category exists in serviceData.categories and then access the advantage property
-    const categoryData = serviceData.categories[category];
-    return categoryData && categoryData.advantage === true;
+    // Check if category exists in serviceData
+    const categoryData = serviceData[category];
+    // Check if categoryData is an object with an advantage property
+    if (typeof categoryData === 'object' && categoryData !== null) {
+      return 'advantage' in categoryData && categoryData.advantage === true;
+    }
+    return false;
   };
   
   const getCategoryClasses = (category: ComparisonCategory) => {
@@ -75,9 +90,9 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
       {/* Expanded Content */}
       <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[2000px]' : 'max-h-0'}`}>
         <div className="divide-y divide-gray-100">
-          {Object.keys(serviceData.categories).map((categoryKey, index) => {
+          {Object.keys(serviceData).map((categoryKey, index) => {
             const category = categoryKey as ComparisonCategory;
-            const categoryData = serviceData.categories[category];
+            const categoryData = serviceData[category];
             
             if (!categoryData) return null;
             
@@ -101,19 +116,26 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                     
                     {/* Main Feature Column */}
                     <div className="p-1.5 text-xs text-gray-600 flex items-center">
-                      {categoryData.mainFeature}
+                      {typeof categoryData === 'object' && categoryData.mainFeature ? 
+                        categoryData.mainFeature : 
+                        categoryData
+                      }
                     </div>
                     
                     {/* Detail Column */}
                     <div className="p-1.5 flex justify-center items-center">
-                      {typeof categoryData.value === 'boolean' ? (
-                        categoryData.value ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                      {typeof categoryData === 'object' && 'value' in categoryData ? (
+                        typeof categoryData.value === 'boolean' ? (
+                          categoryData.value ? (
+                            <Check className="h-4 w-4 text-green-500" />
+                          ) : (
+                            <span className="block h-4 w-4 rounded-full bg-gray-200" />
+                          )
                         ) : (
-                          <span className="block h-4 w-4 rounded-full bg-gray-200" />
+                          <span className="text-xs">{categoryData.value}</span>
                         )
                       ) : (
-                        <span className="text-xs">{categoryData.value}</span>
+                        <span className="text-xs">{typeof categoryData !== 'object' ? categoryData : ''}</span>
                       )}
                     </div>
                   </div>
