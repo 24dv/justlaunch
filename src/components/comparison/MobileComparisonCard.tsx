@@ -39,6 +39,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   };
   
   const hasAdvantage = (category: ComparisonCategory) => {
+    // Fixed: Check if category exists in serviceData.categories and then access the advantage property
     const categoryData = serviceData.categories[category];
     return categoryData && categoryData.advantage === true;
   };
