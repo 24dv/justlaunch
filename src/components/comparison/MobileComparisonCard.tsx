@@ -4,7 +4,7 @@ import { ChevronRight, Check } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { ComparisonCategory, ServiceType } from './types';
-import { comparisonData } from './comparisonData';
+import { useComparisonData } from './comparisonData';
 
 interface MobileComparisonCardProps {
   service: ServiceType;
@@ -21,6 +21,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
 }) => {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { comparisonData } = useComparisonData();
   
   const serviceData = comparisonData.find(item => item.service === service);
   if (!serviceData) return null;
