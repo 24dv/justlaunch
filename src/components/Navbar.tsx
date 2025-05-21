@@ -153,9 +153,6 @@ const Navbar = () => {
               <div 
                 key={item.name}
                 className="mb-5 overflow-hidden"
-                style={{ 
-                  animationDelay: isOpen ? `${index * 0.1}s` : '0s'
-                }}
               >
                 <button
                   onClick={() => scrollToSection(item.id)}
@@ -180,13 +177,16 @@ const Navbar = () => {
             
             {/* Quiz Link */}
             <div 
-              className={`mb-5 overflow-hidden ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              } transition-all duration-500 delay-200`}
+              className="mb-5 overflow-hidden"
             >
               <button
                 onClick={openQuiz}
-                className="group flex w-full items-center justify-between py-3 text-base font-medium text-[#0D503C] bg-[#0D503C]/10 px-4 rounded-lg hover:bg-[#0D503C]/15 transition-all"
+                className={`group flex w-full items-center justify-between py-3 text-base font-medium text-[#0D503C] bg-[#0D503C]/10 px-4 rounded-lg hover:bg-[#0D503C]/15 transition-all transform ${
+                  isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                } transition-all duration-300 ease-out`}
+                style={{ 
+                  transitionDelay: isOpen ? '0.5s' : '0s'
+                }}
               >
                 <div className="flex items-center">
                   <HelpCircle size={20} className="mr-3 flex-shrink-0" />
@@ -203,13 +203,16 @@ const Navbar = () => {
             </div>
             
             <div 
-              className={`mt-8 ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              } transition-all duration-500 delay-300`}
+              className="mt-8 overflow-hidden"
             >
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-4 text-base font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-300 transform hover:scale-[1.02] focus:outline-none"
+                className={`w-full flex items-center justify-center rounded-full bg-[#0D503C] px-6 py-4 text-base font-medium text-[#F5F5E9] shadow-lg hover:bg-[#0A4231] transition-all duration-300 transform hover:scale-[1.02] focus:outline-none ${
+                  isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                } transition-all duration-300 ease-out`}
+                style={{ 
+                  transitionDelay: isOpen ? '0.6s' : '0s'
+                }}
               >
                 {t('nav.freeIntroCall')}
               </button>

@@ -1,123 +1,128 @@
 
-import React from 'react';
-import { 
-  Card, 
-  CardHeader, 
-  CardTitle, 
-  CardContent 
-} from '../ui/card';
-import { Check, X, Minus } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronRight, Check } from 'lucide-react';
 import { Badge } from '../ui/badge';
-import { MobileComparisonCardProps } from './types';
-import { cn } from '@/lib/utils';
+import { useLanguage } from '../../contexts/LanguageContext';
+import { ComparisonCategory, ServiceType } from './types';
+import { comparisonData } from './comparisonData';
+
+interface MobileComparisonCardProps {
+  service: ServiceType;
+  delay: number;
+  scrollToCategory: (category: ComparisonCategory) => void;
+  activeCategory: ComparisonCategory | null;
+}
 
 const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
-  mainProvider,
-  comparisonProvider,
-  justLaunchData,
-  competitorData,
-  categoryIcons,
-  categories,
-  getCategoryName,
-  highlight = false
+  service,
+  delay,
+  scrollToCategory,
+  activeCategory,
 }) => {
-  // Function to render icon or value
-  const renderValue = (value: React.ReactNode) => {
-    if (value === true) return <Check className="h-4 w-4 text-green-500" />;
-    if (value === false) return <X className="h-4 w-4 text-red-500" />;
-    if (value === null || value === undefined) return <Minus className="h-4 w-4 text-gray-400" />;
-    
-    // If value is a string, check if it contains a newline
-    if (typeof value === 'string' && value.includes('\n')) {
-      const lines = value.split('\n');
-      return (
-        <div className="flex flex-col items-center justify-center text-center">
-          {lines.map((line, i) => (
-            <div key={i} className="text-xs sm:text-sm text-[#0D503C]">{line}</div>
-          ))}
-        </div>
-      );
+  const { t } = useLanguage();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  
+  const serviceData = comparisonData.find(item => item.service === service);
+  if (!serviceData) return null;
+  
+  const getCategoryName = (category: ComparisonCategory) => {
+    return t(`comparison.categories.${category}`);
+  };
+  
+  const getServiceName = (service: ServiceType) => {
+    return t(`comparison.services.${service}`);
+  };
+  
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+  
+  const hasAdvantage = (category: ComparisonCategory) => {
+    const categoryData = serviceData.categories[category];
+    return categoryData.advantage === true;
+  };
+  
+  const getFeatureValue = (category: ComparisonCategory, feature: string) => {
+    const categoryData = serviceData.categories[category];
+    return categoryData.features.find(f => f.id === feature)?.value || false;
+  };
+  
+  const getCategoryClasses = (category: ComparisonCategory) => {
+    if (activeCategory === category) {
+      return 'animate-pulse bg-[#0D503C]/10 border-[#0D503C]/20';
     }
-    
-    return <span className="text-xs sm:text-sm text-center text-[#0D503C]">{value}</span>;
+    return 'bg-white border-gray-100';
   };
-
-  // Function to determine if Just Launch has an advantage
-  const hasAdvantage = (category: string): boolean => {
-    // Simple comparison for boolean values
-    if (justLaunchData[category] === true && competitorData[category] !== true) return true;
-    // For other types, we can't automatically determine advantage
-    return false;
-  };
-
+  
   return (
-    <Card className={cn(
-      "overflow-hidden bg-[#F5F5E9]",
-      highlight ? 'border-[#0D503C] ring-1 ring-[#0D503C]/30' : ''
-    )}>
-      <CardHeader className={cn(
-        "py-1.5 px-2",
-        highlight ? 'bg-[#0D503C] text-[#F5F5E9]' : 'bg-[#0D503C]/5'
-      )}>
-        <div className="grid grid-cols-3 gap-1">
-          <div className="text-left">
-            <CardTitle className="text-xs font-bold">
-              Category
-            </CardTitle>
-          </div>
-          <div className="text-center border-l border-[#F5F5E9]/30">
-            <CardTitle className="text-xs font-bold">
-              {mainProvider}
-            </CardTitle>
-          </div>
-          <div className="text-center border-l border-[#F5F5E9]/30">
-            <CardTitle className="text-xs font-bold">
-              {comparisonProvider}
-            </CardTitle>
-          </div>
+    <div 
+      className={`card-animation delay-${delay} rounded-xl border border-gray-200 shadow-sm overflow-hidden`}
+    >
+      {/* Card Header */}
+      <div className="p-4 border-b border-gray-100 bg-white flex justify-between items-center">
+        <div>
+          <h3 className="font-medium text-[#0D503C]">{getServiceName(service)}</h3>
+          {service === 'just_launch' && (
+            <span className="text-xs text-[#0D503C]/70">What we offer</span>
+          )}
         </div>
-      </CardHeader>
+        <button 
+          onClick={toggleOpen}
+          aria-label={isOpen ? "Collapse details" : "Expand details"}
+          className="p-1 rounded-full hover:bg-gray-50"
+        >
+          <ChevronRight className={`h-5 w-5 text-[#0D503C] transition-transform ${isOpen ? 'rotate-90' : ''}`} />
+        </button>
+      </div>
       
-      <CardContent className="p-0">
-        <div className="grid grid-cols-1 divide-y divide-[#0D503C]/10">
-          {categories.map((category, idx) => (
-            <div 
-              key={category} 
-              className={`${idx % 2 === 0 ? 'bg-[#F5F5E9]' : 'bg-[#0D503C]/5'}`}
-            >
-              <div className="grid grid-cols-3 divide-x divide-[#0D503C]/10">
-                {/* Category Column */}
-                <div className="p-1.5 text-left flex items-center">
-                  <span className="line-clamp-2 text-xs font-bold text-[#0D503C]">{getCategoryName(category)}</span>
-                  {hasAdvantage(category) && (
-                    <Badge className="ml-1 mt-0 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
-                      Advantage
-                    </Badge>
-                  )}
-                </div>
-                
-                {/* Just Launch Side */}
-                <div className={cn(
-                  "p-1.5 flex items-center justify-center", 
-                  hasAdvantage(category) ? "bg-[#F2FCE2]/50" : ""
-                )}>
-                  <div className="flex items-center justify-center w-full h-full">
-                    {renderValue(justLaunchData[category])}
-                  </div>
-                </div>
-                
-                {/* Competitor Side */}
-                <div className="p-1.5 flex items-center justify-center">
-                  <div className="flex items-center justify-center w-full h-full">
-                    {renderValue(competitorData[category])}
+      {/* Expanded Content */}
+      <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[2000px]' : 'max-h-0'}`}>
+        <div className="divide-y divide-gray-100">
+          {Object.keys(serviceData.categories).map((categoryKey, index) => {
+            const category = categoryKey as ComparisonCategory;
+            return (
+              <div 
+                key={category} 
+                className={`transition-colors duration-300 ${getCategoryClasses(category)}`}
+                onClick={() => scrollToCategory(category)}
+              >
+                <div className="px-4 py-3 cursor-pointer hover:bg-gray-50/50 transition-colors">
+                  <div className="grid grid-cols-3 divide-x divide-[#0D503C]/10">
+                    {/* Category Column */}
+                    <div className="p-1.5 text-left flex items-center">
+                      <span className="line-clamp-2 text-xs font-bold text-[#0D503C]">{getCategoryName(category)}</span>
+                      {hasAdvantage(category) && (
+                        <Badge className="ml-1 mt-0 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
+                          Advantage
+                        </Badge>
+                      )}
+                    </div>
+                    
+                    {/* Main Feature Column */}
+                    <div className="p-1.5 text-xs text-gray-600 flex items-center">
+                      {serviceData.categories[category].mainFeature}
+                    </div>
+                    
+                    {/* Detail Column */}
+                    <div className="p-1.5 flex justify-center items-center">
+                      {typeof serviceData.categories[category].value === 'boolean' ? (
+                        serviceData.categories[category].value ? (
+                          <Check className="h-4 w-4 text-green-500" />
+                        ) : (
+                          <span className="block h-4 w-4 rounded-full bg-gray-200" />
+                        )
+                      ) : (
+                        <span className="text-xs">{serviceData.categories[category].value}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 
