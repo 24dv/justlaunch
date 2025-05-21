@@ -76,6 +76,10 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
         <div className="divide-y divide-gray-100">
           {Object.keys(serviceData.categories).map((categoryKey, index) => {
             const category = categoryKey as ComparisonCategory;
+            const categoryData = serviceData.categories[category];
+            
+            if (!categoryData) return null;
+            
             return (
               <div 
                 key={category} 
@@ -96,19 +100,19 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                     
                     {/* Main Feature Column */}
                     <div className="p-1.5 text-xs text-gray-600 flex items-center">
-                      {serviceData.categories[category].mainFeature}
+                      {categoryData.mainFeature}
                     </div>
                     
                     {/* Detail Column */}
                     <div className="p-1.5 flex justify-center items-center">
-                      {typeof serviceData.categories[category].value === 'boolean' ? (
-                        serviceData.categories[category].value ? (
+                      {typeof categoryData.value === 'boolean' ? (
+                        categoryData.value ? (
                           <Check className="h-4 w-4 text-green-500" />
                         ) : (
                           <span className="block h-4 w-4 rounded-full bg-gray-200" />
                         )
                       ) : (
-                        <span className="text-xs">{serviceData.categories[category].value}</span>
+                        <span className="text-xs">{categoryData.value}</span>
                       )}
                     </div>
                   </div>
