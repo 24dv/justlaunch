@@ -116,15 +116,18 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                     
                     {/* Main Feature Column */}
                     <div className="p-1.5 text-xs text-gray-600 flex items-center">
-                      {typeof categoryData === 'object' && categoryData.mainFeature ? 
-                        categoryData.mainFeature : 
+                      {React.isValidElement(categoryData) ? (
                         categoryData
-                      }
+                      ) : (
+                        typeof categoryData === 'object' && categoryData !== null && 'mainFeature' in categoryData ? 
+                          categoryData.mainFeature : 
+                          String(categoryData)
+                      )}
                     </div>
                     
                     {/* Detail Column */}
                     <div className="p-1.5 flex justify-center items-center">
-                      {typeof categoryData === 'object' && 'value' in categoryData ? (
+                      {typeof categoryData === 'object' && categoryData !== null && 'value' in categoryData ? (
                         typeof categoryData.value === 'boolean' ? (
                           categoryData.value ? (
                             <Check className="h-4 w-4 text-green-500" />
@@ -132,10 +135,14 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
                             <span className="block h-4 w-4 rounded-full bg-gray-200" />
                           )
                         ) : (
-                          <span className="text-xs">{categoryData.value}</span>
+                          <span className="text-xs">{String(categoryData.value)}</span>
                         )
                       ) : (
-                        <span className="text-xs">{typeof categoryData !== 'object' ? categoryData : ''}</span>
+                        <span className="text-xs">
+                          {typeof categoryData === 'string' || typeof categoryData === 'number' ? 
+                            String(categoryData) : 
+                            ''}
+                        </span>
                       )}
                     </div>
                   </div>
