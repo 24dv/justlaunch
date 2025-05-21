@@ -40,12 +40,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   
   const hasAdvantage = (category: ComparisonCategory) => {
     const categoryData = serviceData.categories[category];
-    return categoryData.advantage === true;
-  };
-  
-  const getFeatureValue = (category: ComparisonCategory, feature: string) => {
-    const categoryData = serviceData.categories[category];
-    return categoryData.features.find(f => f.id === feature)?.value || false;
+    return categoryData && categoryData.advantage === true;
   };
   
   const getCategoryClasses = (category: ComparisonCategory) => {
