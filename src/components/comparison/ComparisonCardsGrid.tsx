@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ComparisonData, ComparisonCategory } from './types';
+import { ComparisonData } from './types';
 import { useLanguage } from '../../contexts/LanguageContext';
 import MobileComparisonCard from './MobileComparisonCard';
 import { categoryIcons, categories } from './comparisonData';
@@ -12,39 +12,56 @@ interface ComparisonCardsGridProps {
 
 const ComparisonCardsGrid: React.FC<ComparisonCardsGridProps> = ({ providers, comparisonData }) => {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<ComparisonCategory | null>(null);
+  // Filter out "Just Launch" from providers since we'll show it in every comparison card
+  const competitorProviders = providers.filter(provider => provider !== 'Just Launch');
+  const justLaunchData = comparisonData['Just Launch'];
   
-  // Function to scroll to a specific category
-  const scrollToCategory = (category: ComparisonCategory) => {
-    setActiveCategory(category);
-    
-    // Reset the active category after a short delay
-    setTimeout(() => {
-      setActiveCategory(null);
-    }, 2000);
-    
-    // Scroll to the desktop table category if on desktop
-    const desktopCategoryElement = document.getElementById(`category-${category.toLowerCase().replace(/\s+/g, '-')}`);
-    if (desktopCategoryElement) {
-      desktopCategoryElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+  // State for the selected competitor (default to first competitor)
+  const [selectedCompetitor, setSelectedCompetitor] = useState(competitorProviders[0]);
+  
+  // Map provider names to translation keys
+  const getProviderName = (provider: string) => {
+    return t(`compare.providers.${provider.toLowerCase().replace(/\s+/g, '')}`);
   };
-  
-  // Get services in the correct order (with Just Launch first)
-  const services = ['just_launch', 'agency', 'freelancer', 'diy'];
-  
+
+  // Map category names to translation keys
+  const getCategoryName = (category: string) => {
+    return t(`compare.categories.${category.toLowerCase().replace(/\s+/g, '')}`);
+  };
+
   return (
     <div className="lg:hidden mb-12">
-      <div className="space-y-6">
-        {services.map((service, index) => (
-          <MobileComparisonCard
-            key={service}
-            service={service}
-            delay={(index + 1) * 100}
-            scrollToCategory={scrollToCategory}
-            activeCategory={activeCategory}
-          />
-        ))}
+      {/* Toggle group for competitor selection - smaller size */}
+      <div className="flex flex-col items-center mb-2 space-y-2">
+        <div className="inline-flex p-0.5 rounded-lg bg-[#0D503C]/10 border border-[#0D503C]/30">
+          {competitorProviders.map((competitor) => (
+            <button
+              key={competitor}
+              onClick={() => setSelectedCompetitor(competitor)}
+              className={`px-2 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
+                selectedCompetitor === competitor
+                  ? 'bg-[#0D503C] text-[#F5F5E9] shadow-md'
+                  : 'text-[#0D503C] hover:bg-[#0D503C]/10'
+              }`}
+            >
+              {getProviderName(competitor)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Comparison Card with new 3-column layout */}
+      <div className="p-1">
+        <MobileComparisonCard 
+          mainProvider={getProviderName('Just Launch')}
+          comparisonProvider={getProviderName(selectedCompetitor)}
+          justLaunchData={justLaunchData}
+          competitorData={comparisonData[selectedCompetitor]}
+          categoryIcons={categoryIcons}
+          categories={categories}
+          getCategoryName={getCategoryName}
+          highlight={true}
+        />
       </div>
     </div>
   );

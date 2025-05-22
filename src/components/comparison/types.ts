@@ -4,8 +4,6 @@ import React from 'react';
 export type ComparisonValue = React.ReactNode;
 export type CategoryData = Record<string, ComparisonValue>;
 export type ComparisonData = Record<string, CategoryData>;
-export type ComparisonCategory = string;
-export type ServiceType = string;
 
 export interface ComparisonCardProps {
   title: string;
@@ -17,8 +15,12 @@ export interface ComparisonCardProps {
 }
 
 export interface MobileComparisonCardProps {
-  service: ServiceType;
-  delay: number;
-  scrollToCategory: (category: ComparisonCategory) => void;
-  activeCategory: ComparisonCategory | null;
+  mainProvider: string;
+  comparisonProvider: string;
+  justLaunchData: CategoryData;
+  competitorData: CategoryData;
+  categoryIcons: Record<string, React.ReactNode>;
+  categories: string[];
+  getCategoryName: (category: string) => string;
+  highlight?: boolean;
 }
