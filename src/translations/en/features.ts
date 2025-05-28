@@ -4,7 +4,7 @@ const features = {
   "features.subtitle": "Whether you're a founder with a bold idea, a freelancer leveling up, or launching a side hustle — this is for you. Our Launch Package gets you live fast, stress-free.",
   "features.logoDesign.title": "Professional logo and colors",
   "features.logoDesign.description": "Stand out with a logo and colors that perfectly reflect your brand identity.",
-  "features.landingSite.title": "Customised single page website",
+  "features.landingSite.title": "Customised website",
   "features.landingSite.description": "A beautiful, responsive website that converts visitors into customers.",
   "features.delivery.title": "Fast delivery within 14 days",
   "features.delivery.description": "Launch quickly while maintaining the highest quality standards.",
