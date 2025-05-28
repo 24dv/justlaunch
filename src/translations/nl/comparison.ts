@@ -1,7 +1,7 @@
 
 const comparison = {
   "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
-  "compare.subtitle": "Vergelijk je opties voordat je tijd en geld verspilt aan de verkeerde aanpak. Ontdek hoe wij ons verhouden tot de gebruikelijke manieren waarop founders online gaan.",
+  "compare.subtitle": "Vergelijk je opties vóór je tijd en geld verspilt aan het verkeerde pad. Ontdek hoe wij scoren tegenover de klassieke manieren waarop founders online lanceren.",
   "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
   "compare.deliverables.content": "Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
