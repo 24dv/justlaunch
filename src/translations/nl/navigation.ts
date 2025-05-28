@@ -6,7 +6,7 @@ const navigation = {
   "nav.compare": "Vergelijken",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
-  "nav.getStarted": "Begin Nu",
+  "nav.getStarted": "Start Hier",
   "nav.freeIntroCall": "Gratis Kennismakingscall",
 };
 
