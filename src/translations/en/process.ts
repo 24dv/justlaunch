@@ -9,7 +9,7 @@ const process = {
   "process.step3.title": "Review Designs",
   "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
   "process.step4.title": "Launch in 14 Days",
-  "process.step4.description": "Everything goes live fast, clean, and confidently done.",
+  "process.step4.description": "Brand launched, site tested, assets delivered. Simple as that.",
   "process.getStarted": "Book Your Free Intro Call",
 };
 
