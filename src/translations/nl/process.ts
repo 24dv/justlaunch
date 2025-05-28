@@ -2,7 +2,7 @@
 const process = {
   "process.title": "Hoe Het Werkt",
   "process.subtitle": "We hebben het proces helemaal gestroomlijnd — zodat jij in een paar dagen, en niet pas na maanden, kan starten met een merk dat er stáát.",
-  "process.step1.title": "Introgesprek",
+  "process.step1.title": "Gratis Kennismakingscall",
   "process.step1.description": "Plan een kort introgesprek — geen verplichtingen, gewoon om af te stemmen en te zien of we bij elkaar passen.",
   "process.step2.title": "Deel Je Visie",
   "process.step2.description": "Je ontvangt van ons een slimme vragenlijst om jouw merkvisie, designstijl en websiteteksten te verzamelen.",
