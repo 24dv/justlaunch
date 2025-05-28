@@ -7,7 +7,7 @@ const navigation = {
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
   "nav.getStarted": "Begin Nu",
-  "nav.freeIntroCall": "Gratis Introgesprek",
+  "nav.freeIntroCall": "Gratis Kennismakingscall",
 };
 
 export default navigation;
