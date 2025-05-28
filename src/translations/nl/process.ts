@@ -9,8 +9,8 @@ const process = {
   "process.step3.title": "Beoordeel Ontwerpen",
   "process.step3.description": "Bekijk en kies je logo en merkkleuren. Zodra jij tevreden bent, gaan wij aan de slag met je website.",
   "process.step4.title": "Launch in 14 Dagen",
-  "process.step4.description": "Alles gaat snel, schoon en met vertrouwen live.",
-  "process.getStarted": "Plan Je Gratis Introgesprek",
+  "process.step4.description": "Merk gelanceerd, site getest, assets geleverd. Zo simpel is het.",
+  "process.getStarted": "Boek Je Gratis Kennismakingscall",
 };
 
 export default process;
