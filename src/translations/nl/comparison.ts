@@ -17,7 +17,7 @@ const comparison = {
   "compare.categories.designquality": "Design kwaliteit",
   "compare.categories.scalability": "Schaalbaarheid",
   "compare.categories.conversion&visibility": "Conversie & Zichtbaarheid",
-  "compare.cta.freeIntroCall": "Plan Je Gratis Introgesprek",
+  "compare.cta.freeIntroCall": "Boek Je Gratis Kennismakingscall",
   "compare.cta.readyToLaunch": "Ben Ik Klaar Om Te Lanceren?",
   "compare.cta.hardWay": "Doe je het nog op de moeilijke manier?",
   "compare.advantage": "Voordeel",
