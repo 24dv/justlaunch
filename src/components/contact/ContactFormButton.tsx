@@ -27,7 +27,7 @@ const ContactFormButton = ({ isSubmitting }: ContactFormButtonProps) => {
         </span>
       ) : (
         <span className="flex items-center">
-          {language === 'en' ? 'Book Your Free Intro Call!' : 'Plan je gratis introgesprek!'}
+          {language === 'en' ? 'Book Your Free Intro Call!' : 'Boek Je Gratis Kennismakingscall!'}
           <Send className="ml-2 h-4 w-4" />
         </span>
       )}
