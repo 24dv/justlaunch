@@ -9,7 +9,7 @@ const comparison = {
   "compare.providers.justlaunch": "Just Launch",
   "compare.providers.agency": "Agency",
   "compare.providers.freelancer": "Freelancer",
-  "compare.providers.diy": "DIY",
+  "compare.providers.diy": "Doe-het-zelf",
   "compare.categories.upfrontcost": "Opstartkosten",
   "compare.categories.ongoingcost": "Doorlopende kosten",
   "compare.categories.timetolaunch": "Tijd tot lancering",
