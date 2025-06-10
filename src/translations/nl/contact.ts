@@ -11,7 +11,7 @@ const contact = {
   "contact.form.name": "Je Naam",
   "contact.form.email": "E-mailadres",
   "contact.form.company": "Bedrijfs-/Projectnaam",
-  "contact.form.package": "Kies je Pakket",
+  "contact.form.package": "Ik Ben Geïnteresseerd In",
   "contact.form.message": "Vertel ons over je project",
   "contact.form.submit": "Boek Je Gratis Kennismakingscall!",
   "contact.form.submitting": "Versturen...",
