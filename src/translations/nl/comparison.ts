@@ -4,7 +4,7 @@ const comparison = {
   "compare.subtitle": "Vergelijk je opties vóór je tijd en geld verspilt aan het verkeerde pad. Ontdek hoe wij scoren tegenover de klassieke manieren waarop founders online lanceren.",
   "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
-  "compare.deliverables.content": "Logo + Kleurenpalet + Op maat gemaakte 1-pagina website",
+  "compare.deliverables.content": "Logo + Kleurenpalet + Gepersonaliseerde 1-page website",
   "compare.category": "Categorie",
   "compare.providers.justlaunch": "Just Launch",
   "compare.providers.agency": "Bureau",
