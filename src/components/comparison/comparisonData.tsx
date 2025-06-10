@@ -32,7 +32,7 @@ export const useComparisonData = () => {
       'Level of Effort': (
         <div>
           <span className="font-medium">{t('compare.data.justlaunch.levelOfEffort')}</span>
-          <div className="text-xs text-[#0D503C]/70">({t('compare.data.justlaunch.levelOfEffort.note')})</div>
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.justlaunch.levelOfEffort.note')}</div>
         </div>
       ),
       'Design Quality': (
@@ -58,7 +58,7 @@ export const useComparisonData = () => {
       'Level of Effort': (
         <div>
           <span className="font-medium">{t('compare.data.agency.levelOfEffort')}</span>
-          <div className="text-xs text-[#0D503C]/70">({t('compare.data.agency.levelOfEffort.note')})</div>
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.agency.levelOfEffort.note')}</div>
         </div>
       ),
       'Design Quality': (
@@ -85,7 +85,7 @@ export const useComparisonData = () => {
       'Level of Effort': (
         <div>
           <span className="font-medium">{t('compare.data.freelancer.levelOfEffort')}</span>
-          <div className="text-xs text-[#0D503C]/70">({t('compare.data.freelancer.levelOfEffort.note')})</div>
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.freelancer.levelOfEffort.note')}</div>
         </div>
       ),
       'Design Quality': (
@@ -112,7 +112,7 @@ export const useComparisonData = () => {
       'Level of Effort': (
         <div>
           <span className="font-medium">{t('compare.data.diy.levelOfEffort')}</span>
-          <div className="text-xs text-[#0D503C]/70">({t('compare.data.diy.levelOfEffort.note')})</div>
+          <div className="text-xs text-[#0D503C]/70">{t('compare.data.diy.levelOfEffort.note')}</div>
         </div>
       ),
       'Design Quality': (
