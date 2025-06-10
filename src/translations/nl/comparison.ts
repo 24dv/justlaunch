@@ -7,7 +7,7 @@ const comparison = {
   "compare.deliverables.content": "Logo + Kleurenpalet + Gepersonaliseerde 1-page website",
   "compare.category": "Categorie",
   "compare.providers.justlaunch": "Just Launch",
-  "compare.providers.agency": "Bureau",
+  "compare.providers.agency": "Agency",
   "compare.providers.freelancer": "Freelancer",
   "compare.providers.diy": "DIY",
   "compare.categories.upfrontcost": "Opstartkosten",
