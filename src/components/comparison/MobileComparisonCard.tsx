@@ -10,6 +10,7 @@ import { Check, X, Minus } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { MobileComparisonCardProps } from './types';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   mainProvider,
@@ -21,6 +22,8 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
   getCategoryName,
   highlight = false
 }) => {
+  const { language } = useLanguage();
+
   // Function to render icon or value
   const renderValue = (value: React.ReactNode) => {
     if (value === true) return <Check className="h-4 w-4 text-green-500" />;
@@ -48,6 +51,18 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
     if (justLaunchData[category] === true && competitorData[category] !== true) return true;
     // For other types, we can't automatically determine advantage
     return false;
+  };
+
+  // Function to get mobile-friendly category name for Dutch
+  const getMobileCategoryName = (category: string): string => {
+    const categoryName = getCategoryName(category);
+    
+    // Only apply to Dutch language and Level of Effort category
+    if (language === 'nl' && category === 'Level of Effort' && categoryName === 'Inspanningsniveau') {
+      return 'Inspannings-niveau';
+    }
+    
+    return categoryName;
   };
 
   return (
@@ -88,7 +103,7 @@ const MobileComparisonCard: React.FC<MobileComparisonCardProps> = ({
               <div className="grid grid-cols-3 divide-x divide-[#0D503C]/10">
                 {/* Category Column */}
                 <div className="p-1.5 text-left flex items-center">
-                  <span className="line-clamp-2 text-xs font-bold text-[#0D503C]">{getCategoryName(category)}</span>
+                  <span className="line-clamp-2 text-xs font-bold text-[#0D503C]">{getMobileCategoryName(category)}</span>
                   {hasAdvantage(category) && (
                     <Badge className="ml-1 mt-0 text-[0.6rem] py-0 px-1 h-4 bg-[#F2FCE2] text-[#0D503C] border border-[#0D503C]/20">
                       Advantage
