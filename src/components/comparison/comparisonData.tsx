@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check } from 'lucide-react';
 import { ComparisonData } from './types';
@@ -28,9 +29,10 @@ export const useComparisonData = () => {
           <Check size={18} className="text-green-600" />
         </div>
       ),
-      'Ease of Process': (
+      'Level of Effort': (
         <div>
-          <span className="font-medium">{t('compare.data.justlaunch.easeOfProcess')}</span>
+          <span className="font-medium">{t('compare.data.justlaunch.levelOfEffort')}</span>
+          <div className="text-xs text-[#0D503C]/70">({t('compare.data.justlaunch.levelOfEffort.note')})</div>
         </div>
       ),
       'Design Quality': (
@@ -53,9 +55,10 @@ export const useComparisonData = () => {
       'Upfront Cost': t('compare.data.agency.upfrontCost'),
       'Ongoing Cost': t('compare.data.agency.ongoingCost'),
       'Time to Launch': t('compare.data.agency.timeToLaunch'),
-      'Ease of Process': (
+      'Level of Effort': (
         <div>
-          <span className="font-medium">{t('compare.data.agency.easeOfProcess')}</span>
+          <span className="font-medium">{t('compare.data.agency.levelOfEffort')}</span>
+          <div className="text-xs text-[#0D503C]/70">({t('compare.data.agency.levelOfEffort.note')})</div>
         </div>
       ),
       'Design Quality': (
@@ -79,9 +82,10 @@ export const useComparisonData = () => {
       'Upfront Cost': t('compare.data.freelancer.upfrontCost'),
       'Ongoing Cost': t('compare.data.freelancer.ongoingCost'),
       'Time to Launch': t('compare.data.freelancer.timeToLaunch'),
-      'Ease of Process': (
+      'Level of Effort': (
         <div>
-          <span className="font-medium">{t('compare.data.freelancer.easeOfProcess')}</span>
+          <span className="font-medium">{t('compare.data.freelancer.levelOfEffort')}</span>
+          <div className="text-xs text-[#0D503C]/70">({t('compare.data.freelancer.levelOfEffort.note')})</div>
         </div>
       ),
       'Design Quality': (
@@ -105,9 +109,10 @@ export const useComparisonData = () => {
       'Upfront Cost': t('compare.data.diy.upfrontCost'),
       'Ongoing Cost': t('compare.data.diy.ongoingCost'),
       'Time to Launch': t('compare.data.diy.timeToLaunch'),
-      'Ease of Process': (
+      'Level of Effort': (
         <div>
-          <span className="font-medium">{t('compare.data.diy.easeOfProcess')}</span>
+          <span className="font-medium">{t('compare.data.diy.levelOfEffort')}</span>
+          <div className="text-xs text-[#0D503C]/70">({t('compare.data.diy.levelOfEffort.note')})</div>
         </div>
       ),
       'Design Quality': (
@@ -137,23 +142,23 @@ export const useComparisonData = () => {
   };
 };
 
-// Category icons using emojis
+// Category icons using emojis - updated emoji for Level of Effort
 export const categoryIcons = {
   'Upfront Cost': <span className="text-xl">💶</span>,
   'Ongoing Cost': <span className="text-xl">📅</span>,
   'Time to Launch': <span className="text-xl">🚀</span>,
-  'Ease of Process': <span className="text-xl">🔄</span>,
+  'Level of Effort': <span className="text-xl">⚡</span>,
   'Design Quality': <span className="text-xl">🎨</span>,
   'Scalability': <span className="text-xl">🧩</span>,
   'Conversion & Visibility': <span className="text-xl">👁️</span>
 };
 
-// Categories order
+// Categories order - updated category name
 export const categories = [
   'Upfront Cost', 
   'Ongoing Cost', 
   'Time to Launch', 
-  'Ease of Process', 
+  'Level of Effort', 
   'Design Quality', 
   'Scalability', 
   'Conversion & Visibility'
