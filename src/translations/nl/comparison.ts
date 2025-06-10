@@ -1,6 +1,6 @@
 
 const comparison = {
-  "compare.title": "Just Launch vs. Bureau vs. Freelancer vs. DIY",
+  "compare.title": "Just Launch vs. Agency vs. Freelancer vs. Doe-het-zelf",
   "compare.subtitle": "Vergelijk je opties vóór je tijd en geld verspilt aan het verkeerde pad. Ontdek hoe wij scoren tegenover de klassieke manieren waarop founders online lanceren.",
   "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
