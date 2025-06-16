@@ -1,12 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
   const rotatingWords = language === 'en' 
-    ? ['Startup', 'Hustle', 'Project', 'Dream', 'Venture']
-    : ['Startup', 'Hustle', 'Project', 'Bedrijf', 'Venture'];
+    ? ['Startup', 'Side Hustle', 'Project', 'Dream', 'Venture']
+    : ['Startup', 'Side Hustle', 'Project', 'Bedrijf', 'Venture'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -55,13 +54,12 @@ const HeroSection = () => {
               </>
             ) : (
               <>
-                <div className="lg:block">Lanceer Je <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+                <div className="lg:block">Het Moment Dat Je <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
                   <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                     {rotatingWords[currentWordIndex]}
                   </span>
                 </span></div>
-                <div className="lg:block">Snel—Van Idee naar</div>
-                <div className="lg:block">Online in Dagen!</div>
+                <div className="lg:block">Werkelijkheid Wordt</div>
               </>
             )}
           </h1>
