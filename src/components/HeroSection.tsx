@@ -45,13 +45,13 @@ const HeroSection = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-[#0D503C] mb-10 leading-tight sm:leading-tight lg:leading-tight animate-fade-in-up animate-delay-100 tracking-tight font-serif">
             {language === 'en' ? (
               <>
-                <div className="lg:block">Launch Your <span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+                <div className="lg:block">The Moment Your</div>
+                <div className="lg:block"><span className="relative inline-block min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
                   <span className={`inline-block transition-opacity duration-500 text-[#F9A7A7] ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                     {rotatingWords[currentWordIndex]}
                   </span>
                 </span></div>
-                <div className="lg:block">Fast—From Idea to</div> 
-                <div className="lg:block">Online in Days!</div>
+                <div className="lg:block">Becomes Real</div>
               </>
             ) : (
               <>
