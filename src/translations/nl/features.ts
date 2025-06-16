@@ -9,7 +9,7 @@ const features = {
   "features.delivery.title": "Momentum",
   "features.delivery.description": "In 14 dagen voelt je project echt. Geen wachten meer. Geen excuses meer.",
   "features.process.title": "Een rustig, begeleid proces",
-  "features.process.description": "Geen overweldiging. Geen technische hoofdpijn. Gewoon een duidelijk pad van idee naar lancering.",
+  "features.process.description": "Geen overweldiging. Geen technische stress. Gewoon een duidelijk pad van idee naar lancering.",
   "features.pricing.title": "Betaalbare prijs",
   "features.pricing.description": "Topdesign voor €1.500 + €10/maand voor hosting en gemoedsrust.",
   "features.support.title": "Gebouwd op vertrouwen",

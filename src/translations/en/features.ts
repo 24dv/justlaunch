@@ -9,7 +9,7 @@ const features = {
   "features.delivery.title": "Momentum",
   "features.delivery.description": "In 14 days, your project feels real. No more waiting. No more excuses.",
   "features.process.title": "A calm, guided process",
-  "features.process.description": "No overwhelm. No tech headaches. Just a clear path from idea to launch.",
+  "features.process.description": "No overwhelm. No tech stress. Just a clear path from idea to launch.",
   "features.pricing.title": "Affordable pricing",
   "features.pricing.description": "Top-tier design for €1,500 + €10/mo for hosting and peace of mind.",
   "features.support.title": "Built on trust",
