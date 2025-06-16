@@ -1,15 +1,15 @@
 
 const process = {
-  "process.title": "How It Works",
-  "process.subtitle": "We've streamlined the entire process — so you can launch a polished, professional brand in just days, not months.",
+  "process.title": "Your Launch Journey",
+  "process.subtitle": "Here's how we take you from \"I've been meaning to start…\" to \"Look what I've launched.\"",
   "process.step1.title": "Free Intro Call",
   "process.step1.description": "Book a short intro call — no pressure, just to align and see if we're the right fit.",
   "process.step2.title": "Share Your Vision",
-  "process.step2.description": "We'll send you a smart questionnaire to gather your brand direction, design style, and website content.",
+  "process.step2.description": "Fill out a short, smart questionnaire so we can really get your vibe.",
   "process.step3.title": "Review Designs",
-  "process.step3.description": "Review and select your logo + brand colors. Once approved, we'll design your website.",
+  "process.step3.description": "You'll get designs that click. Choose the one that feels like you.",
   "process.step4.title": "Launch in 14 Days",
-  "process.step4.description": "Brand launched, site tested, assets delivered. Simple as that.",
+  "process.step4.description": "It's live. It's working. And you're finally out there.",
   "process.getStarted": "Book Your Free Intro Call",
 };
 
