@@ -1,7 +1,7 @@
 
 const carousel = {
-  "carousel.title": "See What We Can Do for You",
-  "carousel.subtitle": "From coaches to creatives to pet brands — we've helped all kinds of businesses look and feel launch-ready.",
+  "carousel.title": "Your Idea Deserves to Be Seen",
+  "carousel.subtitle": "From coaches to bakers, creatives to consultants, we help people like you bring their dream to life in a way that feels real and looks legit.",
   "carousel.before": "Before",
   "carousel.after": "After",
   "carousel.previous": "Previous",
