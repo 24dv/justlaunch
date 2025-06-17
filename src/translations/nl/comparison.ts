@@ -1,7 +1,6 @@
-
 const comparison = {
-  "compare.title": "Just Launch vs. Agency vs. Freelancer vs. Doe-het-zelf",
-  "compare.subtitle": "Vergelijk je opties vóór je tijd en geld verspilt aan het verkeerde pad. Ontdek hoe wij scoren tegenover de klassieke manieren waarop founders online lanceren.",
+  "compare.title": "Welk Pad Brengt Je Echt Van Idee Naar \"Ik Heb Gelanceerd\"?",
+  "compare.subtitle": "Voordat je maanden vastloopt in beslissingsverlamming, zie wat Just Launch de duidelijke en zelfverzekerde weg vooruit maakt.",
   "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
   "compare.deliverables.content": "Logo + Kleurenpalet + Gepersonaliseerde 1-page website",

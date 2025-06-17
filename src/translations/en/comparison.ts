@@ -1,7 +1,6 @@
-
 const comparison = {
-  "compare.title": "Just Launch vs. Agency vs. Freelancer vs. DIY",
-  "compare.subtitle": "Compare your options before wasting time and money on the wrong path. See how we stack up against common ways founders launch online.",
+  "compare.title": "Which Path Actually Gets You From Idea to \"I Launched\"?",
+  "compare.subtitle": "Before you spend months stuck in decision limbo, see what makes Just Launch the clear and confident way forward.",
   "compare.deliverables.prefix": "Deliverables",
   "compare.deliverables.content": "Logo + Color palette + Custom 1-page website",
   "compare.category": "Category",
