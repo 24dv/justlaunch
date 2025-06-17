@@ -1,13 +1,14 @@
 
+
 const pricing = {
   "pricing.title": "Transparante Prijzen, Geen Verrassingen",
-  "pricing.subtitle": "Kies het pakket dat past bij jouw behoeften en budget.",
+  "pricing.subtitle": "Kies het pad dat past bij waar je nu bent en waar je naartoe wilt.",
   "pricing.toggle.websiteOnly": "Alleen Website",
   "pricing.toggle.packages": "Pakketten",
   "pricing.mostPopular": "Meest Gekozen",
   "pricing.launch.title": "Launch Pakket",
   "pricing.launch.price": "€1.500",
-  "pricing.launch.description": "Alles wat je nodig hebt om een sterk en professioneel merk te lanceren — zonder het hoge prijskaartje van een agency.",
+  "pricing.launch.description": "Maak van je idee iets echts in slechts twee weken. Je loopt weg met een merk dat voelt als jij en een website waar je trots op kunt zijn.",
   "pricing.launch.includes": "INBEGREPEN:",
   "pricing.launch.feature1": "Klaar om te lanceren in slechts 14 dagen",
   "pricing.launch.feature2": "Op maat gemaakte 1-pagina website (zoals deze!)",
@@ -17,7 +18,7 @@ const pricing = {
   "pricing.launch.feature6": "Ontwikkeld door professionele designers uit België 🇧🇪",
   "pricing.launchsite.title": "Launch Site",
   "pricing.launchsite.price": "€995",
-  "pricing.launchsite.description": "Heb je al een logo? We bouwen een strakke, mooie website om je business snel online te krijgen.",
+  "pricing.launchsite.description": "Heb je al een logo? Laten we er iets van maken dat je aan de wereld kunt laten zien. Je krijgt een mooie, functionele website die je project tot leven brengt en het officieel laat voelen.",
   "pricing.launchsite.includes": "INBEGREPEN:",
   "pricing.launchsite.feature1": "Klaar om te lanceren in slechts 14 dagen",
   "pricing.launchsite.feature2": "Op maat gemaakte 1-pagina website (zoals deze!)",
@@ -26,7 +27,7 @@ const pricing = {
   "pricing.premium.title": "Premium Pakket",
   "pricing.premium.price": "€2.500",
   "pricing.premium.plan": "of €833/maand voor 3 maanden",
-  "pricing.premium.description": "Ontworpen voor founders die professioneel voor de dag willen komen en consistent willen blijven — met een multi-pagina website, custom visuals en een stijlhandleiding die alles mooi samenbrengt.",
+  "pricing.premium.description": "Voor founders die klaar zijn voor hun volgende hoofdstuk. Dit pakket bouwt je merk met helderheid, vertrouwen en consistentie zodat alles past en met je meegroeit.",
   "pricing.premium.includes": "INBEGREPEN:",
   "pricing.premium.feature1": "Klaar om te lanceren in slechts 14 dagen",
   "pricing.premium.feature2": "Op maat gemaakte website met 5 pagina's",
@@ -60,3 +61,4 @@ const pricing = {
 };
 
 export default pricing;
+

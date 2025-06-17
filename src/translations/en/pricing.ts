@@ -1,13 +1,14 @@
 
+
 const pricing = {
   "pricing.title": "Transparent Pricing, No Surprises",
-  "pricing.subtitle": "Choose the package that suits your needs and budget.",
+  "pricing.subtitle": "Pick the path that fits where you are and where you're headed.",
   "pricing.toggle.websiteOnly": "Website Only",
   "pricing.toggle.packages": "Packages",
   "pricing.mostPopular": "Most Popular",
   "pricing.launch.title": "Launch Package",
   "pricing.launch.price": "€1,500",
-  "pricing.launch.description": "Everything you need to launch a polished, professional brand — without the agency price tag.",
+  "pricing.launch.description": "Turn your idea into something real in just two weeks. You'll walk away with a brand that feels like you and a website you'll be proud to share.",
   "pricing.launch.includes": "INCLUDES:",
   "pricing.launch.feature1": "Launch-ready in just 14 days",
   "pricing.launch.feature2": "Custom 1-page website (like this one!)",
@@ -17,7 +18,7 @@ const pricing = {
   "pricing.launch.feature6": "Built by pro designers, based in Belgium 🇧🇪",
   "pricing.launchsite.title": "Launch Site",
   "pricing.launchsite.price": "€995",
-  "pricing.launchsite.description": "Already have a logo? We'll build you a slick, beautiful site to get your business out there — fast.",
+  "pricing.launchsite.description": "Already have a logo? Let's turn it into something you can show the world. You'll get a beautiful, functional website that brings your project to life and makes it feel official.",
   "pricing.launchsite.includes": "INCLUDES:",
   "pricing.launchsite.feature1": "Launch-ready in just 14 days",
   "pricing.launchsite.feature2": "Custom 1-page website (like this one!)",
@@ -26,7 +27,7 @@ const pricing = {
   "pricing.premium.title": "Premium Package",
   "pricing.premium.price": "€2,500",
   "pricing.premium.plan": "or €833/month for 3 months",
-  "pricing.premium.description": "Designed for founders who want to look sharp and stay consistent — with a multi-page site, custom visuals, and a clear style guide to tie it all together.",
+  "pricing.premium.description": "For founders ready to step into their next chapter. This package builds your brand with clarity, confidence and consistency so everything fits and grows with you.",
   "pricing.premium.includes": "INCLUDES:",
   "pricing.premium.feature1": "Launch-ready in just 14 days",
   "pricing.premium.feature2": "Custom 5-page website", 
@@ -60,3 +61,4 @@ const pricing = {
 };
 
 export default pricing;
+
