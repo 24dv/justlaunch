@@ -1,11 +1,11 @@
 
 const contact = {
-  "contact.title": "Ready to launch your brand — fast and stress-free?",
-  "contact.subtitle": "Fill out the form to book a short intro call. No strings, just a quick chat to see if we're the right fit.",
-  "contact.nextSteps": "Here's what happens next:",
-  "contact.step1": "We'll book a quick intro call to walk through the process and answer your questions",
-  "contact.step2": "If it's a match, we'll send over a smart intake form to capture your style, content, and vision",
-  "contact.step3": "From there, we get rolling — design, build, launch, all within 14 days",
+  "contact.title": "Ready to finally get your idea out there?",
+  "contact.subtitle": "Book a short call to talk it through. No pressure. Just space to ask questions, get clarity, and see if this feels right.",
+  "contact.nextSteps": "Here's how easy this can be:",
+  "contact.step1": "We'll schedule a short intro call to talk through your idea and answer your questions.",
+  "contact.step2": "If it clicks, we'll send over a short intake form to understand your style, vision and content.",
+  "contact.step3": "Then we get to work. Your brand goes from idea to real, ready and live in 14 days.",
   "contact.questions": "Questions? Contact us directly:",
   "contact.email": "hello@justlaunch.be",
   "contact.form.name": "Your Name",
