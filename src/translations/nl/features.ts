@@ -13,7 +13,7 @@ const features = {
   "features.pricing.title": "Betaalbare prijs",
   "features.pricing.description": "Top design voor €1.500 + €10/maand voor hosting (en gemoedsrust).",
   "features.support.title": "Je merk is in ervaren handen",
-  "features.support.description": "We ontwerpen al meer dan 8 jaar merken en websites voor ondernemers, freelancers en ideeën die klaar zijn voor de volgende stap.",
+  "features.support.description": "We bouwen al meer dan 8 jaar merken en websites voor ondernemers die willen groeien.",
 };
 
 export default features;
