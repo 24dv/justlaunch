@@ -2,7 +2,7 @@
 const features = {
   "features.title": "Heb je het Idee? Wij Helpen je het Waar te Maken",
   "features.subtitle": "Of je nu je passie omzet in een bedrijf, een side hustle laat groeien, of eindelijk de sprong waagt—dit is jouw moment. Ons Launch Package brengt je van \"het is maar een idee\" naar \"het is er en het werkt.\"",
-  "features.logoDesign.title": "Je merk, eindelijk echt",
+  "features.logoDesign.title": "Je merk, eindelijk tastbaar",
   "features.logoDesign.description": "Een visuele identiteit die goed voelt—en er ook zo uitziet.",
   "features.landingSite.title": "Een thuis voor je visie",
   "features.landingSite.description": "Een website die je idee tot leven brengt en anderen uitnodigt.",
