@@ -2,7 +2,7 @@
 
 const pricing = {
   "pricing.title": "Transparante Prijzen, Geen Verrassingen",
-  "pricing.subtitle": "Kies het pad dat past bij waar je nu bent en waar je naartoe wilt.",
+  "pricing.subtitle": "Alles wat je nodig hebt om professioneel te starten — op jouw manier.",
   "pricing.toggle.websiteOnly": "Alleen Website",
   "pricing.toggle.packages": "Pakketten",
   "pricing.mostPopular": "Meest Gekozen",
