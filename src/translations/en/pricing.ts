@@ -2,7 +2,7 @@
 
 const pricing = {
   "pricing.title": "Transparent Pricing, No Surprises",
-  "pricing.subtitle": "Pick the path that fits where you are and where you're headed.",
+  "pricing.subtitle": "Choose the package that meets you where you’re at and takes you where you want to go.",
   "pricing.toggle.websiteOnly": "Website Only",
   "pricing.toggle.packages": "Packages",
   "pricing.mostPopular": "Most Popular",
