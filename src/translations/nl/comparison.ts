@@ -1,5 +1,5 @@
 const comparison = {
-  "compare.title": "Welk Pad Brengt Je Echt Van Idee Naar \"Ik Heb Gelanceerd\"?",
+  "compare.title": "Welke Optie Is Juist Voor Jou?",
   "compare.subtitle": "Voordat je maanden vastloopt in beslissingsverlamming, zie wat Just Launch de duidelijke en zelfverzekerde weg vooruit maakt.",
   "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
