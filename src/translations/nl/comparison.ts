@@ -1,6 +1,6 @@
 const comparison = {
   "compare.title": "Welke Optie Is Juist Voor Jou?",
-  "compare.subtitle": "Voordat je maanden vastloopt in beslissingsverlamming, zie wat Just Launch de duidelijke en zelfverzekerde weg vooruit maakt.",
+  "compare.subtitle": "Voor je nog maanden blijft twijfelen: hier is wat Just Launch anders maakt.",
   "compare.swipe": "Veeg om te vergelijken",
   "compare.deliverables.prefix": "Inbegrepen",
   "compare.deliverables.content": "Logo + Kleurenpalet + Gepersonaliseerde 1-page website",
