@@ -16,12 +16,12 @@ import ExitIntentPopup from '../components/quiz/ExitIntentPopup';
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Launch Your Brand Fast | Professional Design & Web Services";
+    document.title = "From Idea to Online in 14 Days | Professional Design & Web Services";
     
     // Update meta description dynamically
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional web design and development services to launch your brand quickly. From idea to online in just days!');
+      metaDescription.setAttribute('content', 'Turn your idea into a real, working brand in just 14 days. Just Launch helps founders and side hustlers go live with confidence, without the agency price tag.');
     }
     
     // Smooth scroll to section when URL contains hash - but with a slight delay for better performance
