@@ -1,7 +1,7 @@
 
 const carousel = {
   "carousel.title": "Jouw Idee Verdient Het Om Gezien Te Worden",
-  "carousel.subtitle": "Van coaches tot bakkers, creatievelingen tot consultants, we helpen mensen zoals jij hun droom tot leven te brengen op een manier die echt voelt en er legaal uitziet.",
+  "carousel.subtitle": "Van coaches tot bakkers, creatievelingen tot consultants, we helpen mensen zoals jij hun droom tot leven te brengen op een manier die écht voelt en er pro uitziet.",
   "carousel.before": "Voor",
   "carousel.after": "Na",
   "carousel.previous": "Vorige",
