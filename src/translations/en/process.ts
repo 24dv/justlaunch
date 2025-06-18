@@ -7,7 +7,7 @@ const process = {
   "process.step2.title": "Share Your Vision",
   "process.step2.description": "Fill out a short, smart questionnaire so we can really get your vibe.",
   "process.step3.title": "Review Designs",
-  "process.step3.description": "You'll get designs that click. Choose the one that feels like you.",
+  "process.step3.description": "You'll get designs tailored to your vibe. Choose the one that feels most like you.",
   "process.step4.title": "Launch in 14 Days",
   "process.step4.description": "It's live. It's working. And you're finally out there.",
   "process.getStarted": "Book Your Free Intro Call",
