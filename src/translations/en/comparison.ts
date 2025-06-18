@@ -1,5 +1,5 @@
 const comparison = {
-  "compare.title": "Which Option Actually Gets You From Idea to \"I Launched\"?",
+  "compare.title": "Which Option Is Right for You?",
   "compare.subtitle": "Before you spend months stuck in decision limbo, see what makes Just Launch the clear and confident way forward.",
   "compare.deliverables.prefix": "Deliverables",
   "compare.deliverables.content": "Logo + Color palette + Custom 1-page website",
