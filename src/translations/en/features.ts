@@ -7,7 +7,7 @@ const features = {
   "features.landingSite.title": "A home for your vision",
   "features.landingSite.description": "A website that brings your idea to life and invites others in.",
   "features.delivery.title": "Momentum",
-  "features.delivery.description": "In 14 days, your project feels real. No more waiting. No more excuses.",
+  "features.delivery.description": "In 14 days, your project becomes real. No more waiting. No more excuses.",
   "features.process.title": "A calm, guided process",
   "features.process.description": "No overwhelm. No tech stress. Just a clear path from idea to launch.",
   "features.pricing.title": "Affordable pricing",
