@@ -1,3 +1,4 @@
+
 const contact = {
   "contact.title": "Klaar om je idee met de wereld te delen?",
   "contact.subtitle": "We nemen de tijd om je idee door te praten; zonder haast, zonder druk. Stel ons je vragen en voel of het klikt.",
@@ -17,6 +18,9 @@ const contact = {
   "contact.form.privacy": "Door dit formulier in te dienen, ga je akkoord met ons privacybeleid en onze servicevoorwaarden.",
   "contact.success.title": "Bedankt!",
   "contact.success.message": "Je aanvraag is succesvol verzonden. We nemen binnen 24 uur contact met je op.",
+  "contact.thankyou.title": "Bedankt!",
+  "contact.thankyou.message": "We hebben je aanvraag ontvangen en nemen binnenkort contact met je op.",
+  "contact.thankyou.backHome": "Terug naar Home",
 };
 
 export default contact;

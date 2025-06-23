@@ -1,3 +1,4 @@
+
 const contact = {
   "contact.title": "Ready to finally get your idea out there?",
   "contact.subtitle": "Book a short call to talk it through. No pressure. Just space to ask questions, get clarity, and see if this feels right.",
@@ -17,6 +18,9 @@ const contact = {
   "contact.form.privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
   "contact.success.title": "Thank you!",
   "contact.success.message": "Your message has been sent successfully. We'll get back to you within 24 hours.",
+  "contact.thankyou.title": "Thank You!",
+  "contact.thankyou.message": "We've received your request and will get back to you shortly.",
+  "contact.thankyou.backHome": "Back to Home",
 };
 
 export default contact;
