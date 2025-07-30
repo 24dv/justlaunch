@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Security fix: Hide default close button in quiz popup */
+[data-custom-dialog="quiz-popup"] .absolute.right-4.top-4.rounded-sm.opacity-70 {
+  display: none !important;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {

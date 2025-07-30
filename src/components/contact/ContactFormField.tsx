@@ -12,6 +12,7 @@ type ContactFormFieldProps = {
   placeholder: string;
   type?: string;
   required?: boolean;
+  error?: string;
 };
 
 const ContactFormField = ({
@@ -22,7 +23,8 @@ const ContactFormField = ({
   onChange,
   placeholder,
   type = 'text',
-  required = true
+  required = true,
+  error
 }: ContactFormFieldProps) => {
   return (
     <div>
@@ -39,9 +41,18 @@ const ContactFormField = ({
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full border-2 border-[#0D503C]/30 rounded-md focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9]"
+        className={`w-full border-2 rounded-md focus:ring-2 focus:ring-[#0D503C] focus:border-[#0D503C] bg-[#F5F5E9] ${
+          error ? 'border-red-500' : 'border-[#0D503C]/30'
+        }`}
         placeholder={placeholder}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-describedby={error ? `${id}-error` : undefined}
       />
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-sm text-red-600" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 };

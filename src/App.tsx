@@ -9,6 +9,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import ThankYou from './pages/ThankYou';
 import CookieConsentWrapper from './components/cookie/CookieConsentWrapper';
+import ErrorBoundary from './components/ErrorBoundary';
 
 declare global {
   interface Window {
@@ -20,22 +21,24 @@ window.dataLayer = window.dataLayer || [];
 
 const App: React.FC = () => {
   return (
-    <LanguageProvider>
-      <Router>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-conditions" element={<TermsConditions />} />
-            <Route path="/thank-you" element={<ThankYou />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          
-          <CookieConsentWrapper />
-          <Toaster />
-        </div>
-      </Router>
-    </LanguageProvider>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <Router>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+              <Route path="/thank-you" element={<ThankYou />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            
+            <CookieConsentWrapper />
+            <Toaster />
+          </div>
+        </Router>
+      </LanguageProvider>
+    </ErrorBoundary>
   );
 };
 

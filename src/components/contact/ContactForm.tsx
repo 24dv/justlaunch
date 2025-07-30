@@ -6,12 +6,23 @@ import ContactFormSuccess from './ContactFormSuccess';
 import ContactFormField from './ContactFormField';
 import ContactFormButton from './ContactFormButton';
 import ContactPackageSelect from './ContactPackageSelect';
+import { sanitizeInput, isValidEmail, isValidName, isValidPackage, RateLimiter } from '@/lib/security';
 
 type FormState = {
   name: string;
   email: string;
   package: string;
 };
+
+type ValidationErrors = {
+  name?: string;
+  email?: string;
+  package?: string;
+  general?: string;
+};
+
+// Create rate limiter instance
+const rateLimiter = new RateLimiter(3, 60000); // 3 attempts per minute
 
 const ContactForm = () => {
   const { t, language } = useLanguage();
@@ -25,10 +36,39 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
+
+  const validateForm = (): ValidationErrors => {
+    const errors: ValidationErrors = {};
+    
+    if (!formState.name.trim()) {
+      errors.name = 'Name is required';
+    } else if (!isValidName(formState.name)) {
+      errors.name = 'Please enter a valid name (letters, spaces, hyphens only)';
+    }
+    
+    if (!formState.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!isValidEmail(formState.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+    
+    if (!isValidPackage(formState.package)) {
+      errors.package = 'Please select a valid package';
+    }
+    
+    return errors;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormState(prev => ({ ...prev, [name]: value }));
+    const sanitizedValue = sanitizeInput(value);
+    setFormState(prev => ({ ...prev, [name]: sanitizedValue }));
+    
+    // Clear validation error for this field
+    if (validationErrors[name as keyof ValidationErrors]) {
+      setValidationErrors(prev => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handlePackageChange = (value: string) => {
@@ -39,6 +79,24 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
+    setValidationErrors({});
+    
+    // Rate limiting check
+    const userIdentifier = formState.email || 'anonymous';
+    if (!rateLimiter.isAllowed(userIdentifier)) {
+      const remainingTime = Math.ceil(rateLimiter.getRemainingTime(userIdentifier) / 1000);
+      setError(`Too many attempts. Please wait ${remainingTime} seconds before trying again.`);
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Validate form
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      setIsSubmitting(false);
+      return;
+    }
     
     try {
       const response = await fetch('https://formspree.io/f/mjkyebnn', {
@@ -47,20 +105,20 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formState.name,
-          email: formState.email,
+          name: sanitizeInput(formState.name),
+          email: sanitizeInput(formState.email),
           package: formState.package,
         }),
       });
       
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        throw new Error('Network response was not ok');
       }
       
       navigate('/thank-you');
     } catch (err) {
       console.error('Failed to send form:', err);
-      setError('Failed to send your message. Please try again later.');
+      setError('Unable to send your message. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -79,6 +137,7 @@ const ContactForm = () => {
             value={formState.name}
             onChange={handleChange}
             placeholder={language === 'en' ? "Thijs Doe" : "Jan Jansen"}
+            error={validationErrors.name}
           />
           
           <ContactFormField
@@ -89,6 +148,7 @@ const ContactForm = () => {
             value={formState.email}
             onChange={handleChange}
             placeholder={language === 'en' ? "thijs@yourstartup.com" : "jan@voorbeeld.nl"}
+            error={validationErrors.email}
           />
           
           <ContactPackageSelect

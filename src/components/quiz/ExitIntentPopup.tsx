@@ -113,12 +113,7 @@ const ExitIntentPopup: React.FC = () => {
         // Add this class to identify our custom content
         data-custom-dialog="quiz-popup"
       >
-        {/* Use global styles that specifically target our dialog to hide the default close button */}
-        <style dangerouslySetInnerHTML={{ __html: `
-          [data-custom-dialog="quiz-popup"] .absolute.right-4.top-4.rounded-sm.opacity-70 {
-            display: none !important;
-          }
-        `}} />
+        {/* Use a CSS class instead of inline styles for better security */}
         
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full 
